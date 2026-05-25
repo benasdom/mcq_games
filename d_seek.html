@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>NEON BOMB QUIZ • shoot the right answer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b0b0f;
+      transition: background 0.4s ease;
+      padding: 1rem;
+    }
+    /* light / dark theme handling */
+    body.light-mode {
+      background: #f4f6fc;
+    }
+    .game-container {
+      width: 100%;
+      max-width: 750px;
+      background: rgba(10, 10, 20, 0.8);
+      backdrop-filter: blur(18px);
+      border-radius: 3.5rem;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(0, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    body.light-mode .game-container {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.2), 0 0 0 2px rgba(255, 90, 200, 0.5);
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.8rem;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      filter: drop-shadow(0 0 10px cyan);
+      transition: transform 0.2s;
+      z-index: 10;
+    }
+    body.light-mode .theme-toggle {
+      filter: drop-shadow(0 0 8px magenta);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.15);
+    }
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .game-svg {
+      width: 100%;
+      max-height: 380px;
+      margin: 0.5rem 0 0.8rem;
+      filter: drop-shadow(0 0 14px #0ff);
+      transition: filter 0.3s;
+    }
+    body.light-mode .game-svg {
+      filter: drop-shadow(0 0 14px #ff66c0);
+    }
+    .stats-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 0.25rem 0 0.5rem;
+      color: #b2fefd;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 12px cyan;
+      padding: 0 0.3rem;
+    }
+    body.light-mode .stats-panel {
+      color: #b3007a;
+      text-shadow: 0 0 10px #ff88cc;
+    }
+    .life-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .life-number {
+      background: #101018;
+      padding: 0.3rem 0.9rem;
+      border-radius: 3rem;
+      border: 1.5px solid cyan;
+      letter-spacing: 1px;
+      box-shadow: 0 0 18px cyan;
+    }
+    body.light-mode .life-number {
+      background: #ffffffdd;
+      border-color: #ff00aa;
+      box-shadow: 0 0 18px #ff44b0;
+    }
+    .question-basement {
+      background: #05051a;
+      border: 2px solid cyan;
+      border-radius: 4rem;
+      padding: 0.9rem 2rem;
+      margin: 0.8rem 0 0.2rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-align: center;
+      color: #e0f0ff;
+      text-shadow: 0 0 15px #0ff;
+      letter-spacing: 0.5px;
+      width: 100%;
+      box-shadow: 0 -8px 25px rgba(0,255,255,0.5);
+      transition: all 0.3s;
+      word-break: break-word;
+    }
+    body.light-mode .question-basement {
+      background: #ffffffec;
+      border-color: #ff66aa;
+      color: #33001a;
+      text-shadow: 0 0 8px #ff99cc;
+      box-shadow: 0 -6px 22px rgba(255, 0, 150, 0.6);
+    }
+    .answers-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.5rem;
+      width: 100%;
+    }
+    .answer-badge {
+      background: #0a0a1a;
+      border: 2px solid cyan;
+      border-radius: 3rem;
+      padding: 0.55rem 1.4rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: cyan;
+      box-shadow: 0 0 22px cyan;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: 0.2s;
+    }
+    body.light-mode .answer-badge {
+      background: #ffffff;
+      border-color: #ff3399;
+      color: #cc0066;
+      box-shadow: 0 0 22px #ff66aa;
+    }
+    .bomb-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .next-btn {
+      background: #000c1a;
+      border: 2px solid #ff00c8;
+      color: #f0f0ff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.7rem 2.2rem;
+      border-radius: 4rem;
+      cursor: pointer;
+      background: rgba(20, 0, 40, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px #ff00c8;
+      transition: all 0.25s;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+    }
+    .next-btn:hover {
+      background: #ff00c8;
+      color: black;
+      box-shadow: 0 0 45px #ff4dd6;
+      border-color: white;
+    }
+    body.light-mode .next-btn {
+      background: rgba(255, 240, 250, 0.9);
+      border-color: #d40078;
+      color: #140010;
+      box-shadow: 0 0 28px #ff88cc;
+    }
+    .file-area {
+      margin: 0.8rem 0 0.2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    input[type="file"] {
+      color: cyan;
+      background: #0b0b1a;
+      border: 1px solid cyan;
+      padding: 0.4rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      width: 220px;
+    }
+    body.light-mode input[type="file"] {
+      color: #cc0066;
+      background: white;
+      border-color: #ff44aa;
+    }
+    .message {
+      color: #ffb86c;
+      font-weight: 500;
+      text-shadow: 0 0 6px orange;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+<div class="game-container">
+  <button class="theme-toggle" id="themeToggle" title="switch light/dark">🌓</button>
+
+  <!-- SVG game arena with animated neon elements -->
+  <svg class="game-svg" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="neonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0a0022" />
+        <stop offset="100%" stop-color="#010116" />
+      </linearGradient>
+      <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+      <filter id="intenseGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur2" />
+        <feMerge><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <!-- animated background grid -->
+    <rect x="0" y="0" width="500" height="260" fill="url(#neonBg)" rx="20" />
+    <g id="gridLines" opacity="0.4">
+      <line x1="20" y1="40" x2="480" y2="40" stroke="#00ffff" stroke-width="0.8" stroke-dasharray="6 6" filter="url(#glow)"/>
+      <line x1="20" y1="120" x2="480" y2="120" stroke="#ff44ff" stroke-width="0.7" stroke-dasharray="4 8" filter="url(#glow)"/>
+      <line x1="20" y1="200" x2="480" y2="200" stroke="#00ffff" stroke-width="0.8" stroke-dasharray="7 5"/>
+    </g>
+    <!-- Target answers as floating sweets / bombs -->
+    <g id="answerTargets" filter="url(#intenseGlow)">
+      <!-- answer circles dynamically positioned via JS -->
+    </g>
+    <!-- bomb launcher base (bottom platform) -->
+    <g id="bombBase">
+      <path d="M220 240 L240 210 L260 210 L280 240 Z" fill="#ff44aa" stroke="#fff" stroke-width="1.8" filter="url(#glow)"/>
+      <circle cx="250" cy="215" r="12" fill="#ff0066" stroke="cyan" stroke-width="2" filter="url(#glow)"/>
+      <text x="250" y="220" text-anchor="middle" fill="white" font-size="12" font-weight="bold">💣</text>
+    </g>
+    <!-- Question displayed also inside svg subtle -->
+    <text id="svgQuestionPreview" x="250" y="250" text-anchor="middle" fill="#ccf0ff" font-size="13" filter="url(#glow)" opacity="0.9"></text>
+  </svg>
+
+  <div class="stats-panel">
+    <div class="life-bar">❤️ <span class="life-number" id="lifeDisplay">100</span></div>
+    <div>✨ <span id="scoreDisplay">0</span> pts</div>
+  </div>
+
+  <div class="question-basement" id="questionText">Load questions file 📂</div>
+
+  <div class="answers-row" id="answersRow">
+    <!-- dynamically filled answer badges -->
+  </div>
+
+  <div style="display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap;">
+    <div class="file-area">
+      <input type="file" id="fileInput" accept=".json,.txt,.csv">
+      <span class="message" id="fileMessage"></span>
+    </div>
+    <button class="next-btn" id="nextButton">▶ NEXT</button>
+  </div>
+  <div style="color:#aaa; margin-top:0.4rem; font-size:0.8rem;">💥 click an answer to bomb it</div>
+</div>
+
+<script>
+  (function() {
+    // ----- GAME STATE -----
+    const questions = [];
+    let currentIndex = 0;
+    let lives = 100;
+    let score = 0;
+    let gameActive = false;
+    let currentQuestionObj = null; // { question, options, correct }
+
+    // DOM elements
+    const lifeDisplay = document.getElementById('lifeDisplay');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const questionTextEl = document.getElementById('questionText');
+    const answersRow = document.getElementById('answersRow');
+    const nextBtn = document.getElementById('nextButton');
+    const fileInput = document.getElementById('fileInput');
+    const fileMessage = document.getElementById('fileMessage');
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const svgQuestionPreview = document.getElementById('svgQuestionPreview');
+    const answerTargetsGroup = document.getElementById('answerTargets');
+
+    // ----- THEME TOGGLE -----
+    function setTheme(mode) {
+      if (mode === 'light') {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+        localStorage.setItem('neonQuizTheme', 'light');
+      } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('neonQuizTheme', 'dark');
+      }
+    }
+    themeToggle.addEventListener('click', () => {
+      if (body.classList.contains('light-mode')) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    });
+    const savedTheme = localStorage.getItem('neonQuizTheme');
+    if (savedTheme === 'light') setTheme('light');
+    else setTheme('dark');
+
+    // ----- SVG ANSWER RENDERING (neon sweets/bombs) -----
+    function renderSvgAnswers(optionsArray) {
+      if (!answerTargetsGroup) return;
+      answerTargetsGroup.innerHTML = '';
+      if (!optionsArray || optionsArray.length === 0) return;
+      
+      const colors = ['#ff3366', '#33ffcc', '#ffaa00', '#aa44ff', '#00ccff'];
+      const positions = [
+        { cx: 100, cy: 80 },   // left
+        { cx: 250, cy: 55 },   // center top
+        { cx: 400, cy: 80 },   // right
+        { cx: 170, cy: 150 },
+        { cx: 330, cy: 150 }
+      ];
+      
+      optionsArray.forEach((opt, idx) => {
+        const pos = positions[idx % positions.length];
+        const color = colors[idx % colors.length];
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", "answer-target");
+        g.setAttribute("data-answer", opt);
+        g.style.cursor = "pointer";
+        
+        // sweet circle
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", pos.cx);
+        circle.setAttribute("cy", pos.cy);
+        circle.setAttribute("r", "24");
+        circle.setAttribute("fill", color);
+        circle.setAttribute("stroke", "#ffffff");
+        circle.setAttribute("stroke-width", "2.5");
+        circle.setAttribute("filter", "url(#glow)");
+        
+        // text inside
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", pos.cx);
+        text.setAttribute("y", pos.cy + 5);
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "#ffffff");
+        text.setAttribute("font-weight", "bold");
+        text.setAttribute("font-size", "12");
+        text.setAttribute("stroke", "#000");
+        text.setAttribute("stroke-width", "0.6");
+        text.textContent = opt.length > 8 ? opt.substring(0,7)+'…' : opt;
+        
+        g.appendChild(circle);
+        g.appendChild(text);
+        
+        // click handler on svg target
+        g.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!gameActive || !currentQuestionObj) {
+            alert('Load questions and start the game!');
+            return;
+          }
+          handleAnswerShot(opt);
+        });
+        
+        answerTargetsGroup.appendChild(g);
+      });
+    }
+
+    // Update badges below (text answers)
+    function renderAnswerBadges(optionsArray) {
+      answersRow.innerHTML = '';
+      if (!optionsArray) return;
+      optionsArray.forEach(opt => {
+        const badge = document.createElement('div');
+        badge.className = 'answer-badge';
+        badge.innerHTML = `💣 ${opt}`;
+        badge.style.cursor = 'pointer';
+        badge.addEventListener('click', (e) => {
+          if (!gameActive || !currentQuestionObj) {
+            alert('Game not active. Load file first.');
+            return;
+          }
+          handleAnswerShot(opt);
+        });
+        answersRow.appendChild(badge);
+      });
+    }
+
+    // ----- CORE GAME LOGIC: shooting answer -----
+    function handleAnswerShot(selectedAnswer) {
+      if (!gameActive || !currentQuestionObj) return;
+      
+      const correct = currentQuestionObj.correct.trim().toLowerCase();
+      const selected = selectedAnswer.trim().toLowerCase();
+      
+      if (selected === correct) {
+        // CORRECT! increase score, show feedback, disable further shooting until next
+        score += 10;
+        scoreDisplay.textContent = score;
+        
+        // temporary visual feedback
+        questionTextEl.style.boxShadow = '0 0 40px #0f0, 0 0 70px lime';
+        setTimeout(() => {
+          if (currentQuestionObj) 
+            questionTextEl.style.boxShadow = body.classList.contains('light-mode') ? '0 -6px 22px rgba(255, 0, 150, 0.6)' : '0 -8px 25px rgba(0,255,255,0.5)';
+        }, 400);
+        
+        // disable further shooting on this question? we allow only one correct shot.
+        // set gameActive false to prevent extra hits, but still allow next.
+        gameActive = false;
+        // small message
+        fileMessage.textContent = '✅ Correct! Click NEXT.';
+        fileMessage.style.color = '#aaffaa';
+      } else {
+        // WRONG: lose life
+        lives = Math.max(0, lives - 1);
+        lifeDisplay.textContent = lives;
+        questionTextEl.style.boxShadow = '0 0 45px red, 0 0 80px #ff0000';
+        setTimeout(() => {
+          if (currentQuestionObj)
+            questionTextEl.style.boxShadow = body.classList.contains('light-mode') ? '0 -6px 22px rgba(255, 0, 150, 0.6)' : '0 -8px 25px rgba(0,255,255,0.5)';
+        }, 400);
+        fileMessage.textContent = '❌ Wrong! -1 life.';
+        fileMessage.style.color = '#ff8888';
+        
+        if (lives <= 0) {
+          gameActive = false;
+          questionTextEl.textContent = '💀 GAME OVER 💀';
+          fileMessage.textContent = 'You lost all lives. Reload file to restart.';
+          renderAnswerBadges([]);
+          renderSvgAnswers([]);
+          return;
+        }
+        // keep game active, player can try again (shoot again)
+      }
+      
+      lifeDisplay.textContent = lives;
+    }
+
+    // Load question into UI
+    function loadQuestion(index) {
+      if (!questions.length || index >= questions.length) {
+        gameActive = false;
+        currentQuestionObj = null;
+        questionTextEl.textContent = '🎯 No more questions!';
+        renderAnswerBadges([]);
+        renderSvgAnswers([]);
+        svgQuestionPreview.textContent = '';
+        fileMessage.textContent = 'Quiz finished.';
+        return;
+      }
+      
+      const q = questions[index];
+      currentQuestionObj = q;
+      gameActive = true;
+      
+      questionTextEl.textContent = q.question;
+      svgQuestionPreview.textContent = q.question.length > 35 ? q.question.substring(0,32)+'…' : q.question;
+      
+      renderAnswerBadges(q.options);
+      renderSvgAnswers(q.options);
+      
+      fileMessage.textContent = `Question ${index+1}/${questions.length}`;
+      fileMessage.style.color = '#ffb86c';
+      
+      // Reset shadow
+      questionTextEl.style.boxShadow = body.classList.contains('light-mode') ? '0 -6px 22px rgba(255, 0, 150, 0.6)' : '0 -8px 25px rgba(0,255,255,0.5)';
+    }
+
+    function nextQuestion() {
+      if (!questions.length) {
+        alert('Please load a question file first.');
+        return;
+      }
+      if (!gameActive && currentQuestionObj && lives > 0) {
+        // proceed to next
+        currentIndex++;
+        if (currentIndex >= questions.length) {
+          currentIndex = questions.length; // finish
+          loadQuestion(currentIndex);
+        } else {
+          loadQuestion(currentIndex);
+        }
+      } else if (gameActive && currentQuestionObj && lives > 0) {
+        // still active, warn but allow force next? better force next.
+        currentIndex++;
+        if (currentIndex >= questions.length) {
+          loadQuestion(currentIndex);
+        } else {
+          loadQuestion(currentIndex);
+        }
+      } else if (lives <= 0) {
+        alert('Game over. Restart by loading file again.');
+      } else {
+        // no active question, maybe start
+        if (questions.length) {
+          currentIndex = 0;
+          loadQuestion(0);
+        }
+      }
+      
+      lifeDisplay.textContent = lives;
+      scoreDisplay.textContent = score;
+    }
+
+    nextBtn.addEventListener('click', nextQuestion);
+
+    // ----- FILE PARSING (supports JSON, simple CSV, TXT) -----
+    function parseQuestionsFromText(text) {
+      const trimmed = text.trim();
+      // try JSON first
+      try {
+        const json = JSON.parse(trimmed);
+        if (Array.isArray(json)) {
+          return json.map(item => ({
+            question: item.question || item.q || '',
+            options: item.options || item.answers || [],
+            correct: item.correct || item.answer || ''
+          })).filter(q => q.question && q.options.length >= 2 && q.correct);
+        }
+      } catch (e) { /* not json */ }
+      
+      // try simple CSV / custom format: question;option1;option2;option3;correct
+      const lines = trimmed.split('\n').filter(line => line.trim() !== '');
+      const parsed = [];
+      for (let line of lines) {
+        const parts = line.split(';').map(s => s.trim());
+        if (parts.length >= 4) {
+          const question = parts[0];
+          const options = parts.slice(1, -1);
+          const correct = parts[parts.length-1];
+          if (question && options.length >= 2 && correct) {
+            parsed.push({ question, options, correct });
+          }
+        }
+      }
+      if (parsed.length) return parsed;
+      
+      // fallback: treat as one question per block? minimal
+      alert('Could not parse file. Use JSON array or CSV: question;opt1;opt2;correct');
+      return [];
+    }
+
+    function loadFile(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target.result;
+        const parsed = parseQuestionsFromText(content);
+        if (parsed.length === 0) {
+          fileMessage.textContent = 'No valid questions found.';
+          return;
+        }
+        questions.length = 0;
+        questions.push(...parsed);
+        // reset game
+        lives = 100;
+        score = 0;
+        currentIndex = 0;
+        gameActive = true;
+        lifeDisplay.textContent = lives;
+        scoreDisplay.textContent = score;
+        loadQuestion(0);
+        fileMessage.textContent = `Loaded ${questions.length} questions!`;
+        fileMessage.style.color = '#aaffaa';
+      };
+      reader.onerror = () => {
+        fileMessage.textContent = 'Error reading file.';
+      };
+      reader.readAsText(file);
+    }
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      fileMessage.textContent = 'Reading...';
+      loadFile(file);
+    });
+
+    // Initial empty state
+    gameActive = false;
+    renderAnswerBadges([]);
+    renderSvgAnswers([]);
+    questionTextEl.textContent = '📂 Load MCQ file (JSON/CSV)';
+    svgQuestionPreview.textContent = '⚡ neon bomb quiz';
+    
+    // Example default if user wants demo? offer quick sample via console or button.
+    // add tiny sample on double click? better provide a hidden sample load.
+    window.addEventListener('dblclick', function(e) {
+      if (e.target === questionTextEl || e.target === svgQuestionPreview) {
+        const sample = [
+          { question: "What is 2+2?", options: ["3", "4", "5"], correct: "4" },
+          { question: "Capital of France?", options: ["Berlin", "Madrid", "Paris"], correct: "Paris" },
+          { question: "Color of sky?", options: ["Blue", "Green", "Red"], correct: "Blue" }
+        ];
+        questions.length = 0;
+        questions.push(...sample);
+        lives = 100; score = 0; currentIndex = 0;
+        lifeDisplay.textContent = lives;
+        scoreDisplay.textContent = score;
+        gameActive = true;
+        loadQuestion(0);
+        fileMessage.textContent = 'Demo questions loaded!';
+      }
+    });
+
+  })();
+</script>
+</body>
+</html>

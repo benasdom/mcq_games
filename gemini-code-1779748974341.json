@@ -1,0 +1,1147 @@
+[
+  {
+    "question": "Which of the following best defines abnormal behavior according to the 'statistical infrequency' criterion?",
+    "options": ["Behavior that deviates from societal norms", "Behavior that is statistically rare", "Behavior that causes personal distress", "Behavior that impairs daily functioning"],
+    "answer": "Behavior that is statistically rare"
+  },
+  {
+    "question": "The DSM-5 is published by which organization?",
+    "options": ["World Health Organization", "American Psychological Association", "American Psychiatric Association", "National Institute of Mental Health"],
+    "answer": "American Psychiatric Association"
+  },
+  {
+    "question": "Which model of abnormality emphasizes unconscious conflicts and early childhood experiences?",
+    "options": ["Cognitive-behavioral model", "Psychodynamic model", "Humanistic model", "Biological model"],
+    "answer": "Psychodynamic model"
+  },
+  {
+    "question": "A person experiences intense fear and avoidance of social situations due to fear of being negatively evaluated. This is most consistent with:",
+    "options": ["Agoraphobia", "Social anxiety disorder", "Generalized anxiety disorder", "Panic disorder"],
+    "answer": "Social anxiety disorder"
+  },
+  {
+    "question": "In the DSM-5, a major depressive episode requires the presence of at least five symptoms for a minimum duration of:",
+    "options": ["One week", "Two weeks", "One month", "Three months"],
+    "answer": "Two weeks"
+  },
+  {
+    "question": "Which of the following is a negative symptom of schizophrenia?",
+    "options": ["Hallucinations", "Delusions", "Avolition", "Disorganized speech"],
+    "answer": "Avolition"
+  },
+  {
+    "question": "Dialectical behavior therapy (DBT) was originally developed to treat which disorder?",
+    "options": ["Major depressive disorder", "Borderline personality disorder", "Obsessive-compulsive disorder", "Schizophrenia"],
+    "answer": "Borderline personality disorder"
+  },
+  {
+    "question": "What is the primary characteristic of a panic attack?",
+    "options": ["Gradual onset of worry over several hours", "Abrupt surge of intense fear or discomfort that peaks within minutes", "Persistent low-level anxiety lasting months", "Fear of being in open spaces"],
+    "answer": "Abrupt surge of intense fear or discomfort that peaks within minutes"
+  },
+  {
+    "question": "Which neurotransmitter is most strongly implicated in the pathophysiology of schizophrenia according to the dopamine hypothesis?",
+    "options": ["Serotonin", "Norepinephrine", "Dopamine", "GABA"],
+    "answer": "Dopamine"
+  },
+  {
+    "question": "The concept of 'learned helplessness' is most closely associated with which disorder?",
+    "options": ["Bipolar disorder", "Depression", "Obsessive-compulsive disorder", "Specific phobia"],
+    "answer": "Depression"
+  },
+  {
+    "question": "A key feature of antisocial personality disorder is:",
+    "options": ["Excessive need for admiration", "Pervasive pattern of disregard for and violation of the rights of others", "Instability in interpersonal relationships and self-image", "Social inhibition and feelings of inadequacy"],
+    "answer": "Pervasive pattern of disregard for and violation of the rights of others"
+  },
+  {
+    "question": "Which anxiety disorder is characterized by recurrent unexpected panic attacks and persistent concern about having additional attacks?",
+    "options": ["Agoraphobia", "Panic disorder", "Social anxiety disorder", "Generalized anxiety disorder"],
+    "answer": "Panic disorder"
+  },
+  {
+    "question": "Dissociative identity disorder was previously known as:",
+    "options": ["Schizophrenia", "Multiple personality disorder", "Depersonalization disorder", "Conversion disorder"],
+    "answer": "Multiple personality disorder"
+  },
+  {
+    "question": "According to Aaron Beck's cognitive theory, depression is maintained by:",
+    "options": ["Unconditional positive regard", "The negative cognitive triad", "Classical conditioning of fear", "Observational learning of helplessness"],
+    "answer": "The negative cognitive triad"
+  },
+  {
+    "question": "Which of the following is a positive symptom of schizophrenia?",
+    "options": ["Flat affect", "Alogia", "Hallucinations", "Asociality"],
+    "answer": "Hallucinations"
+  },
+  {
+    "question": "Body dysmorphic disorder falls under which DSM-5 diagnostic category?",
+    "options": ["Anxiety disorders", "Obsessive-compulsive and related disorders", "Somatic symptom and related disorders", "Eating disorders"],
+    "answer": "Obsessive-compulsive and related disorders"
+  },
+  {
+    "question": "Which disorder is characterized by episodes of binge eating followed by inappropriate compensatory behaviors?",
+    "options": ["Anorexia nervosa", "Bulimia nervosa", "Binge-eating disorder", "Avoidant/restrictive food intake disorder"],
+    "answer": "Bulimia nervosa"
+  },
+  {
+    "question": "The term 'catatonia' refers to:",
+    "options": ["A marked decrease in reactivity to the environment", "A type of delusion involving grandeur", "An irrational fear of cats", "A dissociative fugue state"],
+    "answer": "A marked decrease in reactivity to the environment"
+  },
+  {
+    "question": "Which defense mechanism involves attributing one's own unacceptable thoughts or feelings to another person?",
+    "options": ["Repression", "Projection", "Displacement", "Rationalization"],
+    "answer": "Projection"
+  },
+  {
+    "question": "Exposure and response prevention is a primary treatment for:",
+    "options": ["Panic disorder", "Obsessive-compulsive disorder", "Posttraumatic stress disorder", "Specific phobia"],
+    "answer": "Obsessive-compulsive disorder"
+  },
+  {
+    "question": "Which of the following is NOT a cluster B personality disorder?",
+    "options": ["Borderline personality disorder", "Narcissistic personality disorder", "Schizoid personality disorder", "Antisocial personality disorder"],
+    "answer": "Schizoid personality disorder"
+  },
+  {
+    "question": "In the diathesis-stress model, 'diathesis' refers to:",
+    "options": ["An environmental trigger", "A predisposition or vulnerability", "A specific stressful life event", "The course of the disorder"],
+    "answer": "A predisposition or vulnerability"
+  },
+  {
+    "question": "Which of the following best describes agoraphobia?",
+    "options": ["Fear of heights", "Fear of closed spaces", "Fear of situations where escape might be difficult", "Fear of contamination"],
+    "answer": "Fear of situations where escape might be difficult"
+  },
+  {
+    "question": "What is the minimum duration of persistent depressive disorder (dysthymia) in adults?",
+    "options": ["Two weeks", "One month", "One year", "Two years"],
+    "answer": "Two years"
+  },
+  {
+    "question": "The phenomenon of 'double depression' refers to:",
+    "options": ["Experiencing two major depressive episodes in one year", "Co-occurrence of depression and anxiety", "Major depressive episodes superimposed on persistent depressive disorder", "Depression occurring in both members of a dyad"],
+    "answer": "Major depressive episodes superimposed on persistent depressive disorder"
+  },
+  {
+    "question": "Schizoaffective disorder is characterized by:",
+    "options": ["Symptoms of schizophrenia and a mood disorder occurring simultaneously", "A brief psychotic episode lasting less than one month", "Delusions without other psychotic symptoms", "Multiple personalities"],
+    "answer": "Symptoms of schizophrenia and a mood disorder occurring simultaneously"
+  },
+  {
+    "question": "Which type of hallucination is most common in schizophrenia?",
+    "options": ["Visual", "Auditory", "Olfactory", "Tactile"],
+    "answer": "Auditory"
+  },
+  {
+    "question": "Which personality disorder is characterized by a pervasive pattern of social inhibition, feelings of inadequacy, and hypersensitivity to negative evaluation?",
+    "options": ["Schizoid personality disorder", "Avoidant personality disorder", "Dependent personality disorder", "Paranoid personality disorder"],
+    "answer": "Avoidant personality disorder"
+  },
+  {
+    "question": "The term 'anhedonia' refers to:",
+    "options": ["Inability to sleep", "Loss of interest or pleasure in activities", "Excessive sleep", "Rapid switching of mood"],
+    "answer": "Loss of interest or pleasure in activities"
+  },
+  {
+    "question": "Which medication class is considered a first-line treatment for generalized anxiety disorder?",
+    "options": ["Typical antipsychotics", "Monoamine oxidase inhibitors", "Selective serotonin reuptake inhibitors (SSRIs)", "Stimulants"],
+    "answer": "Selective serotonin reuptake inhibitors (SSRIs)"
+  },
+  {
+    "question": "Factitious disorder imposed on self differs from malingering because in factitious disorder:",
+    "options": ["There is a clear external incentive for producing symptoms", "Symptoms are intentionally produced without obvious external rewards", "Symptoms are unconsciously produced", "The person is not aware of the deception"],
+    "answer": "Symptoms are intentionally produced without obvious external rewards"
+  },
+  {
+    "question": "Which of the following is a key feature of illness anxiety disorder?",
+    "options": ["Presence of one or more somatic symptoms that are distressing", "Preoccupation with having or acquiring a serious illness despite minimal or no somatic symptoms", "Falsification of physical or psychological signs", "Loss of motor or sensory function incompatible with neurological conditions"],
+    "answer": "Preoccupation with having or acquiring a serious illness despite minimal or no somatic symptoms"
+  },
+  {
+    "question": "In prolonged exposure therapy for PTSD, a patient repeatedly confronts:",
+    "options": ["Only the trauma memory through writing", "Both trauma memories and avoided situations in real life", "Only anxiety-provoking interoceptive sensations", "Social situations that trigger embarrassment"],
+    "answer": "Both trauma memories and avoided situations in real life"
+  },
+  {
+    "question": "The 'kindling hypothesis' in bipolar disorder suggests that:",
+    "options": ["Early traumatic events permanently lower the threshold for episodes", "Episodes become more frequent and less tied to stressors over time", "Lithium works by dampening electrical activity in the brain", "Mania is triggered by specific cognitive schemas"],
+    "answer": "Episodes become more frequent and less tied to stressors over time"
+  },
+  {
+    "question": "Which of the following is considered a manic episode specifier in bipolar I disorder?",
+    "options": ["Hypomanic episode only", "At least one major depressive episode", "A manic episode that may have been preceded by or followed by hypomanic or major depressive episodes", "Cyclothymic symptoms for two years"],
+    "answer": "A manic episode that may have been preceded by or followed by hypomanic or major depressive episodes"
+  },
+  {
+    "question": "A person with schizophrenia who believes that their thoughts are being broadcasted so that others can hear them is experiencing:",
+    "options": ["Thought insertion", "Thought withdrawal", "Thought broadcasting", "Delusions of control"],
+    "answer": "Thought broadcasting"
+  },
+  {
+    "question": "The 12-month prevalence of schizophrenia is approximately:",
+    "options": ["0.1-0.2%", "0.3-0.7%", "1-2%", "5%"],
+    "answer": "0.3-0.7%"
+  },
+  {
+    "question": "Which personality disorder is part of the 'odd/eccentric' cluster (Cluster A)?",
+    "options": ["Borderline personality disorder", "Schizotypal personality disorder", "Narcissistic personality disorder", "Obsessive-compulsive personality disorder"],
+    "answer": "Schizotypal personality disorder"
+  },
+  {
+    "question": "A person who restricts food intake to maintain a significantly low body weight, has an intense fear of gaining weight, and has a distorted body image likely meets criteria for:",
+    "options": ["Bulimia nervosa", "Anorexia nervosa", "Binge-eating disorder", "Body dysmorphic disorder"],
+    "answer": "Anorexia nervosa"
+  },
+  {
+    "question": "Which of the following is a core feature of borderline personality disorder?",
+    "options": ["A pattern of grandiosity and need for admiration", "A pattern of instability in interpersonal relationships, self-image, and affects", "A pattern of social inhibition and inadequacy", "A pattern of excessive orderliness and control"],
+    "answer": "A pattern of instability in interpersonal relationships, self-image, and affects"
+  },
+  {
+    "question": "What is the key distinction between a hypomanic episode and a manic episode?",
+    "options": ["Presence of irritability", "Duration of at least one week", "Severity sufficient to cause marked impairment or necessitate hospitalization", "Presence of psychotic features"],
+    "answer": "Severity sufficient to cause marked impairment or necessitate hospitalization"
+  },
+  {
+    "question": "The 'Illusory correlation' explanation for paranoia suggests that individuals overestimate:",
+    "options": ["The frequency of negative events", "The covariation between negative events and self-referential thoughts", "The likelihood of being physically harmed", "The trustworthiness of others"],
+    "answer": "The covariation between negative events and self-referential thoughts"
+  },
+  {
+    "question": "In systematic desensitization for a phobia, the hierarchy ranks:",
+    "options": ["Therapists from least to most experienced", "Feared stimuli from least to most anxiety-provoking", "Cognitive distortions from minor to severe", "Social situations from familiar to unfamiliar"],
+    "answer": "Feared stimuli from least to most anxiety-provoking"
+  },
+  {
+    "question": "Which of the following is considered a somatic symptom and related disorder?",
+    "options": ["Panic disorder", "Factitious disorder", "Conversion disorder", "Depersonalization disorder"],
+    "answer": "Conversion disorder"
+  },
+  {
+    "question": "La belle indifférence is historically associated with which disorder?",
+    "options": ["Somatic symptom disorder", "Conversion disorder", "Illness anxiety disorder", "Factitious disorder"],
+    "answer": "Conversion disorder"
+  },
+  {
+    "question": "Which term describes the inability to recall important autobiographical information, usually of a traumatic or stressful nature, that is inconsistent with ordinary forgetting?",
+    "options": ["Dissociative fugue", "Dissociative amnesia", "Depersonalization", "Derealization"],
+    "answer": "Dissociative amnesia"
+  },
+  {
+    "question": "The startle response and hypervigilance are common symptoms of:",
+    "options": ["Generalized anxiety disorder", "Panic disorder", "Posttraumatic stress disorder", "Social anxiety disorder"],
+    "answer": "Posttraumatic stress disorder"
+  },
+  {
+    "question": "Which model of abnormality suggests that psychological disorders result from maladaptive learning through classical conditioning, operant conditioning, or modeling?",
+    "options": ["Psychodynamic model", "Humanistic model", "Behavioral model", "Biological model"],
+    "answer": "Behavioral model"
+  },
+  {
+    "question": "The Beck Depression Inventory (BDI) is an example of:",
+    "options": ["A projective test", "A structured clinical interview", "A self-report symptom inventory", "An intelligence test"],
+    "answer": "A self-report symptom inventory"
+  },
+  {
+    "question": "Which of the following is a major risk factor for suicide?",
+    "options": ["Being married with children", "Female gender in terms of completion", "Prior suicide attempt", "Young adult age for completion rates"],
+    "answer": "Prior suicide attempt"
+  },
+  {
+    "question": "In the treatment of bipolar disorder, mood stabilizers such as lithium are used primarily to:",
+    "options": ["Treat acute mania and prevent recurrence", "Only treat depressive episodes", "Augment antipsychotics for psychosis", "Improve sleep architecture"],
+    "answer": "Treat acute mania and prevent recurrence"
+  },
+  {
+    "question": "Which disorder involves recurrent episodes of eating an amount of food that is definitely larger than what most people would eat in a similar period, along with a sense of lack of control, without regular compensatory behaviors?",
+    "options": ["Anorexia nervosa", "Bulimia nervosa", "Binge-eating disorder", "Pica"],
+    "answer": "Binge-eating disorder"
+  },
+  {
+    "question": "The phenomenon of 'purging' in bulimia nervosa can include:",
+    "options": ["Excessive exercise only", "Self-induced vomiting, misuse of laxatives, diuretics, or enemas", "Fasting between meals", "Chewing and spitting out food"],
+    "answer": "Self-induced vomiting, misuse of laxatives, diuretics, or enemas"
+  },
+  {
+    "question": "A false belief that one's romantic partner is being unfaithful, despite no evidence, is classified as which type of delusion?",
+    "options": ["Grandiose", "Erotomanic", "Jealous", "Somatic"],
+    "answer": "Jealous"
+  },
+  {
+    "question": "Which of the following is a key feature of substance use disorder according to DSM-5?",
+    "options": ["Daily use for one month", "Craving, or a strong desire or urge to use the substance", "Using only legal substances", "Loss of employment due to substance use only once"],
+    "answer": "Craving, or a strong desire or urge to use the substance"
+  },
+  {
+    "question": "Alogia, a negative symptom of schizophrenia, is characterized by:",
+    "options": ["Inability to experience pleasure", "Poverty of speech", "Lack of motivation", "Diminished emotional expression"],
+    "answer": "Poverty of speech"
+  },
+  {
+    "question": "Which psychotherapy orientation emphasizes unconditional positive regard, empathy, and genuineness?",
+    "options": ["Cognitive therapy", "Psychodynamic therapy", "Person-centered therapy", "Behavioral therapy"],
+    "answer": "Person-centered therapy"
+  },
+  {
+    "question": "The DSM-5 alternative model for personality disorders assesses functioning on:",
+    "options": ["Only interpersonal problems", "Categorical clusters only", "Level of personality functioning (self and interpersonal) and pathological personality traits", "Defense mechanisms and attachment styles"],
+    "answer": "Level of personality functioning (self and interpersonal) and pathological personality traits"
+  },
+  {
+    "question": "Which of the following is an example of a dissociative symptom?",
+    "options": ["Panic attack", "Derealization", "Compulsive checking", "Rumination"],
+    "answer": "Derealization"
+  },
+  {
+    "question": "A diagnosis of cyclothymic disorder requires:",
+    "options": ["At least one full manic episode", "Numerous periods with hypomanic and depressive symptoms for at least two years that do not meet full episode criteria", "Four major depressive episodes in one year", "Rapid cycling within a single month"],
+    "answer": "Numerous periods with hypomanic and depressive symptoms for at least two years that do not meet full episode criteria"
+  },
+  {
+    "question": "The 'cognitive specificity' hypothesis for anxiety and depression suggests that anxiety is characterized by:",
+    "options": ["Themes of personal loss and failure", "Themes of physical threat and danger", "Selective attention to positive stimuli", "Impulsivity and risk-taking"],
+    "answer": "Themes of physical threat and danger"
+  },
+  {
+    "question": "In exposure therapy for specific phobia, what is the most critical component for fear reduction?",
+    "options": ["Cognitive restructuring before exposure", "Relaxation training during exposure", "Activation of the fear structure and incorporation of disconfirmatory information", "Use of virtual reality only"],
+    "answer": "Activation of the fear structure and incorporation of disconfirmatory information"
+  },
+  {
+    "question": "Which of the following is a parasomnia?",
+    "options": ["Insomnia disorder", "Hypersomnolence disorder", "Sleepwalking", "Circadian rhythm sleep-wake disorder"],
+    "answer": "Sleepwalking"
+  },
+  {
+    "question": "The term 'dissociative fugue' refers to:",
+    "options": ["Feeling detached from one's body", "Feeling that the external world is unreal", "Purposeless wandering associated with amnesia for identity or past", "An inability to recall a specific traumatic event"],
+    "answer": "Purposeless wandering associated with amnesia for identity or past"
+  },
+  {
+    "question": "Which brain area is most commonly associated with the hyperactivity observed in obsessive-compulsive disorder?",
+    "options": ["Amygdala", "Orbitofrontal cortex and caudate nucleus", "Hippocampus", "Parietal lobe"],
+    "answer": "Orbitofrontal cortex and caudate nucleus"
+  },
+  {
+    "question": "A major depressive episode with psychotic features most commonly includes mood-congruent delusions such as:",
+    "options": ["Grandeur", "Guilt or somatic delusions", "Persecution without mood themes", "Erotomania"],
+    "answer": "Guilt or somatic delusions"
+  },
+  {
+    "question": "Which condition involves a persistent and recurrent pattern of ejaculation occurring within about one minute of vaginal penetration and before the individual wishes it?",
+    "options": ["Erectile disorder", "Female orgasmic disorder", "Premature (early) ejaculation", "Delayed ejaculation"],
+    "answer": "Premature (early) ejaculation"
+  },
+  {
+    "question": "Which psychological assessment tool involves presenting ambiguous stimuli to reveal unconscious processes?",
+    "options": ["Minnesota Multiphasic Personality Inventory (MMPI)", "Beck Anxiety Inventory", "Rorschach Inkblot Test", "Structured Clinical Interview for DSM-5 (SCID)"],
+    "answer": "Rorschach Inkblot Test"
+  },
+  {
+    "question": "The ICD is the classification system published by the:",
+    "options": ["American Psychiatric Association", "World Health Organization", "National Institutes of Health", "International Psychological Society"],
+    "answer": "World Health Organization"
+  },
+  {
+    "question": "Which of the following is NOT a recognized symptom category for PTSD in DSM-5?",
+    "options": ["Intrusion symptoms", "Avoidance", "Negative alterations in cognitions and mood", "Obsessive rumination"],
+    "answer": "Obsessive rumination"
+  },
+  {
+    "question": "A person who has a strong and persistent cross-gender identification and discomfort with their assigned gender may meet criteria for:",
+    "options": ["Transvestic disorder", "Gender dysphoria", "Body dysmorphic disorder", "Paraphilic disorder"],
+    "answer": "Gender dysphoria"
+  },
+  {
+    "question": "Which of the following is true of acute stress disorder?",
+    "options": ["Symptoms last at least one month", "It is diagnosed when symptoms last from three days to one month following a trauma", "It requires the presence of psychotic symptoms", "It is identical to PTSD but with a longer duration"],
+    "answer": "It is diagnosed when symptoms last from three days to one month following a trauma"
+  },
+  {
+    "question": "The term 'expressed emotion' (EE) in family interactions refers to:",
+    "options": ["Criticism, hostility, and emotional overinvolvement", "Open display of positive affect", "High levels of family communication and support", "Use of cognitive reframing"],
+    "answer": "Criticism, hostility, and emotional overinvolvement"
+  },
+  {
+    "question": "High EE in families is associated with higher relapse rates in:",
+    "options": ["Bipolar disorder", "Schizophrenia", "Panic disorder", "Bulimia nervosa"],
+    "answer": "Schizophrenia"
+  },
+  {
+    "question": "The DSM-5 moved away from the multiaxial system of previous editions; now diagnosis is:",
+    "options": ["Categorical only, with no dimensional component", "Nonaxial documentation with separate notations for psychosocial and contextual factors", "Based only on ICD codes without clinical criteria", "Completely dimensional, no categories"],
+    "answer": "Nonaxial documentation with separate notations for psychosocial and contextual factors"
+  },
+  {
+    "question": "A person who deliberately falsifies physical symptoms in another person (e.g., a child) is diagnosed with:",
+    "options": ["Somatic symptom disorder", "Malingering", "Factitious disorder imposed on another", "Conversion disorder"],
+    "answer": "Factitious disorder imposed on another"
+  },
+  {
+    "question": "Which of the following is a core feature of paranoid personality disorder?",
+    "options": ["Distrust and suspiciousness of others", "Detachment from social relationships", "Submissive and clinging behavior", "Disregard for the law"],
+    "answer": "Distrust and suspiciousness of others"
+  },
+  {
+    "question": "Dopamine overactivity in the mesolimbic pathway is associated with which symptom type in schizophrenia?",
+    "options": ["Negative symptoms", "Positive symptoms", "Cognitive symptoms", "Catatonic symptoms"],
+    "answer": "Positive symptoms"
+  },
+  {
+    "question": "The concept of 'worry' in generalized anxiety disorder is best described as:",
+    "options": ["A brief startle response", "A chain of thoughts and images, negatively affect-laden and relatively uncontrollable", "A compulsive ritual to neutralize anxiety", "A dissociative experience"],
+    "answer": "A chain of thoughts and images, negatively affect-laden and relatively uncontrollable"
+  },
+  {
+    "question": "Which of the following is an example of a specific phobia, natural environment type?",
+    "options": ["Fear of dogs", "Fear of storms", "Fear of injections", "Fear of elevators"],
+    "answer": "Fear of storms"
+  },
+  {
+    "question": "The term 'interoceptive exposure' refers to:",
+    "options": ["Imagining feared social scenarios", "Deliberately inducing physical sensations of panic (e.g., spinning, hyperventilation)", "Exposing a person to actual heights", "Recording automatic thoughts"],
+    "answer": "Deliberately inducing physical sensations of panic (e.g., spinning, hyperventilation)"
+  },
+  {
+    "question": "In major depressive disorder, the specifier 'with atypical features' includes:",
+    "options": ["Insomnia and weight loss", "Mood reactivity and leaden paralysis", "Psychotic delusions of guilt", "Catatonic immobility"],
+    "answer": "Mood reactivity and leaden paralysis"
+  },
+  {
+    "question": "Which of the following is a characteristic of schizoid personality disorder?",
+    "options": ["Odd beliefs and magical thinking", "Pattern of detachment from social relationships and a restricted range of emotional expression", "Instability in relationships and fear of abandonment", "Excessive emotionality and attention seeking"],
+    "answer": "Pattern of detachment from social relationships and a restricted range of emotional expression"
+  },
+  {
+    "question": "Which treatment combines cognitive therapy with mindfulness strategies to prevent depressive relapse?",
+    "options": ["Dialectical behavior therapy", "Mindfulness-based cognitive therapy (MBCT)", "Acceptance and commitment therapy", "Psychodynamic therapy"],
+    "answer": "Mindfulness-based cognitive therapy (MBCT)"
+  },
+  {
+    "question": "Which cluster of personality disorders includes the dramatic, emotional, or erratic disorders?",
+    "options": ["Cluster A", "Cluster B", "Cluster C", "Cluster D"],
+    "answer": "Cluster B"
+  },
+  {
+    "question": "Which of the following is NOT a specifier used for major depressive episodes in DSM-5?",
+    "options": ["With mixed features", "With melancholic features", "With atypical features", "With narcissistic features"],
+    "answer": "With narcissistic features"
+  },
+  {
+    "question": "The cognitive model of panic disorder proposes that individuals catastrophically misinterpret:",
+    "options": ["Social evaluation", "Bodily sensations", "External danger cues", "Intrusive thoughts"],
+    "answer": "Bodily sensations"
+  },
+  {
+    "question": "A major criticism of the DSM diagnostic system is that it:",
+    "options": ["Is too biologically oriented without considering psychosocial factors", "Uses a categorical approach that may not capture the dimensionality of disorders", "Includes too few diagnostic categories", "Relies entirely on laboratory tests"],
+    "answer": "Uses a categorical approach that may not capture the dimensionality of disorders"
+  },
+  {
+    "question": "What is the principal difference between bipolar I and bipolar II disorder?",
+    "options": ["Bipolar I requires at least one major depressive episode", "Bipolar I requires at least one manic episode; bipolar II requires at least one hypomanic episode and one major depressive episode", "Bipolar II is characterized by more severe mania", "Bipolar II has no depressive episodes"],
+    "answer": "Bipolar I requires at least one manic episode; bipolar II requires at least one hypomanic episode and one major depressive episode"
+  },
+  {
+    "question": "The hallucinogen persisting perception disorder (HPPD) involves:",
+    "options": ["Flashbacks of a traumatic experience", "Re-experiencing perceptual symptoms after hallucinogen use has stopped", "Hallucinations occurring only during intoxication", "Delirium tremens"],
+    "answer": "Re-experiencing perceptual symptoms after hallucinogen use has stopped"
+  },
+  {
+    "question": "Which of the following best describes the essential feature of reactive attachment disorder?",
+    "options": ["Excessive familiarity with strangers", "Consistently inhibited, emotionally withdrawn behavior toward adult caregivers", "Flashbacks and nightmares", "Ritualistic behaviors"],
+    "answer": "Consistently inhibited, emotionally withdrawn behavior toward adult caregivers"
+  },
+  {
+    "question": "The term 'echolalia' refers to:",
+    "options": ["Repeating the words of others", "Self-injurious behavior", "Flat facial expression", "Inability to speak"],
+    "answer": "Repeating the words of others"
+  },
+  {
+    "question": "In family systems theory, an 'identified patient' refers to:",
+    "options": ["The family member who schedules the therapy", "The family member viewed as having the problem, often reflecting broader family dysfunction", "The therapist", "A symptom-free family member"],
+    "answer": "The family member viewed as having the problem, often reflecting broader family dysfunction"
+  },
+  {
+    "question": "The most effective treatment for moderate to severe depression often combines:",
+    "options": ["Electroconvulsive therapy and hypnosis", "Antidepressant medication and psychotherapy (e.g., CBT)", "Lobotomy and insulin shock", "Herbal supplements and exercise only"],
+    "answer": "Antidepressant medication and psychotherapy (e.g., CBT)"
+  },
+  {
+    "question": "The 'trypophobia' phenomenon, a strong aversion to clusters of small holes, would be diagnosed as a specific phobia if:",
+    "options": ["It causes significant distress or impairment and meets phobia criteria", "It is culturally sanctioned", "It is only experienced by children", "It is a form of OCD"],
+    "answer": "It causes significant distress or impairment and meets phobia criteria"
+  },
+  {
+    "question": "The DSM-5 diagnosis of somatic symptom disorder emphasizes:",
+    "options": ["The presence of medically unexplained symptoms", "Excessive thoughts, feelings, or behaviors related to somatic symptoms", "La belle indifférence", "Pseudoneurological symptoms only"],
+    "answer": "Excessive thoughts, feelings, or behaviors related to somatic symptoms"
+  },
+  {
+    "question": "Which of the following is considered a first-line psychological treatment for borderline personality disorder?",
+    "options": ["Cognitive processing therapy", "Dialectical behavior therapy", "Exposure therapy", "Systematic desensitization"],
+    "answer": "Dialectical behavior therapy"
+  },
+  {
+    "question": "Alexithymia refers to difficulty in:",
+    "options": ["Recognizing and describing one's own emotions", "Recognizing faces", "Forming speech", "Controlling impulses"],
+    "answer": "Recognizing and describing one's own emotions"
+  },
+  {
+    "question": "Which disorder is characterized by a persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning?",
+    "options": ["Autism spectrum disorder", "Attention-deficit/hyperactivity disorder (ADHD)", "Specific learning disorder", "Oppositional defiant disorder"],
+    "answer": "Attention-deficit/hyperactivity disorder (ADHD)"
+  },
+  {
+    "question": "The term 'rapid cycling' in bipolar disorder refers to:",
+    "options": ["Manic episode lasting less than a week", "At least four mood episodes in a 12-month period", "Switching from mania to depression within one hour", "Seasonal pattern"],
+    "answer": "At least four mood episodes in a 12-month period"
+  },
+  {
+    "question": "Which of the following is a typical feature of autism spectrum disorder?",
+    "options": ["Hallucinations", "Persistent deficits in social communication and restricted, repetitive behaviors", "Severe mood swings", "Dissociative amnesia"],
+    "answer": "Persistent deficits in social communication and restricted, repetitive behaviors"
+  },
+  {
+    "question": "The primary purpose of the mental status examination is to:",
+    "options": ["Evaluate personality traits", "Assess current cognitive, emotional, and behavioral functioning", "Provide a DSM diagnosis", "Measure intelligence"],
+    "answer": "Assess current cognitive, emotional, and behavioral functioning"
+  },
+  {
+    "question": "Which neurotransmitter is most associated with the reinforcing effects of many drugs of abuse?",
+    "options": ["Serotonin", "Dopamine", "GABA", "Acetylcholine"],
+    "answer": "Dopamine"
+  },
+  {
+    "question": "Disinhibited social engagement disorder involves:",
+    "options": ["Shyness with strangers", "Overly familiar and indiscriminate behavior with unfamiliar adults", "Avoidance of eye contact", "Selective mutism"],
+    "answer": "Overly familiar and indiscriminate behavior with unfamiliar adults"
+  },
+  {
+    "question": "Which of the following is an intrusive symptom of PTSD?",
+    "options": ["Amnesia for the event", "Recurrent distressing dreams related to the event", "Feelings of detachment", "Inability to experience positive emotions"],
+    "answer": "Recurrent distressing dreams related to the event"
+  },
+  {
+    "question": "The 'rebound effect' associated with certain sleep medications refers to:",
+    "options": ["Increased deep sleep", "Worsening of insomnia upon discontinuation", "Improved sleep latency over time", "Tolerance to daytime sedation"],
+    "answer": "Worsening of insomnia upon discontinuation"
+  },
+  {
+    "question": "Which of the following is a characteristic of anorexia nervosa, restricting type?",
+    "options": ["Regular binge-eating and purging", "Consistent weight within normal range", "Weight loss accomplished through dieting, fasting, and/or excessive exercise without binge/purge episodes", "Misuse of laxatives"],
+    "answer": "Weight loss accomplished through dieting, fasting, and/or excessive exercise without binge/purge episodes"
+  },
+  {
+    "question": "The term 'clang association' refers to:",
+    "options": ["A delusion of control", "Speech governed by rhyming and sound rather than meaning", "Inability to speak", "Repeating words of others"],
+    "answer": "Speech governed by rhyming and sound rather than meaning"
+  },
+  {
+    "question": "Which of the following is a recognized psychotic disorder in DSM-5?",
+    "options": ["Schizotypal personality disorder (only)", "Brief psychotic disorder", "Obsessive-compulsive personality disorder", "Acute stress disorder"],
+    "answer": "Brief psychotic disorder"
+  },
+  {
+    "question": "Mirtazapine's mechanism of action primarily involves:",
+    "options": ["Selective serotonin reuptake inhibition", "Monoamine oxidase inhibition", "Antagonism of presynaptic alpha-2 adrenergic receptors", "Dopamine D2 receptor blockade"],
+    "answer": "Antagonism of presynaptic alpha-2 adrenergic receptors"
+  },
+  {
+    "question": "According to the cognitive-behavioral model, compulsions in OCD are performed to:",
+    "options": ["Gain pleasure", "Increase obsessions", "Neutralize or reduce anxiety associated with obsessions", "Achieve a dissociative state"],
+    "answer": "Neutralize or reduce anxiety associated with obsessions"
+  },
+  {
+    "question": "The heritability of schizophrenia, based on twin studies, is estimated to be approximately:",
+    "options": ["10-20%", "40-50%", "80%", "100%"],
+    "answer": "80%"
+  },
+  {
+    "question": "Which of the following is a symptom of nicotine withdrawal?",
+    "options": ["Euphoria", "Increased energy", "Irritability and anxiety", "Decreased appetite"],
+    "answer": "Irritability and anxiety"
+  },
+  {
+    "question": "Pica is an eating disorder characterized by:",
+    "options": ["Binge eating followed by purging", "Persistent eating of nonnutritive, nonfood substances", "Fear of gaining weight", "Avoidance of food due to sensory characteristics"],
+    "answer": "Persistent eating of nonnutritive, nonfood substances"
+  },
+  {
+    "question": "Which of the following is a recognized subtype of specific phobia?",
+    "options": ["Contamination type", "Somatic type", "Blood-injection-injury type", "Memory type"],
+    "answer": "Blood-injection-injury type"
+  },
+  {
+    "question": "The DSM-5 diagnosis of prolonged grief disorder requires that the bereavement has lasted at least:",
+    "options": ["2 weeks", "1 month", "6 months", "12 months (or 6 months in children)"],
+    "answer": "12 months (or 6 months in children)"
+  },
+  {
+    "question": "Which of the following is an example of a negative cognitive distortion according to Beck?",
+    "options": ["Mind reading", "Magnification (catastrophizing)", "Overgeneralization", "All of the above"],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Neuroleptic malignant syndrome is a potentially life-threatening side effect of antipsychotic medication characterized by:",
+    "options": ["Severe muscle rigidity, fever, and autonomic instability", "Dry mouth, blurred vision, constipation", "Akathisia", "Tardive dyskinesia"],
+    "answer": "Severe muscle rigidity, fever, and autonomic instability"
+  },
+  {
+    "question": "Which of the following best defines 'derealization'?",
+    "options": ["Feeling detached from one's own body or thoughts", "Experience of unreality or detachment from the surroundings", "Amnesia for personal identity", "Inability to move"],
+    "answer": "Experience of unreality or detachment from the surroundings"
+  },
+  {
+    "question": "The primary feature of avoidant/restrictive food intake disorder (ARFID) is:",
+    "options": ["Fear of weight gain", "Binge eating", "Avoidance or restriction of food intake not driven by body image disturbance", "Purging after eating"],
+    "answer": "Avoidance or restriction of food intake not driven by body image disturbance"
+  },
+  {
+    "question": "In the treatment of alcohol use disorder, disulfiram works by:",
+    "options": ["Reducing cravings", "Blocking opioid receptors", "Causing a toxic reaction when alcohol is consumed", "Increasing GABA activity"],
+    "answer": "Causing a toxic reaction when alcohol is consumed"
+  },
+  {
+    "question": "Which of the following is a common feature of schizotypal personality disorder?",
+    "options": ["Grandiose sense of self-importance", "Odd beliefs or magical thinking, eccentric behavior", "Lack of remorse", "Excessive perfectionism"],
+    "answer": "Odd beliefs or magical thinking, eccentric behavior"
+  },
+  {
+    "question": "The most common type of specific phobia is:",
+    "options": ["Animal type", "Natural environment type", "Situational type", "Blood-injection-injury type"],
+    "answer": "Animal type"
+  },
+  {
+    "question": "A diagnosis of schizophreniform disorder requires that the duration of the disturbance is:",
+    "options": ["Less than one month", "At least one month but less than six months", "At least six months", "Exactly one year"],
+    "answer": "At least one month but less than six months"
+  },
+  {
+    "question": "Which of the following is a key feature of histrionic personality disorder?",
+    "options": ["Pattern of excessive emotionality and attention seeking", "Pervasive distrust and suspiciousness", "Social inhibition and inadequacy", "Pattern of grandiose fantasies"],
+    "answer": "Pattern of excessive emotionality and attention seeking"
+  },
+  {
+    "question": "The 'placebo effect' in treatment research refers to:",
+    "options": ["Improvement due to the passage of time", "Improvement resulting from the expectation of benefit rather than the treatment's specific action", "Spontaneous remission", "Worsening of symptoms"],
+    "answer": "Improvement resulting from the expectation of benefit rather than the treatment's specific action"
+  },
+  {
+    "question": "Which of the following is true of gender dysphoria?",
+    "options": ["It is a sexual orientation", "It involves a marked incongruence between one's experienced/expressed gender and assigned gender", "It is synonymous with transvestic disorder", "It only occurs in adulthood"],
+    "answer": "It involves a marked incongruence between one's experienced/expressed gender and assigned gender"
+  },
+  {
+    "question": "The presence of delusions of thought insertion, thought withdrawal, and thought broadcasting are collectively known as:",
+    "options": ["Schneiderian first-rank symptoms", "Negative symptoms", "Catatonic features", "Bleuler's four A's"],
+    "answer": "Schneiderian first-rank symptoms"
+  },
+  {
+    "question": "Electroconvulsive therapy (ECT) is most commonly used today for:",
+    "options": ["Mild depression", "Treatment-resistant severe depression", "Anxiety disorders", "Borderline personality disorder"],
+    "answer": "Treatment-resistant severe depression"
+  },
+  {
+    "question": "In panic disorder, agoraphobia develops when the individual:",
+    "options": ["Has a fear of contamination", "Fears and avoids situations where escape might be difficult in the event of a panic attack", "Becomes obsessed with body image", "Experiences hallucinations"],
+    "answer": "Fears and avoids situations where escape might be difficult in the event of a panic attack"
+  },
+  {
+    "question": "According to the DSM-5, a diagnosis of intellectual disability requires deficits in:",
+    "options": ["Only cognitive functioning", "Cognitive functioning and adaptive functioning", "Only social skills", "Emotional regulation"],
+    "answer": "Cognitive functioning and adaptive functioning"
+  },
+  {
+    "question": "Which of the following is an example of a dissociative intrusion symptom?",
+    "options": ["Amnesia for a traumatic event", "Flashbacks during which the individual feels they are reliving the trauma", "Feeling of being detached from one's body", "Feeling that the world is unreal"],
+    "answer": "Flashbacks during which the individual feels they are reliving the trauma"
+  },
+  {
+    "question": "Tardive dyskinesia is a side effect associated with long-term use of:",
+    "options": ["SSRIs", "Benzodiazepines", "First-generation antipsychotics", "Lithium"],
+    "answer": "First-generation antipsychotics"
+  },
+  {
+    "question": "A key feature of dependent personality disorder is:",
+    "options": ["A pattern of submissive and clinging behavior due to an excessive need to be taken care of", "A pattern of social inhibition", "A pattern of disregard for others", "A pattern of odd and eccentric behavior"],
+    "answer": "A pattern of submissive and clinging behavior due to an excessive need to be taken care of"
+  },
+  {
+    "question": "Which term refers to a significant loss of interest or pleasure in activities previously enjoyed?",
+    "options": ["Anhedonia", "Avolition", "Alogia", "Dysphoria"],
+    "answer": "Anhedonia"
+  },
+  {
+    "question": "In cognitive processing therapy (CPT) for PTSD, the focus is on:",
+    "options": ["Repeated imaginal exposure to the trauma", "Challenging maladaptive beliefs related to the trauma", "Eye movements while recalling the trauma", "Relaxation and deep breathing"],
+    "answer": "Challenging maladaptive beliefs related to the trauma"
+  },
+  {
+    "question": "The DSM-5 uses which term to describe a pattern of recurrent, intense sexually arousing fantasies, urges, or behaviors involving non-consenting persons?",
+    "options": ["Sexual dysfunction", "Paraphilic disorder", "Gender dysphoria", "Hypersexual disorder"],
+    "answer": "Paraphilic disorder"
+  },
+  {
+    "question": "Which of the following medications is classified as a mood stabilizer?",
+    "options": ["Fluoxetine", "Alprazolam", "Valproate", "Haloperidol"],
+    "answer": "Valproate"
+  },
+  {
+    "question": "The cognitive model of social anxiety disorder emphasizes the role of:",
+    "options": ["Catastrophic interpretation of bodily sensations", "Fear of negative evaluation and self-focused attention", "Compulsive behaviors to neutralize thoughts", "Repetitive negative thinking about past failures"],
+    "answer": "Fear of negative evaluation and self-focused attention"
+  },
+  {
+    "question": "An individual who repeatedly seeks out and wears a female's clothing to achieve sexual arousal, and this pattern causes distress, may have:",
+    "options": ["Gender dysphoria", "Fetishistic disorder", "Transvestic disorder", "Exhibitionistic disorder"],
+    "answer": "Transvestic disorder"
+  },
+  {
+    "question": "Delirium is characterized by:",
+    "options": ["Gradual decline in memory over years", "Disturbance in attention and awareness that develops acutely and fluctuates", "A chronic pattern of odd beliefs", "Persistent low mood"],
+    "answer": "Disturbance in attention and awareness that develops acutely and fluctuates"
+  },
+  {
+    "question": "Which of the following is a behavioral technique for treating specific phobia that involves direct confrontation of the feared object?",
+    "options": ["Systematic desensitization", "In vivo exposure", "Aversion therapy", "Token economy"],
+    "answer": "In vivo exposure"
+  },
+  {
+    "question": "The 'preparedness' theory of phobias suggests that humans are biologically prepared to acquire fears of:",
+    "options": ["Objects that posed an evolutionary threat", "Social situations", "Abstract concepts", "Modern technological devices"],
+    "answer": "Objects that posed an evolutionary threat"
+  },
+  {
+    "question": "A 'compulsion' in OCD is defined as:",
+    "options": ["An intrusive, unwanted thought", "A repetitive behavior or mental act performed in response to an obsession or according to rigid rules", "A generalized feeling of anxiety", "A hallucination"],
+    "answer": "A repetitive behavior or mental act performed in response to an obsession or according to rigid rules"
+  },
+  {
+    "question": "In the diathesis-stress model, a person with no diathesis but high stress:",
+    "options": ["Will definitely develop the disorder", "Is unlikely to develop the disorder", "Will have a mild form of the disorder", "Cannot be predicted"],
+    "answer": "Is unlikely to develop the disorder"
+  },
+  {
+    "question": "Which of the following is a characteristic of oppositional defiant disorder?",
+    "options": ["Aggression toward people and animals", "Pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness", "Serious violations of rules", "Persistent pattern of inattention"],
+    "answer": "Pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness"
+  },
+  {
+    "question": "Which brain structure is critically involved in fear conditioning and the acquisition of phobias?",
+    "options": ["Cerebellum", "Amygdala", "Hippocampus", "Thalamus"],
+    "answer": "Amygdala"
+  },
+  {
+    "question": "The term 'conditioned stimulus' in classical conditioning of a phobia refers to:",
+    "options": ["The unconditionally frightening event", "A previously neutral stimulus that elicits fear after pairing with an aversive event", "The fear response itself", "The avoidance behavior"],
+    "answer": "A previously neutral stimulus that elicits fear after pairing with an aversive event"
+  },
+  {
+    "question": "A key concept in acceptance and commitment therapy (ACT) is:",
+    "options": ["Challenging irrational beliefs", "Cognitive defusion and acceptance of private events", "Identifying unconscious conflicts", "Systematic desensitization"],
+    "answer": "Cognitive defusion and acceptance of private events"
+  },
+  {
+    "question": "Which of the following is a DSM-5 anxiety disorder?",
+    "options": ["Adjustment disorder", "Separation anxiety disorder", "Acute stress disorder", "Depersonalization/derealization disorder"],
+    "answer": "Separation anxiety disorder"
+  },
+  {
+    "question": "Which of the following is a common medical cause of anxiety-like symptoms that should be ruled out?",
+    "options": ["Hyperthyroidism", "Hypoglycemia", "Cardiac arrhythmia", "All of the above"],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The DSM-5 criteria for substance withdrawal include:",
+    "options": ["Craving for the substance", "Development of a substance-specific syndrome due to cessation or reduction of heavy and prolonged use", "Tolerance to the substance", "Using the substance in larger amounts than intended"],
+    "answer": "Development of a substance-specific syndrome due to cessation or reduction of heavy and prolonged use"
+  },
+  {
+    "question": "In the DSM-5, a diagnosis of brief psychotic disorder requires that symptoms last at least:",
+    "options": ["1 day but less than 1 month", "1 month but less than 6 months", "6 months", "1 year"],
+    "answer": "1 day but less than 1 month"
+  },
+  {
+    "question": "The phenomenon where individuals with schizophrenia show reduced emotional expression in the face, voice, and gestures is called:",
+    "options": ["Alogia", "Flat affect", "Anhedonia", "Catatonia"],
+    "answer": "Flat affect"
+  },
+  {
+    "question": "Which of the following is a key feature of obsessive-compulsive personality disorder?",
+    "options": ["Perfectionism and preoccupation with orderliness, rules, and control", "Instability of interpersonal relationships", "Excessive emotionality", "Submissive and clinging behavior"],
+    "answer": "Perfectionism and preoccupation with orderliness, rules, and control"
+  },
+  {
+    "question": "The dopamine hypothesis of schizophrenia originally posited that:",
+    "options": ["Schizophrenia is caused by decreased dopamine activity", "Schizophrenia results from hyperactivity of dopamine transmission", "Dopamine is unrelated to schizophrenia", "Serotonin is the primary neurotransmitter involved"],
+    "answer": "Schizophrenia results from hyperactivity of dopamine transmission"
+  },
+  {
+    "question": "The 'learned helplessness' theory of depression was originally developed from experiments with:",
+    "options": ["Rats pressing levers", "Dogs exposed to inescapable shock", "Monkeys in social isolation", "Humans in conformity studies"],
+    "answer": "Dogs exposed to inescapable shock"
+  },
+  {
+    "question": "In panic control treatment (PCT), a primary intervention is:",
+    "options": ["Analyzing transference", "Cognitive restructuring of catastrophic misinterpretations of bodily sensations", "Free association", "Systematic desensitization to social evaluation"],
+    "answer": "Cognitive restructuring of catastrophic misinterpretations of bodily sensations"
+  },
+  {
+    "question": "Which of the following is NOT one of the 'four Ds' often used to define abnormality?",
+    "options": ["Deviance", "Distress", "Dysfunction", "Diagnosis"],
+    "answer": "Diagnosis"
+  },
+  {
+    "question": "The primary difference between a delusion and a strongly held belief is that a delusion:",
+    "options": ["Is religious in nature", "Is firmly held despite clear contradictory evidence", "Is shared by many people", "Involves paranoia"],
+    "answer": "Is firmly held despite clear contradictory evidence"
+  },
+  {
+    "question": "Which of the following is true of the serotonin transporter gene (5-HTTLPR) and depression?",
+    "options": ["The short allele is associated with higher resilience", "The short allele combined with life stress increases risk for depression", "The gene has no relation to depression", "Only the long allele predicts depression"],
+    "answer": "The short allele combined with life stress increases risk for depression"
+  },
+  {
+    "question": "Which of the following is a symptom of inattention in ADHD?",
+    "options": ["Excessive talking", "Difficulty waiting turn", "Often loses things necessary for tasks", "Fidgeting"],
+    "answer": "Often loses things necessary for tasks"
+  },
+  {
+    "question": "In DSM-5, autism spectrum disorder severity is specified based on:",
+    "options": ["Intelligence quotient (IQ) alone", "Level of support required for social communication and restricted behaviors", "Presence of savant skills", "Age of onset"],
+    "answer": "Level of support required for social communication and restricted behaviors"
+  },
+  {
+    "question": "Which of the following is a key feature of gambling disorder?",
+    "options": ["Gambling only for social reasons", "Need to gamble with increasing amounts to achieve excitement, repeated unsuccessful efforts to stop", "Using gambling to escape a traumatic memory", "Gambling exclusively on sports"],
+    "answer": "Need to gamble with increasing amounts to achieve excitement, repeated unsuccessful efforts to stop"
+  },
+  {
+    "question": "A person who develops severe anxiety and somatic symptoms after being exposed to a life-threatening event three days ago likely has:",
+    "options": ["Posttraumatic stress disorder", "Acute stress disorder", "Adjustment disorder", "Panic disorder"],
+    "answer": "Acute stress disorder"
+  },
+  {
+    "question": "According to the behavioral activation model, depression is maintained by:",
+    "options": ["Dysfunctional automatic thoughts", "Low rates of response-contingent positive reinforcement", "Repressed anger", "Unconditional negative regard"],
+    "answer": "Low rates of response-contingent positive reinforcement"
+  },
+  {
+    "question": "Which of the following is a potential side effect of benzodiazepine use?",
+    "options": ["Tardive dyskinesia", "Sedation, tolerance, and dependence", "Weight gain", "Extrapyramidal symptoms"],
+    "answer": "Sedation, tolerance, and dependence"
+  },
+  {
+    "question": "The theory that depression is associated with a deficit in serotonin and norepinephrine is known as the:",
+    "options": ["Dopamine hypothesis", "Monoamine hypothesis", "Glutamate hypothesis", "Cortisol hypothesis"],
+    "answer": "Monoamine hypothesis"
+  },
+  {
+    "question": "Which of the following is a common specifier for panic attack in DSM-5?",
+    "options": ["Expected vs. unexpected", "Nocturnal only", "Somatic only", "Cognitive only"],
+    "answer": "Expected vs. unexpected"
+  },
+  {
+    "question": "The term 'positive reinforcement' refers to:",
+    "options": ["Adding a pleasant consequence to increase a behavior", "Removing an aversive stimulus to increase a behavior", "Adding an aversive consequence to decrease a behavior", "Extinction of a behavior"],
+    "answer": "Adding a pleasant consequence to increase a behavior"
+  },
+  {
+    "question": "Which of the following is a feature of schizoaffective disorder, bipolar type?",
+    "options": ["Only depressive episodes with psychotic symptoms", "Manic episode concurrent with schizophrenia-like symptoms, and psychotic symptoms present for at least 2 weeks without mood symptoms", "Only negative symptoms", "No mood episodes"],
+    "answer": "Manic episode concurrent with schizophrenia-like symptoms, and psychotic symptoms present for at least 2 weeks without mood symptoms"
+  },
+  {
+    "question": "The 'meta-worry' in generalized anxiety disorder refers to:",
+    "options": ["Worry about external threats", "Worry about the dangerousness of worrying itself", "Worry about physical health", "Worry about social performance"],
+    "answer": "Worry about the dangerousness of worrying itself"
+  },
+  {
+    "question": "Which of the following statements about suicide is accurate based on research?",
+    "options": ["Women complete suicide more often than men", "Suicide is solely determined by mental illness", "Talking about suicide increases risk", "Suicidal ideation and prior attempts are strong predictors of completed suicide"],
+    "answer": "Suicidal ideation and prior attempts are strong predictors of completed suicide"
+  },
+  {
+    "question": "Which of the following is a negative symptom of schizophrenia?",
+    "options": ["Delusions", "Disorganized behavior", "Avolition", "Hallucinations"],
+    "answer": "Avolition"
+  },
+  {
+    "question": "Which anxiety disorder has the highest 12-month prevalence in the general population?",
+    "options": ["Panic disorder", "Generalized anxiety disorder", "Specific phobia", "Social anxiety disorder"],
+    "answer": "Specific phobia"
+  },
+  {
+    "question": "In psychological testing, 'reliability' refers to:",
+    "options": ["The test measuring what it claims to measure", "Consistency of measurement", "The absence of cultural bias", "Clinical utility"],
+    "answer": "Consistency of measurement"
+  },
+  {
+    "question": "The tendency to interpret ambiguous stimuli as threatening is known as:",
+    "options": ["Attentional bias", "Interpretation bias", "Memory bias", "Confirmation bias"],
+    "answer": "Interpretation bias"
+  },
+  {
+    "question": "Which of the following is considered a somatic symptom disorder?",
+    "options": ["Factitious disorder imposed on self", "Illness anxiety disorder", "Malingering", "Dissociative amnesia"],
+    "answer": "Illness anxiety disorder"
+  },
+  {
+    "question": "In the DSM-5, the term 'neurocognitive disorder' replaced which previous term?",
+    "options": ["Dementia", "Delirium", "Amnestic disorder", "Mental retardation"],
+    "answer": "Dementia"
+  },
+  {
+    "question": "A person who has difficulty falling asleep, staying asleep, or waking too early for at least three nights a week for three months may be diagnosed with:",
+    "options": ["Circadian rhythm disorder", "Insomnia disorder", "Hypersomnolence disorder", "Narcolepsy"],
+    "answer": "Insomnia disorder"
+  },
+  {
+    "question": "Which therapy approach uses techniques like 'Socratic questioning' and 'collaborative empiricism'?",
+    "options": ["Person-centered therapy", "Cognitive therapy", "Psychodynamic therapy", "Narrative therapy"],
+    "answer": "Cognitive therapy"
+  },
+  {
+    "question": "What is the primary goal of motivational interviewing in treating substance use disorders?",
+    "options": ["Confrontation of denial", "Resolving ambivalence and enhancing intrinsic motivation to change", "Teaching coping skills for high-risk situations", "Identifying the underlying trauma"],
+    "answer": "Resolving ambivalence and enhancing intrinsic motivation to change"
+  },
+  {
+    "question": "The term 'catastrophic misinterpretation' is central to the cognitive model of:",
+    "options": ["Specific phobia", "Panic disorder", "Generalized anxiety disorder", "OCD"],
+    "answer": "Panic disorder"
+  },
+  {
+    "question": "Which of the following is true of the DSM-5 diagnosis of adjustment disorder?",
+    "options": ["It requires symptoms lasting at least six months", "It involves emotional or behavioral symptoms in response to an identifiable stressor", "It includes psychotic symptoms", "It is classified as a trauma- and stressor-related disorder"],
+    "answer": "It involves emotional or behavioral symptoms in response to an identifiable stressor"
+  },
+  {
+    "question": "Which of the following best describes 'anxiety sensitivity'?",
+    "options": ["The tendency to worry about multiple domains", "Fear of anxiety-related bodily sensations based on beliefs that they have harmful consequences", "Sensitivity to social evaluation", "A general personality trait of nervousness"],
+    "answer": "Fear of anxiety-related bodily sensations based on beliefs that they have harmful consequences"
+  },
+  {
+    "question": "The 'Hawthorne effect' in research refers to:",
+    "options": ["Participants improving because they are being observed", "Placebo response", "Natural remission", "Experimenter bias"],
+    "answer": "Participants improving because they are being observed"
+  },
+  {
+    "question": "Which neurotransmitter system is primarily targeted by typical antipsychotic medications?",
+    "options": ["Serotonin", "Dopamine D2", "Norepinephrine", "GABA"],
+    "answer": "Dopamine D2"
+  },
+  {
+    "question": "A 'delusion of reference' is defined as:",
+    "options": ["Believing one is being controlled by external forces", "Believing that random events or others' behaviors are directed at oneself", "Believing one has a special mission", "Believing one's partner is unfaithful"],
+    "answer": "Believing that random events or others' behaviors are directed at oneself"
+  },
+  {
+    "question": "Which of the following is a risk factor for developing PTSD after trauma?",
+    "options": ["High intelligence", "Previous exposure to trauma", "Lack of emotional response during trauma", "Strong social support network"],
+    "answer": "Previous exposure to trauma"
+  },
+  {
+    "question": "In psychoanalytic theory, 'transference' refers to:",
+    "options": ["The therapist's feelings toward the client", "The client's projection of feelings about important figures onto the therapist", "A defense mechanism", "The conscious recollection of memories"],
+    "answer": "The client's projection of feelings about important figures onto the therapist"
+  },
+  {
+    "question": "Which of the following is a DSM-5 personality disorder in Cluster C?",
+    "options": ["Schizotypal", "Dependent", "Histrionic", "Borderline"],
+    "answer": "Dependent"
+  },
+  {
+    "question": "The 'rescorla-wagner model' explains the acquisition of phobias by:",
+    "options": ["Cognitive biases", "Expectancy and surprise in classical conditioning", "Observational learning", "Genetic predisposition"],
+    "answer": "Expectancy and surprise in classical conditioning"
+  },
+  {
+    "question": "The most common comorbid condition with major depressive disorder is:",
+    "options": ["Schizophrenia", "Anxiety disorders", "Antisocial personality disorder", "Autism spectrum disorder"],
+    "answer": "Anxiety disorders"
+  },
+  {
+    "question": "A key feature of narcissistic personality disorder is:",
+    "options": ["Pervasive pattern of grandiosity, need for admiration, and lack of empathy", "Pervasive distrust and suspicion", "Instability in relationships", "Pervasive pattern of social inhibition"],
+    "answer": "Pervasive pattern of grandiosity, need for admiration, and lack of empathy"
+  },
+  {
+    "question": "The primary purpose of a functional analysis in behavioral assessment is to:",
+    "options": ["Identify unconscious conflicts", "Determine the antecedents and consequences of a behavior", "Administer projective tests", "Classify personality traits"],
+    "answer": "Determine the antecedents and consequences of a behavior"
+  },
+  {
+    "question": "Which of the following is a positive symptom of schizophrenia?",
+    "options": ["Flat affect", "Disorganized thinking", "Anhedonia", "Asociality"],
+    "answer": "Disorganized thinking"
+  },
+  {
+    "question": "Which of the following is a recognized treatment for seasonal affective disorder (SAD)?",
+    "options": ["Dialectical behavior therapy", "Light therapy", "Systematic desensitization", "Flooding"],
+    "answer": "Light therapy"
+  },
+  {
+    "question": "In the DSM-5, premenstrual dysphoric disorder is classified under:",
+    "options": ["Anxiety disorders", "Depressive disorders", "Somatic symptom disorders", "Trauma-related disorders"],
+    "answer": "Depressive disorders"
+  },
+  {
+    "question": "Which of the following is a common feature of separation anxiety disorder in adults?",
+    "options": ["Fear of being alone or without major attachment figures", "Fear of contamination", "Fear of social evaluation", "Fear of specific objects"],
+    "answer": "Fear of being alone or without major attachment figures"
+  },
+  {
+    "question": "Naltrexone is used in the treatment of opioid and alcohol use disorders because it:",
+    "options": ["Produces a toxic reaction with alcohol", "Blocks the euphoric effects by antagonizing opioid receptors", "Increases GABA activity", "Inhibits dopamine reuptake"],
+    "answer": "Blocks the euphoric effects by antagonizing opioid receptors"
+  },
+  {
+    "question": "Which of the following is a key component of the 'fight or flight' response?",
+    "options": ["Activation of the parasympathetic nervous system", "Release of cortisol and adrenaline", "Decreased heart rate", "Relaxation of muscles"],
+    "answer": "Release of cortisol and adrenaline"
+  },
+  {
+    "question": "The strongest predictor of developing bulimia nervosa is:",
+    "options": ["Childhood obesity", "Body dissatisfaction and internalization of the thin ideal", "High self-esteem", "Lack of dieting behavior"],
+    "answer": "Body dissatisfaction and internalization of the thin ideal"
+  },
+  {
+    "question": "Which of the following is a component of the DSM-5 definition of mental disorder?",
+    "options": ["An expectable response to a common stressor", "A clinically significant disturbance in cognition, emotion regulation, or behavior", "Socially deviant political beliefs", "Merely a conflict between the individual and society"],
+    "answer": "A clinically significant disturbance in cognition, emotion regulation, or behavior"
+  },
+  {
+    "question": "The prevalence of depression is approximately twice as high in which group?",
+    "options": ["Men compared to women", "Women compared to men", "Children compared to adolescents", "Elderly compared to young adults"],
+    "answer": "Women compared to men"
+  },
+  {
+    "question": "What is the primary difference between a fetishistic disorder and a transvestic disorder?",
+    "options": ["Fetishistic disorder involves nonliving objects; transvestic disorder involves cross-dressing for sexual arousal", "Transvestic disorder involves animals", "Fetishistic disorder always involves pain", "There is no difference"],
+    "answer": "Fetishistic disorder involves nonliving objects; transvestic disorder involves cross-dressing for sexual arousal"
+  },
+  {
+    "question": "Which of the following is a cognitive distortion where one draws a broad conclusion from a single incident?",
+    "options": ["Catastrophizing", "Overgeneralization", "Mind reading", "Personalization"],
+    "answer": "Overgeneralization"
+  },
+  {
+    "question": "The DSM-5 diagnosis of intermittent explosive disorder is characterized by:",
+    "options": ["Verbal or physical aggression out of proportion to provocation", "Manipulative aggression for personal gain", "Organized criminal behavior", "Planned revenge"],
+    "answer": "Verbal or physical aggression out of proportion to provocation"
+  },
+  {
+    "question": "Which of the following is a potential consequence of long-term untreated insomnia?",
+    "options": ["Improved immune function", "Increased risk for depression and cardiovascular disease", "Better weight management", "Enhanced cognitive performance"],
+    "answer": "Increased risk for depression and cardiovascular disease"
+  },
+  {
+    "question": "In systematic desensitization, relaxation training is used to:",
+    "options": ["Reduce the conditioned fear response through counterconditioning", "Induce hypnosis", "Increase exposure intensity", "Encourage avoidance"],
+    "answer": "Reduce the conditioned fear response through counterconditioning"
+  },
+  {
+    "question": "Which of the following is true of bipolar disorder compared to major depressive disorder?",
+    "options": ["Bipolar disorder has a later age of onset", "Bipolar disorder is less heritable", "Bipolar disorder involves manic or hypomanic episodes", "Bipolar disorder responds only to psychotherapy"],
+    "answer": "Bipolar disorder involves manic or hypomanic episodes"
+  },
+  {
+    "question": "The term 'grandiosity' in manic episodes refers to:",
+    "options": ["Excessive guilt", "Inflated self-esteem or sense of power and importance", "Catatonic immobility", "Fear of being watched"],
+    "answer": "Inflated self-esteem or sense of power and importance"
+  },
+  {
+    "question": "Which of the following is considered a 'third wave' cognitive-behavioral therapy?",
+    "options": ["Rational emotive behavior therapy", "Acceptance and commitment therapy (ACT)", "Exposure therapy", "Cognitive therapy"],
+    "answer": "Acceptance and commitment therapy (ACT)"
+  },
+  {
+    "question": "The DSM-5 diagnosis of cannabis withdrawal includes:",
+    "options": ["Irritability, anxiety, sleep difficulty, and decreased appetite", "Hallucinations", "Runny nose", "Seizures"],
+    "answer": "Irritability, anxiety, sleep difficulty, and decreased appetite"
+  },
+  {
+    "question": "Which of the following statements is true regarding dissociative identity disorder?",
+    "options": ["It is a psychotic disorder", "It involves the presence of two or more distinct personality states", "It is considered extremely common", "It does not involve amnesia"],
+    "answer": "It involves the presence of two or more distinct personality states"
+  },
+  {
+    "question": "In panic disorder, interoceptive conditioning may lead to:",
+    "options": ["Fear of external objects", "Fear of bodily sensations themselves, triggering panic attacks", "Fear of social situations", "Obsessive thoughts about contamination"],
+    "answer": "Fear of bodily sensations themselves, triggering panic attacks"
+  },
+  {
+    "question": "According to Mowrer's two-factor theory, phobias are acquired by classical conditioning and maintained by:",
+    "options": ["Operant conditioning (negative reinforcement via avoidance)", "Observational learning", "Cognitive dissonance", "Unconscious conflict"],
+    "answer": "Operant conditioning (negative reinforcement via avoidance)"
+  },
+  {
+    "question": "A diagnosis of persistent complex bereavement disorder (prolonged grief disorder in DSM-5-TR) requires intense grief that persists beyond:",
+    "options": ["2 weeks", "1 month", "6 months", "12 months"],
+    "answer": "12 months"
+  },
+  {
+    "question": "Which of the following is a negative symptom of schizophrenia that involves reduced motivation?",
+    "options": ["Avolition", "Alogia", "Anhedonia", "Flat affect"],
+    "answer": "Avolition"
+  },
+  {
+    "question": "Which anxiety disorder has the highest heritability estimate?",
+    "options": ["Panic disorder", "Social anxiety disorder", "Generalized anxiety disorder", "Specific phobia"],
+    "answer": "Panic disorder"
+  },
+  {
+    "question": "The primary difference between a manic episode and a hypomanic episode is:",
+    "options": ["Duration", "Severity of impairment", "Presence of irritability", "Need for medication"],
+    "answer": "Severity of impairment"
+  },
+  {
+    "question": "Which treatment for depression focuses on increasing engagement in rewarding activities?",
+    "options": ["Cognitive therapy", "Behavioral activation", "Interpersonal therapy", "Psychodynamic therapy"],
+    "answer": "Behavioral activation"
+  },
+  {
+    "question": "The DSM-5 alternative model for personality disorders includes which of the following pathological personality domains?",
+    "options": ["Extraversion, agreeableness, conscientiousness, neuroticism, openness", "Negative affectivity, detachment, antagonism, disinhibition, psychoticism", "Identity, self-direction, empathy, intimacy", "Cluster A, B, C"],
+    "answer": "Negative affectivity, detachment, antagonism, disinhibition, psychoticism"
+  },
+  {
+    "question": "Which of the following is true about the prevalence of eating disorders?",
+    "options": ["Anorexia nervosa is more common than bulimia nervosa", "Bulimia nervosa is more common than anorexia nervosa", "Binge-eating disorder is less common than anorexia", "Eating disorders only affect females"],
+    "answer": "Bulimia nervosa is more common than anorexia nervosa"
+  },
+  {
+    "question": "A person with a specific phobia of flying would most likely benefit from:",
+    "options": ["Cognitive processing therapy", "In vivo or virtual reality exposure therapy", "Dialectical behavior therapy", "Interpersonal therapy"],
+    "answer": "In vivo or virtual reality exposure therapy"
+  },
+  {
+    "question": "Which of the following is a characteristic symptom of posttraumatic stress disorder?",
+    "options": ["Recurrent obsessions", "Avoidance of stimuli associated with the trauma", "Low-grade persistent anxiety about multiple topics", "Panic attacks in social situations"],
+    "answer": "Avoidance of stimuli associated with the trauma"
+  },
+  {
+    "question": "The 'broaden-and-build' theory of positive emotions is most closely associated with:",
+    "options": ["Martin Seligman's positive psychology", "Aaron Beck's cognitive therapy", "Sigmund Freud's psychoanalysis", "B.F. Skinner's behaviorism"],
+    "answer": "Martin Seligman's positive psychology"
+  },
+  {
+    "question": "Which of the following is a parasomnia that involves repeated episodes of rising from bed and walking during sleep?",
+    "options": ["REM sleep behavior disorder", "Sleepwalking (somnambulism)", "Nightmare disorder", "Restless legs syndrome"],
+    "answer": "Sleepwalking (somnambulism)"
+  },
+  {
+    "question": "According to the DSM-5, to be diagnosed with ADHD, several symptoms must have been present before age:",
+    "options": ["5", "7", "12", "18"],
+    "answer": "12"
+  },
+  {
+    "question": "A person who meets criteria for both borderline personality disorder and posttraumatic stress disorder is an example of:",
+    "options": ["Comorbidity", "Differential diagnosis", "Etiology", "Prognosis"],
+    "answer": "Comorbidity"
+  }
+]
