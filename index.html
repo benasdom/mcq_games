@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Neon MCQ Arcade: Cinematic Edition</title>
     <style>
         :root {
@@ -32,6 +32,7 @@
             font-family: var(--font-main);
             overflow: hidden;
             transition: background-color 0.3s, color 0.3s;
+            touch-action: none; /* Prevent scroll on mobile */
         }
 
         /* Cinematic Overlays */
@@ -124,6 +125,7 @@
             align-items: center;
             flex-wrap: wrap;
             padding: 0 10vw;
+            gap: 20px;
             position: relative;
             z-index: 5;
         }
@@ -151,7 +153,7 @@
             transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
         }
 
-        .option-target:hover svg {
+        .option-target:hover svg, .option-target:active svg {
             transform: scale(1.2) rotate(45deg);
             color: var(--neon-secondary);
             filter: drop-shadow(0 0 25px var(--neon-secondary));
@@ -173,7 +175,7 @@
 
         /* Question Area */
         #question-area {
-            height: 250px;
+            min-height: 250px;
             background: linear-gradient(to top, #000, rgba(0,0,0,0));
             display: flex;
             flex-direction: column;
@@ -191,7 +193,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 0px #000, 0 0 10px var(--neon-primary);
-            max-width: 80%;
+            max-width: 90%;
         }
 
         /* Launcher Container */
@@ -208,6 +210,7 @@
             margin-bottom: -200px;
             width: 140px;
             height: 150px;
+            transform-origin: bottom center;
         }
 
         /* Projectile with Trail */
@@ -264,6 +267,23 @@
             align-items: center;
             justify-content: center;
             z-index: 100;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #setup-screen h1 {
+            font-size: 5rem; 
+            margin-bottom: 0; 
+            letter-spacing: 5px;
+        }
+
+        #setup-screen h2 {
+            color: var(--neon-secondary); 
+            margin-top: 0; 
+            font-size: 2rem; 
+            text-shadow: 0 0 15px var(--neon-secondary); 
+            letter-spacing: 8px;
         }
 
         button {
@@ -282,6 +302,7 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            max-width: 90vw;
         }
 
         button::before {
@@ -290,17 +311,60 @@
             transition: all 0.5s;
         }
 
-        button:hover {
+        button:hover, button:active {
             background: var(--neon-primary);
             color: #000;
             box-shadow: 0 0 30px var(--neon-primary);
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        button:hover::before { left: 100%; }
+        button:hover::before, button:active::before { left: 100%; }
 
         #controls { position: absolute; top: 15px; right: 15px; z-index: 200; }
         #controls button { padding: 8px 15px; font-size: 1rem; margin: 0; }
+
+        /* =========================================
+           RESPONSIVE DESIGN (MOBILE & TABLETS)
+           ========================================= */
+        
+        @media (max-width: 768px) {
+            #setup-screen h1 { font-size: 3rem; letter-spacing: 2px; }
+            #setup-screen h2 { font-size: 1.2rem; letter-spacing: 4px; }
+            
+            button { font-size: 1rem; padding: 12px 20px; margin: 10px; }
+            
+            #hud { font-size: 1.2rem; padding: 15px 20px; }
+            
+            #options-area { padding: 0 5vw; gap: 10px; align-items: flex-start; }
+            
+            .option-target svg { width: 70px; height: 70px; }
+            .option-text { font-size: 0.9rem; max-width: 120px; padding: 6px 10px; margin-top: 10px; }
+            
+            #question-area { min-height: auto; padding: 20px 10px; margin-bottom: 20px; }
+            #question-text { font-size: 1.4rem; }
+            
+            .combat-text { font-size: 2rem; }
+            
+            #launcher { bottom: 180px; transform: translateX(-50%) scale(0.7); }
+        }
+
+        @media (max-width: 480px) {
+            #hud { font-size: 1rem; padding: 10px 15px; }
+            .option-target svg { width: 60px; height: 60px; }
+            .option-text { font-size: 0.8rem; padding: 4px 8px; }
+            #question-text { font-size: 1.2rem; }
+            #launcher { bottom: 150px; transform: translateX(-50%) scale(0.6); }
+            #controls button { font-size: 0.8rem; padding: 6px 10px; }
+        }
+
+        /* Adjustments for short screens (landscape mobile) */
+        @media (max-height: 600px) {
+            #cyber-grid { height: 40vh; }
+            #options-area { padding: 0 5vw; }
+            #launcher { bottom: 130px; transform: translateX(-50%) scale(0.5); }
+            #question-area { padding-bottom: 10px; }
+            #question-text { font-size: 1.2rem; margin-bottom: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -311,21 +375,23 @@
         <button onclick="toggleTheme()">SYS.THEME</button>
     </div>
 
+    <!-- Setup Screen -->
     <div id="setup-screen">
-        <h1 class="neon-text" style="font-size: 5rem; margin-bottom: 0; letter-spacing: 5px;">ARCADE</h1>
-        <h2 style="color: var(--neon-secondary); margin-top: 0; font-size: 2rem; text-shadow: 0 0 15px var(--neon-secondary); letter-spacing: 8px;">OVERDRIVE</h2>
+        <h1 class="neon-text">ARCADE</h1>
+        <h2>OVERDRIVE</h2>
         
         <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="handleFileUpload(event)">
-        <button onclick="document.getElementById('fileInput').click()" style="font-size: 1.2rem; padding: 10px 20px;">[ UPLOAD DATABANK ]</button>
+        <button onclick="document.getElementById('fileInput').click()">[ UPLOAD DATABANK ]</button>
         <button onclick="useDefaultQuestions()">>> INITIALIZE CORE <<</button>
     </div>
 
+    <!-- Main Game UI -->
     <div id="game-container" style="display: none;">
         <div id="cyber-grid"></div>
 
         <div id="hud">
             <div>SCORE <span id="score" class="neon-text">0000</span></div>
-            <div><br>SHIELDS <span id="lives" style="color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary);">100%</span></div>
+            <div>SHIELDS <span id="lives" style="color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary);">100%</span></div>
         </div>
 
         <div id="options-area"></div>
@@ -363,14 +429,17 @@
                         <stop offset="100%" stop-color="transparent" />
                     </linearGradient>
                 </defs>
+                <!-- Rails -->
                 <path d="M 55 10 L 75 80 L 85 80 L 65 10 Z" fill="url(#railGlow)" opacity="0.9">
                     <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
                 </path>
                 <path d="M 145 10 L 125 80 L 115 80 L 135 10 Z" fill="url(#railGlow)" opacity="0.9">
                     <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
                 </path>
+                <!-- Base -->
                 <path d="M 15 140 L 45 70 L 155 70 L 185 140 Z" fill="url(#metalCasing)" stroke="var(--neon-primary)" stroke-width="4" stroke-linejoin="round" />
                 <polygon points="55,140 75,85 125,85 145,140" fill="#000" stroke="var(--neon-secondary)" stroke-width="2"/>
+                <!-- Accents -->
                 <line x1="40" y1="110" x2="65" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
                 <line x1="160" y1="110" x2="135" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
                 <ellipse cx="100" cy="80" rx="40" ry="15" fill="none" stroke="var(--neon-secondary)" stroke-width="2">
@@ -396,7 +465,6 @@
         let isShooting = false;
         let audioCtx;
 
-        // Updated Developer-Focused Databank
         const defaultQuestions = [
             { question: "WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?", options: ["FLUTTER", "EXPO", "CORDOVA", "IONIC"], answer: "EXPO" },
             { question: "WHICH BUNDLER DELIVERS LIGHTNING FAST HOT MODULE REPLACEMENT?", options: ["WEBPACK", "PARCEL", "VITE", "ROLLUP"], answer: "VITE" },
@@ -418,7 +486,6 @@
             reader.readAsText(file);
         }
 
-        // Web Audio API for Cinematic Retro Sounds
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -455,8 +522,6 @@
                 osc.frequency.linearRampToValueAtTime(50, now + 0.5);
                 gainNode.gain.setValueAtTime(0.5, now);
                 gainNode.gain.linearRampToValueAtTime(0.01, now + 0.5);
-                
-                // Add distortion for error buzz
                 osc.type = 'sawtooth'; 
                 osc.start(now); osc.stop(now + 0.5);
             }
@@ -471,7 +536,7 @@
 
         function startGame() {
             if(questions.length === 0) return;
-            initAudio(); // Required due to browser autoplay policies
+            initAudio(); 
             document.getElementById('setup-screen').style.display = 'none';
             document.getElementById('game-container').style.display = 'flex';
             currentQIndex = 0; score = 0; lives = 100;
@@ -500,7 +565,7 @@
             const bomb = document.getElementById('bomb');
             bomb.classList.remove('firing');
             bomb.style.transition = 'none';
-            bomb.style.transform = 'translate(0, 0)';
+            bomb.style.transform = 'translate(0, 0) scale(1)'; /* Reset scale specifically for responsive design logic */
             bomb.style.opacity = '1';
             void bomb.offsetWidth; 
             bomb.style.transition = 'transform 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045)';
@@ -516,7 +581,6 @@
                 target.className = 'option-target';
                 target.style.animationDelay = `${index * 0.15}s`;
                 
-                // Aggressive targeting reticle
                 target.innerHTML = `
                     <svg viewBox="0 0 100 100">
                         <path d="M 10 30 L 10 10 L 30 10" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -575,7 +639,7 @@
                 document.body.appendChild(particle);
 
                 const angle = (Math.PI * 2 / numParticles) * i;
-                const distance = 150 + Math.random() * 200;
+                const distance = 100 + Math.random() * 150;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
 
@@ -593,23 +657,24 @@
             if (isShooting) return;
             isShooting = true;
 
-            initAudio(); // Ensure context is alive
+            initAudio(); 
             playSound('shoot');
 
             const bomb = document.getElementById('bomb');
             bomb.classList.add('firing');
             
+            // getBoundingClientRect ensures calculations factor in CSS scaling for responsive design
             const targetRect = targetElement.getBoundingClientRect();
-            const launcherRect = document.getElementById('launcher').getBoundingClientRect();
+            const bombRect = bomb.getBoundingClientRect();
 
-            const targetX = targetRect.left + (targetRect.width / 2);
-            const targetY = targetRect.top + (targetRect.height / 2);
+            const targetCenterX = targetRect.left + (targetRect.width / 2);
+            const targetCenterY = targetRect.top + (targetRect.height / 2);
             
-            const startX = launcherRect.left + 70; 
-            const startY = launcherRect.top;
+            const bombCenterX = bombRect.left + (bombRect.width / 2);
+            const bombCenterY = bombRect.top + (bombRect.height / 2);
 
-            const moveX = targetX - startX; 
-            const moveY = targetY - startY;
+            const moveX = targetCenterX - bombCenterX; 
+            const moveY = targetCenterY - bombCenterY;
 
             bomb.style.transform = `translate(${moveX}px, ${moveY}px) scale(0.5)`;
 
@@ -617,14 +682,14 @@
                 bomb.style.opacity = '0';
                 const colorHex = getComputedStyle(document.body).getPropertyValue(isCorrect ? '--neon-primary' : '--neon-wrong').trim();
 
-                createExplosion(targetX, targetY, colorHex);
+                createExplosion(targetCenterX, targetCenterY, colorHex);
 
                 if (isCorrect) {
                     playSound('hit');
                     triggerCinematicFlash();
                     targetElement.style.visibility = 'hidden';
                     score += 1000;
-                    spawnCombatText(targetX - 50, targetY, "CRITICAL!", colorHex);
+                    spawnCombatText(targetCenterX - 50, targetCenterY, "CRITICAL!", colorHex);
                     document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">TARGET OBLITERATED</span>`;
                     document.getElementById('next-btn').style.display = 'inline-block';
                 } else {
@@ -632,7 +697,7 @@
                     lives = Math.max(0, lives - 33);
                     document.body.classList.add('shake');
                     setTimeout(() => document.body.classList.remove('shake'), 500);
-                    spawnCombatText(targetX - 60, targetY, "DEFLECTED", colorHex);
+                    spawnCombatText(targetCenterX - 60, targetCenterY, "DEFLECTED", colorHex);
                     
                     if (lives <= 0) {
                         document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">CRITICAL FAILURE.</span>`;
