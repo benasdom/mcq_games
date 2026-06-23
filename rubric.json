@@ -1,0 +1,1862 @@
+[
+  {
+    "question": "Two annotators label the same dataset. Annotator A marks 90% of items as 'acceptable', while Annotator B marks only 60% as 'acceptable'. What is the most appropriate first step in resolving this disagreement?",
+    "options": [
+      "Average their scores and use the mean as the final label",
+      "Immediately discard both annotators' work",
+      "Review the rubric together and reconcile differences on a subset",
+      "Assign more weight to Annotator A because they are more permissive"
+    ],
+    "answer": "Review the rubric together and reconcile differences on a subset"
+  },
+  {
+    "question": "In a binary classification task (e.g., 'spam' or 'not spam'), what does a low inter-annotator agreement (e.g., Cohen's Kappa < 0.4) typically indicate?",
+    "options": [
+      "The task is too easy",
+      "The rubric is unclear or the data is ambiguous",
+      "The annotators are not trying hard enough",
+      "The dataset is too small"
+    ],
+    "answer": "The rubric is unclear or the data is ambiguous"
+  },
+  {
+    "question": "A rubric defines 'offensive content' as 'language that attacks a person or group based on identity'. An annotator flags 'I disagree with your politics' as offensive. According to the rubric, is this correct?",
+    "options": [
+      "Yes, because it expresses disagreement",
+      "No, because it does not attack based on identity",
+      "Yes, because it could be perceived as rude",
+      "No, because politics is not a protected identity"
+    ],
+    "answer": "No, because it does not attack based on identity"
+  },
+  {
+    "question": "What is the primary purpose of a 'golden set' in a data annotation project?",
+    "options": [
+      "To train annotators faster",
+      "To measure annotator accuracy and consistency over time",
+      "To replace the need for a rubric",
+      "To increase the size of the dataset"
+    ],
+    "answer": "To measure annotator accuracy and consistency over time"
+  },
+  {
+    "question": "If an annotator consistently disagrees with the majority on a set of golden questions, what should a project manager do FIRST?",
+    "options": [
+      "Fire the annotator",
+      "Check if the annotator misunderstood the rubric",
+      "Change the golden answers to match the annotator",
+      "Ignore the annotator's labels"
+    ],
+    "answer": "Check if the annotator misunderstood the rubric"
+  },
+  {
+    "question": "Which of the following is a valid reason to mark an annotation as 'unsure' rather than giving a definitive label?",
+    "options": [
+      "The annotator is tired",
+      "The rubric does not clearly cover the edge case",
+      "The annotator wants to finish faster",
+      "The data is in a foreign language"
+    ],
+    "answer": "The rubric does not clearly cover the edge case"
+  },
+  {
+    "question": "In a rubric, what is a 'decision boundary'?",
+    "options": [
+      "The line between two classes in a machine learning model",
+      "The point at which an annotator must choose between two ambiguous categories",
+      "The maximum number of labels per item",
+      "The time limit for each annotation"
+    ],
+    "answer": "The point at which an annotator must choose between two ambiguous categories"
+  },
+  {
+    "question": "Two annotators disagree on 20% of items. The project lead introduces a third annotator to break ties. What is this process called?",
+    "options": [
+      "Majority voting",
+      "Adjudication",
+      "Consensus",
+      "Normalization"
+    ],
+    "answer": "Adjudication"
+  },
+  {
+    "question": "A rubric states that 'hate speech' includes 'dehumanizing language'. An annotator sees 'animals like them' and flags it. Is this correct?",
+    "options": [
+      "Yes, because it compares humans to animals",
+      "No, because animals are not a protected group",
+      "Only if the context clearly targets a protected group",
+      "No, because it is not explicit enough"
+    ],
+    "answer": "Only if the context clearly targets a protected group"
+  },
+  {
+    "question": "What does a high degree of inter-annotator agreement (e.g., > 0.8) suggest about the rubric?",
+    "options": [
+      "It is too lenient",
+      "It is clear and well-defined",
+      "It is too strict",
+      "The data is too simple"
+    ],
+    "answer": "It is clear and well-defined"
+  },
+  {
+    "question": "In a text classification task, an annotator encounters a sentence with sarcasm. According to best practices, how should they proceed if the rubric does not mention sarcasm?",
+    "options": [
+      "Label based on literal meaning only",
+      "Label based on inferred intent",
+      "Flag the item for clarification and follow the rubric's fallback rule",
+      "Skip the item entirely"
+    ],
+    "answer": "Flag the item for clarification and follow the rubric's fallback rule"
+  },
+  {
+    "question": "What is the most common metric used to measure agreement between two annotators for categorical labels?",
+    "options": [
+      "Pearson correlation",
+      "Cohen's Kappa",
+      "F1-score",
+      "RMSE"
+    ],
+    "answer": "Cohen's Kappa"
+  },
+  {
+    "question": "A project uses a 5-point Likert scale for sentiment. Two annotators frequently give scores that differ by 2 or more points. What is the most likely cause?",
+    "options": [
+      "The annotators are lazy",
+      "The rubric does not clearly differentiate between adjacent scores",
+      "The data is all neutral",
+      "The sample size is too large"
+    ],
+    "answer": "The rubric does not clearly differentiate between adjacent scores"
+  },
+  {
+    "question": "If a rubric defines 'misinformation' as 'false information spread regardless of intent', and an annotator finds a satirical article, should they label it as misinformation?",
+    "options": [
+      "Yes, because it is false",
+      "No, because satire is not intended to deceive",
+      "Only if the article is clearly labeled as satire",
+      "It depends on the platform's policy"
+    ],
+    "answer": "No, because satire is not intended to deceive"
+  },
+  {
+    "question": "What is the purpose of a 'rubric recalibration' session?",
+    "options": [
+      "To fire underperforming annotators",
+      "To update the rubric and align annotator understanding after ambiguities arise",
+      "To reduce the number of labels per item",
+      "To switch to a different annotation tool"
+    ],
+    "answer": "To update the rubric and align annotator understanding after ambiguities arise"
+  },
+  {
+    "question": "An annotator labels 'I wish I could die' as 'self-harm risk'. The rubric defines self-harm risk as 'explicit intent to harm oneself'. Is this annotation correct?",
+    "options": [
+      "Yes, because it mentions death",
+      "No, because it lacks explicit intent",
+      "Yes, because it is a cry for help",
+      "No, because it is too vague"
+    ],
+    "answer": "No, because it lacks explicit intent"
+  },
+  {
+    "question": "In a project with multiple annotators, what is a 'disagreement analysis'?",
+    "options": [
+      "A meeting to argue about labels",
+      "A systematic review of items where annotators differ to identify rubric gaps",
+      "A way to punish annotators",
+      "A statistical test to remove outliers"
+    ],
+    "answer": "A systematic review of items where annotators differ to identify rubric gaps"
+  },
+  {
+    "question": "Which of the following is NOT a good practice when writing a rubric?",
+    "options": [
+      "Using concrete examples",
+      "Defining edge cases",
+      "Leaving room for subjective interpretation",
+      "Including a 'cannot determine' option"
+    ],
+    "answer": "Leaving room for subjective interpretation"
+  },
+  {
+    "question": "Annotator A labels 100 items in 1 hour. Annotator B labels 50 items in 1 hour. Which is more important to check?",
+    "options": [
+      "Annotator A's accuracy, as speed may compromise quality",
+      "Annotator B's accuracy, as they are slower",
+      "Both equally",
+      "Neither, speed is irrelevant"
+    ],
+    "answer": "Annotator A's accuracy, as speed may compromise quality"
+  },
+  {
+    "question": "What is a 'false positive' in a binary classification annotation task?",
+    "options": [
+      "Correctly identifying a positive case",
+      "Incorrectly labeling a negative case as positive",
+      "Incorrectly labeling a positive case as negative",
+      "Failing to label an item"
+    ],
+    "answer": "Incorrectly labeling a negative case as positive"
+  },
+  {
+    "question": "A rubric specifies that 'neutral' sentiment should be used when no strong positive or negative language is present. An annotator sees 'The movie was okay' and labels it as positive. Is this correct?",
+    "options": [
+      "Yes, because 'okay' is mildly positive",
+      "No, because 'okay' indicates neutrality under the rubric",
+      "Yes, because it is not negative",
+      "No, because it is too short"
+    ],
+    "answer": "No, because 'okay' indicates neutrality under the rubric"
+  },
+  {
+    "question": "What does the term 'ground truth' refer to in data annotation?",
+    "options": [
+      "The first annotation made on a dataset",
+      "The most common annotation",
+      "The correct label as defined by experts or gold standards",
+      "The label chosen by the fastest annotator"
+    ],
+    "answer": "The correct label as defined by experts or gold standards"
+  },
+  {
+    "question": "An annotator flags a news headline as 'misleading' because the article contradicts it. The rubric defines misleading as 'content that omits key context'. Is this correct?",
+    "options": [
+      "Yes, because contradiction implies omission",
+      "No, because the rubric requires omission of context, not just contradiction",
+      "Yes, if the headline is sensational",
+      "No, because news headlines are always misleading"
+    ],
+    "answer": "No, because the rubric requires omission of context, not just contradiction"
+  },
+  {
+    "question": "What is the role of a 'QA reviewer' in an annotation project?",
+    "options": [
+      "To annotate the most difficult items",
+      "To check a sample of annotations for quality and provide feedback",
+      "To write the rubric",
+      "To manage the annotation platform"
+    ],
+    "answer": "To check a sample of annotations for quality and provide feedback"
+  },
+  {
+    "question": "In a rubric, what is an 'edge case'?",
+    "options": [
+      "A case that is outside the scope of the project",
+      "A case that falls near the boundary between two categories",
+      "A case that is too easy to label",
+      "A case that only appears in the test set"
+    ],
+    "answer": "A case that falls near the boundary between two categories"
+  },
+  {
+    "question": "Two annotators agree on 95% of labels. The remaining 5% are all from a specific category. What should the PM investigate?",
+    "options": [
+      "Whether that category is poorly defined in the rubric",
+      "Whether those annotators are friends",
+      "Whether the other categories are too easy",
+      "Nothing, 95% is acceptable"
+    ],
+    "answer": "Whether that category is poorly defined in the rubric"
+  },
+  {
+    "question": "Which of the following best describes 'annotation drift'?",
+    "options": [
+      "Annotators intentionally changing labels",
+      "Gradual deviation from the rubric over time as annotators grow fatigued or biased",
+      "The process of moving data between tools",
+      "A type of machine learning model"
+    ],
+    "answer": "Gradual deviation from the rubric over time as annotators grow fatigued or biased"
+  },
+  {
+    "question": "A rubric says to flag 'personal attacks' only when they are directed at another user. An annotator flags a post that says 'You are an idiot' but it is directed at a public figure. Is this correct?",
+    "options": [
+      "Yes, because it is an attack",
+      "No, because it is not directed at another user in the conversation",
+      "Yes, because public figures are people too",
+      "No, because it uses mild language"
+    ],
+    "answer": "No, because it is not directed at another user in the conversation"
+  },
+  {
+    "question": "What is the main drawback of using majority voting to resolve annotation disagreements?",
+    "options": [
+      "It is too slow",
+      "It can perpetuate systematic bias if the majority is wrong",
+      "It requires an odd number of annotators",
+      "It is computationally expensive"
+    ],
+    "answer": "It can perpetuate systematic bias if the majority is wrong"
+  },
+  {
+    "question": "An annotator is labeling product reviews and sees 'The battery lasts forever'. The rubric defines 'positive' as explicit praise. Should this be positive?",
+    "options": [
+      "Yes, because it is clearly praise",
+      "No, because it is hyperbolic and may be sarcastic",
+      "Yes, unless context suggests sarcasm",
+      "No, because it lacks specificity"
+    ],
+    "answer": "Yes, unless context suggests sarcasm"
+  },
+  {
+    "question": "When should an annotator use the 'cannot determine' option in a rubric?",
+    "options": [
+      "When they are too tired to decide",
+      "When the information is insufficient to apply the rubric",
+      "When they disagree with the rubric",
+      "When they want to skip a hard item"
+    ],
+    "answer": "When the information is insufficient to apply the rubric"
+  },
+  {
+    "question": "A project uses a rubric with 10 categories. Annotators have the lowest agreement on categories 4 and 7. What does this suggest?",
+    "options": [
+      "Categories 4 and 7 are the most important",
+      "Categories 4 and 7 have overlapping or ambiguous definitions",
+      "Categories 4 and 7 are the least common",
+      "Annotators are biased against those categories"
+    ],
+    "answer": "Categories 4 and 7 have overlapping or ambiguous definitions"
+  },
+  {
+    "question": "What is a 'held-out set' in the context of annotation quality?",
+    "options": [
+      "A set of items not used in training, used to evaluate annotator performance",
+      "A set of items that are too hard to label",
+      "A set of items reserved for the client",
+      "A set of duplicate items"
+    ],
+    "answer": "A set of items not used in training, used to evaluate annotator performance"
+  },
+  {
+    "question": "An annotator labels 'I hate this product' as 'negative sentiment'. The rubric defines negative as 'explicit dissatisfaction'. Is this correct?",
+    "options": [
+      "Yes, because 'hate' expresses dissatisfaction",
+      "No, because it might be sarcastic",
+      "Only if the product is widely disliked",
+      "No, because it lacks a comparison"
+    ],
+    "answer": "Yes, because 'hate' expresses dissatisfaction"
+  },
+  {
+    "question": "Which of the following is a sign of poor rubric design?",
+    "options": [
+      "Multiple annotators asking the same clarification questions",
+      "High agreement on all categories",
+      "Fast annotation speed",
+      "Low number of edge cases"
+    ],
+    "answer": "Multiple annotators asking the same clarification questions"
+  },
+  {
+    "question": "In a video annotation task, the rubric says 'bounding boxes should tightly fit the object'. Annotator A uses loose boxes, Annotator B uses tight boxes. This is an issue of:",
+    "options": [
+      "Labeling speed",
+      "Rubric precision",
+      "Tool capability",
+      "Frame rate"
+    ],
+    "answer": "Rubric precision"
+  },
+  {
+    "question": "What is the purpose of 'blind tests' in annotation quality control?",
+    "options": [
+      "To test if annotators can work without supervision",
+      "To measure annotation accuracy without the annotator knowing they are being tested",
+      "To save time",
+      "To reduce costs"
+    ],
+    "answer": "To measure annotation accuracy without the annotator knowing they are being tested"
+  },
+  {
+    "question": "A rubric states that 'sexually explicit content' includes 'text describing sexual acts'. An annotator sees 'They made love' and flags it. Is this correct?",
+    "options": [
+      "Yes, because it describes a sexual act",
+      "No, because it is euphemistic and not explicit",
+      "Yes, if the context is romantic",
+      "No, because it is too vague"
+    ],
+    "answer": "No, because it is euphemistic and not explicit"
+  },
+  {
+    "question": "What is 'annotation consistency'?",
+    "options": [
+      "The speed at which annotations are produced",
+      "The ability of an annotator to apply the same rubric to similar items over time",
+      "The variety of labels used",
+      "The number of items annotated per day"
+    ],
+    "answer": "The ability of an annotator to apply the same rubric to similar items over time"
+  },
+  {
+    "question": "Two annotators disagree on whether an image contains a 'car'. One says yes, another says no because only a part of the car is visible. According to best practice, if the rubric does not specify partial objects, what should happen?",
+    "options": [
+      "Label as 'car' if any part is visible",
+      "Label as 'not car' unless full car is visible",
+      "Flag for rubric clarification",
+      "Use the opinion of the more experienced annotator"
+    ],
+    "answer": "Flag for rubric clarification"
+  },
+  {
+    "question": "A project manager notices that annotator accuracy on golden questions drops from 95% to 80% over a month. What is the most likely cause?",
+    "options": [
+      "The golden questions became outdated or leaked",
+      "The annotator stopped caring",
+      "The rubric was updated without retraining",
+      "The data quality improved"
+    ],
+    "answer": "The rubric was updated without retraining"
+  },
+  {
+    "question": "Which of the following is a good way to handle a disagreement between two experienced annotators?",
+    "options": [
+      "Always defer to the senior annotator",
+      "Flip a coin",
+      "Have them discuss and document the reasoning, then update the rubric if needed",
+      "Discard both annotations"
+    ],
+    "answer": "Have them discuss and document the reasoning, then update the rubric if needed"
+  },
+  {
+    "question": "In a rubric, what is a 'negative example'?",
+    "options": [
+      "A harmful annotation",
+      "An example of what should NOT be labeled a certain way",
+      "An example with negative sentiment",
+      "A test question"
+    ],
+    "answer": "An example of what should NOT be labeled a certain way"
+  },
+  {
+    "question": "An annotator flags a comment saying 'You're so smart' as 'compliment'. The rubric defines compliment as 'praise of a person's traits or actions'. Is this correct?",
+    "options": [
+      "Yes, because it praises intelligence",
+      "No, because it might be sarcastic",
+      "Only if the comment is from a verified user",
+      "No, because 'smart' is subjective"
+    ],
+    "answer": "Yes, because it praises intelligence"
+  },
+  {
+    "question": "What is 'label noise' in a dataset?",
+    "options": [
+      "Annotations that are too quiet",
+      "Incorrect or inconsistent labels that degrade model performance",
+      "Data that is not labeled",
+      "A type of audio annotation"
+    ],
+    "answer": "Incorrect or inconsistent labels that degrade model performance"
+  },
+  {
+    "question": "A rubric says to flag 'bullying' as repeated hostile behavior. An annotator flags a one-time insult. Is this correct?",
+    "options": [
+      "Yes, because insults are hostile",
+      "No, because it lacks repetition per the rubric",
+      "Yes, if the insult is severe",
+      "No, because bullying requires a power imbalance"
+    ],
+    "answer": "No, because it lacks repetition per the rubric"
+  },
+  {
+    "question": "Why is it important to have multiple annotators per item in some projects?",
+    "options": [
+      "To increase cost",
+      "To measure agreement and improve label reliability",
+      "To finish faster",
+      "To make the project look more professional"
+    ],
+    "answer": "To measure agreement and improve label reliability"
+  },
+  {
+    "question": "Which of the following is NOT a factor that affects inter-annotator agreement?",
+    "options": [
+      "Clarity of the rubric",
+      "Annotator experience",
+      "The color of the annotation interface",
+      "Data ambiguity"
+    ],
+    "answer": "The color of the annotation interface"
+  },
+  {
+    "question": "An annotator sees a tweet: 'The government is lying to us again.' The rubric defines 'misinformation' as 'false claims presented as fact'. Should this be flagged?",
+    "options": [
+      "Yes, because it accuses the government of lying",
+      "No, because it is an opinion, not a claim of fact",
+      "Yes, because it is political",
+      "No, because it is too short"
+    ],
+    "answer": "No, because it is an opinion, not a claim of fact"
+  },
+  {
+    "question": "What is a 'confusion matrix' used for in annotation quality analysis?",
+    "options": [
+      "To confuse annotators",
+      "To visualize agreement and disagreement patterns between categories",
+      "To select the best annotator",
+      "To increase dataset size"
+    ],
+    "answer": "To visualize agreement and disagreement patterns between categories"
+  },
+  {
+    "question": "A rubric includes an 'other' category. When should an annotator use it?",
+    "options": [
+      "When they are unsure but don't want to think too hard",
+      "When none of the defined categories apply",
+      "When the category is unpopular",
+      "When the text is too long"
+    ],
+    "answer": "When none of the defined categories apply"
+  },
+  {
+    "question": "Annotator A uses a 0-10 scale for toxicity. Annotator B uses only 0, 5, or 10. This is an example of:",
+    "options": [
+      "Different interpretation of the scale",
+      "A tool bug",
+      "A faster workflow",
+      "A better approach"
+    ],
+    "answer": "Different interpretation of the scale"
+  },
+  {
+    "question": "What is the best way to introduce a new rubric to a team of annotators?",
+    "options": [
+      "Email it and expect them to read it",
+      "Conduct a training session with examples and Q&A",
+      "Let them learn by doing",
+      "Only show it to senior annotators"
+    ],
+    "answer": "Conduct a training session with examples and Q&A"
+  },
+  {
+    "question": "In an image annotation task, the rubric says to annotate all visible instances of a class. An annotator misses a partially occluded instance. Is this a quality issue?",
+    "options": [
+      "Yes, if the rubric requires all visible instances regardless of occlusion",
+      "No, because occlusion makes it impossible",
+      "Only if the occluded instance is large",
+      "No, because partial objects don't count"
+    ],
+    "answer": "Yes, if the rubric requires all visible instances regardless of occlusion"
+  },
+  {
+    "question": "Which of the following is a sign of a well-defined rubric?",
+    "options": [
+      "It is short and vague",
+      "It includes clear definitions, examples, and edge-case guidance",
+      "It changes daily",
+      "It relies on annotator intuition"
+    ],
+    "answer": "It includes clear definitions, examples, and edge-case guidance"
+  },
+  {
+    "question": "An annotator sees a post: 'I'm so fat, I hate myself.' The rubric defines 'self-harm' as explicit intent to harm. Should this be flagged?",
+    "options": [
+      "Yes, because it expresses self-hate",
+      "No, because it lacks explicit intent to harm",
+      "Yes, because it mentions body image",
+      "No, because it is too common"
+    ],
+    "answer": "No, because it lacks explicit intent to harm"
+  },
+  {
+    "question": "What is the role of 'feedback loops' in annotation quality management?",
+    "options": [
+      "To continuously improve annotator performance through iterative feedback and retraining",
+      "To slow down annotation",
+      "To replace the rubric",
+      "To create more data"
+    ],
+    "answer": "To continuously improve annotator performance through iterative feedback and retraining"
+  },
+  {
+    "question": "A project uses a rubric with 5 categories. Annotator A uses category 3 for most items, Annotator B uses category 1 and 5. This suggests:",
+    "options": [
+      "Annotator A is faster",
+      "Annotator B is more accurate",
+      "The rubric may allow too much subjective interpretation",
+      "The dataset is skewed"
+    ],
+    "answer": "The rubric may allow too much subjective interpretation"
+  },
+  {
+    "question": "What is a 'false negative' in a binary annotation task?",
+    "options": [
+      "Correctly identifying a negative case",
+      "Incorrectly labeling a positive case as negative",
+      "Incorrectly labeling a negative case as positive",
+      "Skipping a label"
+    ],
+    "answer": "Incorrectly labeling a positive case as negative"
+  },
+  {
+    "question": "An annotator is unsure whether a comment is 'hate speech' or 'criticism'. The rubric says to err on the side of caution. What does this mean?",
+    "options": [
+      "Always label as hate speech",
+      "Always label as criticism",
+      "Label as hate speech if there is any reasonable doubt",
+      "Label as criticism if there is any reasonable doubt"
+    ],
+    "answer": "Label as hate speech if there is any reasonable doubt"
+  },
+  {
+    "question": "What is 'calibration' in the context of annotation teams?",
+    "options": [
+      "Adjusting monitor settings",
+      "Aligning annotators to a common interpretation of the rubric",
+      "Measuring annotation speed",
+      "Selecting the best annotator"
+    ],
+    "answer": "Aligning annotators to a common interpretation of the rubric"
+  },
+  {
+    "question": "A rubric defines 'spam' as 'irrelevant or unsolicited messages'. An annotator sees a promotional post in a discussion forum and flags it as spam. Is this correct?",
+    "options": [
+      "Yes, because it is promotional",
+      "No, because it may be relevant to the forum's topic",
+      "Yes, because it is unsolicited",
+      "No, because it is not irrelevant"
+    ],
+    "answer": "No, because it may be relevant to the forum's topic"
+  },
+  {
+    "question": "Which metric is most appropriate for measuring agreement on a nominal scale with multiple categories?",
+    "options": [
+      "Pearson correlation",
+      "Cohen's Kappa",
+      "Fleiss' Kappa",
+      "Cronbach's alpha"
+    ],
+    "answer": "Fleiss' Kappa"
+  },
+  {
+    "question": "An annotator encounters a text in a language they do not understand. What should they do?",
+    "options": [
+      "Guess the label",
+      "Skip the item",
+      "Mark as 'cannot determine' and report to the project lead",
+      "Use an online translator"
+    ],
+    "answer": "Mark as 'cannot determine' and report to the project lead"
+  },
+  {
+    "question": "What is the purpose of a 'pilot round' in a new annotation project?",
+    "options": [
+      "To test the rubric and workflow on a small subset before full-scale annotation",
+      "To finish the project quickly",
+      "To hire annotators",
+      "To select the tool"
+    ],
+    "answer": "To test the rubric and workflow on a small subset before full-scale annotation"
+  },
+  {
+    "question": "A rubric says to label 'toxic' comments that are 'rude, disrespectful, or unreasonable'. Annotator A labels 'I disagree with you' as toxic. Annotator B does not. Who is correct?",
+    "options": [
+      "Annotator A, because disagreement is disrespectful",
+      "Annotator B, because simple disagreement is not toxic per the rubric",
+      "Both, because toxicity is subjective",
+      "Neither, because the rubric is too vague"
+    ],
+    "answer": "Annotator B, because simple disagreement is not toxic per the rubric"
+  },
+  {
+    "question": "What is 'annotation fatigue' and how does it affect quality?",
+    "options": [
+      "It makes annotators faster",
+      "It leads to lower accuracy, more shortcuts, and drift over time",
+      "It improves focus",
+      "It has no effect"
+    ],
+    "answer": "It leads to lower accuracy, more shortcuts, and drift over time"
+  },
+  {
+    "question": "A project manager wants to measure the consistency of a single annotator over time. What is the best approach?",
+    "options": [
+      "Compare their labels on duplicate items or golden questions",
+      "Ask them to annotate faster",
+      "Compare them to other annotators only",
+      "Use a different rubric"
+    ],
+    "answer": "Compare their labels on duplicate items or golden questions"
+  },
+  {
+    "question": "In a sentiment analysis rubric, 'positive' is defined as 'explicitly positive language'. Annotator sees 'not bad' and labels it as positive. Is this correct?",
+    "options": [
+      "Yes, because it implies positivity",
+      "No, because it is not explicitly positive per the rubric",
+      "Yes, because double negatives are positive",
+      "No, because it is neutral"
+    ],
+    "answer": "No, because it is not explicitly positive per the rubric"
+  },
+  {
+    "question": "What is a 'consensus-based' annotation approach?",
+    "options": [
+      "Each annotator works alone",
+      "Annotators discuss and agree on a single label for each item",
+      "The fastest annotator decides",
+      "The machine decides"
+    ],
+    "answer": "Annotators discuss and agree on a single label for each item"
+  },
+  {
+    "question": "An annotator flags a comment 'This is the worst decision ever' as 'negative sentiment' but not 'toxic'. The rubric separates sentiment and toxicity. Is this correct?",
+    "options": [
+      "Yes, because it expresses negativity but is not necessarily toxic",
+      "No, because negativity is toxicity",
+      "Yes, if the decision is about a policy",
+      "No, because it uses strong language"
+    ],
+    "answer": "Yes, because it expresses negativity but is not necessarily toxic"
+  },
+  {
+    "question": "What does a low false positive rate indicate about an annotator?",
+    "options": [
+      "They are too strict",
+      "They are too lenient",
+      "They rarely label negative cases as positive",
+      "They rarely label positive cases as negative"
+    ],
+    "answer": "They rarely label negative cases as positive"
+  },
+  {
+    "question": "A rubric says to flag 'threats' only when they are directed at a specific person. Annotator flags 'I will destroy you' but it is directed at a video game character. Is this correct?",
+    "options": [
+      "Yes, because it is a threat",
+      "No, because it is not directed at a real person",
+      "Yes, if the game is competitive",
+      "No, because it is not serious"
+    ],
+    "answer": "No, because it is not directed at a real person"
+  },
+  {
+    "question": "Why is it important to document edge cases encountered during annotation?",
+    "options": [
+      "To prove annotators are working",
+      "To refine the rubric and reduce future ambiguity",
+      "To increase the word count",
+      "To share with other companies"
+    ],
+    "answer": "To refine the rubric and reduce future ambiguity"
+  },
+  {
+    "question": "Which of the following is a valid strategy to reduce inter-annotator disagreement?",
+    "options": [
+      "Allow annotators to choose their own labels",
+      "Provide more training and clearer guidelines",
+      "Reduce the number of categories",
+      "Increase annotation speed"
+    ],
+    "answer": "Provide more training and clearer guidelines"
+  },
+  {
+    "question": "An annotator sees 'The food was decent' and labels it as 'positive sentiment' because they liked it. The rubric defines positive as 'strong praise'. Is this correct?",
+    "options": [
+      "Yes, because decent is positive in some cultures",
+      "No, because decent is neutral or mild, not strong praise",
+      "Yes, if the annotator enjoyed it",
+      "No, because it uses a modifier"
+    ],
+    "answer": "No, because decent is neutral or mild, not strong praise"
+  },
+  {
+    "question": "What is the purpose of 'random sampling' in quality assurance for annotation?",
+    "options": [
+      "To reduce the dataset",
+      "To evaluate a representative subset of annotations for errors",
+      "To speed up annotation",
+      "To select the best annotators"
+    ],
+    "answer": "To evaluate a representative subset of annotations for errors"
+  },
+  {
+    "question": "A project defines 'sarcasm' as a separate category. An annotator sees 'Great job, really fantastic' and labels it as sarcasm without additional context. Is this correct?",
+    "options": [
+      "Yes, because it uses exaggerated praise",
+      "No, because sarcasm requires context beyond the text itself",
+      "Yes, if the tone is angry",
+      "No, because it is too short"
+    ],
+    "answer": "No, because sarcasm requires context beyond the text itself"
+  },
+  {
+    "question": "What is the difference between 'precision' and 'recall' in annotation quality metrics?",
+    "options": [
+      "Precision measures false positives, recall measures false negatives",
+      "Precision measures false negatives, recall measures false positives",
+      "They are the same",
+      "Precision is speed, recall is accuracy"
+    ],
+    "answer": "Precision measures false positives, recall measures false negatives"
+  },
+  {
+    "question": "An annotator is labeling political news articles. The rubric instructs to label 'bias' only when there is clear one-sided language. The annotator labels an article as biased because they disagree with it. This is:",
+    "options": [
+      "Correct, because all political news is biased",
+      "An example of personal bias affecting annotation",
+      "Acceptable if the article is from a known biased source",
+      "Not an issue, because bias is subjective"
+    ],
+    "answer": "An example of personal bias affecting annotation"
+  },
+  {
+    "question": "What is a 'tie-breaker' rule in a rubric?",
+    "options": [
+      "A rule that decides which category to choose when an item falls between two or more",
+      "A rule that ends a disagreement",
+      "A rule that removes difficult items",
+      "A rule that prioritizes speed"
+    ],
+    "answer": "A rule that decides which category to choose when an item falls between two or more"
+  },
+  {
+    "question": "In a project with 1000 items, 50 are golden questions. Annotator A gets 45 correct. Annotator B gets 40 correct. What can you conclude?",
+    "options": [
+      "Annotator A is better than B",
+      "Annotator B is faster",
+      "Annotator A may be better, but you need to check for consistency and false patterns",
+      "Both are equally good"
+    ],
+    "answer": "Annotator A may be better, but you need to check for consistency and false patterns"
+  },
+  {
+    "question": "A rubric defines 'sexual content' as 'any depiction of sexual activity'. An annotator sees a kissing scene and flags it. Is this correct?",
+    "options": [
+      "Yes, because kissing is sexual activity",
+      "No, because kissing is not sexual activity under most rubrics",
+      "Yes, if it is prolonged",
+      "No, because it is romantic"
+    ],
+    "answer": "No, because kissing is not sexual activity under most rubrics"
+  },
+  {
+    "question": "What is the benefit of using a 'pre-annotation' step where models suggest labels?",
+    "options": [
+      "It replaces annotators",
+      "It speeds up annotation and helps focus annotator attention on difficult cases",
+      "It reduces accuracy",
+      "It increases cost"
+    ],
+    "answer": "It speeds up annotation and helps focus annotator attention on difficult cases"
+  },
+  {
+    "question": "An annotator labels 'I can't believe you did that' as 'aggressive' because of the word 'can't'. The rubric defines aggressive as 'hostile or confrontational language'. Is this correct?",
+    "options": [
+      "Yes, because 'can't' is confrontational",
+      "No, because the phrase lacks explicit hostility",
+      "Yes, if it is shouted",
+      "No, because it is passive-aggressive"
+    ],
+    "answer": "No, because the phrase lacks explicit hostility"
+  },
+  {
+    "question": "What is the 'minimum agreement threshold' in a project?",
+    "options": [
+      "The minimum number of annotators required per item",
+      "The minimum level of inter-annotator agreement required for data to be accepted",
+      "The minimum speed required",
+      "The minimum rubric length"
+    ],
+    "answer": "The minimum level of inter-annotator agreement required for data to be accepted"
+  },
+  {
+    "question": "A project uses a rubric that was written by a non-expert. Annotators find many ambiguous cases. What is the best course of action?",
+    "options": [
+      "Ignore the ambiguity and guess",
+      "Use a different rubric without permission",
+      "Flag ambiguous cases and request rubric clarification from the project lead",
+      "Label everything as 'other'"
+    ],
+    "answer": "Flag ambiguous cases and request rubric clarification from the project lead"
+  },
+  {
+    "question": "Which of the following is a sign of annotator bias?",
+    "options": [
+      "Annotator consistently labels content from a specific source as negative",
+      "Annotator is very fast",
+      "Annotator asks many questions",
+      "Annotator uses all categories equally"
+    ],
+    "answer": "Annotator consistently labels content from a specific source as negative"
+  },
+  {
+    "question": "What is the 'halo effect' in annotation?",
+    "options": [
+      "A glowing review",
+      "When an annotator's positive impression of one aspect influences unrelated judgments",
+      "When an annotator is too strict",
+      "When an annotator uses the same label for everything"
+    ],
+    "answer": "When an annotator's positive impression of one aspect influences unrelated judgments"
+  },
+  {
+    "question": "A rubric says to label 'disinformation' only when there is 'intent to deceive'. Annotator finds a false claim shared by a user who appears unaware it is false. Should they label it as disinformation?",
+    "options": [
+      "Yes, because it is false",
+      "No, because intent is missing per the rubric",
+      "Yes, if the claim is harmful",
+      "No, because it is not political"
+    ],
+    "answer": "No, because intent is missing per the rubric"
+  },
+  {
+    "question": "What is the purpose of 'regular check-ins' with annotators?",
+    "options": [
+      "To monitor their work and address challenges, questions, and rubric drift early",
+      "To reduce costs",
+      "To make them work faster",
+      "To replace training"
+    ],
+    "answer": "To monitor their work and address challenges, questions, and rubric drift early"
+  },
+  {
+    "question": "An annotator is labeling medical texts. The rubric says to flag 'misinformation' only when it contradicts established medical guidelines. The annotator flags a homeopathic remedy. Is this correct?",
+    "options": [
+      "Yes, because homeopathy is not evidence-based",
+      "No, unless it explicitly contradicts established guidelines per the rubric",
+      "Yes, if it is harmful",
+      "No, because alternative medicine is allowed"
+    ],
+    "answer": "No, unless it explicitly contradicts established guidelines per the rubric"
+  },
+  {
+    "question": "What is 'inter-rater reliability'?",
+    "options": [
+      "The speed of annotation",
+      "The degree of agreement among independent annotators",
+      "The accuracy of a single annotator",
+      "The clarity of the rubric"
+    ],
+    "answer": "The degree of agreement among independent annotators"
+  },
+  {
+    "question": "A project has a rubric that is 50 pages long. Annotators report it is overwhelming. What should the PM do?",
+    "options": [
+      "Ignore complaints",
+      "Create a condensed version with key rules and examples, and provide the full rubric as reference",
+      "Fire the annotators",
+      "Make it longer"
+    ],
+    "answer": "Create a condensed version with key rules and examples, and provide the full rubric as reference"
+  },
+  {
+    "question": "An annotator sees a comment: 'Women belong in the kitchen.' The rubric defines sexism as 'language that promotes gender stereotypes or discrimination'. Should this be flagged?",
+    "options": [
+      "Yes, because it promotes a gender stereotype",
+      "No, because it is an opinion",
+      "Only if it is in a professional context",
+      "No, because it is not explicitly hateful"
+    ],
+    "answer": "Yes, because it promotes a gender stereotype"
+  },
+  {
+    "question": "What is the role of 'version control' in rubric management?",
+    "options": [
+      "To track changes to the rubric and ensure annotators use the latest version",
+      "To speed up annotation",
+      "To reduce costs",
+      "To select the best tool"
+    ],
+    "answer": "To track changes to the rubric and ensure annotators use the latest version"
+  },
+  {
+    "question": "In a project, annotators are given 2 minutes per item. They consistently finish early. What might this indicate?",
+    "options": [
+      "They are highly skilled",
+      "They may be rushing and compromising quality",
+      "The data is too easy",
+      "The rubric is too long"
+    ],
+    "answer": "They may be rushing and compromising quality"
+  },
+  {
+    "question": "A rubric defines 'explicit content' as 'visual depictions of nudity'. An annotator sees an image of a statue with nudity and flags it. Is this correct?",
+    "options": [
+      "Yes, because it depicts nudity",
+      "No, because it is art, not explicit content per most rubrics",
+      "Yes, if the statue is realistic",
+      "No, because it is not photographic"
+    ],
+    "answer": "No, because it is art, not explicit content per most rubrics"
+  },
+  {
+    "question": "What is the purpose of a 'post-annotation review'?",
+    "options": [
+      "To celebrate completion",
+      "To evaluate annotation quality, provide feedback, and improve future iterations",
+      "To delete the data",
+      "To increase project budget"
+    ],
+    "answer": "To evaluate annotation quality, provide feedback, and improve future iterations"
+  },
+  {
+    "question": "An annotator labels a post 'I love my country' as 'nationalist'. The rubric defines nationalist as 'expressing superiority of one's nation'. Is this correct?",
+    "options": [
+      "Yes, because loving one's country is nationalist",
+      "No, because it lacks superiority",
+      "Yes, if the context is political",
+      "No, because it is patriotic, not nationalist"
+    ],
+    "answer": "No, because it lacks superiority"
+  },
+  {
+    "question": "Which of the following is a common cause of low inter-annotator agreement?",
+    "options": [
+      "Clear definitions",
+      "Ambiguous data and vague rubric",
+      "Highly trained annotators",
+      "Small dataset"
+    ],
+    "answer": "Ambiguous data and vague rubric"
+  },
+  {
+    "question": "A rubric says to label 'cyberbullying' as 'repeated harassment'. An annotator sees two separate comments from the same user but on different days. Is this repetition?",
+    "options": [
+      "Yes, because they are from the same user",
+      "No, unless the comments are targeting the same victim and are hostile",
+      "Yes, because two is more than one",
+      "No, because they are on different days"
+    ],
+    "answer": "No, unless the comments are targeting the same victim and are hostile"
+  },
+  {
+    "question": "What is the ideal frequency for recalibrating annotators on a long-term project?",
+    "options": [
+      "Only once at the start",
+      "Every week or bi-weekly, depending on drift and complexity",
+      "Every day",
+      "Never, if they are experienced"
+    ],
+    "answer": "Every week or bi-weekly, depending on drift and complexity"
+  },
+  {
+    "question": "An annotator sees an article that says 'Vaccines cause autism' and flags it as 'misinformation'. The rubric defines misinformation as 'false health claims'. Is this correct?",
+    "options": [
+      "Yes, because it is a false health claim",
+      "No, because it is a theory",
+      "Only if the article is not peer-reviewed",
+      "No, because it is an opinion"
+    ],
+    "answer": "Yes, because it is a false health claim"
+  },
+  {
+    "question": "What is a 'quality score' for an annotator typically based on?",
+    "options": [
+      "Speed only",
+      "Accuracy on golden questions, consistency, and adherence to the rubric",
+      "Years of experience",
+      "Number of annotations completed"
+    ],
+    "answer": "Accuracy on golden questions, consistency, and adherence to the rubric"
+  },
+  {
+    "question": "A rubric has a category 'not applicable'. When should an annotator use it?",
+    "options": [
+      "When they don't want to label an item",
+      "When the content does not fall into any defined category or is out of scope",
+      "When they are unsure",
+      "When the item is too long"
+    ],
+    "answer": "When the content does not fall into any defined category or is out of scope"
+  },
+  {
+    "question": "Annotator A consistently labels neutral statements as positive. Annotator B labels them as neutral. This is likely due to:",
+    "options": [
+      "A difference in rubric interpretation or personal bias",
+      "A difference in speed",
+      "A tool error",
+      "A difference in education"
+    ],
+    "answer": "A difference in rubric interpretation or personal bias"
+  },
+  {
+    "question": "What is the benefit of using a 'double-blind' annotation process?",
+    "options": [
+      "Annotators don't see each other's labels, reducing bias and influence",
+      "It is faster",
+      "It costs less",
+      "It requires fewer annotators"
+    ],
+    "answer": "Annotators don't see each other's labels, reducing bias and influence"
+  },
+  {
+    "question": "A project lead receives a complaint that the rubric is 'too rigid'. What is a valid response?",
+    "options": [
+      "Change the rubric to be more flexible",
+      "Explain that rigidity ensures consistency, but consider adding a 'notes' field for exceptions",
+      "Ignore the complaint",
+      "Fire the complainer"
+    ],
+    "answer": "Explain that rigidity ensures consistency, but consider adding a 'notes' field for exceptions"
+  },
+  {
+    "question": "An annotator labels a political meme as 'misinformation' because it is exaggerated. The rubric defines misinformation as 'false facts'. Is this correct?",
+    "options": [
+      "Yes, because memes are always misinformation",
+      "No, unless it presents a verifiable false fact as true",
+      "Yes, if it is political",
+      "No, because memes are satire"
+    ],
+    "answer": "No, unless it presents a verifiable false fact as true"
+  },
+  {
+    "question": "What is the role of 'annotator feedback' in rubric improvement?",
+    "options": [
+      "To complain",
+      "To identify areas of confusion and suggest clarifications",
+      "To increase pay",
+      "To slow down the project"
+    ],
+    "answer": "To identify areas of confusion and suggest clarifications"
+  },
+  {
+    "question": "A project uses a rubric with 3 categories: 'positive', 'negative', 'neutral'. Annotator A has 90% 'neutral' labels, Annotator B has 40%. What does this suggest?",
+    "options": [
+      "The dataset is mostly neutral",
+      "Annotator A may be using 'neutral' as a default, potentially missing nuance",
+      "Annotator B is more positive",
+      "Annotator A is more experienced"
+    ],
+    "answer": "Annotator A may be using 'neutral' as a default, potentially missing nuance"
+  },
+  {
+    "question": "In an image annotation project, what is a 'bounding box'?",
+    "options": [
+      "A rectangular box used to outline objects of interest",
+      "A circular selection tool",
+      "A text label",
+      "A type of image filter"
+    ],
+    "answer": "A rectangular box used to outline objects of interest"
+  },
+  {
+    "question": "Which of the following is the best practice for annotating ambiguous data?",
+    "options": [
+      "Guess quickly",
+      "Apply the most common label",
+      "Flag it for review and apply the rubric's fallback rule",
+      "Skip it"
+    ],
+    "answer": "Flag it for review and apply the rubric's fallback rule"
+  },
+  {
+    "question": "What is 'label drift' in the context of annotation?",
+    "options": [
+      "Labels physically moving on screen",
+      "Gradual change in how annotators apply labels over time, often due to rubric updates or fatigue",
+      "Labels being deleted",
+      "Labels being swapped"
+    ],
+    "answer": "Gradual change in how annotators apply labels over time, often due to rubric updates or fatigue"
+  },
+  {
+    "question": "An annotator labels a product review 'This phone is garbage' as 'negative sentiment'. The rubric defines negative as 'explicitly unfavorable'. Is this correct?",
+    "options": [
+      "Yes, because 'garbage' is explicitly unfavorable",
+      "No, because it is informal",
+      "Only if the reviewer owned the product",
+      "No, because it might be sarcastic"
+    ],
+    "answer": "Yes, because 'garbage' is explicitly unfavorable"
+  },
+  {
+    "question": "A project manager wants to reduce annotation time without losing quality. What is a valid approach?",
+    "options": [
+      "Reduce the number of categories",
+      "Provide pre-annotation suggestions from a model",
+      "Increase annotator pay",
+      "Use a smaller dataset"
+    ],
+    "answer": "Provide pre-annotation suggestions from a model"
+  },
+  {
+    "question": "What is the difference between 'annotation' and 'labeling'?",
+    "options": [
+      "They are the same",
+      "Annotation is broader and includes bounding boxes, segmentation, etc.; labeling is assigning a category",
+      "Labeling is harder",
+      "Annotation is only for images"
+    ],
+    "answer": "Annotation is broader and includes bounding boxes, segmentation, etc.; labeling is assigning a category"
+  },
+  {
+    "question": "A rubric says to flag 'adult content' for nudity or explicit acts. Annotator sees a breastfeeding photo and flags it. Is this correct?",
+    "options": [
+      "Yes, because it shows nudity",
+      "No, because breastfeeding is not adult content per most rubrics",
+      "Yes, if the photo is close-up",
+      "No, because it is natural"
+    ],
+    "answer": "No, because breastfeeding is not adult content per most rubrics"
+  },
+  {
+    "question": "Which of the following is an example of a 'task-specific' rubric?",
+    "options": [
+      "A rubric for sentiment analysis of product reviews",
+      "A general grammar guide",
+      "A style guide for writing",
+      "A dictionary"
+    ],
+    "answer": "A rubric for sentiment analysis of product reviews"
+  },
+  {
+    "question": "An annotator labels a tweet 'The weather is terrible' as 'negative sentiment'. The rubric defines negative as 'expression of dissatisfaction'. Is this correct?",
+    "options": [
+      "Yes, because it expresses dissatisfaction with weather",
+      "No, because it is a fact",
+      "Only if the weather is actually bad",
+      "No, because it is too trivial"
+    ],
+    "answer": "Yes, because it expresses dissatisfaction with weather"
+  },
+  {
+    "question": "What is the purpose of a 'validation set' in annotation projects?",
+    "options": [
+      "To train the model",
+      "To evaluate annotation quality and agreement before releasing the full dataset",
+      "To store backup data",
+      "To confuse annotators"
+    ],
+    "answer": "To evaluate annotation quality and agreement before releasing the full dataset"
+  },
+  {
+    "question": "A project uses a rubric that is updated weekly. Annotators are not informed of all changes. What is the likely outcome?",
+    "options": [
+      "Improved accuracy",
+      "Increased inconsistency and lower agreement",
+      "Faster work",
+      "No effect"
+    ],
+    "answer": "Increased inconsistency and lower agreement"
+  },
+  {
+    "question": "An annotator sees a comment 'You're a genius' and labels it as 'sarcasm' because they think the context is negative. The rubric requires explicit cues for sarcasm. Is this correct?",
+    "options": [
+      "Yes, because tone matters",
+      "No, because the rubric requires explicit cues, which are absent",
+      "Yes, if the user is known to be sarcastic",
+      "No, because it is a compliment"
+    ],
+    "answer": "No, because the rubric requires explicit cues, which are absent"
+  },
+  {
+    "question": "What is 'quality assurance (QA)' in the context of data annotation?",
+    "options": [
+      "The process of ensuring annotations meet project standards through review and feedback",
+      "The process of hiring annotators",
+      "The process of writing rubrics",
+      "The process of labeling data"
+    ],
+    "answer": "The process of ensuring annotations meet project standards through review and feedback"
+  },
+  {
+    "question": "A rubric defines 'harmful content' as 'content that incites violence'. An annotator flags a post saying 'We should protest peacefully'. Is this correct?",
+    "options": [
+      "Yes, because protest incites violence",
+      "No, because it explicitly says peaceful",
+      "Yes, if the protest is against the government",
+      "No, because it is not harmful"
+    ],
+    "answer": "No, because it explicitly says peaceful"
+  },
+  {
+    "question": "What is the primary goal of a data annotation project?",
+    "options": [
+      "To produce high-quality labeled data that enables effective machine learning models",
+      "To employ as many people as possible",
+      "To collect as much raw data as possible",
+      "To test annotation tools"
+    ],
+    "answer": "To produce high-quality labeled data that enables effective machine learning models"
+  },
+  {
+    "question": "An annotator is given a rubric that says 'annotate all instances of cars in images'. They see a toy car. Should they annotate it?",
+    "options": [
+      "Yes, because it is a car",
+      "No, because it is a toy, not a real car, per most rubrics",
+      "Only if the toy is life-sized",
+      "Yes, if it is in a parking lot"
+    ],
+    "answer": "No, because it is a toy, not a real car, per most rubrics"
+  },
+  {
+    "question": "Which of the following is NOT a typical category in a sentiment analysis rubric?",
+    "options": [
+      "Positive",
+      "Negative",
+      "Neutral",
+      "Spam"
+    ],
+    "answer": "Spam"
+  },
+  {
+    "question": "A project uses a rubric where the 'cannot determine' label is used 30% of the time. This might indicate:",
+    "options": [
+      "The annotators are lazy",
+      "The rubric is too vague or the data is too ambiguous",
+      "The dataset is too small",
+      "The annotators are too strict"
+    ],
+    "answer": "The rubric is too vague or the data is too ambiguous"
+  },
+  {
+    "question": "An annotator labels a news headline as 'clickbait' because it uses exaggerated language. The rubric defines clickbait as 'sensationalized headlines that mislead'. Is this correct?",
+    "options": [
+      "Yes, because it is sensationalized",
+      "No, unless it actively misleads about the content",
+      "Yes, if it is from a tabloid",
+      "No, because exaggeration is not misdirection"
+    ],
+    "answer": "No, unless it actively misleads about the content"
+  },
+  {
+    "question": "What is the role of a 'project manager' in annotation?",
+    "options": [
+      "To do all the labeling",
+      "To oversee the project, manage annotators, ensure quality, and communicate with stakeholders",
+      "To write code",
+      "To market the product"
+    ],
+    "answer": "To oversee the project, manage annotators, ensure quality, and communicate with stakeholders"
+  },
+  {
+    "question": "A rubric defines 'fake news' as 'intentionally fabricated stories'. An annotator finds an article with factual errors but no evidence of intent. Should they flag it?",
+    "options": [
+      "Yes, because it contains errors",
+      "No, because intent is missing per the rubric",
+      "Yes, if the errors are significant",
+      "No, because it is news"
+    ],
+    "answer": "No, because intent is missing per the rubric"
+  },
+  {
+    "question": "What is the best way to handle personal bias in annotation?",
+    "options": [
+      "Ignore it",
+      "Acknowledge it, use rubrics to minimize it, and review annotations regularly",
+      "Allow it to guide labels",
+      "Fire biased annotators"
+    ],
+    "answer": "Acknowledge it, use rubrics to minimize it, and review annotations regularly"
+  },
+  {
+    "question": "An annotator sees an image of a person wearing a mask and labels it as 'face mask'. The rubric says to label only if the mask covers the nose and mouth. It does. Is this correct?",
+    "options": [
+      "Yes, because it meets the criteria",
+      "No, because the mask might be a fashion accessory",
+      "Yes, if the person is in a hospital",
+      "No, because it is not a surgical mask"
+    ],
+    "answer": "Yes, because it meets the criteria"
+  },
+  {
+    "question": "What is 'ontological classification' in annotation?",
+    "options": [
+      "A type of image annotation",
+      "Categorizing entities based on a hierarchical or relational framework",
+      "A rubric style",
+      "A tool"
+    ],
+    "answer": "Categorizing entities based on a hierarchical or relational framework"
+  },
+  {
+    "question": "A project has a rubric with a 'skip' option. When is it appropriate to use skip?",
+    "options": [
+      "When the item is difficult",
+      "Only when the item is clearly out of scope or violates policy",
+      "When the annotator is tired",
+      "When the item is too long"
+    ],
+    "answer": "Only when the item is clearly out of scope or violates policy"
+  },
+  {
+    "question": "An annotator labels a comment 'That's a very smart move' as 'positive sentiment'. The rubric defines positive as 'explicit praise'. Is this correct?",
+    "options": [
+      "Yes, because it explicitly praises a move",
+      "No, because it might be sarcastic",
+      "Only if the move was indeed smart",
+      "No, because it is a statement, not an opinion"
+    ],
+    "answer": "Yes, because it explicitly praises a move"
+  },
+  {
+    "question": "What is the difference between 'accuracy' and 'agreement' in annotation quality?",
+    "options": [
+      "Accuracy is correctness vs ground truth; agreement is consistency among annotators",
+      "They are the same",
+      "Accuracy is speed; agreement is quality",
+      "Agreement is more important"
+    ],
+    "answer": "Accuracy is correctness vs ground truth; agreement is consistency among annotators"
+  },
+  {
+    "question": "A rubric states that 'profanity' is allowed if not directed at a person. An annotator flags 'This is a s***ty situation' as profanity. Is this correct?",
+    "options": [
+      "Yes, because it contains profanity",
+      "No, because it is not directed at a person",
+      "Yes, if the context is angry",
+      "No, because it is self-expression"
+    ],
+    "answer": "No, because it is not directed at a person"
+  },
+  {
+    "question": "What is the main advantage of using a cloud-based annotation platform?",
+    "options": [
+      "It is slower",
+      "It allows distributed teams, real-time collaboration, and centralised quality monitoring",
+      "It is more expensive",
+      "It requires less training"
+    ],
+    "answer": "It allows distributed teams, real-time collaboration, and centralised quality monitoring"
+  },
+  {
+    "question": "An annotator sees a video of a car accident and labels it as 'violent content'. The rubric defines violent content as 'intentional harm'. Is this correct?",
+    "options": [
+      "Yes, because accidents are violent",
+      "No, because it lacks intentional harm per the rubric",
+      "Yes, if someone is injured",
+      "No, because it is news"
+    ],
+    "answer": "No, because it lacks intentional harm per the rubric"
+  },
+  {
+    "question": "Which of the following is a common challenge in text annotation?",
+    "options": [
+      "Handling sarcasm, context dependency, and ambiguous language",
+      "Lack of text data",
+      "Too many categories",
+      "Slow typing speed"
+    ],
+    "answer": "Handling sarcasm, context dependency, and ambiguous language"
+  },
+  {
+    "question": "A project uses a rubric that was developed based on a different dataset. What is a potential risk?",
+    "options": [
+      "The rubric may not fit the new data, leading to low agreement and poor quality",
+      "It will work perfectly",
+      "It will make annotation faster",
+      "It will reduce the need for training"
+    ],
+    "answer": "The rubric may not fit the new data, leading to low agreement and poor quality"
+  },
+  {
+    "question": "An annotator labels a social media post 'I think we should ban all immigrants' as 'hate speech'. The rubric defines hate speech as 'promoting discrimination'. Is this correct?",
+    "options": [
+      "Yes, because it promotes discrimination against immigrants",
+      "No, because it is a political opinion",
+      "Only if it is from a public figure",
+      "No, because it says 'think'"
+    ],
+    "answer": "Yes, because it promotes discrimination against immigrants"
+  },
+  {
+    "question": "What is the purpose of 'randomized ordering' of items in an annotation queue?",
+    "options": [
+      "To confuse annotators",
+      "To reduce bias from sequential patterns and fatigue",
+      "To make the project longer",
+      "To test the tool"
+    ],
+    "answer": "To reduce bias from sequential patterns and fatigue"
+  },
+  {
+    "question": "A rubric says to label 'financial advice' only when it explicitly recommends buying or selling. Annotator sees 'Gold is a safe investment' and labels it as advice. Is this correct?",
+    "options": [
+      "Yes, because it recommends gold",
+      "No, because it does not explicitly recommend buying or selling per the rubric",
+      "Yes, if it is from a bank",
+      "No, because it is a statement"
+    ],
+    "answer": "No, because it does not explicitly recommend buying or selling per the rubric"
+  },
+  {
+    "question": "What is the best way to measure the effectiveness of a rubric revision?",
+    "options": [
+      "Check if annotators are happier",
+      "Compare inter-annotator agreement and accuracy before and after the revision",
+      "Ask the project manager",
+      "Count the number of pages"
+    ],
+    "answer": "Compare inter-annotator agreement and accuracy before and after the revision"
+  },
+  {
+    "question": "An annotator sees a meme with a cartoon character and text 'Me after finals'. The rubric says to label sentiment based on text. The text is neutral. Is the sentiment neutral?",
+    "options": [
+      "Yes, because the rubric says to base it on text, not visuals",
+      "No, because the visual context matters",
+      "Yes, if the cartoon is funny",
+      "No, because memes are always positive"
+    ],
+    "answer": "Yes, because the rubric says to base it on text, not visuals"
+  },
+  {
+    "question": "What is 'annotation throughput'?",
+    "options": [
+      "The number of annotations completed per hour or day",
+      "The quality of annotations",
+      "The cost per annotation",
+      "The number of tools used"
+    ],
+    "answer": "The number of annotations completed per hour or day"
+  },
+  {
+    "question": "A rubric defines 'misgendering' as 'using incorrect pronouns for a person'. Annotator sees a post that refers to a known public figure as 'he' but the figure uses 'they'. Should it be flagged?",
+    "options": [
+      "Yes, because it is misgendering",
+      "No, unless it is intentional and targeted",
+      "Only if the figure has publicly stated pronouns",
+      "No, because it is common"
+    ],
+    "answer": "Yes, because it is misgendering"
+  },
+  {
+    "question": "Which of the following is a sign that an annotator is not following the rubric?",
+    "options": [
+      "They ask questions",
+      "Their labels are consistently different from the majority on clear cases",
+      "They are fast",
+      "They take breaks"
+    ],
+    "answer": "Their labels are consistently different from the majority on clear cases"
+  },
+  {
+    "question": "What is a 'semantic boundary' in text annotation?",
+    "options": [
+      "The edge of a document",
+      "The line between categories based on meaning, which can be ambiguous",
+      "A type of punctuation",
+      "A paragraph break"
+    ],
+    "answer": "The line between categories based on meaning, which can be ambiguous"
+  },
+  {
+    "question": "Annotator A labels 100 items and has 95% agreement on golden set. Annotator B labels 500 items and has 85% agreement. Who is more reliable?",
+    "options": [
+      "Annotator A, because they are more accurate",
+      "Annotator B, because they have more data",
+      "It depends on the difficulty of the golden set and consistency; generally A is more reliable but B may need more training",
+      "They are equally reliable"
+    ],
+    "answer": "It depends on the difficulty of the golden set and consistency; generally A is more reliable but B may need more training"
+  },
+  {
+    "question": "A rubric says to label 'propaganda' as 'biased information promoted by an organization'. Annotator sees a campaign ad and labels it as propaganda. Is this correct?",
+    "options": [
+      "Yes, because it is biased and promoted",
+      "No, because propaganda requires deception",
+      "Only if the ad is from a government",
+      "No, because campaign ads are not propaganda"
+    ],
+    "answer": "Yes, because it is biased and promoted"
+  },
+  {
+    "question": "What is the main reason for using a 'tiered' annotation approach (e.g., junior and senior annotators)?",
+    "options": [
+      "To reduce cost",
+      "To allocate easier tasks to junior annotators and complex ones to seniors, with QA oversight",
+      "To create hierarchy",
+      "To reduce training"
+    ],
+    "answer": "To allocate easier tasks to junior annotators and complex ones to seniors, with QA oversight"
+  },
+  {
+    "question": "An annotator sees a headline 'Aliens have landed in Nevada' and labels it as 'misinformation' because it is absurd. The rubric defines misinformation as 'false facts presented as news'. Is this correct?",
+    "options": [
+      "Yes, because it is false and presented as news",
+      "No, because it is clearly satire",
+      "Only if the source is credible",
+      "No, because aliens are not real"
+    ],
+    "answer": "No, because it is clearly satire"
+  },
+  {
+    "question": "What is the role of 'documentation' in an annotation project?",
+    "options": [
+      "To create paperwork",
+      "To record rubrics, decisions, edge cases, and changes for transparency and reproducibility",
+      "To increase cost",
+      "To slow down the project"
+    ],
+    "answer": "To record rubrics, decisions, edge cases, and changes for transparency and reproducibility"
+  },
+  {
+    "question": "A project uses a rubric with a 'severe' and 'mild' category for each label. Annotators often disagree on severity. What is a potential solution?",
+    "options": [
+      "Remove the severity distinction",
+      "Provide more examples and clear thresholds for severity levels",
+      "Combine them into one category",
+      "Ignore severity"
+    ],
+    "answer": "Provide more examples and clear thresholds for severity levels"
+  },
+  {
+    "question": "An annotator labels a post 'I'm so angry I could scream' as 'anger' emotion. The rubric defines anger as 'explicit expression of rage'. Is this correct?",
+    "options": [
+      "Yes, because it explicitly expresses anger",
+      "No, because it is hyperbolic",
+      "Only if the poster is known to be angry",
+      "No, because it is a statement"
+    ],
+    "answer": "Yes, because it explicitly expresses anger"
+  },
+  {
+    "question": "What is the difference between 'qualitative' and 'quantitative' annotation quality metrics?",
+    "options": [
+      "Qualitative is subjective feedback; quantitative is numerical (e.g., agreement, accuracy)",
+      "They are the same",
+      "Qualitative is faster",
+      "Quantitative is less important"
+    ],
+    "answer": "Qualitative is subjective feedback; quantitative is numerical (e.g., agreement, accuracy)"
+  },
+  {
+    "question": "A rubric defines 'spam' as 'mass-produced irrelevant content'. Annotator sees a single promotional comment. Is it spam?",
+    "options": [
+      "Yes, because it is promotional",
+      "No, because it is not mass-produced per the rubric",
+      "Yes, if it is irrelevant",
+      "No, because it is a single comment"
+    ],
+    "answer": "No, because it is not mass-produced per the rubric"
+  },
+  {
+    "question": "What is the purpose of a 'final review' before releasing an annotated dataset?",
+    "options": [
+      "To check for overall quality, consistency, and compliance with the rubric",
+      "To delete unnecessary data",
+      "To reduce size",
+      "To add more annotations"
+    ],
+    "answer": "To check for overall quality, consistency, and compliance with the rubric"
+  },
+  {
+    "question": "An annotator sees a comment 'Your work is subpar' and labels it as 'negative feedback'. The rubric defines negative feedback as 'criticism of work product'. Is this correct?",
+    "options": [
+      "Yes, because it criticizes work",
+      "No, because it is not constructive",
+      "Only if it is from a supervisor",
+      "No, because it is subjective"
+    ],
+    "answer": "Yes, because it criticizes work"
+  },
+  {
+    "question": "What is a common cause of 'label inflation' where annotators use extreme categories too often?",
+    "options": [
+      "A rubric that lacks a neutral or moderate category",
+      "Too much training",
+      "Too many examples",
+      "A small dataset"
+    ],
+    "answer": "A rubric that lacks a neutral or moderate category"
+  },
+  {
+    "question": "A project lead wants to compare the performance of two different rubrics on the same dataset. What is the best approach?",
+    "options": [
+      "Use both rubrics on different subsets and compare agreement",
+      "Ask annotators which they prefer",
+      "Use the simpler one",
+      "Use the longer one"
+    ],
+    "answer": "Use both rubrics on different subsets and compare agreement"
+  },
+  {
+    "question": "An annotator labels a statement 'The earth is flat' as 'misinformation'. The rubric defines misinformation as 'false claims'. Is this correct?",
+    "options": [
+      "Yes, because it is a false claim",
+      "No, because it is a belief",
+      "Only if the statement is in a scientific context",
+      "No, because it is not harmful"
+    ],
+    "answer": "Yes, because it is a false claim"
+  },
+  {
+    "question": "What is the 'novelty effect' in annotation?",
+    "options": [
+      "Annotators are more careful at the start of a project and may lose precision over time",
+      "Annotators are faster at the start",
+      "Annotators are more creative at the start",
+      "It has no effect"
+    ],
+    "answer": "Annotators are more careful at the start of a project and may lose precision over time"
+  },
+  {
+    "question": "A rubric says to label 'emojis' as part of sentiment if they convey emotion. Annotator sees a 😊 and labels as positive. Is this correct?",
+    "options": [
+      "Yes, because it conveys positive emotion",
+      "No, unless accompanied by text",
+      "Only if the emoji is from the sender",
+      "No, because emojis are not text"
+    ],
+    "answer": "Yes, because it conveys positive emotion"
+  },
+  {
+    "question": "What is the role of a 'senior annotator' or 'lead annotator'?",
+    "options": [
+      "To do all the work",
+      "To train new annotators, answer questions, and provide QA feedback",
+      "To write the rubric alone",
+      "To manage the budget"
+    ],
+    "answer": "To train new annotators, answer questions, and provide QA feedback"
+  },
+  {
+    "question": "An annotator sees an article with a headline 'Breaking: Major earthquake strikes' but the article is from a satirical site. Should they label it as misinformation?",
+    "options": [
+      "Yes, because it is false",
+      "No, because it is satire and clearly marked",
+      "Only if the earthquake actually happened",
+      "No, because it is news"
+    ],
+    "answer": "No, because it is satire and clearly marked"
+  },
+  {
+    "question": "Which of the following is a key component of a good rubric?",
+    "options": [
+      "Vague definitions to allow flexibility",
+      "Clear, measurable criteria and examples",
+      "Long paragraphs",
+      "No examples"
+    ],
+    "answer": "Clear, measurable criteria and examples"
+  },
+  {
+    "question": "An annotator labels a product review 'The service was okay, but could be better' as 'neutral'. The rubric defines neutral as 'mixed or indifferent'. Is this correct?",
+    "options": [
+      "Yes, because it contains both okay and could be better",
+      "No, because 'could be better' is negative",
+      "Only if the reviewer is neutral overall",
+      "No, because it is positive"
+    ],
+    "answer": "Yes, because it contains both okay and could be better"
+  },
+  {
+    "question": "What is the purpose of a 'style guide' in annotation?",
+    "options": [
+      "To dictate font and formatting",
+      "To ensure consistency in how annotations are recorded, including conventions and edge-case handling",
+      "To make the project look professional",
+      "To increase cost"
+    ],
+    "answer": "To ensure consistency in how annotations are recorded, including conventions and edge-case handling"
+  },
+  {
+    "question": "A project lead notices that agreement is high on straightforward items but low on subjective ones. What should they do?",
+    "options": [
+      "Remove subjective items",
+      "Add more subjective items",
+      "Provide more guidance and examples for subjective categories in the rubric",
+      "Ignore the disagreement"
+    ],
+    "answer": "Provide more guidance and examples for subjective categories in the rubric"
+  },
+  {
+    "question": "An annotator labels a comment 'You're a moron' as 'personal attack'. The rubric defines personal attack as 'insult directed at a person'. Is this correct?",
+    "options": [
+      "Yes, because it is an insult directed at a person",
+      "No, because it is mild",
+      "Only if the person is present",
+      "No, because it is not threatening"
+    ],
+    "answer": "Yes, because it is an insult directed at a person"
+  },
+  {
+    "question": "What is a 'data annotation pipeline'?",
+    "options": [
+      "A sequence of steps from raw data to labeled data, including preprocessing, annotation, QA, and delivery",
+      "A type of software",
+      "A physical pipe for data",
+      "A training program"
+    ],
+    "answer": "A sequence of steps from raw data to labeled data, including preprocessing, annotation, QA, and delivery"
+  },
+  {
+    "question": "An annotator is working on a dataset of user comments. They encounter a comment in all caps: 'THIS IS THE BEST THING EVER'. The rubric instructs to ignore formatting. Should they label it as positive?",
+    "options": [
+      "Yes, because the content is positive regardless of formatting",
+      "No, because all caps is aggressive",
+      "Only if the comment is from a verified user",
+      "No, because it is too loud"
+    ],
+    "answer": "Yes, because the content is positive regardless of formatting"
+  },
+  {
+    "question": "What is the main challenge of annotating streaming data (e.g., real-time tweets)?",
+    "options": [
+      "Data is too small",
+      "Data arrives fast, requires rapid annotation, and may lack context",
+      "Data is too clean",
+      "There is no challenge"
+    ],
+    "answer": "Data arrives fast, requires rapid annotation, and may lack context"
+  },
+  {
+    "question": "A rubric defines 'satire' as 'humor that mocks'. Annotator sees a post mocking a politician and labels it as satire. Is this correct?",
+    "options": [
+      "Yes, because it mocks",
+      "No, because it is political",
+      "Only if it is clearly humorous",
+      "No, because it is offensive"
+    ],
+    "answer": "Yes, because it mocks"
+  },
+  {
+    "question": "What is 'active learning' in the context of annotation?",
+    "options": [
+      "Annotators learning on the job",
+      "A machine learning approach where the model identifies uncertain items for annotators to prioritize",
+      "A training method",
+      "A rubric style"
+    ],
+    "answer": "A machine learning approach where the model identifies uncertain items for annotators to prioritize"
+  },
+  {
+    "question": "An annotator labels a news article as 'biased' because it only quotes one side. The rubric defines bias as 'lack of balance'. Is this correct?",
+    "options": [
+      "Yes, because lack of balance is bias",
+      "No, because bias requires intentional distortion",
+      "Only if the article is opinion",
+      "No, because quoting one side can be legitimate"
+    ],
+    "answer": "Yes, because lack of balance is bias"
+  },
+  {
+    "question": "Which of the following is a benefit of using a 'multi-class' over a 'binary' classification rubric?",
+    "options": [
+      "It is simpler",
+      "It captures more nuance and allows finer distinctions",
+      "It is faster",
+      "It requires less training"
+    ],
+    "answer": "It captures more nuance and allows finer distinctions"
+  },
+  {
+    "question": "An annotator sees a post 'I can't stand this weather' and labels it as 'negative sentiment'. The rubric defines negative as 'expression of dislike'. Is this correct?",
+    "options": [
+      "Yes, because it expresses dislike",
+      "No, because it is about weather",
+      "Only if the weather is actually bad",
+      "No, because it is a statement"
+    ],
+    "answer": "Yes, because it expresses dislike"
+  },
+  {
+    "question": "What is the final step in an annotation project before data delivery?",
+    "options": [
+      "Rubric writing",
+      "Final QA, reconciliation, and preparing documentation",
+      "Annotation",
+      "Hiring annotators"
+    ],
+    "answer": "Final QA, reconciliation, and preparing documentation"
+  },
+  {
+    "question": "A rubric defines 'medical advice' as 'recommendations for treatment'. Annotator sees 'Take vitamin C for colds' and labels it as medical advice. Is this correct?",
+    "options": [
+      "Yes, because it recommends a treatment",
+      "No, because vitamins are supplements",
+      "Only if it is from a doctor",
+      "No, because it is general knowledge"
+    ],
+    "answer": "Yes, because it recommends a treatment"
+  }
+]
