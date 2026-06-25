@@ -187,18 +187,123 @@
 
   .opt-label-svg { width: clamp(110px, 18vw, 170px); }
 
+  /* HTML option label — replaces SVG text so long text wraps */
+  .opt-label-html {
+    position: relative;
+    width: clamp(120px, 20vw, 190px);
+    min-height: 42px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 3px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.6rem, 1.4vw, 0.78rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    word-break: break-word;
+    transition: max-height 0.25s ease, box-shadow 0.25s;
+    max-height: 90px;
+    overflow: hidden;
+  }
+
+  /* on hover: expand to show full text, allow scroll if very long */
+  .opt-wrap:hover .opt-label-html {
+    max-height: 260px;
+    overflow-y: auto;
+    box-shadow: 0 0 18px currentColor;
+    z-index: 200;
+  }
+  .opt-wrap:hover .opt-label-html::-webkit-scrollbar { width: 3px; }
+  .opt-wrap:hover .opt-label-html::-webkit-scrollbar-thumb { background: currentColor; border-radius: 2px; }
+
+  /* corner marks for opt label using outline + pseudo */
+  .opt-label-html::before,
+  .opt-label-html::after {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    border-color: currentColor;
+    border-style: solid;
+  }
+  .opt-label-html::before {
+    top: 0; left: 0;
+    border-width: 2px 0 0 2px;
+  }
+  .opt-label-html::after {
+    bottom: 0; right: 0;
+    border-width: 0 2px 2px 0;
+  }
+
   /* QUESTION AREA */
   #question-area {
     position: fixed; bottom: 0; left: 0; right: 0;
     z-index: 70;
     display: flex; flex-direction: column; align-items: center;
     gap: 10px;
-    padding-bottom: 12px;
-    background: linear-gradient(to top, rgba(2,2,10,.98) 60%, transparent);
+    padding: 0 0 14px;
+    background: linear-gradient(to top, rgba(2,2,10,.98) 55%, transparent);
     pointer-events: all;
   }
 
-  #q-svg { width: min(900px, 96vw); }
+  /* Scrollable question box wrapper */
+  #q-box-wrap {
+    width: min(900px, 96vw);
+    position: relative;
+  }
+
+  #q-box {
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1.5px solid rgba(0,255,255,0.35);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.82);
+    padding: 14px 20px 24px;
+    box-sizing: border-box;
+    box-shadow: 0 0 18px rgba(0,255,255,0.1) inset, 0 0 30px rgba(0,255,255,0.06);
+    scrollbar-width: thin;
+    scrollbar-color: #00FFFF transparent;
+  }
+  #q-box::-webkit-scrollbar { width: 4px; }
+  #q-box::-webkit-scrollbar-thumb { background: #00FFFF; border-radius: 2px; }
+  #q-box::-webkit-scrollbar-track { background: transparent; }
+
+  /* corner SVG marks absolutely positioned over the box */
+  #q-corners {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 2;
+    width: 100%; height: 100%;
+    overflow: visible;
+  }
+
+  /* scroll-fade hint at bottom */
+  #q-box-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 4px;
+    height: 26px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    pointer-events: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 3;
+  }
+
+  #q-text {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    font-weight: 700;
+    color: #00FFFF;
+    letter-spacing: 1.5px;
+    line-height: 1.65;
+    text-shadow: 0 0 10px rgba(0,255,255,0.55);
+    word-break: break-word;
+    white-space: pre-wrap;
+    user-select: text;
+    -webkit-user-select: text;
+  }
 
   #next-btn-wrap {
     display: none;
@@ -530,25 +635,20 @@
 
   <!-- QUESTION AREA -->
   <div id="question-area" style="z-index:80">
-    <svg id="q-svg" viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="q-glow">
-          <feGaussianBlur stdDeviation="3" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <!-- question box -->
-      <rect x="2" y="2" width="896" height="76" rx="4" fill="rgba(0,0,0,0.75)" stroke="rgba(0,255,255,0.3)" stroke-width="1.5"/>
-      <line x1="2" y1="2" x2="22" y2="2" stroke="#00FFFF" stroke-width="2.5"/>
-      <line x1="2" y1="2" x2="2" y2="16" stroke="#00FFFF" stroke-width="2.5"/>
-      <line x1="898" y1="78" x2="878" y2="78" stroke="#00FFFF" stroke-width="2.5"/>
-      <line x1="898" y1="78" x2="898" y2="64" stroke="#00FFFF" stroke-width="2.5"/>
-      <text id="q-text" x="450" y="48" text-anchor="middle" dominant-baseline="middle"
-            font-family="'Orbitron',monospace" font-size="16" font-weight="700"
-            fill="#00FFFF" filter="url(#q-glow)" letter-spacing="2">
-        AWAITING DATABANK...
-      </text>
-    </svg>
+    <div id="q-box-wrap">
+      <div id="q-box">
+        <div id="q-text">AWAITING DATABANK...</div>
+      </div>
+      <!-- SVG corner marks overlay -->
+      <svg id="q-corners" viewBox="0 0 900 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#00FFFF" stroke-width="2.5" fill="none">
+          <path d="M4,4 L4,20 M4,4 L20,4"/>
+          <path d="M896,4 L896,20 M896,4 L880,4"/>
+          <path d="M4,146 L4,130 M4,146 L20,146"/>
+          <path d="M896,146 L896,130 M896,146 L880,146"/>
+        </g>
+      </svg>
+    </div>
     <div id="next-btn-wrap">
       <div class="btn" onclick="nextQuestion()" style="color:var(--magenta);width:280px">
         <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
@@ -849,7 +949,10 @@ function renderBanksList() {
     const del = document.createElement('button');
     del.className = 'bank-del';
     del.textContent = '✕';
-    del.onclick = (e) => { e.stopPropagation(); deleteBank(bank.name); };
+    del.onclick = (e) => {
+      e.stopPropagation();
+      if (confirm(`Delete "${bank.name}"?`)) { deleteBank(bank.name); }
+    };
 
     wrap.appendChild(btn);
     wrap.appendChild(del);
@@ -1040,37 +1143,34 @@ function loadQuestion() {
       <circle cx="50" cy="50" r="4" fill="#fff" opacity=".9"/>
     </svg>`;
 
-    // label SVG
-    const labelSvg = buildLabelSVG(opt, i);
+    // label HTML
+    const labelEl = buildLabelHTML(opt, i);
 
-    wrap.innerHTML = tgt + labelSvg;
+    wrap.innerHTML = tgt;
+    wrap.appendChild(labelEl);
     wrap.onclick = () => shoot(wrap, opt === q.answer);
     area.appendChild(wrap);
   });
 }
 
-function buildLabelSVG(text, idx) {
+function buildLabelHTML(text, idx) {
   const colors = ['#00FFFF','#FF00FF','#FFB300','#00FF88'];
   const c = colors[idx % 4];
-  const escaped = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  return `<svg class="opt-label-svg" viewBox="0 0 170 42" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="2" width="166" height="38" rx="3" fill="rgba(0,0,0,0.8)" stroke="${c}" stroke-width="1.5"/>
-    <line x1="2" y1="2" x2="10" y2="2" stroke="${c}" stroke-width="2.5"/>
-    <line x1="2" y1="2" x2="2" y2="10" stroke="${c}" stroke-width="2.5"/>
-    <line x1="168" y1="40" x2="160" y2="40" stroke="${c}" stroke-width="2.5"/>
-    <line x1="168" y1="40" x2="168" y2="32" stroke="${c}" stroke-width="2.5"/>
-    <text x="85" y="22" text-anchor="middle" dominant-baseline="middle"
-          font-family="'Orbitron',monospace" font-size="10" font-weight="700"
-          fill="${c}" letter-spacing="2" style="text-shadow:0 0 8px ${c}">${escaped}</text>
-  </svg>`;
+  const div = document.createElement('div');
+  div.className = 'opt-label-html';
+  div.style.color = c;
+  div.style.borderColor = c;
+  div.style.border = `1.5px solid ${c}`;
+  div.textContent = text;
+  return div;
 }
 
 function setQText(txt) {
   const el = document.getElementById('q-text');
-  // truncate for display
-  const max = 70;
-  const display = txt.length > max ? txt.substring(0,max)+'…' : txt;
-  el.textContent = display;
+  el.textContent = txt;
+  // scroll back to top for new questions
+  const box = document.getElementById('q-box');
+  if (box) box.scrollTop = 0;
 }
 
 // ─────────────────────────────────────────────
