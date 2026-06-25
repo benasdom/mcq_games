@@ -1,719 +1,1250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Neon MCQ Arcade: Cinematic Edition</title>
-    <style>
-        :root {
-            --bg-color: #050508;
-            --text-color: #ffffff;
-            --neon-primary: #0ff;
-            --neon-secondary: #ff00ea;
-            --neon-wrong: #ff003c;
-            --neon-glow: drop-shadow(0 0 8px var(--neon-primary)) drop-shadow(0 0 15px var(--neon-primary));
-            --font-main: 'Courier New', Courier, monospace;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ARCADE OVERDRIVE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap');
 
-        body.light-mode {
-            --bg-color: #e0e5ec;
-            --text-color: #1a1a2e;
-            --neon-primary: #0056b3;
-            --neon-secondary: #8a2be2;
-            --neon-wrong: #d90429;
-            --neon-glow: drop-shadow(0 0 5px var(--neon-primary));
-        }
+  :root {
+    --void:    #02020A;
+    --cyan:    #00FFFF;
+    --magenta: #FF00FF;
+    --amber:   #FFB300;
+    --red:     #FF003C;
+    --green:   #00FF88;
+    --panel:   rgba(0,255,255,0.04);
+    --font-display: 'Orbitron', monospace;
+    --font-mono:    'Share Tech Mono', monospace;
+  }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            overflow: hidden;
-            transition: background-color 0.3s, color 0.3s;
-            touch-action: none; /* Prevent scroll on mobile */
-        }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-        /* Cinematic Overlays */
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-            background-size: 100% 4px;
-            z-index: 1000;
-            pointer-events: none;
-        }
+  body {
+    background: var(--void);
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    overflow: hidden;
+    height: 100vh; width: 100vw;
+    user-select: none;
+  }
 
-        #flash-overlay {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: #fff; z-index: 9999; pointer-events: none; opacity: 0;
-            mix-blend-mode: overlay;
-        }
+  /* ── SCANLINE OVERLAY ── */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.18) 4px);
+    pointer-events: none; z-index: 9000;
+  }
 
-        @keyframes cinematicFlash {
-            0% { opacity: 0.8; }
-            100% { opacity: 0; }
-        }
-        .flash { animation: cinematicFlash 0.4s ease-out forwards; }
+  /* ── FLASH ── */
+  #flash {
+    position: fixed; inset: 0;
+    background: #fff; opacity: 0;
+    pointer-events: none; z-index: 8999;
+    mix-blend-mode: overlay;
+  }
+  @keyframes flash { 0%{opacity:.7} 100%{opacity:0} }
+  .flashing { animation: flash .35s ease-out forwards !important; }
 
-        /* 3D Synthwave Grid Floor */
-        #cyber-grid {
-            position: absolute;
-            bottom: 0; left: 0; width: 100vw; height: 50vh;
-            background: 
-                linear-gradient(transparent 60%, rgba(0, 255, 255, 0.4) 100%),
-                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0,255,255,0.2) 20px),
-                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,255,255,0.2) 40px);
-            transform: perspective(600px) rotateX(70deg);
-            transform-origin: bottom center;
-            animation: gridMove 3s linear infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
+  /* ── SHAKE ── */
+  @keyframes shake {
+    0%,100%{ transform:translate(0,0) }
+    20%{ transform:translate(-18px,10px) rotate(-2deg) }
+    40%{ transform:translate(18px,-14px) rotate(2deg) }
+    60%{ transform:translate(-10px,18px) rotate(-1deg) }
+    80%{ transform:translate(10px,-10px) rotate(1deg) }
+  }
+  .shaking { animation: shake .45s ease both !important; }
 
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 20px; }
-        }
+  /* ── SCREENS ── */
+  .screen {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 100;
+    background: var(--void);
+    transition: opacity .4s;
+  }
+  .screen.hidden { opacity:0; pointer-events:none; }
 
-        #game-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, #000 90%);
-        }
+  /* ── SETUP SCREEN ── */
+  #setup-screen {
+    gap: 20px;
+    padding: 20px;
+  }
 
-        /* Screen Shake for Damage */
-        @keyframes damageShake {
-            0% { transform: translate(0, 0) rotate(0deg); filter: hue-rotate(0deg); }
-            20% { transform: translate(-25px, 15px) rotate(-3deg); filter: hue-rotate(90deg) brightness(1.5); }
-            40% { transform: translate(25px, -20px) rotate(3deg); filter: hue-rotate(-90deg) brightness(0.5); }
-            60% { transform: translate(-15px, 25px) rotate(-2deg); filter: hue-rotate(45deg) brightness(1.5); }
-            80% { transform: translate(15px, -15px) rotate(2deg); filter: hue-rotate(-45deg) brightness(0.5); }
-            100% { transform: translate(0, 0) rotate(0deg); filter: hue-rotate(0deg); }
-        }
-        .shake { animation: damageShake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+  .title-svg-wrap { width: min(600px, 95vw); }
 
-        /* HUD */
-        #hud {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 40px;
-            font-size: 2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            z-index: 10;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.1);
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-        }
+  .setup-actions {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    width: min(480px, 92vw);
+  }
 
-        .neon-text {
-            color: var(--neon-primary);
-            text-shadow: 0 0 5px var(--neon-primary), 0 0 20px var(--neon-primary);
-        }
+  /* neon button */
+  .btn {
+    font-family: var(--font-display);
+    font-size: clamp(.7rem, 2.2vw, 1.1rem);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    background: none;
+    color: var(--cyan);
+    width: 100%;
+    padding: 0;
+    position: relative;
+  }
+  .btn svg { width:100%; display:block; overflow:visible; }
+  .btn .btn-text {
+    pointer-events: none;
+    position: absolute;
+    inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: clamp(.65rem, 2vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px currentColor;
+  }
+  .btn:hover .btn-rect { stroke-width: 3; filter: drop-shadow(0 0 12px currentColor); }
+  .btn:hover .btn-text { color: #fff; }
+  .btn:active { transform: scale(.97); }
 
-        /* Options Area */
-        #options-area {
-            flex-grow: 1;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 0 10vw;
-            gap: 20px;
-            position: relative;
-            z-index: 5;
-        }
+  /* saved banks list */
+  #banks-list {
+    display: flex; flex-direction: column; gap: 8px;
+    width: 100%; max-height: 200px; overflow-y: auto;
+  }
+  #banks-list::-webkit-scrollbar { width: 4px; }
+  #banks-list::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
 
-        @keyframes warpIn {
-            0% { transform: scale(0) translateY(-100px); opacity: 0; filter: blur(10px); }
-            60% { transform: scale(1.1) translateY(20px); opacity: 1; filter: blur(0px); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
+  .bank-entry {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .bank-entry .btn { flex: 1; }
+  .bank-del {
+    font-family: var(--font-mono); font-size: 1rem;
+    background: none; border: 1px solid var(--red);
+    color: var(--red); cursor: pointer; padding: 4px 10px;
+    border-radius: 2px; flex-shrink: 0;
+    text-shadow: 0 0 6px var(--red);
+  }
+  .bank-del:hover { background: var(--red); color: #000; }
 
-        .option-target {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            animation: warpIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
-        }
+  /* ── GAME SCREEN ── */
+  #game-screen {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    z-index: 50;
+    pointer-events: none;
+  }
+  #game-screen.active { pointer-events: all; }
 
-        .option-target svg {
-            width: 120px;
-            height: 120px;
-            filter: var(--neon-glow);
-            color: var(--neon-primary);
-            transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
-        }
+  /* SVG background that fills the whole screen */
+  #bg-svg {
+    position: fixed; inset: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+  }
 
-        .option-target:hover svg, .option-target:active svg {
-            transform: scale(1.2) rotate(45deg);
-            color: var(--neon-secondary);
-            filter: drop-shadow(0 0 25px var(--neon-secondary));
-        }
+  /* HUD */
+  #hud-svg {
+    position: fixed; top: 0; left: 0;
+    width: 100%; z-index: 60;
+    pointer-events: none;
+  }
 
-        .option-text {
-            margin-top: 15px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            pointer-events: none;
-            text-align: center;
-            max-width: 200px;
-            background: rgba(0,0,0,0.8);
-            padding: 8px 15px;
-            border: 1px solid var(--neon-primary);
-            border-radius: 2px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2) inset;
-        }
+  /* OPTIONS AREA */
+  #options-area {
+    position: fixed;
+    top: 90px; left: 0; right: 0;
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    padding: 10px 5vw;
+    z-index: 70;
+    pointer-events: all;
+  }
 
-        /* Question Area */
-        #question-area {
-            min-height: 250px;
-            background: linear-gradient(to top, #000, rgba(0,0,0,0));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-bottom: 30px;
-            z-index: 20; /* Keep above grid */
-            position: relative;
-        }
+  .opt-wrap {
+    cursor: pointer;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px;
+    animation: warpIn .5s cubic-bezier(.175,.885,.32,1.275) backwards;
+  }
+  @keyframes warpIn {
+    0%{ transform: scale(0) translateY(-60px); opacity:0; filter:blur(8px); }
+    70%{ transform: scale(1.1) translateY(8px); opacity:1; filter:blur(0); }
+    100%{ transform: scale(1) translateY(0); opacity:1; }
+  }
+  .opt-wrap:hover .opt-svg { filter: drop-shadow(0 0 20px var(--magenta)); }
+  .opt-wrap:hover .opt-svg .ring { stroke: var(--magenta); }
+  .opt-wrap:hover .opt-svg .core { fill: var(--magenta); }
+  .opt-wrap:active { transform: scale(.95); }
 
-        #question-text {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 0px #000, 0 0 10px var(--neon-primary);
-            max-width: 90%;
-        }
+  .opt-svg { width: clamp(70px, 12vw, 110px); height: clamp(70px, 12vw, 110px); overflow: visible; }
+  .opt-svg .ring { stroke: var(--cyan); fill: none; stroke-width: 2; transition: stroke .25s; }
+  .opt-svg .core { fill: var(--cyan); transition: fill .25s; }
 
-        /* Launcher Container */
-        #launcher {
-            position: absolute;
-            bottom: 220px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 15;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            margin-bottom: -200px;
-            width: 140px;
-            height: 150px;
-            transform-origin: bottom center;
-        }
+  .opt-label-svg { width: clamp(110px, 18vw, 170px); }
 
-        /* Projectile with Trail */
-        #bomb {
-            width: 70px;
-            height: 70px;
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            margin-left: -35px;
-            transition: transform 0.35s cubic-bezier(0.5, 0, 1, 1);
-            filter: drop-shadow(0 0 15px var(--neon-secondary)) drop-shadow(0 0 30px var(--neon-secondary));
-            z-index: 12;
-        }
+  /* QUESTION AREA */
+  #question-area {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 70;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    background: linear-gradient(to top, rgba(2,2,10,.98) 60%, transparent);
+    pointer-events: all;
+  }
 
-        #bomb.firing {
-            filter: drop-shadow(0 20px 20px var(--neon-secondary)) drop-shadow(0 40px 10px var(--neon-secondary));
-        }
+  #q-svg { width: min(900px, 96vw); }
 
-        /* Cinematic Turret Base */
-        #turret-base {
-            width: 160px;
-            height: 120px;
-            position: absolute;
-            bottom: -10px;
-            z-index: 11;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.9));
-        }
+  #next-btn-wrap {
+    display: none;
+  }
+  #next-btn-wrap .btn { width: 280px; }
 
-        /* Floating Arcade Text */
-        .combat-text {
-            position: absolute;
-            font-size: 3rem;
-            font-weight: bold;
-            pointer-events: none;
-            z-index: 50;
-            text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
-            animation: floatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
+  /* COMBAT FLOAT */
+  .combat-float {
+    position: fixed;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    pointer-events: none;
+    z-index: 500;
+    text-shadow: 0 0 20px currentColor;
+    animation: floatUp 1.1s ease-out forwards;
+  }
+  @keyframes floatUp {
+    0%  { transform: translateY(0) scale(.6); opacity:0; }
+    20% { transform: translateY(-20px) scale(1.4); opacity:1; }
+    100%{ transform: translateY(-90px) scale(1); opacity:0; }
+  }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            20% { transform: translateY(-30px) scale(1.5); opacity: 1; }
-            100% { transform: translateY(-100px) scale(1); opacity: 0; }
-        }
+  /* OVERLAY PANELS (checkpoint, extra life, game over) */
+  .panel-overlay {
+    position: fixed; inset: 0;
+    background: rgba(2,2,10,.88);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 200;
+    gap: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .panel-overlay.hidden { display: none; }
+  .panel-svg-wrap { width: min(520px, 90vw); }
 
-        /* Setup Screen */
-        #setup-screen {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #020202;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+  /* LIVES ICONS row */
+  #lives-icons {
+    display: flex; gap: 6px; align-items: center;
+  }
 
-        #setup-screen h1 {
-            font-size: 5rem; 
-            margin-bottom: 0; 
-            letter-spacing: 5px;
-        }
+  /* scrollbar hide for banks */
+  #banks-list { scrollbar-width: thin; scrollbar-color: var(--cyan) transparent; }
 
-        #setup-screen h2 {
-            color: var(--neon-secondary); 
-            margin-top: 0; 
-            font-size: 2rem; 
-            text-shadow: 0 0 15px var(--neon-secondary); 
-            letter-spacing: 8px;
-        }
-
-        button {
-            background: rgba(0, 255, 255, 0.05);
-            color: var(--neon-primary);
-            border: 2px solid var(--neon-primary);
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin: 15px;
-            text-transform: uppercase;
-            font-family: var(--font-main);
-            font-weight: bold;
-            letter-spacing: 3px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1), inset 0 0 15px rgba(0, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            max-width: 90vw;
-        }
-
-        button::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
-            transition: all 0.5s;
-        }
-
-        button:hover, button:active {
-            background: var(--neon-primary);
-            color: #000;
-            box-shadow: 0 0 30px var(--neon-primary);
-            transform: scale(1.05);
-        }
-
-        button:hover::before, button:active::before { left: 100%; }
-
-        #controls { position: absolute; top: 15px; right: 15px; z-index: 200; }
-        #controls button { padding: 8px 15px; font-size: 1rem; margin: 0; }
-
-        /* =========================================
-           RESPONSIVE DESIGN (MOBILE & TABLETS)
-           ========================================= */
-        
-        @media (max-width: 768px) {
-            #setup-screen h1 { font-size: 3rem; letter-spacing: 2px; }
-            #setup-screen h2 { font-size: 1.2rem; letter-spacing: 4px; }
-            
-            button { font-size: 1rem; padding: 12px 20px; margin: 10px; }
-            
-            #hud { font-size: 1.2rem; padding: 15px 20px; }
-            
-            #options-area { padding: 0 5vw; gap: 10px; align-items: flex-start; }
-            
-            .option-target svg { width: 70px; height: 70px; }
-            .option-text { font-size: 0.9rem; max-width: 120px; padding: 6px 10px; margin-top: 10px; }
-            
-            #question-area { min-height: auto; padding: 20px 10px; margin-bottom: 20px; }
-            #question-text { font-size: 1.4rem; }
-            
-            .combat-text { font-size: 2rem; }
-            
-            #launcher { bottom: 180px; transform: translateX(-50%) scale(0.7); }
-        }
-
-        @media (max-width: 480px) {
-            #hud { font-size: 1rem; padding: 10px 15px; }
-            .option-target svg { width: 60px; height: 60px; }
-            .option-text { font-size: 0.8rem; padding: 4px 8px; }
-            #question-text { font-size: 1.2rem; }
-            #launcher { bottom: 150px; transform: translateX(-50%) scale(0.6); }
-            #controls button { font-size: 0.8rem; padding: 6px 10px; }
-        }
-
-        /* Adjustments for short screens (landscape mobile) */
-        @media (max-height: 600px) {
-            #cyber-grid { height: 40vh; }
-            #options-area { padding: 0 5vw; }
-            #launcher { bottom: 130px; transform: translateX(-50%) scale(0.5); }
-            #question-area { padding-bottom: 10px; }
-            #question-text { font-size: 1.2rem; margin-bottom: 10px; }
-        }
-    </style>
+  @media (max-width: 480px) {
+    #options-area { gap: 10px; padding: 8px 3vw; }
+  }
+  @media (max-height: 620px) {
+    #options-area { top: 72px; }
+  }
+</style>
 </head>
 <body>
 
-    <div id="flash-overlay"></div>
+<div id="flash"></div>
 
-    <div id="controls">
-        <button onclick="toggleTheme()">SYS.THEME</button>
+<!-- ═══════════════════ SETUP SCREEN ═══════════════════ -->
+<div id="setup-screen" class="screen">
+
+  <!-- Animated title SVG -->
+  <div class="title-svg-wrap">
+    <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glow-c">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-m">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00FFFF"/>
+          <stop offset="50%" stop-color="#FF00FF"/>
+          <stop offset="100%" stop-color="#00FFFF">
+            <animate attributeName="offset" values="1;0;1" dur="4s" repeatCount="indefinite"/>
+          </stop>
+        </linearGradient>
+      </defs>
+      <!-- grid lines -->
+      <line x1="0" y1="125" x2="600" y2="125" stroke="#00FFFF" stroke-width=".5" opacity=".4"/>
+      <line x1="0" y1="5"   x2="600" y2="5"   stroke="#00FFFF" stroke-width=".5" opacity=".4"/>
+      <!-- main title -->
+      <text x="300" y="78" text-anchor="middle"
+            font-family="'Orbitron',monospace" font-size="68" font-weight="900"
+            fill="url(#title-grad)" filter="url(#glow-m)" letter-spacing="6">
+        ARCADE
+      </text>
+      <!-- subtitle -->
+      <text x="300" y="118" text-anchor="middle"
+            font-family="'Orbitron',monospace" font-size="22" font-weight="700"
+            fill="#FF00FF" filter="url(#glow-c)" letter-spacing="18" opacity=".9">
+        OVERDRIVE
+      </text>
+      <!-- corner marks -->
+      <g stroke="#00FFFF" stroke-width="2" fill="none" opacity=".6">
+        <path d="M8,8 L8,22 M8,8 L22,8"/>
+        <path d="M592,8 L592,22 M592,8 L578,8"/>
+        <path d="M8,122 L8,108 M8,122 L22,122"/>
+        <path d="M592,122 L592,108 M592,122 L578,122"/>
+      </g>
+      <!-- animated scan line -->
+      <rect x="0" y="0" width="600" height="3" fill="#FF00FF" opacity=".25">
+        <animate attributeName="y" values="0;130;0" dur="3s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+
+  <div class="setup-actions">
+    <!-- upload -->
+    <input type="file" id="file-input" accept=".json" style="display:none" multiple onchange="handleUpload(event)">
+    <div class="btn" onclick="document.getElementById('file-input').click()" style="color:var(--magenta)">
+      <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="396" height="50" rx="3" fill="rgba(255,0,255,0.06)" stroke="currentColor" stroke-width="2"/>
+        <line x1="2" y1="2" x2="12" y2="2" stroke="currentColor" stroke-width="3"/>
+        <line x1="2" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="388" y2="52" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="398" y2="42" stroke="currentColor" stroke-width="3"/>
+      </svg>
+      <div class="btn-text" style="color:var(--magenta)">[ UPLOAD DATABANK ]</div>
     </div>
 
-    <!-- Setup Screen -->
-    <div id="setup-screen">
-        <h1 class="neon-text">ARCADE</h1>
-        <h2>OVERDRIVE</h2>
-        
-        <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="handleFileUpload(event)">
-        <button onclick="document.getElementById('fileInput').click()">[ UPLOAD DATABANK ]</button>
-        <button onclick="useDefaultQuestions()">>> INITIALIZE CORE <<</button>
+    <!-- saved banks -->
+    <div id="banks-list"></div>
+
+    <!-- default -->
+    <div class="btn" onclick="useDefault()">
+      <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="396" height="50" rx="3" fill="rgba(0,255,255,0.05)" stroke="currentColor" stroke-width="2"/>
+        <line x1="2" y1="2" x2="12" y2="2" stroke="currentColor" stroke-width="3"/>
+        <line x1="2" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="388" y2="52" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="398" y2="42" stroke="currentColor" stroke-width="3"/>
+      </svg>
+      <div class="btn-text">&gt;&gt; INITIALIZE CORE &lt;&lt;</div>
     </div>
+  </div>
+</div>
 
-    <!-- Main Game UI -->
-    <div id="game-container" style="display: none;">
-        <div id="cyber-grid"></div>
+<!-- ═══════════════════ GAME SCREEN ═══════════════════ -->
+<div id="game-screen">
 
-        <div id="hud">
-            <div>SCORE <span id="score" class="neon-text">0000</span></div>
-            <div><br>SHIELDS <span id="lives" style="color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary);">100%</span></div>
-        </div>
+  <!-- FULL-PAGE SVG BACKGROUND -->
+  <svg id="bg-svg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bg-grad" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#0A0A1A"/>
+        <stop offset="100%" stop-color="#02020A"/>
+      </radialGradient>
+      <pattern id="hex-grid" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+        <path d="M30,1 L59,17 L59,35 L30,51 L1,35 L1,17 Z" fill="none" stroke="rgba(0,255,255,0.06)" stroke-width="1"/>
+      </pattern>
+      <linearGradient id="floor-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="transparent"/>
+        <stop offset="100%" stop-color="rgba(0,255,255,0.25)"/>
+      </linearGradient>
+      <filter id="glow2">
+        <feGaussianBlur stdDeviation="4" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
 
-        <div id="options-area"></div>
+    <!-- Base fill -->
+    <rect width="1000" height="700" fill="url(#bg-grad)"/>
+    <!-- Hex grid -->
+    <rect width="1000" height="700" fill="url(#hex-grid)"/>
 
-        <div id="launcher">
-            <svg id="bomb" viewBox="0 0 100 100">
-                <defs>
-                    <radialGradient id="plasmaCore" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#ffffff" />
-                        <stop offset="40%" stop-color="var(--neon-secondary)" />
-                        <stop offset="100%" stop-color="transparent" />
-                    </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="22" fill="url(#plasmaCore)">
-                    <animate attributeName="r" values="20;28;20" dur="0.6s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.8;1;0.8" dur="0.6s" repeatCount="indefinite"/>
-                </circle>
-                <ellipse cx="50" cy="50" rx="42" ry="10" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8">
-                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.5s" repeatCount="indefinite" />
-                </ellipse>
-                <ellipse cx="50" cy="50" rx="10" ry="42" fill="none" stroke="var(--neon-secondary)" stroke-width="2.5" opacity="0.9">
-                    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="1s" repeatCount="indefinite" />
-                </ellipse>
-            </svg>
+    <!-- Perspective floor grid -->
+    <g transform="translate(500,700) rotate(-90) scale(1)">
+      <!-- horizontal lines with perspective illusion -->
+      <g stroke="rgba(0,255,255,0.18)" stroke-width="1" fill="none">
+        <line x1="-500" y1="30"  x2="500" y2="30"/>
+        <line x1="-500" y1="90"  x2="500" y2="90"/>
+        <line x1="-500" y1="170" x2="500" y2="170"/>
+        <line x1="-500" y1="270" x2="500" y2="270"/>
+        <line x1="-500" y1="400" x2="500" y2="400"/>
+      </g>
+      <!-- vertical convergence lines -->
+      <g stroke="rgba(255,0,255,0.12)" stroke-width="1" fill="none">
+        <line x1="0"    y1="0" x2="-80" y2="400"/>
+        <line x1="0"    y1="0" x2="-200" y2="400"/>
+        <line x1="0"    y1="0" x2="-350" y2="400"/>
+        <line x1="0"    y1="0" x2="80"  y2="400"/>
+        <line x1="0"    y1="0" x2="200" y2="400"/>
+        <line x1="0"    y1="0" x2="350" y2="400"/>
+      </g>
+    </g>
 
-            <svg id="turret-base" viewBox="0 0 200 150">
-                <defs>
-                    <linearGradient id="metalCasing" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#2a2a35" />
-                        <stop offset="50%" stop-color="#111118" />
-                        <stop offset="100%" stop-color="#050508" />
-                    </linearGradient>
-                    <linearGradient id="railGlow" x1="0%" y1="100%" x2="0%" y2="0%">
-                        <stop offset="0%" stop-color="var(--neon-primary)" />
-                        <stop offset="100%" stop-color="transparent" />
-                    </linearGradient>
-                </defs>
-                <!-- Rails -->
-                <path d="M 55 10 L 75 80 L 85 80 L 65 10 Z" fill="url(#railGlow)" opacity="0.9">
-                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
-                </path>
-                <path d="M 145 10 L 125 80 L 115 80 L 135 10 Z" fill="url(#railGlow)" opacity="0.9">
-                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
-                </path>
-                <!-- Base -->
-                <path d="M 15 140 L 45 70 L 155 70 L 185 140 Z" fill="url(#metalCasing)" stroke="var(--neon-primary)" stroke-width="4" stroke-linejoin="round" />
-                <polygon points="55,140 75,85 125,85 145,140" fill="#000" stroke="var(--neon-secondary)" stroke-width="2"/>
-                <!-- Accents -->
-                <line x1="40" y1="110" x2="65" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="160" y1="110" x2="135" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
-                <ellipse cx="100" cy="80" rx="40" ry="15" fill="none" stroke="var(--neon-secondary)" stroke-width="2">
-                    <animate attributeName="stroke-width" values="1;5;1" dur="0.8s" repeatCount="indefinite"/>
-                </ellipse>
-                <ellipse cx="100" cy="80" rx="25" ry="8" fill="var(--neon-secondary)" opacity="0.6" filter="blur(4px)">
-                    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="0.8s" repeatCount="indefinite"/>
-                </ellipse>
-            </svg>
-        </div>
+    <!-- Decorative circuit traces left -->
+    <g stroke="rgba(0,255,255,0.2)" stroke-width="1.5" fill="none">
+      <path d="M0,200 L60,200 L60,160 L120,160 L120,200 L180,200"/>
+      <circle cx="60"  cy="200" r="3" fill="rgba(0,255,255,0.4)"/>
+      <circle cx="120" cy="200" r="3" fill="rgba(0,255,255,0.4)"/>
+      <path d="M0,280 L40,280 L40,320 L100,320">
+        <animate attributeName="stroke-dashoffset" values="0;-140" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M0,350 L80,350 L80,300 L160,300"/>
+    </g>
 
-        <div id="question-area">
-            <div id="question-text">AWAITING DATABANK...</div>
-            <button id="next-btn" style="display: none; border-color: var(--neon-secondary); color: var(--neon-secondary);" onclick="nextQuestion()">>> NEXT STAGE <<</button>
-        </div>
+    <!-- Decorative circuit traces right -->
+    <g stroke="rgba(255,0,255,0.2)" stroke-width="1.5" fill="none">
+      <path d="M1000,200 L940,200 L940,160 L880,160 L880,200 L820,200"/>
+      <circle cx="940" cy="200" r="3" fill="rgba(255,0,255,0.4)"/>
+      <circle cx="880" cy="200" r="3" fill="rgba(255,0,255,0.4)"/>
+      <path d="M1000,300 L920,300 L920,340 L860,340">
+        <animate attributeName="stroke-dashoffset" values="0;-140" dur="2.5s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- Sun / horizon glow -->
+    <ellipse cx="500" cy="700" rx="300" ry="80" fill="none" stroke="#FF00FF" stroke-width="2" opacity=".5"/>
+    <ellipse cx="500" cy="700" rx="240" ry="55" fill="none" stroke="#FF00FF" stroke-width="1.5" opacity=".4"/>
+    <ellipse cx="500" cy="700" rx="180" ry="35" fill="none" stroke="#00FFFF" stroke-width="1" opacity=".4"/>
+    <ellipse cx="500" cy="700" rx="500" ry="120" fill="url(#floor-grad)" opacity=".15"/>
+
+    <!-- Animated scan line on bg -->
+    <rect x="0" y="0" width="1000" height="2" fill="#00FFFF" opacity=".08">
+      <animate attributeName="y" values="0;700;0" dur="5s" repeatCount="indefinite"/>
+    </rect>
+  </svg>
+
+  <!-- HUD SVG -->
+  <svg id="hud-svg" viewBox="0 0 1000 90" xmlns="http://www.w3.org/2000/svg" style="height:90px">
+    <defs>
+      <linearGradient id="hud-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%"   stop-color="rgba(2,2,10,.95)"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </linearGradient>
+      <filter id="hud-glow">
+        <feGaussianBlur stdDeviation="3" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect width="1000" height="90" fill="url(#hud-fade)"/>
+    <line x1="0" y1="88" x2="1000" y2="88" stroke="rgba(0,255,255,0.15)" stroke-width="1"/>
+
+    <!-- Score -->
+    <text x="20" y="30" font-family="'Orbitron',monospace" font-size="11" fill="rgba(0,255,255,0.5)" letter-spacing="3">SCORE</text>
+    <text id="hud-score" x="20" y="70" font-family="'Orbitron',monospace" font-size="36" font-weight="900" fill="#00FFFF" filter="url(#hud-glow)" letter-spacing="4">0000</text>
+
+    <!-- Center title -->
+    <text x="500" y="52" text-anchor="middle" font-family="'Orbitron',monospace" font-size="13" fill="rgba(0,255,255,0.3)" letter-spacing="10">ARCADE OVERDRIVE</text>
+
+    <!-- Lives label -->
+    <text x="980" y="30" text-anchor="end" font-family="'Orbitron',monospace" font-size="11" fill="rgba(0,255,255,0.5)" letter-spacing="3">SHIELDS</text>
+    <!-- Lives bar group -->
+    <g id="hud-lives-group" transform="translate(770,50)">
+      <!-- filled dynamically by JS -->
+    </g>
+
+    <!-- Q counter -->
+    <text id="hud-q" x="500" y="78" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,0,255,0.6)" letter-spacing="2">Q 1 / 1</text>
+
+    <!-- corner marks -->
+    <g stroke="#00FFFF" stroke-width="1.5" fill="none" opacity=".4">
+      <path d="M5,5 L5,18 M5,5 L18,5"/>
+      <path d="M995,5 L995,18 M995,5 L982,5"/>
+    </g>
+  </svg>
+
+  <!-- OPTION TARGETS -->
+  <div id="options-area"></div>
+
+  <!-- LAUNCHER SVG (turret) -->
+  <svg id="launcher-svg" xmlns="http://www.w3.org/2000/svg"
+       style="position:fixed;bottom:200px;left:50%;transform:translateX(-50%);width:clamp(100px,16vw,160px);z-index:80;pointer-events:none;overflow:visible;">
+    <defs>
+      <radialGradient id="plasma-core" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#fff"/>
+        <stop offset="35%"  stop-color="#FF00FF"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </radialGradient>
+      <linearGradient id="rail-glow" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#00FFFF"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </linearGradient>
+      <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#1E1E2E"/>
+        <stop offset="60%"  stop-color="#0A0A1A"/>
+        <stop offset="100%" stop-color="#02020A"/>
+      </linearGradient>
+      <filter id="turret-glow">
+        <feGaussianBlur stdDeviation="5" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Projectile -->
+    <g id="bomb-g">
+      <circle cx="100" cy="38" r="18" fill="url(#plasma-core)" filter="url(#turret-glow)">
+        <animate attributeName="r" values="14;22;14" dur=".6s" repeatCount="indefinite"/>
+      </circle>
+      <ellipse cx="100" cy="38" rx="34" ry="8" fill="none" stroke="#fff" stroke-width="1.2" opacity=".7">
+        <animateTransform attributeName="transform" type="rotate" from="0 100 38" to="360 100 38" dur="1.4s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="100" cy="38" rx="8" ry="34" fill="none" stroke="#FF00FF" stroke-width="2" opacity=".85">
+        <animateTransform attributeName="transform" type="rotate" from="360 100 38" to="0 100 38" dur=".9s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- Turret body (viewBox 200x150, shifted) -->
+    <g transform="translate(0,50)">
+      <!-- Rails -->
+      <path d="M72 0 L82 55 L90 55 L80 0 Z" fill="url(#rail-glow)" opacity=".8">
+        <animate attributeName="opacity" values=".4;1;.4" dur="1s" repeatCount="indefinite"/>
+      </path>
+      <path d="M128 0 L118 55 L110 55 L120 0 Z" fill="url(#rail-glow)" opacity=".8">
+        <animate attributeName="opacity" values=".4;1;.4" dur="1s" repeatCount="indefinite" begin=".5s"/>
+      </path>
+      <!-- Hexagonal base plate -->
+      <polygon points="10,105 30,60 170,60 190,105 170,150 30,150" fill="url(#metal)" stroke="#00FFFF" stroke-width="3"/>
+      <!-- Inner accent -->
+      <polygon points="40,105 55,72 145,72 160,105 145,138 55,138" fill="#000" stroke="#FF00FF" stroke-width="1.5"/>
+      <!-- Charging ring -->
+      <ellipse cx="100" cy="62" rx="38" ry="12" fill="none" stroke="#00FFFF" stroke-width="2">
+        <animate attributeName="stroke-width" values="1;5;1" dur=".8s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="100" cy="62" rx="24" ry="7" fill="#FF00FF" opacity=".5" style="filter:blur(3px)">
+        <animate attributeName="opacity" values=".2;.8;.2" dur=".8s" repeatCount="indefinite"/>
+      </ellipse>
+      <!-- Side accents -->
+      <line x1="25" y1="100" x2="50" y2="100" stroke="#00FFFF" stroke-width="3" stroke-linecap="round"/>
+      <line x1="175" y1="100" x2="150" y2="100" stroke="#00FFFF" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="25" cy="100" r="4" fill="#00FFFF" opacity=".8"><animate attributeName="opacity" values=".3;1;.3" dur="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="175" cy="100" r="4" fill="#00FFFF" opacity=".8"><animate attributeName="opacity" values=".3;1;.3" dur="1.2s" repeatCount="indefinite" begin=".6s"/></circle>
+    </g>
+  </svg>
+
+  <!-- QUESTION AREA -->
+  <div id="question-area" style="z-index:80">
+    <svg id="q-svg" viewBox="0 0 900 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="q-glow">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- question box -->
+      <rect x="2" y="2" width="896" height="76" rx="4" fill="rgba(0,0,0,0.75)" stroke="rgba(0,255,255,0.3)" stroke-width="1.5"/>
+      <line x1="2" y1="2" x2="22" y2="2" stroke="#00FFFF" stroke-width="2.5"/>
+      <line x1="2" y1="2" x2="2" y2="16" stroke="#00FFFF" stroke-width="2.5"/>
+      <line x1="898" y1="78" x2="878" y2="78" stroke="#00FFFF" stroke-width="2.5"/>
+      <line x1="898" y1="78" x2="898" y2="64" stroke="#00FFFF" stroke-width="2.5"/>
+      <text id="q-text" x="450" y="48" text-anchor="middle" dominant-baseline="middle"
+            font-family="'Orbitron',monospace" font-size="16" font-weight="700"
+            fill="#00FFFF" filter="url(#q-glow)" letter-spacing="2">
+        AWAITING DATABANK...
+      </text>
+    </svg>
+    <div id="next-btn-wrap">
+      <div class="btn" onclick="nextQuestion()" style="color:var(--magenta);width:280px">
+        <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
+          <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(255,0,255,0.08)" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="btn-text" style="color:var(--magenta)">&gt;&gt; NEXT STAGE &lt;&lt;</div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script>
-        let questions = [];
-        let currentQIndex = 0;
-        let score = 0;
-        let lives = 100;
-        let isShooting = false;
-        let audioCtx;
+<!-- ═══════════════════ CHECKPOINT PANEL ═══════════════════ -->
+<div id="checkpoint-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap">
+    <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="cp-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.95)" stroke="#FFB300" stroke-width="2.5"/>
+      <!-- corner marks -->
+      <g stroke="#FFB300" stroke-width="2.5" fill="none">
+        <path d="M12,12 L12,28 M12,12 L28,12"/>
+        <path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,208 L12,192 M12,208 L28,208"/>
+        <path d="M508,208 L508,192 M508,208 L492,208"/>
+      </g>
+      <!-- checkpoint badge -->
+      <polygon points="260,30 295,50 295,90 260,110 225,90 225,50" fill="none" stroke="#FFB300" stroke-width="2" filter="url(#cp-glow)"/>
+      <text x="260" y="76" text-anchor="middle" dominant-baseline="middle" font-family="'Orbitron',monospace" font-size="22" font-weight="900" fill="#FFB300">30%</text>
+      <!-- title -->
+      <text x="260" y="138" text-anchor="middle" font-family="'Orbitron',monospace" font-size="18" font-weight="700" fill="#FFB300" filter="url(#cp-glow)" letter-spacing="4">CHECKPOINT SAVED</text>
+      <text x="260" y="165" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.7)" letter-spacing="2">SECTOR LOCKED — RESUME AVAILABLE</text>
+      <!-- scan line -->
+      <rect x="2" y="2" width="516" height="3" fill="#FFB300" opacity=".5">
+        <animate attributeName="y" values="2;216;2" dur="2.5s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+  <div class="btn" onclick="dismissPanel('checkpoint-panel')" style="width:280px;color:var(--amber)">
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="btn-text" style="color:var(--amber)">ACKNOWLEDGED</div>
+  </div>
+</div>
 
-        const defaultQuestions = [
-            { question: "WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?", options: ["FLUTTER", "EXPO", "CORDOVA", "IONIC"], answer: "EXPO" },
-            { question: "WHICH BUNDLER DELIVERS LIGHTNING FAST HOT MODULE REPLACEMENT?", options: ["WEBPACK", "PARCEL", "VITE", "ROLLUP"], answer: "VITE" },
-            { question: "WHICH PLATFORM IS OPTIMIZED FOR DEPLOYING SERVERLESS NEXT.JS?", options: ["AWS EC2", "DIGITALOCEAN", "VERCEL", "HEROKU"], answer: "VERCEL" }
-        ];
+<!-- ═══════════════════ EXTRA LIFE PANEL ═══════════════════ -->
+<div id="extralife-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap">
+    <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="el-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.95)" stroke="#00FF88" stroke-width="2.5"/>
+      <g stroke="#00FF88" stroke-width="2.5" fill="none">
+        <path d="M12,12 L12,28 M12,12 L28,12"/>
+        <path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,208 L12,192 M12,208 L28,208"/>
+        <path d="M508,208 L508,192 M508,208 L492,208"/>
+      </g>
+      <!-- heart shape via path -->
+      <path d="M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z" fill="#00FF88" filter="url(#el-glow)">
+        <animate attributeName="d" values="M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z;M260,108 C260,108 224,78 224,58 C224,42 236,32 253,41 C257,44 260,48 260,48 C260,48 263,44 267,41 C284,32 296,42 296,58 C296,78 260,108 260,108 Z;M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z" dur="1s" repeatCount="indefinite"/>
+      </path>
+      <!-- 50% badge -->
+      <text x="260" y="60" text-anchor="middle" dominant-baseline="middle" font-family="'Orbitron',monospace" font-size="14" font-weight="900" fill="#02020A">50%</text>
+      <text x="260" y="138" text-anchor="middle" font-family="'Orbitron',monospace" font-size="18" font-weight="700" fill="#00FF88" filter="url(#el-glow)" letter-spacing="3">EXTRA LIFE EARNED</text>
+      <text x="260" y="165" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,.7)" letter-spacing="2">SHIELDS RESTORED — REVIVE READY</text>
+      <rect x="2" y="2" width="516" height="3" fill="#00FF88" opacity=".5">
+        <animate attributeName="y" values="2;216;2" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+  <div class="btn" onclick="dismissPanel('extralife-panel')" style="width:280px;color:var(--green)">
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,136,0.08)" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="btn-text" style="color:var(--green)">POWER UP!</div>
+  </div>
+</div>
 
-        function handleFileUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    questions = JSON.parse(e.target.result);
-                    startGame();
-                } catch (err) {
-                    alert("ERR: CORRUPT DATA. INVALID JSON.");
-                }
-            };
-            reader.readAsText(file);
+<!-- ═══════════════════ GAME OVER PANEL ═══════════════════ -->
+<div id="gameover-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap">
+    <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="go-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="go-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FF003C"/>
+          <stop offset="100%" stop-color="#FF00FF"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="516" height="256" rx="6" fill="rgba(2,2,10,.97)" stroke="#FF003C" stroke-width="2.5"/>
+      <g stroke="#FF003C" stroke-width="2.5" fill="none">
+        <path d="M12,12 L12,28 M12,12 L28,12"/>
+        <path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,252 L12,236 M12,252 L28,252"/>
+        <path d="M508,252 L508,236 M508,252 L492,252"/>
+      </g>
+      <text x="260" y="80" text-anchor="middle" font-family="'Orbitron',monospace" font-size="42" font-weight="900" fill="url(#go-grad)" filter="url(#go-glow)" letter-spacing="5">FAILURE</text>
+      <line x1="40" y1="100" x2="480" y2="100" stroke="rgba(255,0,60,.4)" stroke-width="1"/>
+      <text id="go-score" x="260" y="140" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,255,255,.6)" letter-spacing="3">FINAL SCORE: 0000</text>
+      <text id="go-checkpoint" x="260" y="170" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.8)" letter-spacing="2"></text>
+      <text id="go-revive" x="260" y="198" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,.8)" letter-spacing="2"></text>
+      <rect x="2" y="2" width="516" height="3" fill="#FF003C" opacity=".6">
+        <animate attributeName="y" values="2;258;2" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <div id="revive-btn-wrap" class="btn" onclick="revive()" style="width:220px;color:var(--green);display:none">
+      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(0,255,136,0.1)" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div class="btn-text" style="color:var(--green)">REVIVE</div>
+    </div>
+    <div id="checkpoint-resume-btn" class="btn" onclick="resumeCheckpoint()" style="width:220px;color:var(--amber);display:none">
+      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div class="btn-text" style="color:var(--amber)">RESUME CHECKPOINT</div>
+    </div>
+    <div class="btn" onclick="backToMenu()" style="width:220px;color:var(--red)">
+      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div class="btn-text" style="color:var(--red)">MAIN MENU</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ VICTORY PANEL ═══════════════════ -->
+<div id="victory-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap">
+    <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="v-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="v-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00FFFF"/>
+          <stop offset="50%" stop-color="#FF00FF"/>
+          <stop offset="100%" stop-color="#00FF88"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.97)" stroke="#00FFFF" stroke-width="2.5"/>
+      <g stroke="#00FFFF" stroke-width="2.5" fill="none">
+        <path d="M12,12 L12,28 M12,12 L28,12"/>
+        <path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,208 L12,192 M12,208 L28,208"/>
+        <path d="M508,208 L508,192 M508,208 L492,208"/>
+      </g>
+      <!-- Trophy -->
+      <path d="M220,90 C220,60 240,45 260,45 C280,45 300,60 300,90 C300,112 286,128 270,132 L270,150 L290,150 L290,162 L230,162 L230,150 L250,150 L250,132 C234,128 220,112 220,90 Z" fill="none" stroke="url(#v-grad)" stroke-width="2.5" filter="url(#v-glow)"/>
+      <line x1="220" y1="90" x2="200" y2="90" stroke="url(#v-grad)" stroke-width="2.5"/>
+      <line x1="300" y1="90" x2="320" y2="90" stroke="url(#v-grad)" stroke-width="2.5"/>
+      <text id="v-score" x="260" y="185" text-anchor="middle" font-family="'Orbitron',monospace" font-size="20" font-weight="900" fill="url(#v-grad)" filter="url(#v-glow)" letter-spacing="4">SCORE: 0000</text>
+      <text x="260" y="210" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="12" fill="rgba(0,255,255,.6)" letter-spacing="3">ALL TARGETS CLEARED</text>
+      <rect x="2" y="2" width="516" height="3" fill="url(#v-grad)" opacity=".6">
+        <animate attributeName="y" values="2;216;2" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+  <div class="btn" onclick="backToMenu()" style="width:280px;color:var(--cyan)">
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,255,0.06)" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="btn-text">MAIN MENU</div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+//  STATE
+// ─────────────────────────────────────────────
+let questions      = [];
+let currentIdx     = 0;
+let score          = 0;
+let lives          = 3;          // 3 shield units
+let maxLives       = 3;
+let isShooting     = false;
+let audioCtx       = null;
+let checkpointIdx  = null;       // index at 30% mark
+let checkpointSaved = false;
+let extraLifeGiven  = false;
+let hasRevive       = false;     // earned at 50%
+let currentBankKey  = null;
+
+const LIVES_MAX     = 3;
+const LS_PREFIX     = 'arcade_bank_';
+
+// ─────────────────────────────────────────────
+//  AUDIO
+// ─────────────────────────────────────────────
+function initAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+function playSound(type) {
+  if (!audioCtx) return;
+  const osc  = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain); gain.connect(audioCtx.destination);
+  const t = audioCtx.currentTime;
+  if (type === 'shoot') {
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(900, t);
+    osc.frequency.exponentialRampToValueAtTime(80, t+.35);
+    gain.gain.setValueAtTime(.28, t);
+    gain.gain.exponentialRampToValueAtTime(.01, t+.35);
+    osc.start(t); osc.stop(t+.35);
+  } else if (type === 'hit') {
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(160, t);
+    osc.frequency.exponentialRampToValueAtTime(40, t+.5);
+    gain.gain.setValueAtTime(.4, t);
+    gain.gain.exponentialRampToValueAtTime(.01, t+.5);
+    osc.start(t); osc.stop(t+.5);
+  } else if (type === 'miss') {
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(120, t);
+    osc.frequency.linearRampToValueAtTime(40, t+.5);
+    gain.gain.setValueAtTime(.4, t);
+    gain.gain.linearRampToValueAtTime(.01, t+.5);
+    osc.start(t); osc.stop(t+.5);
+  } else if (type === 'powerup') {
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(400, t);
+    osc.frequency.linearRampToValueAtTime(800, t+.3);
+    gain.gain.setValueAtTime(.3, t);
+    gain.gain.exponentialRampToValueAtTime(.01, t+.5);
+    osc.start(t); osc.stop(t+.5);
+  } else if (type === 'checkpoint') {
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(300, t);
+    osc.frequency.linearRampToValueAtTime(600, t+.2);
+    osc.frequency.linearRampToValueAtTime(450, t+.4);
+    gain.gain.setValueAtTime(.25, t);
+    gain.gain.exponentialRampToValueAtTime(.01, t+.4);
+    osc.start(t); osc.stop(t+.4);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  LOCAL STORAGE — BANKS
+// ─────────────────────────────────────────────
+function saveBank(name, data) {
+  const key = LS_PREFIX + name;
+  localStorage.setItem(key, JSON.stringify({ name, data, savedAt: Date.now() }));
+  renderBanksList();
+}
+
+function loadBanks() {
+  const banks = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k.startsWith(LS_PREFIX)) {
+      try { banks.push(JSON.parse(localStorage.getItem(k))); } catch(e) {}
+    }
+  }
+  return banks;
+}
+
+function deleteBank(name) {
+  localStorage.removeItem(LS_PREFIX + name);
+  renderBanksList();
+}
+
+function renderBanksList() {
+  const list = document.getElementById('banks-list');
+  const banks = loadBanks();
+  list.innerHTML = '';
+  if (banks.length === 0) return;
+
+  // header
+  const hdr = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  hdr.setAttribute('viewBox','0 0 400 20');
+  hdr.style.width = '100%';
+  hdr.innerHTML = `<text x="0" y="14" font-family="'Share Tech Mono',monospace" font-size="11"
+    fill="rgba(0,255,255,0.45)" letter-spacing="3">─── SAVED DATABANKS ───</text>`;
+  list.appendChild(hdr);
+
+  banks.sort((a,b)=>b.savedAt-a.savedAt).forEach(bank => {
+    const wrap = document.createElement('div');
+    wrap.className = 'bank-entry';
+
+    const btn = document.createElement('div');
+    btn.className = 'btn';
+    btn.style.color = 'var(--green)';
+    btn.onclick = () => { questions = bank.data; currentBankKey = bank.name; startGame(); };
+    btn.innerHTML = `
+      <svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="1" y="1" width="318" height="44" rx="3"
+          fill="rgba(0,255,136,0.05)" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <div class="btn-text" style="color:var(--green);font-size:.7rem;letter-spacing:2px">
+        ${bank.name.substring(0,28)} &nbsp;<span style="opacity:.5">[${bank.data.length}Q]</span>
+      </div>`;
+
+    const del = document.createElement('button');
+    del.className = 'bank-del';
+    del.textContent = '✕';
+    del.onclick = (e) => { e.stopPropagation(); deleteBank(bank.name); };
+
+    wrap.appendChild(btn);
+    wrap.appendChild(del);
+    list.appendChild(wrap);
+  });
+}
+
+// ─────────────────────────────────────────────
+//  UPLOAD
+// ─────────────────────────────────────────────
+function handleUpload(e) {
+  const files = Array.from(e.target.files);
+  if (!files.length) return;
+  let processed = 0;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const parsed = JSON.parse(ev.target.result);
+        const name = file.name.replace(/\.json$/i,'');
+        saveBank(name, parsed);
+        processed++;
+        if (processed === files.length) {
+          // auto-start with last one
+          questions = parsed;
+          currentBankKey = name;
+          initAudio();
+          startGame();
         }
+      } catch(err) {
+        alert('ERR: CORRUPT DATA — ' + file.name);
+      }
+    };
+    reader.readAsText(file);
+  });
+  e.target.value = '';
+}
 
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-        }
+const defaultQuestions = [
+  { question:"WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?", options:["FLUTTER","EXPO","CORDOVA","IONIC"], answer:"EXPO" },
+  { question:"WHICH BUNDLER DELIVERS LIGHTNING FAST HMR?", options:["WEBPACK","PARCEL","VITE","ROLLUP"], answer:"VITE" },
+  { question:"WHICH PLATFORM IS OPTIMIZED FOR SERVERLESS NEXT.JS?", options:["AWS EC2","DIGITALOCEAN","VERCEL","HEROKU"], answer:"VERCEL" },
+  { question:"WHAT HOOK MANAGES SIDE EFFECTS IN REACT?", options:["useState","useEffect","useRef","useMemo"], answer:"useEffect" },
+  { question:"WHICH CSS PROPERTY CREATES FLEX CONTAINERS?", options:["display:grid","display:flex","float:left","position:flex"], answer:"display:flex" },
+  { question:"WHAT DOES CDN STAND FOR?", options:["Content Delivery Network","Core Data Node","Cloud Deploy Native","Cache Deploy Now"], answer:"Content Delivery Network" },
+];
 
-        function playSound(type) {
-            if (!audioCtx) return;
-            const osc = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            osc.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            
-            const now = audioCtx.currentTime;
-            
-            if (type === 'shoot') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(800, now);
-                osc.frequency.exponentialRampToValueAtTime(100, now + 0.3);
-                gainNode.gain.setValueAtTime(0.3, now);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
-                osc.start(now); osc.stop(now + 0.3);
-            } else if (type === 'hit') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(30, now + 0.5);
-                gainNode.gain.setValueAtTime(0.5, now);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
-                osc.start(now); osc.stop(now + 0.5);
-            } else if (type === 'miss') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(120, now);
-                osc.frequency.linearRampToValueAtTime(50, now + 0.5);
-                gainNode.gain.setValueAtTime(0.5, now);
-                gainNode.gain.linearRampToValueAtTime(0.01, now + 0.5);
-                osc.type = 'sawtooth'; 
-                osc.start(now); osc.stop(now + 0.5);
-            }
-        }
+function useDefault() {
+  questions = defaultQuestions;
+  currentBankKey = 'DEFAULT';
+  initAudio();
+  startGame();
+}
 
-        function useDefaultQuestions() {
-            questions = defaultQuestions;
-            startGame();
-        }
+// ─────────────────────────────────────────────
+//  GAME FLOW
+// ─────────────────────────────────────────────
+function startGame() {
+  if (!questions.length) return;
+  currentIdx       = 0;
+  score            = 0;
+  lives            = LIVES_MAX;
+  checkpointIdx    = null;
+  checkpointSaved  = false;
+  extraLifeGiven   = false;
+  hasRevive        = false;
 
-        function toggleTheme() { document.body.classList.toggle('light-mode'); }
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('game-screen').classList.add('active');
+  document.getElementById('gameover-panel').classList.add('hidden');
+  document.getElementById('victory-panel').classList.add('hidden');
 
-        function startGame() {
-            if(questions.length === 0) return;
-            initAudio(); 
-            document.getElementById('setup-screen').style.display = 'none';
-            document.getElementById('game-container').style.display = 'flex';
-            currentQIndex = 0; score = 0; lives = 100;
-            updateHUD(); loadQuestion();
-        }
+  updateHUD();
+  loadQuestion();
+}
 
-        function updateHUD() {
-            document.getElementById('score').innerText = score.toString().padStart(4, '0');
-            const livesEl = document.getElementById('lives');
-            livesEl.innerText = lives + '%';
-            if(lives <= 30) livesEl.style.color = 'var(--neon-wrong)';
-            else livesEl.style.color = 'var(--neon-primary)';
-        }
+function updateHUD() {
+  document.getElementById('hud-score').textContent = score.toString().padStart(4,'0');
+  document.getElementById('hud-q').textContent = `Q ${currentIdx+1} / ${questions.length}`;
 
-        function loadQuestion() {
-            if (currentQIndex >= questions.length) {
-                document.getElementById('question-text').innerHTML = "<span class='neon-text'>ALL TARGETS CLEARED.<br>SYSTEMS NOMINAL.</span>";
-                document.getElementById('options-area').innerHTML = "";
-                document.getElementById('launcher').style.display = 'none';
-                return;
-            }
+  // lives as heart icons in SVG
+  const g = document.getElementById('hud-lives-group');
+  g.innerHTML = '';
+  for (let i = 0; i < LIVES_MAX; i++) {
+    const active = i < lives;
+    const x = i * 50;
+    const heart = document.createElementNS('http://www.w3.org/2000/svg','path');
+    // heart centered at x+25, y=0 (group is already translated)
+    const cx = x+25, cy = -10;
+    heart.setAttribute('d',
+      `M${cx},${cy+14} C${cx},${cy+14} ${cx-14},${cy+4} ${cx-14},${cy-4} C${cx-14},${cy-11} ${cx-7},${cy-17} ${cx},${cy-10} C${cx+7},${cy-17} ${cx+14},${cy-11} ${cx+14},${cy-4} C${cx+14},${cy+4} ${cx},${cy+14} ${cx},${cy+14} Z`
+    );
+    heart.setAttribute('fill', active ? '#00FF88' : 'rgba(0,255,136,0.12)');
+    heart.setAttribute('stroke', active ? '#00FF88' : 'rgba(0,255,136,0.3)');
+    heart.setAttribute('stroke-width','1.5');
+    if (active) {
+      heart.setAttribute('filter','url(#hud-glow)');
+    }
+    g.appendChild(heart);
+  }
+}
 
-            isShooting = false;
-            document.getElementById('next-btn').style.display = 'none';
-            
-            const bomb = document.getElementById('bomb');
-            bomb.classList.remove('firing');
-            bomb.style.transition = 'none';
-            bomb.style.transform = 'translate(0, 0) scale(1)'; /* Reset scale specifically for responsive design logic */
-            bomb.style.opacity = '1';
-            void bomb.offsetWidth; 
-            bomb.style.transition = 'transform 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045)';
+function checkMilestones() {
+  const pct = currentIdx / questions.length;
 
-            const q = questions[currentQIndex];
-            document.getElementById('question-text').innerHTML = `Q: ${q.question}`;
+  if (!checkpointSaved && pct >= 0.30) {
+    checkpointSaved = true;
+    checkpointIdx   = currentIdx;
+    playSound('checkpoint');
+    document.getElementById('checkpoint-panel').classList.remove('hidden');
+  }
 
-            const optionsArea = document.getElementById('options-area');
-            optionsArea.innerHTML = '';
+  if (!extraLifeGiven && pct >= 0.50) {
+    extraLifeGiven = true;
+    hasRevive      = true;
+    if (lives < LIVES_MAX) lives = Math.min(LIVES_MAX, lives + 1);
+    playSound('powerup');
+    setTimeout(() => {
+      document.getElementById('extralife-panel').classList.remove('hidden');
+    }, checkpointSaved ? 200 : 0);
+    updateHUD();
+  }
+}
 
-            q.options.forEach((opt, index) => {
-                const target = document.createElement('div');
-                target.className = 'option-target';
-                target.style.animationDelay = `${index * 0.15}s`;
-                
-                target.innerHTML = `
-                    <svg viewBox="0 0 100 100">
-                        <path d="M 10 30 L 10 10 L 30 10" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <path d="M 70 10 L 90 10 L 90 30" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <path d="M 90 70 L 90 90 L 70 90" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <path d="M 30 90 L 10 90 L 10 70" fill="none" stroke="currentColor" stroke-width="4"/>
-                        
-                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4">
-                            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="8s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.3">
-                            <animate attributeName="r" values="10;20;10" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="50" cy="50" r="4" fill="currentColor"/>
-                    </svg>
-                    <div class="option-text">${opt}</div>
-                `;
+function dismissPanel(id) {
+  document.getElementById(id).classList.add('hidden');
+}
 
-                target.onclick = () => shoot(target, opt === q.answer);
-                optionsArea.appendChild(target);
-            });
-        }
+function loadQuestion() {
+  if (currentIdx >= questions.length) {
+    showVictory(); return;
+  }
+  checkMilestones();
 
-        function triggerCinematicFlash() {
-            const overlay = document.getElementById('flash-overlay');
-            overlay.classList.remove('flash');
-            void overlay.offsetWidth; 
-            overlay.classList.add('flash');
-        }
+  isShooting = false;
+  document.getElementById('next-btn-wrap').style.display = 'none';
 
-        function spawnCombatText(x, y, text, color) {
-            const el = document.createElement('div');
-            el.className = 'combat-text';
-            el.style.left = `${x}px`;
-            el.style.top = `${y}px`;
-            el.style.color = color;
-            el.innerText = text;
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1200);
-        }
+  // reset bomb
+  const bg = document.getElementById('bomb-g');
+  bg.style.transition = 'none';
+  bg.style.transform  = 'translate(0,0)';
+  bg.style.opacity    = '1';
 
-        function createExplosion(x, y, color) {
-            const numParticles = 20;
-            for(let i=0; i<numParticles; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.left = `${x}px`;
-                particle.style.top = `${y}px`;
-                particle.style.width = Math.random() * 15 + 5 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.backgroundColor = i % 3 === 0 ? '#fff' : color;
-                particle.style.borderRadius = '50%';
-                particle.style.boxShadow = `0 0 20px ${color}`;
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '100';
-                document.body.appendChild(particle);
+  const q = questions[currentIdx];
+  setQText(q.question);
 
-                const angle = (Math.PI * 2 / numParticles) * i;
-                const distance = 100 + Math.random() * 150;
-                const tx = Math.cos(angle) * distance;
-                const ty = Math.sin(angle) * distance;
+  const area = document.getElementById('options-area');
+  area.innerHTML = '';
 
-                particle.animate([
-                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                    { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
-                ], {
-                    duration: 800 + Math.random() * 600,
-                    easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
-                }).onfinish = () => particle.remove();
-            }
-        }
+  q.options.forEach((opt, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'opt-wrap';
+    wrap.style.animationDelay = `${i * 0.13}s`;
 
-        function shoot(targetElement, isCorrect) {
-            if (isShooting) return;
-            isShooting = true;
+    // target SVG
+    const tgt = `
+    <svg class="opt-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="tgt-glow-${i}">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- outer frame -->
+      <rect x="5" y="5" width="90" height="90" rx="4" fill="rgba(0,0,0,0.6)"
+            stroke="rgba(0,255,255,0.4)" stroke-width="1.5"/>
+      <!-- corner ticks -->
+      <g stroke="#00FFFF" stroke-width="2" fill="none">
+        <path d="M10,10 L10,18 M10,10 L18,10"/>
+        <path d="M90,10 L90,18 M90,10 L82,10"/>
+        <path d="M10,90 L10,82 M10,90 L18,90"/>
+        <path d="M90,90 L90,82 M90,90 L82,90"/>
+      </g>
+      <!-- rotating ring -->
+      <circle class="ring" cx="50" cy="50" r="30" stroke-dasharray="6 4">
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="${5+i}s" repeatCount="indefinite"/>
+      </circle>
+      <!-- cross-hairs -->
+      <line x1="50" y1="22" x2="50" y2="36" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
+      <line x1="50" y1="64" x2="50" y2="78" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
+      <line x1="22" y1="50" x2="36" y2="50" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
+      <line x1="64" y1="50" x2="78" y2="50" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
+      <!-- pulsing core -->
+      <circle class="core" cx="50" cy="50" r="10" opacity=".8">
+        <animate attributeName="r" values="8;14;8" dur="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".6;1;.6" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="50" cy="50" r="4" fill="#fff" opacity=".9"/>
+    </svg>`;
 
-            initAudio(); 
-            playSound('shoot');
+    // label SVG
+    const labelSvg = buildLabelSVG(opt, i);
 
-            const bomb = document.getElementById('bomb');
-            bomb.classList.add('firing');
-            
-            // getBoundingClientRect ensures calculations factor in CSS scaling for responsive design
-            const targetRect = targetElement.getBoundingClientRect();
-            const bombRect = bomb.getBoundingClientRect();
+    wrap.innerHTML = tgt + labelSvg;
+    wrap.onclick = () => shoot(wrap, opt === q.answer);
+    area.appendChild(wrap);
+  });
+}
 
-            const targetCenterX = targetRect.left + (targetRect.width / 2);
-            const targetCenterY = targetRect.top + (targetRect.height / 2);
-            
-            const bombCenterX = bombRect.left + (bombRect.width / 2);
-            const bombCenterY = bombRect.top + (bombRect.height / 2);
+function buildLabelSVG(text, idx) {
+  const colors = ['#00FFFF','#FF00FF','#FFB300','#00FF88'];
+  const c = colors[idx % 4];
+  const escaped = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return `<svg class="opt-label-svg" viewBox="0 0 170 42" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="166" height="38" rx="3" fill="rgba(0,0,0,0.8)" stroke="${c}" stroke-width="1.5"/>
+    <line x1="2" y1="2" x2="10" y2="2" stroke="${c}" stroke-width="2.5"/>
+    <line x1="2" y1="2" x2="2" y2="10" stroke="${c}" stroke-width="2.5"/>
+    <line x1="168" y1="40" x2="160" y2="40" stroke="${c}" stroke-width="2.5"/>
+    <line x1="168" y1="40" x2="168" y2="32" stroke="${c}" stroke-width="2.5"/>
+    <text x="85" y="22" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Orbitron',monospace" font-size="10" font-weight="700"
+          fill="${c}" letter-spacing="2" style="text-shadow:0 0 8px ${c}">${escaped}</text>
+  </svg>`;
+}
 
-            const moveX = targetCenterX - bombCenterX; 
-            const moveY = targetCenterY - bombCenterY;
+function setQText(txt) {
+  const el = document.getElementById('q-text');
+  // truncate for display
+  const max = 70;
+  const display = txt.length > max ? txt.substring(0,max)+'…' : txt;
+  el.textContent = display;
+}
 
-            bomb.style.transform = `translate(${moveX}px, ${moveY}px) scale(0.5)`;
+// ─────────────────────────────────────────────
+//  SHOOT MECHANIC
+// ─────────────────────────────────────────────
+function shoot(targetEl, isCorrect) {
+  if (isShooting) return;
+  isShooting = true;
+  initAudio();
+  playSound('shoot');
 
-            setTimeout(() => {
-                bomb.style.opacity = '0';
-                const colorHex = getComputedStyle(document.body).getPropertyValue(isCorrect ? '--neon-primary' : '--neon-wrong').trim();
+  const bg       = document.getElementById('bomb-g');
+  const launcher = document.getElementById('launcher-svg');
+  const lRect    = launcher.getBoundingClientRect();
+  const tRect    = targetEl.getBoundingClientRect();
 
-                createExplosion(targetCenterX, targetCenterY, colorHex);
+  const fromX = lRect.left + lRect.width/2;
+  const fromY = lRect.top  + 38 * (lRect.height / launcher.viewBox.baseVal.height);
 
-                if (isCorrect) {
-                    playSound('hit');
-                    triggerCinematicFlash();
-                    targetElement.style.visibility = 'hidden';
-                    score += 1000;
-                    spawnCombatText(targetCenterX - 50, targetCenterY, "CRITICAL!", colorHex);
-                    document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">TARGET OBLITERATED</span>`;
-                    document.getElementById('next-btn').style.display = 'inline-block';
-                } else {
-                    playSound('miss');
-                    lives = Math.max(0, lives - 33);
-                    document.body.classList.add('shake');
-                    setTimeout(() => document.body.classList.remove('shake'), 500);
-                    spawnCombatText(targetCenterX - 60, targetCenterY, "DEFLECTED", colorHex);
-                    
-                    if (lives <= 0) {
-                        document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">CRITICAL FAILURE.</span>`;
-                    } else {
-                        document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">WARNING: INTEGRITY COMPROMISED</span>`;
-                        setTimeout(loadQuestion, 2000); 
-                    }
-                }
-                updateHUD();
-            }, 350); 
-        }
+  const toX   = tRect.left + tRect.width/2;
+  const toY   = tRect.top  + tRect.height/2;
 
-        function nextQuestion() {
-            currentQIndex++;
-            loadQuestion();
-        }
-    </script>
+  const dx = toX - fromX;
+  const dy = toY - fromY;
+
+  // scale factor from SVG coords to screen
+  const scale = lRect.width / launcher.viewBox.baseVal.width;
+  const moveX = dx / scale;
+  const moveY = dy / scale;
+
+  bg.style.transition = 'transform 0.3s cubic-bezier(0.5,0,1,1), opacity 0.1s';
+  bg.style.transform  = `translate(${moveX}px, ${moveY}px) scale(0.4)`;
+
+  setTimeout(() => {
+    bg.style.opacity = '0';
+    const color = isCorrect
+      ? getComputedStyle(document.body).getPropertyValue('--green').trim()
+      : getComputedStyle(document.body).getPropertyValue('--red').trim();
+
+    createExplosion(toX, toY, color);
+    spawnCombatText(toX - 60, toY - 20, isCorrect ? 'CRITICAL!' : 'DEFLECTED', color);
+
+    if (isCorrect) {
+      playSound('hit');
+      triggerFlash();
+      score += 1000;
+      targetEl.style.visibility = 'hidden';
+      setQText('▸ TARGET OBLITERATED');
+      document.getElementById('next-btn-wrap').style.display = 'block';
+    } else {
+      playSound('miss');
+      lives = Math.max(0, lives - 1);
+      document.getElementById('game-screen').classList.add('shaking');
+      setTimeout(() => document.getElementById('game-screen').classList.remove('shaking'), 460);
+
+      if (lives <= 0) {
+        setTimeout(showGameOver, 600);
+      } else {
+        setQText('⚠ INTEGRITY COMPROMISED — SHIELDS: ' + lives + ' REMAINING');
+        setTimeout(loadQuestion, 1800);
+      }
+    }
+    updateHUD();
+  }, 310);
+}
+
+function nextQuestion() {
+  currentIdx++;
+  loadQuestion();
+}
+
+// ─────────────────────────────────────────────
+//  PANELS
+// ─────────────────────────────────────────────
+function showGameOver() {
+  document.getElementById('go-score').textContent = 'FINAL SCORE: ' + score.toString().padStart(4,'0');
+
+  const cpTxt = document.getElementById('go-checkpoint');
+  cpTxt.textContent = checkpointIdx !== null
+    ? `CHECKPOINT AT Q${checkpointIdx+1} AVAILABLE`
+    : '';
+
+  const rvTxt = document.getElementById('go-revive');
+  rvTxt.textContent = hasRevive ? '◆ EXTRA LIFE REVIVE READY' : '';
+
+  document.getElementById('revive-btn-wrap').style.display = hasRevive ? 'block' : 'none';
+  document.getElementById('checkpoint-resume-btn').style.display = checkpointIdx !== null ? 'block' : 'none';
+
+  document.getElementById('gameover-panel').classList.remove('hidden');
+}
+
+function revive() {
+  if (!hasRevive) return;
+  hasRevive = false;
+  lives = LIVES_MAX;
+  document.getElementById('gameover-panel').classList.add('hidden');
+  updateHUD();
+  loadQuestion(); // stay at same question
+}
+
+function resumeCheckpoint() {
+  if (checkpointIdx === null) return;
+  currentIdx = checkpointIdx;
+  lives = LIVES_MAX;
+  score = Math.max(0, score - 500); // small penalty
+  document.getElementById('gameover-panel').classList.add('hidden');
+  updateHUD();
+  loadQuestion();
+}
+
+function showVictory() {
+  document.getElementById('v-score').textContent = 'SCORE: ' + score.toString().padStart(4,'0');
+  document.getElementById('victory-panel').classList.remove('hidden');
+}
+
+function backToMenu() {
+  document.getElementById('gameover-panel').classList.add('hidden');
+  document.getElementById('victory-panel').classList.add('hidden');
+  document.getElementById('game-screen').classList.remove('active');
+  document.getElementById('setup-screen').classList.remove('hidden');
+  renderBanksList();
+}
+
+// ─────────────────────────────────────────────
+//  VFX
+// ─────────────────────────────────────────────
+function triggerFlash() {
+  const f = document.getElementById('flash');
+  f.classList.remove('flashing');
+  void f.offsetWidth;
+  f.classList.add('flashing');
+}
+
+function spawnCombatText(x, y, text, color) {
+  const el = document.createElement('div');
+  el.className = 'combat-float';
+  el.style.left  = x + 'px';
+  el.style.top   = y + 'px';
+  el.style.color = color;
+  el.textContent = text;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1200);
+}
+
+function createExplosion(cx, cy, color) {
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    const size = Math.random() * 14 + 5;
+    p.style.cssText = `
+      position:fixed; left:${cx}px; top:${cy}px;
+      width:${size}px; height:${size}px;
+      background:${i%3===0?'#fff':color};
+      border-radius:50%;
+      box-shadow:0 0 ${size*2}px ${color};
+      pointer-events:none; z-index:999;`;
+    document.body.appendChild(p);
+    const angle    = (Math.PI*2/18)*i;
+    const dist     = 80 + Math.random()*130;
+    const tx = Math.cos(angle)*dist;
+    const ty = Math.sin(angle)*dist;
+    p.animate([
+      {transform:'translate(0,0) scale(1)', opacity:1},
+      {transform:`translate(${tx}px,${ty}px) scale(0)`, opacity:0}
+    ],{duration:700+Math.random()*500, easing:'cubic-bezier(.1,.9,.2,1)'}
+    ).onfinish = () => p.remove();
+  }
+}
+
+// ─────────────────────────────────────────────
+//  INIT
+// ─────────────────────────────────────────────
+window.onload = () => {
+  renderBanksList();
+};
+</script>
 </body>
 </html>

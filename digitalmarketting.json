@@ -1,0 +1,2063 @@
+[
+  {
+    "question": "Your Facebook Pixel is firing twice on your thank-you page, doubling your reported purchases. What is the fastest way to fix this without a developer?",
+    "options": [
+      "Add a 'fire once' condition rule in GTM based on the page URL",
+      "Remove the pixel code from the website header",
+      "Wait for Facebook to auto-deduplicate the data",
+      "Set up a new pixel for the same website"
+    ],
+    "answer": "Add a 'fire once' condition rule in GTM based on the page URL"
+  },
+  {
+    "question": "A client's Google Ads conversions dropped to zero overnight. You check GA4 and see purchases are still happening. What is the most likely technical cause?",
+    "options": [
+      "The GA4 tracking code was accidentally removed",
+      "The Google Ads conversion tracking tag (gtag.js) stopped firing due to a GTM container change",
+      "The website theme color changed",
+      "The product prices increased"
+    ],
+    "answer": "The Google Ads conversion tracking tag (gtag.js) stopped firing due to a GTM container change"
+  },
+  {
+    "question": "You need to pass a dynamic order value (e.g., $45.50) from a purchase to your Google Ads conversion tag. What parameter do you use?",
+    "options": [
+      "transaction_id",
+      "value",
+      "page_title",
+      "referrer"
+    ],
+    "answer": "value"
+  },
+  {
+    "question": "What is the exact difference between a 'Data Layer' push and a 'GTM Variable' in Google Tag Manager?",
+    "options": [
+      "Data Layer is a JavaScript object holding event data; GTM Variables read that data to pass to tags",
+      "They are the same thing",
+      "GTM Variables push data to the Data Layer",
+      "Data Layer is for Google Ads; GTM Variables are for Facebook"
+    ],
+    "answer": "Data Layer is a JavaScript object holding event data; GTM Variables read that data to pass to tags"
+  },
+  {
+    "question": "You are setting up UTM parameters for a LinkedIn campaign. Which parameter is absolutely mandatory to track the specific post?",
+    "options": [
+      "utm_source",
+      "utm_campaign",
+      "utm_id",
+      "utm_term"
+    ],
+    "answer": "utm_campaign"
+  },
+  {
+    "question": "Why should you use `utm_id` in addition to `utm_campaign` when tracking multiple ad sets?",
+    "options": [
+      "Because utm_campaign is deprecated",
+      "To provide a unique numeric ID for deduplication and offline import matching",
+      "To make the URL shorter",
+      "To hide the campaign name from competitors"
+    ],
+    "answer": "To provide a unique numeric ID for deduplication and offline import matching"
+  },
+  {
+    "question": "Your GA4 reports are showing '(not set)' for the Source/Medium. What is the most common reason?",
+    "options": [
+      "Users are typing the URL directly into the browser",
+      "The UTM parameters are missing or incorrectly formatted in your ads",
+      "GA4 is broken",
+      "The website is down"
+    ],
+    "answer": "The UTM parameters are missing or incorrectly formatted in your ads"
+  },
+  {
+    "question": "What is the 'Conversions API' (CAPI) primarily designed to solve?",
+    "options": [
+      "To bypass ad blockers and browser tracking restrictions (like iOS 14 ATT)",
+      "To replace all front-end pixels",
+      "To track only email opens",
+      "To design ad creatives"
+    ],
+    "answer": "To bypass ad blockers and browser tracking restrictions (like iOS 14 ATT)"
+  },
+  {
+    "question": "When setting up CAPI, you must match a 'Pixel Event ID' with a 'Server Event ID'. Why?",
+    "options": [
+      "To ensure the pixel and server events are properly deduplicated (preventing double counting)",
+      "To confuse the ad platform",
+      "To increase the number of conversions",
+      "To lower the cost per click"
+    ],
+    "answer": "To ensure the pixel and server events are properly deduplicated (preventing double counting)"
+  },
+  {
+    "question": "You have a single-page app (SPA) and your GTM tags aren't firing on 'page changes' (virtual pageviews). Which GTM trigger should you use instead of 'Page View'?",
+    "options": [
+      "DOM Ready",
+      "History Change",
+      "Window Loaded",
+      "Click - Just Links"
+    ],
+    "answer": "History Change"
+  },
+  {
+    "question": "What does the 'Referral Exclusion List' in Google Analytics do?",
+    "options": [
+      "It prevents your own subdomains from showing up as referral traffic sources",
+      "It blocks all traffic from competitors",
+      "It increases your bounce rate",
+      "It disables all tracking"
+    ],
+    "answer": "It prevents your own subdomains from showing up as referral traffic sources"
+  },
+  {
+    "question": "You want to create a 'Remarketing Audience' in GA4 for users who added to cart but didn't purchase. What condition do you set?",
+    "options": [
+      "Event = add_to_cart AND NOT Event = purchase",
+      "Event = page_view AND Event = purchase",
+      "Event = session_start AND Event = add_to_cart",
+      "Event = first_visit AND NOT Event = add_to_cart"
+    ],
+    "answer": "Event = add_to_cart AND NOT Event = purchase"
+  },
+  {
+    "question": "What is the proper syntax for a custom dimension in GA4 to capture a user's membership status (e.g., 'Gold') passed via the data layer?",
+    "options": [
+      "user_properties.membership_status",
+      "user.membership_status",
+      "event_params.membership_status",
+      "items.membership_status"
+    ],
+    "answer": "user_properties.membership_status"
+  },
+  {
+    "question": "You are using GTM's 'Lookup Table' variable. What is its primary use case?",
+    "options": [
+      "To map an input value (e.g., Page URL) to a specific output (e.g., Category Name) for dynamic tagging",
+      "To calculate the square root of a number",
+      "To send emails",
+      "To design images"
+    ],
+    "answer": "To map an input value (e.g., Page URL) to a specific output (e.g., Category Name) for dynamic tagging"
+  },
+  {
+    "question": "Your client wants to see data for 'New vs. Returning Users' in their Google Ads reports. Which Google Ads setting must be enabled?",
+    "options": [
+      "Enhanced Conversions",
+      "Google Analytics 4 (GA4) integration link",
+      "Auto-tagging",
+      "Smart Bidding"
+    ],
+    "answer": "Google Analytics 4 (GA4) integration link"
+  },
+  {
+    "question": "What does the 'Skip' option in a Facebook A/B test do for the control audience?",
+    "options": [
+      "It holds back a portion of the audience from seeing either ad variant to measure incremental lift",
+      "It shows both ads at the same time",
+      "It shows no ads to anyone",
+      "It shows ads only on Instagram"
+    ],
+    "answer": "It holds back a portion of the audience from seeing either ad variant to measure incremental lift"
+  },
+  {
+    "question": "You need to track a PDF download as a conversion. What is the most reliable GTM trigger?",
+    "options": [
+      "Page View trigger on the PDF URL",
+      "Click Trigger - matches CSS selector or URL contains '.pdf'",
+      "Form Submission trigger",
+      "Timer trigger set to 5 seconds"
+    ],
+    "answer": "Click Trigger - matches CSS selector or URL contains '.pdf'"
+  },
+  {
+    "question": "What is the primary difference between 'Auto-tagging' and 'Manual UTM tagging' in Google Ads?",
+    "options": [
+      "Auto-tagging uses 'gclid' parameters; Manual uses UTMs; Auto-tagging is generally preferred for Google Ads",
+      "Auto-tagging is for Bing; Manual is for Google",
+      "Auto-tagging is deprecated; Manual is the only way",
+      "Manual is more accurate"
+    ],
+    "answer": "Auto-tagging uses 'gclid' parameters; Manual uses UTMs; Auto-tagging is generally preferred for Google Ads"
+  },
+  {
+    "question": "You have a low conversion volume (less than 15 conversions/month). Which Google Ads bidding strategy is still appropriate?",
+    "options": [
+      "Maximize Clicks with a bid cap",
+      "Target ROAS",
+      "Target CPA",
+      "Maximize Conversions with a target CPA"
+    ],
+    "answer": "Maximize Clicks with a bid cap"
+  },
+  {
+    "question": "What is the function of 'Cross-Domain Tracking' in GA4?",
+    "options": [
+      "To stitch user journeys across multiple different websites you own into a single session",
+      "To track traffic from competitors",
+      "To track offline store visits",
+      "To delete data from old domains"
+    ],
+    "answer": "To stitch user journeys across multiple different websites you own into a single session"
+  },
+  {
+    "question": "What is a 'Webhook' in the context of marketing automation?",
+    "options": [
+      "A way for one application to send real-time data to another application (e.g., CRM to email software) when an event occurs",
+      "A type of website design",
+      "A social media post format",
+      "A bidding strategy"
+    ],
+    "answer": "A way for one application to send real-time data to another application (e.g., CRM to email software) when an event occurs"
+  },
+  {
+    "question": "Your client says their Facebook Ads are spending but generating zero leads. You check the 'Quality Ranking' and see 'Below Average'. What is the most practical immediate action?",
+    "options": [
+      "Increase the budget 10x to improve ranking",
+      "Change the ad creative and copy to improve relevance score",
+      "Pause the campaign for 24 hours",
+      "Change the billing currency"
+    ],
+    "answer": "Change the ad creative and copy to improve relevance score"
+  },
+  {
+    "question": "What does the 'AMP' (Accelerated Mobile Pages) project primarily impact in digital marketing?",
+    "options": [
+      "Page load speed and mobile usability, affecting SEO rankings and ad landing page quality",
+      "Image resolution",
+      "Font styles",
+      "Color contrast"
+    ],
+    "answer": "Page load speed and mobile usability, affecting SEO rankings and ad landing page quality"
+  },
+  {
+    "question": "You are running a LinkedIn Ads campaign. You want to exclude current employees of your company. Which audience feature do you use?",
+    "options": [
+      "Exclude by Company Name in the targeting",
+      "Exclude by Job Title",
+      "Exclude by Age",
+      "Exclude by Location"
+    ],
+    "answer": "Exclude by Company Name in the targeting"
+  },
+  {
+    "question": "In Google Ads, what is the difference between 'All Conversions' and 'Conversions' columns?",
+    "options": [
+      "All Conversions includes all conversion actions (including cross-device and non-bidding); Conversions is just the ones you selected for bidding",
+      "They are identical",
+      "Conversions are for search; All Conversions are for display",
+      "Conversions are for mobile; All Conversions are for desktop"
+    ],
+    "answer": "All Conversions includes all conversion actions (including cross-device and non-bidding); Conversions is just the ones you selected for bidding"
+  },
+  {
+    "question": "What is 'First-Party Data' in the context of a post-cookie world?",
+    "options": [
+      "Data you collect directly from your own audience and customers with their consent",
+      "Data purchased from a data broker",
+      "Data collected by Google",
+      "Data collected by Facebook"
+    ],
+    "answer": "Data you collect directly from your own audience and customers with their consent"
+  },
+  {
+    "question": "You are setting up a 'Google Ads Enhanced Conversion' tag. What specific customer data do you need to pass?",
+    "options": [
+      "Email, Phone, or Address (hashed for privacy)",
+      "Credit card number",
+      "IP address only",
+      "Browser language only"
+    ],
+    "answer": "Email, Phone, or Address (hashed for privacy)"
+  },
+  {
+    "question": "Your GTM container has a 'Consent Mode' setup. What happens if a user denies all tracking?",
+    "options": [
+      "Google tags fire but send no cookies and set 'consent' parameters to 'denied' (conversion modeling kicks in)",
+      "All tags stop firing completely",
+      "The website stops loading",
+      "The user is redirected to Google"
+    ],
+    "answer": "Google tags fire but send no cookies and set 'consent' parameters to 'denied' (conversion modeling kicks in)"
+  },
+  {
+    "question": "What does the 'MCF' (Multi-Channel Funnels) report in Google Analytics show that standard reports don't?",
+    "options": [
+      "The path of interactions a user took across different channels before converting",
+      "The total number of visitors",
+      "The bounce rate",
+      "The page load time"
+    ],
+    "answer": "The path of interactions a user took across different channels before converting"
+  },
+  {
+    "question": "You see a 'Disapproved' status on a Google Ads ad for 'Malicious software'. What is the fastest practical resolution?",
+    "options": [
+      "Download the Google Ads Editor, find the ad, and add a 'safe' tag in the HTML",
+      "Run a malware scan on the landing page URL and request a review after cleaning",
+      "Delete the ad and create a new one",
+      "Change the ad's text to include 'safe'"
+    ],
+    "answer": "Run a malware scan on the landing page URL and request a review after cleaning"
+  },
+  {
+    "question": "You are optimizing a Google Search campaign. Which metric should you primarily look at to determine if a keyword is 'winning' in terms of profitability?",
+    "options": [
+      "CPC (Cost Per Click)",
+      "Impressions",
+      "CTR (Click Through Rate)",
+      "CPA (Cost Per Acquisition) or ROAS"
+    ],
+    "answer": "CPA (Cost Per Acquisition) or ROAS"
+  },
+  {
+    "question": "What is the 'Search Term Report' in Google Ads used for?",
+    "options": [
+      "To see the exact queries users typed that triggered your ads, and to add negative keywords",
+      "To find new website design ideas",
+      "To see competitor ad copies",
+      "To track email open rates"
+    ],
+    "answer": "To see the exact queries users typed that triggered your ads, and to add negative keywords"
+  },
+  {
+    "question": "You find a search term that has high impressions, high clicks, but zero conversions. What is the MOST practical action?",
+    "options": [
+      "Add it as a 'Negative Exact Match' keyword immediately to save budget",
+      "Increase the bid 3x",
+      "Move it to a 'Broad Match' type",
+      "Pause the entire campaign"
+    ],
+    "answer": "Add it as a 'Negative Exact Match' keyword immediately to save budget"
+  },
+  {
+    "question": "What is the 'Google Ads Auction Time' bid adjustment based on?",
+    "options": [
+      "Device, location, and time of day at the exact moment the ad auction occurs",
+      "The age of the ad account",
+      "The color of the ad",
+      "The number of employees"
+    ],
+    "answer": "Device, location, and time of day at the exact moment the ad auction occurs"
+  },
+  {
+    "question": "You are using 'Target ROAS' bidding and your ROAS is consistently below target. What is your first practical step?",
+    "options": [
+      "Lower your ROAS target to allow the algorithm more flexibility",
+      "Raise your ROAS target to 1000%",
+      "Switch to Manual CPC",
+      "Pause all ads"
+    ],
+    "answer": "Lower your ROAS target to allow the algorithm more flexibility"
+  },
+  {
+    "question": "What is the 'Learning Phase' in Meta (Facebook) Ads?",
+    "options": [
+      "The period when the ad set is gathering data to optimize delivery; usually 50 conversions in 7 days",
+      "A course for new marketers",
+      "A type of ad creative",
+      "A billing method"
+    ],
+    "answer": "The period when the ad set is gathering data to optimize delivery; usually 50 conversions in 7 days"
+  },
+  {
+    "question": "Your Facebook ad set is stuck in the 'Learning Limited' phase. What is the MOST practical fix?",
+    "options": [
+      "Consolidate ad sets by merging budgets, or expand the audience size to get more conversions",
+      "Increase the bid by 1 cent",
+      "Change the ad creative color",
+      "Wait for 30 days"
+    ],
+    "answer": "Consolidate ad sets by merging budgets, or expand the audience size to get more conversions"
+  },
+  {
+    "question": "What is the advantage of using 'Advantage+ Audience' (formerly Lookalike expansion) over a regular detailed targeting audience?",
+    "options": [
+      "Advantage+ uses Meta's AI to find people beyond your defined parameters who are likely to convert",
+      "It is cheaper than regular targeting",
+      "It targets only your existing customers",
+      "It targets only the CEO"
+    ],
+    "answer": "Advantage+ uses Meta's AI to find people beyond your defined parameters who are likely to convert"
+  },
+  {
+    "question": "When running TikTok ads, what is the most important factor for organic 'lift' and ad performance?",
+    "options": [
+      "Using trending sounds and native-looking, less polished video content",
+      "Using professional studio-quality cinematography",
+      "Using only text-based ads",
+      "Using only stock images"
+    ],
+    "answer": "Using trending sounds and native-looking, less polished video content"
+  },
+  {
+    "question": "What is 'Dynamic Search Ads' (DSA) in Google Ads?",
+    "options": [
+      "Google automatically generates headlines and landing pages based on your website content",
+      "Ads that change color dynamically",
+      "Ads that only run on mobile",
+      "Ads that are only for video"
+    ],
+    "answer": "Google automatically generates headlines and headlines and landing pages based on your website content"
+  },
+  {
+    "question": "You are launching a new product and want to test 5 different headlines. What is the most efficient way in Meta Ads?",
+    "options": [
+      "Create 5 separate ad sets with the same audience",
+      "Use the 'Dynamic Creative' feature to test multiple headlines, descriptions, and images in one ad",
+      "Create 5 separate campaigns",
+      "Run 5 ads all at the same time"
+    ],
+    "answer": "Use the 'Dynamic Creative' feature to test multiple headlines, descriptions, and images in one ad"
+  },
+  {
+    "question": "What does 'Frequency Cap' do in programmatic advertising (DV360/The Trade Desk)?",
+    "options": [
+      "Limits the number of times a specific user sees your ad, preventing ad fatigue",
+      "Limits the number of ads you can run per day",
+      "Limits the budget per impression",
+      "Limits the number of total clicks"
+    ],
+    "answer": "Limits the number of times a specific user sees your ad, preventing ad fatigue"
+  },
+  {
+    "question": "What is the primary use case for a 'PMax' (Performance Max) campaign in Google Ads?",
+    "options": [
+      "To access all Google inventory (Search, Display, YouTube, Gmail, Maps) from a single campaign using AI",
+      "To run text ads only",
+      "To run only on YouTube",
+      "To replace all manual search campaigns permanently"
+    ],
+    "answer": "To access all Google inventory (Search, Display, YouTube, Gmail, Maps) from a single campaign using AI"
+  },
+  {
+    "question": "You are running a PMax campaign. You notice your Search Impression Share is low. What asset should you check?",
+    "options": [
+      "Your 'Final URL' extension (landing page) to ensure it matches your search themes",
+      "Your image assets",
+      "Your video assets",
+      "Your budget is too high"
+    ],
+    "answer": "Your 'Final URL' extension (landing page) to ensure it matches your search themes"
+  },
+  {
+    "question": "What is the 'Attribution Setting' window you should use for a high-ticket B2B SaaS product with a 90-day sales cycle?",
+    "options": [
+      "1-Day Click",
+      "7-Day Click",
+      "90-Day Click and 1-Day View",
+      "1-Day View only"
+    ],
+    "answer": "90-Day Click and 1-Day View"
+  },
+  {
+    "question": "In LinkedIn Ads, what is 'Matched Audiences' primarily used for?",
+    "options": [
+      "Targeting specific companies, contacts, or retargeting website visitors via email/URL",
+      "Targeting people based on their hobbies",
+      "Targeting people based on their age",
+      "Targeting people based on their location only"
+    ],
+    "answer": "Targeting specific companies, contacts, or retargeting website visitors via email/URL"
+  },
+  {
+    "question": "Your Google Search ad has a CTR of 10% but a Conversion Rate of 0.5%. What does this tell you?",
+    "options": [
+      "The ad copy is great at generating clicks, but the landing page or offer is failing to convert",
+      "The ad copy is bad",
+      "The budget is too high",
+      "The keywords are too specific"
+    ],
+    "answer": "The ad copy is great at generating clicks, but the landing page or offer is failing to convert"
+  },
+  {
+    "question": "What is the best way to structure a Google Ads account for a retailer with 5,000 different products?",
+    "options": [
+      "One campaign with all products in one ad group",
+      "Use a 'Shopping' campaign with a 'Product Feed' and sub-dividing into product groups",
+      "Create a separate campaign for each product",
+      "Use only Dynamic Search Ads"
+    ],
+    "answer": "Use a 'Shopping' campaign with a 'Product Feed' and sub-dividing into product groups"
+  },
+  {
+    "question": "What is a 'Product Feed' in Google Shopping?",
+    "options": [
+      "A structured file (XML, CSV, or API) containing all product data (title, price, image, GTIN) sent to Google",
+      "A list of employee favorites",
+      "A blog post about products",
+      "A type of video"
+    ],
+    "answer": "A structured file (XML, CSV, or API) containing all product data (title, price, image, GTIN) sent to Google"
+  },
+  {
+    "question": "You notice your Google Shopping ads are showing for irrelevant searches like 'cheap wedding dresses' when you sell luxury suits. What do you add?",
+    "options": [
+      "Negative Keywords in the Shopping campaign",
+      "More images",
+      "Higher bids",
+      "Lower bids"
+    ],
+    "answer": "Negative Keywords in the Shopping campaign"
+  },
+  {
+    "question": "What is the TikTok 'Spark Ads' feature designed for?",
+    "options": [
+      "To allow brands to boost existing organic posts from creators, making them look native",
+      "To create text-only ads",
+      "To run ads only on desktop",
+      "To sell physical products only"
+    ],
+    "answer": "To allow brands to boost existing organic posts from creators, making them look native"
+  },
+  {
+    "question": "In Meta Ads, what is the 'Campaign Budget Optimization' (CBO) feature?",
+    "options": [
+      "It distributes your campaign budget across ad sets dynamically to the best performing ones",
+      "It allocates equal budget to all ad sets",
+      "It allocates budget based on alphabetical order",
+      "It sets a daily budget for the entire account"
+    ],
+    "answer": "It distributes your campaign budget across ad sets dynamically to the best performing ones"
+  },
+  {
+    "question": "You have a CBO campaign with 5 ad sets. One ad set is consuming 90% of the budget. What should you do?",
+    "options": [
+      "Let it run, as CBO is finding the best performing ad set",
+      "Force an equal budget split by turning off CBO",
+      "Pause the ad set",
+      "Increase the budget 10x"
+    ],
+    "answer": "Let it run, as CBO is finding the best performing ad set"
+  },
+  {
+    "question": "What is the 'Google Ads Editor' desktop application most useful for?",
+    "options": [
+      "Making bulk changes (e.g., updating 1,000 keywords or bids) offline, then uploading",
+      "Creating graphics for ads",
+      "Building a website",
+      "Writing blog posts"
+    ],
+    "answer": "Making bulk changes (e.g., updating 1,000 keywords or bids) offline, then uploading"
+  },
+  {
+    "question": "What does the 'Ad Strength' indicator in Google Ads measure?",
+    "options": [
+      "The relevance and variety of your headlines and descriptions for RSA (Responsive Search Ads)",
+      "The color contrast of your images",
+      "The speed of your website",
+      "The number of likes on your page"
+    ],
+    "answer": "The relevance and variety of your headlines and descriptions for RSA (Responsive Search Ads)"
+  },
+  {
+    "question": "You are running a YouTube campaign. What is the primary purpose of a 'Bumper Ad' (6 seconds)?",
+    "options": [
+      "To deliver a short, memorable message for brand awareness at a high frequency",
+      "To drive deep, long-form product education",
+      "To generate leads",
+      "To replace all other ad formats"
+    ],
+    "answer": "To deliver a short, memorable message for brand awareness at a high frequency"
+  },
+  {
+    "question": "What is the difference between 'TrueView In-Stream' and 'Non-Skippable In-Stream' ads on YouTube?",
+    "options": [
+      "TrueView you pay only when a user watches 30s or engages; Non-skippable you pay for any impression",
+      "TrueView is for mobile; Non-skippable is for desktop",
+      "They are the same",
+      "TrueView is cheaper; Non-skippable is free"
+    ],
+    "answer": "TrueView you pay only when a user watches 30s or engages; Non-skippable you pay for any impression"
+  },
+  {
+    "question": "Your Google Display campaign is getting high impressions but a very low CTR (0.05%). What is the MOST likely cause?",
+    "options": [
+      "Poor ad creative or a mismatch between the ad and the contextual placement",
+      "The budget is too high",
+      "The bid is too high",
+      "The location targeting is too small"
+    ],
+    "answer": "Poor ad creative or a mismatch between the ad and the contextual placement"
+  },
+  {
+    "question": "What is the 'Contextual Targeting' feature in Google Display Ads?",
+    "options": [
+      "Targeting users based on the content of the webpage they are currently viewing",
+      "Targeting based on user age",
+      "Targeting based on income",
+      "Targeting based on device type"
+    ],
+    "answer": "Targeting users based on the content of the webpage they are currently viewing"
+  },
+  {
+    "question": "You are running a lead generation campaign on LinkedIn. What objective should you optimize for?",
+    "options": [
+      "Maximize Clicks",
+      "Conversions (via the LinkedIn Insight Tag and CAPI)",
+      "Impressions",
+      "Video Views"
+    ],
+    "answer": "Conversions (via the LinkedIn Insight Tag and CAPI)"
+  },
+  {
+    "question": "In the Google Ads API, what is the purpose of a 'Conversion Adjuster'?",
+    "options": [
+      "To upload offline conversions (e.g., phone sales) back into Google Ads",
+      "To change the color of ads",
+      "To create new ad copies",
+      "To delete old campaigns"
+    ],
+    "answer": "To upload offline conversions (e.g., phone sales) back into Google Ads"
+  },
+  {
+    "question": "What is 'In-Market Audience' in Google Ads?",
+    "options": [
+      "Users who are actively researching or comparing products/services in your category",
+      "Users who bought from you before",
+      "Users who visited your website once",
+      "Users who are not interested"
+    ],
+    "answer": "Users who are actively researching or comparing products/services in your category"
+  },
+  {
+    "question": "You want to target people who have viewed a specific video on your YouTube channel. Which audience do you build?",
+    "options": [
+      "Remarketing list based on 'Video Viewers' of that specific video",
+      "Custom Affinity audience",
+      "In-Market audience",
+      "Demographic audience"
+    ],
+    "answer": "Remarketing list based on 'Video Viewers' of that specific video"
+  },
+  {
+    "question": "What is a 'Customer Match' audience in Google Ads?",
+    "options": [
+      "Targeting based on your own list of customer emails (uploaded in a hashed format)",
+      "Targeting based on competitor's customers",
+      "Targeting all Gmail users",
+      "Targeting only people on YouTube"
+    ],
+    "answer": "Targeting based on your own list of customer emails (uploaded in a hashed format)"
+  },
+  {
+    "question": "What is the primary difference between 'Ad Sets' and 'Ad Creatives' in the Meta Ads Manager hierarchy?",
+    "options": [
+      "Ad Sets control audience, placement, and budget; Creatives are the actual visuals/text",
+      "Ad Sets are for Instagram; Creatives are for Facebook",
+      "Ad Sets control budget; Creatives control audience",
+      "They are the same"
+    ],
+    "answer": "Ad Sets control audience, placement, and budget; Creatives are the actual visuals/text"
+  },
+  {
+    "question": "When using 'Placement Optimization' in Meta Ads, what does the 'Advantage+ Placements' option do?",
+    "options": [
+      "It allows Meta to deliver your ads across all eligible placements to maximize performance",
+      "It limits ads only to Facebook Feed",
+      "It limits ads only to Instagram Stories",
+      "It shows ads only on desktop"
+    ],
+    "answer": "It allows Meta to deliver your ads across all eligible placements to maximize performance"
+  },
+  {
+    "question": "Your TikTok ad has a high 'Cost Per Click' but a low 'Cost Per Conversion'. What does this indicate?",
+    "options": [
+      "Your ad is expensive to get clicks, but the quality of those clicks is high (high conversion rate)",
+      "Your ad is performing poorly",
+      "Your targeting is too broad",
+      "Your budget is too low"
+    ],
+    "answer": "Your ad is expensive to get clicks, but the quality of those clicks is high (high conversion rate)"
+  },
+  {
+    "question": "What is the primary benefit of using 'Smart Bidding' with a 'Portfolio Bid Strategy' in Google Ads?",
+    "options": [
+      "It optimizes bids across multiple campaigns for a shared goal (e.g., maximizing total conversions)",
+      "It only works on weekends",
+      "It only works for display ads",
+      "It reduces the number of keywords you can use"
+    ],
+    "answer": "It optimizes bids across multiple campaigns for a shared goal (e.g., maximizing total conversions)"
+  },
+  {
+    "question": "In Google Ads, what is a 'Callout Extension'?",
+    "options": [
+      "Additional text (e.g., 'Free Delivery, 24/7 Support') that highlights features without a click",
+      "A phone number",
+      "A website link",
+      "A product image"
+    ],
+    "answer": "Additional text (e.g., 'Free Delivery, 24/7 Support') that highlights features without a click"
+  },
+  {
+    "question": "Your Google Ads account is suspended for 'Circumventing Systems'. What is the most practical correction?",
+    "options": [
+      "Create a brand new website and use a different credit card",
+      "Review all domains in your account, ensure they are legitimate, and file an appeal with detailed explanation",
+      "Ignore the suspension",
+      "Remove all ad extensions"
+    ],
+    "answer": "Review all domains in your account, ensure they are legitimate, and file an appeal with detailed explanation"
+  },
+  {
+    "question": "What is the 'Pangle' network in the context of TikTok ads?",
+    "options": [
+      "A global ad network extension for TikTok that places ads on third-party apps",
+      "A type of video filter",
+      "A music library",
+      "A text font"
+    ],
+    "answer": "A global ad network extension for TikTok that places ads on third-party apps"
+  },
+  {
+    "question": "You are running a Google Ads campaign for a law firm. What is the strictest compliance rule you must follow?",
+    "options": [
+      "The landing page must include a disclaimer and be approved for 'Restricted Legal Services'",
+      "You cannot use images",
+      "You must have a budget over $10,000/day",
+      "You cannot use mobile placements"
+    ],
+    "answer": "The landing page must include a disclaimer and be approved for 'Restricted Legal Services'"
+  },
+  {
+    "question": "What is the 'Budget Simulator' tool in Google Ads?",
+    "options": [
+      "A tool that estimates the impact of changing your budget on clicks, impressions, and conversions",
+      "A tool that spends your budget faster",
+      "A tool that reduces your budget",
+      "A tool that designs ads"
+    ],
+    "answer": "A tool that estimates the impact of changing your budget on clicks, impressions, and conversions"
+  },
+  {
+    "question": "In Meta Ads, what is the '7-Day Click' window in attribution?",
+    "options": [
+      "A conversion is attributed if the user clicks the ad within 7 days of viewing it, regardless of when they convert",
+      "A conversion only counts if the user converts exactly 7 days later",
+      "A conversion counts if the user sees the ad for 7 seconds",
+      "A conversion only counts on the 7th of the month"
+    ],
+    "answer": "A conversion is attributed if the user clicks the ad within 7 days of viewing it, regardless of when they convert"
+  },
+  {
+    "question": "What is the primary use of 'App Install Campaigns' on Meta and Google?",
+    "options": [
+      "To drive users to install a mobile application",
+      "To drive website traffic",
+      "To drive offline store visits",
+      "To increase email signups"
+    ],
+    "answer": "To drive users to install a mobile application"
+  },
+  {
+    "question": "You are troubleshooting a Google Ads shopping feed. The error says 'Missing value [price]'. Where do you fix this?",
+    "options": [
+      "In the Merchant Center product feed (CSV/XML file or direct API)",
+      "In the Google Ads campaign settings",
+      "In the website's robots.txt file",
+      "In the HTML head of the landing page"
+    ],
+    "answer": "In the Merchant Center product feed (CSV/XML file or direct API)"
+  },
+  {
+    "question": "What is the 'Attribution' model recommended for a Google Ads campaign with a 3-day sales cycle and multiple touchpoints?",
+    "options": [
+      "Last Click",
+      "First Click",
+      "Data-Driven Attribution (if you have enough data), otherwise Position-Based",
+      "Linear"
+    ],
+    "answer": "Data-Driven Attribution (if you have enough data), otherwise Position-Based"
+  },
+  {
+    "question": "What does the 'Google Ads API' primarily allow developers to do?",
+    "options": [
+      "Build custom tools and dashboards to manage large accounts programmatically",
+      "Create images for ads",
+      "Design websites",
+      "Write blog posts"
+    ],
+    "answer": "Build custom tools and dashboards to manage large accounts programmatically"
+  },
+  {
+    "question": "In the context of programmatic, what does 'OpenRTB' stand for?",
+    "options": [
+      "Open Real-Time Bidding protocol - the industry standard for automated ad buying",
+      "Open Radio Television Broadcasting",
+      "Open Relational Table Base",
+      "Open Return Ticket Booking"
+    ],
+    "answer": "Open Real-Time Bidding protocol - the industry standard for automated ad buying"
+  },
+  {
+    "question": "What is a 'DMP' (Data Management Platform) primarily used for?",
+    "options": [
+      "Collecting, organizing, and activating audience data from multiple sources for ad targeting",
+      "Creating ad copy",
+      "Managing email lists only",
+      "Managing social media posts"
+    ],
+    "answer": "Collecting, organizing, and activating audience data from multiple sources for ad targeting"
+  },
+  {
+    "question": "Your Google Ads RSA (Responsive Search Ad) has a 'Poor' ad strength. What is the main reason?",
+    "options": [
+      "You have too many duplicate headlines or not enough unique, distinct variations",
+      "The font size is too small",
+      "The images are blurry",
+      "The URL is too long"
+    ],
+    "answer": "You have too many duplicate headlines or not enough unique, distinct variations"
+  },
+  {
+    "question": "What is a 'Cohort Analysis' in GA4 used for?",
+    "options": [
+      "To analyze the behavior and retention of specific groups of users over time",
+      "To analyze a single user's behavior",
+      "To analyze competitor traffic",
+      "To analyze total revenue only"
+    ],
+    "answer": "To analyze the behavior and retention of specific groups of users over time"
+  },
+  {
+    "question": "You want to compare the conversion rate of users who came from 'Organic Social' vs. 'Paid Search'. Which GA4 report would you use?",
+    "options": [
+      "Acquisition > Traffic Acquisition",
+      "Engagement > Pages and Screens",
+      "Monetization > Monetization",
+      "Retention > Retention"
+    ],
+    "answer": "Acquisition > Traffic Acquisition"
+  },
+  {
+    "question": "What is the purpose of a 'Holdout Group' in a lift test (incrementality testing)?",
+    "options": [
+      "A group that is not shown any ads to measure what would have happened organically (the baseline)",
+      "A group that is shown your competitor's ads",
+      "A group that is shown all ads twice",
+      "A group that is shown ads only on mobile"
+    ],
+    "answer": "A group that is not shown any ads to measure what would have happened organically (the baseline)"
+  },
+  {
+    "question": "What is the difference between 'Incrementality' and 'Attribution'?",
+    "options": [
+      "Incrementality measures the causal impact of ads on conversions; Attribution distributes credit among touchpoints",
+      "They are the same",
+      "Incrementality is for display; Attribution is for search",
+      "Incrementality is for B2B; Attribution is for B2C"
+    ],
+    "answer": "Incrementality measures the causal impact of ads on conversions; Attribution distributes credit among touchpoints"
+  },
+  {
+    "question": "You want to see which landing page converts the best in Google Ads. What report do you use?",
+    "options": [
+      "Report > Landing Pages",
+      "Report > Keywords",
+      "Report > Ad Copy",
+      "Report > Geographic"
+    ],
+    "answer": "Report > Landing Pages"
+  },
+  {
+    "question": "What is 'Pacing' in the context of a programmatic ad campaign?",
+    "options": [
+      "The rate at which your daily budget is being spent throughout the day",
+      "The speed of the ad loading",
+      "The speed of the user's internet",
+      "The speed of the bid requests"
+    ],
+    "answer": "The rate at which your daily budget is being spent throughout the day"
+  },
+  {
+    "question": "Your campaign's daily budget is spent in 2 hours every morning. You're missing afternoon audiences. What's the practical fix?",
+    "options": [
+      "Switch to 'Standard Delivery' (spread evenly) from 'Accelerated Delivery'",
+      "Increase the budget 10x",
+      "Pause the campaign at noon",
+      "Reduce the budget"
+    ],
+    "answer": "Switch to 'Standard Delivery' (spread evenly) from 'Accelerated Delivery'"
+  },
+  {
+    "question": "What does the term 'Cookie-less Future' refer to in digital marketing?",
+    "options": [
+      "The phasing out of third-party cookies by browsers (e.g., Chrome) due to privacy regulations",
+      "The removal of all cookies from websites",
+      "A new type of diet",
+      "A type of software"
+    ],
+    "answer": "The phasing out of third-party cookies by browsers (e.g., Chrome) due to privacy regulations"
+  },
+  {
+    "question": "You are setting up a 'Conversion Path' report in GA4. What is this useful for?",
+    "options": [
+      "Visualizing the sequence of touchpoints users take before converting",
+      "Visualizing employee workflow",
+      "Visualizing page load speed",
+      "Visualizing competitor ad spend"
+    ],
+    "answer": "Visualizing the sequence of touchpoints users take before converting"
+  },
+  {
+    "question": "What is the ideal sample size for a multivariate test (MVT) versus an A/B test?",
+    "options": [
+      "MVT requires significantly larger traffic volume than A/B due to multiple variable combinations",
+      "MVT requires less traffic than A/B",
+      "They require the exact same sample size",
+      "Sample size is irrelevant"
+    ],
+    "answer": "MVT requires significantly larger traffic volume than A/B due to multiple variable combinations"
+  },
+  {
+    "question": "You're running an A/B test on a landing page. How do you decide when to stop the test and declare a winner?",
+    "options": [
+      "When statistical significance (95%+ confidence) and a minimum sample size are reached",
+      "When one version has 10% more conversions",
+      "After exactly 7 days",
+      "When the client asks for a result"
+    ],
+    "answer": "When statistical significance (95%+ confidence) and a minimum sample size are reached"
+  },
+  {
+    "question": "What is the difference between a 'Heatmap' and a 'Scrollmap' in CRO tools like Hotjar?",
+    "options": [
+      "Heatmap shows where users click/move; Scrollmap shows how far down the page they scroll",
+      "They are the same",
+      "Heatmap is for mobile; Scrollmap is for desktop",
+      "Heatmap is for video; Scrollmap is for text"
+    ],
+    "answer": "Heatmap shows where users click/move; Scrollmap shows how far down the page they scroll"
+  },
+  {
+    "question": "You watch a session replay and see a user repeatedly clicking on a non-clickable image. What CRO change should you make?",
+    "options": [
+      "Make the image clickable and link it to the product page (it's a user expectation)",
+      "Remove the image",
+      "Make the image smaller",
+      "Change the image color"
+    ],
+    "answer": "Make the image clickable and link it to the product page (it's a user expectation)"
+  },
+  {
+    "question": "You notice your checkout page has a 90% drop-off rate. What is the first thing to check using analytics?",
+    "options": [
+      "Check for errors in the 'User Timings' report (page load speed for critical JavaScript)",
+      "Check the color of the 'Buy' button",
+      "Check the product prices",
+      "Check the page title"
+    ],
+    "answer": "Check for errors in the 'User Timings' report (page load speed for critical JavaScript)"
+  },
+  {
+    "question": "What is the purpose of a 'Funnel Visualization' report (e.g., in GA4 or Mixpanel)?",
+    "options": [
+      "To see where users are dropping off at each step of a defined flow (e.g., Home > Product > Cart > Checkout)",
+      "To see total website traffic",
+      "To see the bounce rate",
+      "To see the number of users online"
+    ],
+    "answer": "To see where users are dropping off at each step of a defined flow (e.g., Home > Product > Cart > Checkout)"
+  },
+  {
+    "question": "You want to use a regex expression in GA4 to filter all URLs containing 'product' or 'item'. What is the correct expression?",
+    "options": [
+      "product|item",
+      "product&item",
+      "product+item",
+      "product*item"
+    ],
+    "answer": "product|item"
+  },
+  {
+    "question": "What is the 'User ID' feature in GA4 used for?",
+    "options": [
+      "To stitch together user behavior across multiple devices and sessions when a user logs in",
+      "To identify employees",
+      "To identify competitors",
+      "To identify the country of origin"
+    ],
+    "answer": "To stitch together user behavior across multiple devices and sessions when a user logs in"
+  },
+  {
+    "question": "What is the difference between a 'Dimension' and a 'Metric' in GA4?",
+    "options": [
+      "Dimension is a descriptive attribute (e.g., City); Metric is a quantitative measurement (e.g., Users)",
+      "They are the same",
+      "Dimension is for charts; Metric is for tables",
+      "Dimension is for ads; Metric is for analytics"
+    ],
+    "answer": "Dimension is a descriptive attribute (e.g., City); Metric is a quantitative measurement (e.g., Users)"
+  },
+  {
+    "question": "You need to share a GA4 report with a client who doesn't have GA access. What should you do?",
+    "options": [
+      "Create a custom report and 'Share' via the generated link with 'Viewer' permissions",
+      "Screenshot the report",
+      "Email the raw CSV",
+      "Read the report over the phone"
+    ],
+    "answer": "Create a custom report and 'Share' via the generated link with 'Viewer' permissions"
+  },
+  {
+    "question": "What is the primary purpose of a 'Data Studio' (Looker Studio) dashboard?",
+    "options": [
+      "To connect multiple data sources (GA4, Google Ads, Sheets) into a single, visual, and shareable dashboard",
+      "To write SQL queries",
+      "To design websites",
+      "To send emails"
+    ],
+    "answer": "To connect multiple data sources (GA4, Google Ads, Sheets) into a single, visual, and shareable dashboard"
+  },
+  {
+    "question": "You see a high 'Add-to-Cart' rate but a low 'Checkout Initiated' rate. Which button needs optimization?",
+    "options": [
+      "The 'View Cart' or 'Checkout' button on the cart page",
+      "The 'Add to Cart' button",
+      "The 'Home' button",
+      "The 'Contact Us' button"
+    ],
+    "answer": "The 'View Cart' or 'Checkout' button on the cart page"
+  },
+  {
+    "question": "What does the 'Floating Action Button' (FAB) behavior on a mobile landing page often indicate?",
+    "options": [
+      "Users are engaging with a primary action (like a sticky CTA) even while scrolling",
+      "Users are confused",
+      "Users are leaving the page",
+      "Users are clicking on the wrong thing"
+    ],
+    "answer": "Users are engaging with a primary action (like a sticky CTA) even while scrolling"
+  },
+  {
+    "question": "You want to measure the impact of a new feature on a specific page, but you only have 1,000 daily visitors. What test should you run?",
+    "options": [
+      "A standard A/B test (50/50 split) for at least 2 weeks",
+      "A multivariate test",
+      "A test with 90/10 split",
+      "A test for only 1 day"
+    ],
+    "answer": "A standard A/B test (50/50 split) for at least 2 weeks"
+  },
+  {
+    "question": "What is the 'Ecommerce Conversion Rate' formula?",
+    "options": [
+      "(Total Transactions / Total Ecommerce Sessions) * 100",
+      "(Total Revenue / Total Sessions) * 100",
+      "(Total Clicks / Total Impressions) * 100",
+      "(Total Bounces / Total Sessions) * 100"
+    ],
+    "answer": "(Total Transactions / Total Ecommerce Sessions) * 100"
+  },
+  {
+    "question": "You see a huge spike in traffic from a specific country that doesn't buy. What should you check first?",
+    "options": [
+      "Is this organic traffic or is it bot traffic/spam? Check the 'Source/Medium' and 'User Engagement'",
+      "Increase the bid for that country",
+      "Launch a new campaign in that country",
+      "Add a new currency"
+    ],
+    "answer": "Is this organic traffic or is it bot traffic/spam? Check the 'Source/Medium' and 'User Engagement'"
+  },
+  {
+    "question": "What is the purpose of a 'Variance' calculation in a CRO test?",
+    "options": [
+      "It measures the spread of your data to ensure the test results are reliable and not due to random chance",
+      "It measures the average of your data",
+      "It measures the maximum of your data",
+      "It measures the minimum of your data"
+    ],
+    "answer": "It measures the spread of your data to ensure the test results are reliable and not due to random chance"
+  },
+  {
+    "question": "You want to analyze retention cohorts by 'Week'. What does Week 1 retention mean?",
+    "options": [
+      "Users who installed/created account in Week 0 and returned in Week 1",
+      "Users who spent over $100",
+      "Users who uninstalled the app",
+      "Users who left a review"
+    ],
+    "answer": "Users who installed/created account in Week 0 and returned in Week 1"
+  },
+  {
+    "question": "What is 'Event Scoping' in GA4?",
+    "options": [
+      "The scope determines if a parameter is applied to a single event, a session, or a user",
+      "The scope of the ad campaign",
+      "The scope of the website",
+      "The scope of the server"
+    ],
+    "answer": "The scope determines if a parameter is applied to a single event, a session, or a user"
+  },
+  {
+    "question": "Your landing page has a form with 15 fields. Conversion rate is 1%. What is the primary optimization?",
+    "options": [
+      "Reduce the number of form fields to only essential ones (e.g., Name and Email) to reduce friction",
+      "Increase the number of fields to 20",
+      "Change the font color",
+      "Make the form bigger"
+    ],
+    "answer": "Reduce the number of form fields to only essential ones (e.g., Name and Email) to reduce friction"
+  },
+  {
+    "question": "What is the 'Hawthorne Effect' in A/B testing?",
+    "options": [
+      "The phenomenon where users change their behavior simply because they know they are being tested",
+      "Users behave normally",
+      "Users ignore the test",
+      "Users only click on the first option"
+    ],
+    "answer": "The phenomenon where users change their behavior simply because they know they are being tested"
+  },
+  {
+    "question": "In BigQuery (GA4 export), which SQL query would you write to get total users by date?",
+    "options": [
+      "SELECT event_date, COUNT(DISTINCT user_pseudo_id) FROM your_table GROUP BY event_date",
+      "SELECT * FROM your_table",
+      "SELECT event_date, SUM(users) FROM your_table",
+      "SELECT event_name, COUNT(user_pseudo_id) FROM your_table"
+    ],
+    "answer": "SELECT event_date, COUNT(DISTINCT user_pseudo_id) FROM your_table GROUP BY event_date"
+  },
+  {
+    "question": "You are using 'Converted' as a condition in a GA4 audience. What does 'Converted' mean here?",
+    "options": [
+      "The user has triggered at least one of the conversion events you marked as 'Conversion' in the admin",
+      "The user has made a purchase",
+      "The user has visited the site 5 times",
+      "The user has subscribed to the email"
+    ],
+    "answer": "The user has triggered at least one of the conversion events you marked as 'Conversion' in the admin"
+  },
+  {
+    "question": "What is a 'Confidence Interval' in A/B testing results?",
+    "options": [
+      "The range within which the true uplift likely falls (e.g., 'We are 95% sure the true conversion rate is between 5% and 7%')",
+      "The exact conversion rate",
+      "The p-value",
+      "The sample size"
+    ],
+    "answer": "The range within which the true uplift likely falls (e.g., 'We are 95% sure the true conversion rate is between 5% and 7%')"
+  },
+  {
+    "question": "You run a test and get a 'p-value' of 0.03. What does this mean practically?",
+    "options": [
+      "There is a 3% probability that the observed result happened by random chance; you can declare a winner (statistically significant)",
+      "The test has failed",
+      "There is a 97% probability the result is random",
+      "The test needs 3 more days"
+    ],
+    "answer": "There is a 3% probability that the observed result happened by random chance; you can declare a winner (statistically significant)"
+  },
+  {
+    "question": "You want to send an automated email to a user exactly 3 days after they signed up. What marketing automation concept is this?",
+    "options": [
+      "Drip Campaign / Welcome Workflow",
+      "Batch-and-Blast email",
+      "Cold email",
+      "Transactional email"
+    ],
+    "answer": "Drip Campaign / Welcome Workflow"
+  },
+  {
+    "question": "What is the difference between a 'Transactional' email and a 'Marketing' email under GDPR/CAN-SPAM?",
+    "options": [
+      "Transactional emails (order confirmation) do not require prior opt-in; Marketing emails require consent",
+      "Marketing emails do not require opt-in; Transactional emails do",
+      "They are regulated the same",
+      "Transactional emails are illegal"
+    ],
+    "answer": "Transactional emails (order confirmation) do not require prior opt-in; Marketing emails require consent"
+  },
+  {
+    "question": "What is the ideal 'Re-engagement' email strategy for users who haven't opened an email in 6 months?",
+    "options": [
+      "Send a win-back email with a compelling offer; if no engagement, move them to an inactive suppression list",
+      "Delete the user from the CRM",
+      "Send 5 emails a day",
+      "Ignore them"
+    ],
+    "answer": "Send a win-back email with a compelling offer; if no engagement, move them to an inactive suppression list"
+  },
+  {
+    "question": "What is 'Segmentation' in email marketing?",
+    "options": [
+      "Dividing your email list into smaller groups based on behavior, demographics, or engagement to send targeted content",
+      "Sending the same email to everyone",
+      "Sending emails only on Mondays",
+      "Removing all images from emails"
+    ],
+    "answer": "Dividing your email list into smaller groups based on behavior, demographics, or engagement to send targeted content"
+  },
+  {
+    "question": "You have an abandoned cart workflow. What is the recommended timing for the first email?",
+    "options": [
+      "1 hour after abandonment (immediate, while the intent is high)",
+      "1 week after abandonment",
+      "24 hours after abandonment",
+      "30 days after abandonment"
+    ],
+    "answer": "1 hour after abandonment (immediate, while the intent is high)"
+  },
+  {
+    "question": "What is 'Lead Scoring' in a CRM (e.g., Salesforce or HubSpot)?",
+    "options": [
+      "Assigning numerical values to leads based on their behavior and profile to prioritize follow-up",
+      "Assigning grades to employees",
+      "Scoring based on alphabetical order",
+      "Scoring based on location only"
+    ],
+    "answer": "Assigning numerical values to leads based on their behavior and profile to prioritize follow-up"
+  },
+  {
+    "question": "What does 'API' stand for in the context of marketing automation?",
+    "options": [
+      "Application Programming Interface - allows different software (CRM, Email, Ads) to talk to each other",
+      "Automated Programmatic Interface",
+      "Advanced Performance Index",
+      "Ad Placement Identifier"
+    ],
+    "answer": "Application Programming Interface - allows different software (CRM, Email, Ads) to talk to each other"
+  },
+  {
+    "question": "You are integrating HubSpot with Salesforce. What is the typical direction of data flow?",
+    "options": [
+      "Salesforce is usually the source of truth for revenue/contracts; HubSpot syncs engagement data into Salesforce",
+      "HubSpot is always the source of truth",
+      "They never integrate",
+      "Only emails are synced"
+    ],
+    "answer": "Salesforce is usually the source of truth for revenue/contracts; HubSpot syncs engagement data into Salesforce"
+  },
+  {
+    "question": "What is a 'Webinar' funnel typically composed of in terms of email sequences?",
+    "options": [
+      "Confirmation email > Reminder email (1 day before) > Reminder email (1 hour before) > Recording email > Follow-up sales sequence",
+      "Only one email",
+      "Only social media posts",
+      "No emails"
+    ],
+    "answer": "Confirmation email > Reminder email (1 day before) > Reminder email (1 hour before) > Recording email > Follow-up sales sequence"
+  },
+  {
+    "question": "What is the primary metric for email deliverability?",
+    "options": [
+      "Inbox Placement Rate (not just delivery rate, but actual inbox vs. spam folder)",
+      "Open Rate",
+      "Click Rate",
+      "Unsubscribe Rate"
+    ],
+    "answer": "Inbox Placement Rate (not just delivery rate, but actual inbox vs. spam folder)"
+  },
+  {
+    "question": "Your email open rates dropped from 25% to 8% overnight. What is the most likely cause?",
+    "options": [
+      "Your domain reputation declined; you likely hit a spam filter or were blacklisted",
+      "The subject line changed",
+      "The images were too large",
+      "The email was too short"
+    ],
+    "answer": "Your domain reputation declined; you likely hit a spam filter or were blacklisted"
+  },
+  {
+    "question": "What is the purpose of an 'SPF' (Sender Policy Framework) record in email marketing?",
+    "options": [
+      "It authorizes which servers are allowed to send emails from your domain, preventing spoofing",
+      "It designs the email template",
+      "It tracks opens",
+      "It adds images"
+    ],
+    "answer": "It authorizes which servers are allowed to send emails from your domain, preventing spoofing"
+  },
+  {
+    "question": "What is the difference between 'DKIM' and 'DMARC'?",
+    "options": [
+      "DKIM signs emails with a private key to verify authenticity; DMARC tells ISPs what to do if authentication fails",
+      "They are the same",
+      "DKIM is for images; DMARC is for text",
+      "DKIM is for B2C; DMARC is for B2B"
+    ],
+    "answer": "DKIM signs emails with a private key to verify authenticity; DMARC tells ISPs what to do if authentication fails"
+  },
+  {
+    "question": "You want to maximize email list growth on a Shopify store. What is the highest-converting tactic?",
+    "options": [
+      "A pop-up with a discount code (e.g., '10% off in exchange for email') triggered on exit-intent",
+      "A simple footer signup form",
+      "A link in the Instagram bio",
+      "A QR code on packaging"
+    ],
+    "answer": "A pop-up with a discount code (e.g., '10% off in exchange for email') triggered on exit-intent"
+  },
+  {
+    "question": "What is a 'Double Opt-In' in email marketing?",
+    "options": [
+      "The user confirms their subscription twice (once via form, once via a confirmation email), ensuring high-quality leads",
+      "The user signs up twice",
+      "The user receives two emails at once",
+      "The user opts out twice"
+    ],
+    "answer": "The user confirms their subscription twice (once via form, once via a confirmation email), ensuring high-quality leads"
+  },
+  {
+    "question": "You are running a Facebook Lead Gen form. What is the primary advantage of native lead forms over sending traffic to your website?",
+    "options": [
+      "Pre-filled user data (from Facebook profile) leading to higher form completion rates on mobile",
+      "They are cheaper",
+      "They are faster to load",
+      "They don't require any targeting"
+    ],
+    "answer": "Pre-filled user data (from Facebook profile) leading to higher form completion rates on mobile"
+  },
+  {
+    "question": "What is the primary purpose of a 'Post-Purchase' email flow?",
+    "options": [
+      "To thank the customer, set delivery expectations, and offer cross-sells/upsells",
+      "To sell a completely different product",
+      "To unsubscribe the customer",
+      "To delete the customer's account"
+    ],
+    "answer": "To thank the customer, set delivery expectations, and offer cross-sells/upsells"
+  },
+  {
+    "question": "What is the 'RFM Model' (Recency, Frequency, Monetary) used for in CRM?",
+    "options": [
+      "Segmenting customers based on how recently they bought, how often, and how much they spent",
+      "Segmenting based on age",
+      "Segmenting based on location",
+      "Segmenting based on referral source"
+    ],
+    "answer": "Segmenting customers based on how recently they bought, how often, and how much they spent"
+  },
+  {
+    "question": "You are integrating Google Ads with Salesforce. What is the benefit of this integration?",
+    "options": [
+      "To see Closed Won revenue back in Google Ads reporting and optimize towards actual pipeline/value",
+      "To design better emails",
+      "To create social media posts",
+      "To build websites"
+    ],
+    "answer": "To see Closed Won revenue back in Google Ads reporting and optimize towards actual pipeline/value"
+  },
+  {
+    "question": "What is the primary purpose of an 'SMS Marketing' channel?",
+    "options": [
+      "For high-urgency, high-open-rate (98%+) communications like flash sales or shipping alerts",
+      "For long-form educational content",
+      "For sending images only",
+      "For email backups"
+    ],
+    "answer": "For high-urgency, high-open-rate (98%+) communications like flash sales or shipping alerts"
+  },
+  {
+    "question": "What is 'IP Warming' in email deliverability?",
+    "options": [
+      "Gradually increasing the volume of emails sent from a new IP address to build a reputation with ISPs",
+      "Heating up the server room",
+      "Writing longer emails",
+      "Adding more images"
+    ],
+    "answer": "Gradually increasing the volume of emails sent from a new IP address to build a reputation with ISPs"
+  },
+  {
+    "question": "You are using Zapier to connect Typeform (lead forms) to Mailchimp. What is Zapier acting as?",
+    "options": [
+      "An automation bridge that moves data (the Typeform answer) into Mailchimp as a new contact",
+      "An ad server",
+      "A web hosting service",
+      "A graphic design tool"
+    ],
+    "answer": "An automation bridge that moves data (the Typeform answer) into Mailchimp as a new contact"
+  },
+  {
+    "question": "In an email, what is the best practice for the 'Preheader Text'?",
+    "options": [
+      "Use it to summarize the email or add a secondary CTA, as it appears next to the subject line in the inbox",
+      "Leave it blank",
+      "Use it only for images",
+      "Use it only for legal disclaimers"
+    ],
+    "answer": "Use it to summarize the email or add a secondary CTA, as it appears next to the subject line in the inbox"
+  },
+  {
+    "question": "What is the primary goal of a 'Customer Loyalty Program'?",
+    "options": [
+      "To increase Customer Lifetime Value (LTV) and retention by rewarding repeat purchases",
+      "To acquire new customers",
+      "To reduce costs",
+      "To fire customers"
+    ],
+    "answer": "To increase Customer Lifetime Value (LTV) and retention by rewarding repeat purchases"
+  },
+  {
+    "question": "You see that your email list is growing but your open rate is declining. What should you analyze?",
+    "options": [
+      "Check for a higher percentage of 'spam traps' or low-quality emails in your acquisition sources",
+      "Increase the email length",
+      "Add more images",
+      "Change the font to red"
+    ],
+    "answer": "Check for a higher percentage of 'spam traps' or low-quality emails in your acquisition sources"
+  },
+  {
+    "question": "What is 'Dynamic Content' in an email?",
+    "options": [
+      "Content that changes based on the recipient's data (e.g., showing 'Hi John' or different product recommendations)",
+      "Content that is animated",
+      "Content that is a video",
+      "Content that has no images"
+    ],
+    "answer": "Content that changes based on the recipient's data (e.g., showing 'Hi John' or different product recommendations)"
+  },
+  {
+    "question": "What is the primary purpose of a 'Triggered Email'?",
+    "options": [
+      "An email sent automatically based on a specific action taken by the user (e.g., download, purchase, page visit)",
+      "An email sent on a specific date (like a newsletter)",
+      "An email sent by the CEO",
+      "An email with no subject line"
+    ],
+    "answer": "An email sent automatically based on a specific action taken by the user (e.g., download, purchase, page visit)"
+  },
+  {
+    "question": "What is a 'Customer Data Platform' (CDP) like Segment or Tealium primarily used for?",
+    "options": [
+      "To unify customer data from multiple sources (website, app, CRM, email) into a single customer profile",
+      "To create ad creatives",
+      "To build websites",
+      "To send invoices"
+    ],
+    "answer": "To unify customer data from multiple sources (website, app, CRM, email) into a single customer profile"
+  },
+  {
+    "question": "Your client wants to run a 'Cart Abandonment' campaign. What is the minimum data you need?",
+    "options": [
+      "Email address and the list of items left in the cart (including product ID and price)",
+      "Only the user's name",
+      "Only the total cart value",
+      "Only the user's location"
+    ],
+    "answer": "Email address and the list of items left in the cart (including product ID and price)"
+  },
+  {
+    "question": "In a lifecycle email strategy, what is the goal of a 'Win-Back' series?",
+    "options": [
+      "To re-engage lapsed customers who haven't purchased or engaged in a long time",
+      "To send daily emails to everyone",
+      "To apologize for a mistake",
+      "To announce a new CEO"
+    ],
+    "answer": "To re-engage lapsed customers who haven't purchased or engaged in a long time"
+  },
+  {
+    "question": "You have a $10,000 monthly budget to allocate between Google Search and Facebook. How do you decide the split?",
+    "options": [
+      "Analyze historical blended ROAS and marginal CPA to allocate more budget to the channel that delivers the highest incremental profit",
+      "Split it 50/50",
+      "Put 100% on Google",
+      "Put 100% on Facebook"
+    ],
+    "answer": "Analyze historical blended ROAS and marginal CPA to allocate more budget to the channel that delivers the highest incremental profit"
+  },
+  {
+    "question": "What is the principle of 'Marginal ROI' in budgeting?",
+    "options": [
+      "Each additional dollar spent on a channel will yield a slightly lower ROI as you saturate the audience",
+      "ROI increases exponentially with spend",
+      "ROI stays constant regardless of spend",
+      "ROI is irrelevant"
+    ],
+    "answer": "Each additional dollar spent on a channel will yield a slightly lower ROI as you saturate the audience"
+  },
+  {
+    "question": "You are pitching a new campaign to a CFO. What one metric do they care about most?",
+    "options": [
+      "ROI / ROAS and its direct impact on revenue and profitability",
+      "Impressions",
+      "Followers gained",
+      "Page likes"
+    ],
+    "answer": "ROI / ROAS and its direct impact on revenue and profitability"
+  },
+  {
+    "question": "What is the difference between a 'Leading' and 'Lagging' indicator in marketing dashboards?",
+    "options": [
+      "Leading indicators predict future performance (e.g., CTR, Traffic); Lagging indicators measure past outcomes (e.g., Revenue, Closed Deals)",
+      "They are the same",
+      "Leading indicators are for sales; Lagging are for marketing",
+      "Leading indicators are for B2C; Lagging for B2B"
+    ],
+    "answer": "Leading indicators predict future performance (e.g., CTR, Traffic); Lagging indicators measure past outcomes (e.g., Revenue, Closed Deals)"
+  },
+  {
+    "question": "You are forecasting Q4 revenue. Which historical data is most important to analyze?",
+    "options": [
+      "Year-over-year (YoY) Q4 data from last year, adjusted for market growth and campaign changes",
+      "Month-over-month data from January",
+      "Industry benchmarks",
+      "Competitor revenue"
+    ],
+    "answer": "Year-over-year (YoY) Q4 data from last year, adjusted for market growth and campaign changes"
+  },
+  {
+    "question": "What is a 'Marketing Mix Model' (MMM)?",
+    "options": [
+      "A statistical analysis that measures the impact of marketing channels (TV, Print, Digital) on sales over time",
+      "A model of the 4Ps",
+      "A type of creative",
+      "A social media post"
+    ],
+    "answer": "A statistical analysis that measures the impact of marketing channels (TV, Print, Digital) on sales over time"
+  },
+  {
+    "question": "What does 'CPO' stand for in performance marketing?",
+    "options": [
+      "Cost Per Order (total cost to generate one order/purchase)",
+      "Cost Per Option",
+      "Cost Per Optimization",
+      "Cost Per Operation"
+    ],
+    "answer": "Cost Per Order (total cost to generate one order/purchase)"
+  },
+  {
+    "question": "You are entering a new international market. What is your first strategic step?",
+    "options": [
+      "Conduct market research (competitor analysis, local consumer behavior, and compliance regulations)",
+      "Launch the same US campaign globally",
+      "Translate the ads using Google Translate",
+      "Spend 100% of the budget on the first day"
+    ],
+    "answer": "Conduct market research (competitor analysis, local consumer behavior, and compliance regulations)"
+  },
+  {
+    "question": "What is the difference between a 'Goal' and a 'KPI'?",
+    "options": [
+      "A Goal is a broad outcome (e.g., 'Grow Revenue'); a KPI is the specific metric used to track progress (e.g., 'Monthly Revenue Growth %')",
+      "They are the same",
+      "Goals are for B2C; KPIs are for B2B",
+      "Goals are qualitative; KPIs are quantitative"
+    ],
+    "answer": "A Goal is a broad outcome (e.g., 'Grow Revenue'); a KPI is the specific metric used to track progress (e.g., 'Monthly Revenue Growth %')"
+  },
+  {
+    "question": "What is an 'OKR' framework (Objectives and Key Results) used for in marketing?",
+    "options": [
+      "To align the marketing team's objectives with measurable results and business goals",
+      "To design ad creatives",
+      "To write blog posts",
+      "To manage social media comments"
+    ],
+    "answer": "To align the marketing team's objectives with measurable results and business goals"
+  },
+  {
+    "question": "Your client sells luxury watches ($5,000+). How should your ad strategy differ from selling $50 accessories?",
+    "options": [
+      "Focus on brand storytelling, trust, and prestige; have a longer sales cycle and use remarketing/retargeting",
+      "Focus on discounts and fast shipping",
+      "Use only Instagram Stories",
+      "Use only TikTok trends"
+    ],
+    "answer": "Focus on brand storytelling, trust, and prestige; have a longer sales cycle and use remarketing/retargeting"
+  },
+  {
+    "question": "What is the 'Flywheel Model' in modern marketing?",
+    "options": [
+      "A model where customers drive growth through referrals and advocacy, replacing the old 'funnel' concept",
+      "A physical wheel",
+      "A type of engine",
+      "A pricing model"
+    ],
+    "answer": "A model where customers drive growth through referrals and advocacy, replacing the old 'funnel' concept"
+  },
+  {
+    "question": "What is 'Zero-Click Searches' in SEO?",
+    "options": [
+      "Searches where the user finds the answer directly on the SERP (featured snippets) without clicking a result",
+      "Searches that result in zero results",
+      "Searches that are broken",
+      "Searches that are misspelled"
+    ],
+    "answer": "Searches where the user finds the answer directly on the SERP (featured snippets) without clicking a result"
+  },
+  {
+    "question": "You are optimizing a 'Google My Business' (GMB) profile. What is the most critical factor for local SEO?",
+    "options": [
+      "Maintaining accurate NAP (Name, Address, Phone) consistency and collecting positive reviews",
+      "Posting images of food",
+      "Changing the description every day",
+      "Adding a logo"
+    ],
+    "answer": "Maintaining accurate NAP (Name, Address, Phone) consistency and collecting positive reviews"
+  },
+  {
+    "question": "What is the primary KPI for a 'Top of Funnel' (TOFU) brand awareness campaign?",
+    "options": [
+      "Impression Share and Brand Lift (search volume for your brand name)",
+      "Cost Per Click",
+      "Conversions",
+      "Email signups"
+    ],
+    "answer": "Impression Share and Brand Lift (search volume for your brand name)"
+  },
+  {
+    "question": "What is 'Competitive Analysis' in a digital strategy?",
+    "options": [
+      "Systematically evaluating competitor's websites, ads, keywords, and social media to find gaps and opportunities",
+      "Copying a competitor's logo",
+      "Buying a competitor's company",
+      "Ignoring competitors"
+    ],
+    "answer": "Systematically evaluating competitor's websites, ads, keywords, and social media to find gaps and opportunities"
+  },
+  {
+    "question": "You are launching a product with no brand awareness. Which advertising strategy should be prioritized initially?",
+    "options": [
+      "Awareness campaigns (Video, Display, Reach) to build a foundation, then retargeting for conversions",
+      "Direct conversion campaigns only",
+      "Email-only campaigns",
+      "Trade show booths only"
+    ],
+    "answer": "Awareness campaigns (Video, Display, Reach) to build a foundation, then retargeting for conversions"
+  },
+  {
+    "question": "What is the primary benefit of 'Vertical Video' (9:16) ads?",
+    "options": [
+      "It fills the entire mobile screen, reducing distractions and increasing engagement on platforms like TikTok/Reels",
+      "It costs less to produce",
+      "It uses less data",
+      "It works better on desktop"
+    ],
+    "answer": "It fills the entire mobile screen, reducing distractions and increasing engagement on platforms like TikTok/Reels"
+  },
+  {
+    "question": "What is a 'Rapid Experimentation' culture in marketing?",
+    "options": [
+      "Running high-volume, small-budget A/B tests to learn fast and iterate, rather than betting on one big campaign",
+      "Running one campaign per year",
+      "Avoiding all tests",
+      "Only testing on Fridays"
+    ],
+    "answer": "Running high-volume, small-budget A/B tests to learn fast and iterate, rather than betting on one big campaign"
+  },
+  {
+    "question": "What is the 'Rule of 7' in marketing psychology?",
+    "options": [
+      "A prospect needs to see your brand/message at least 7 times before they take action",
+      "You need 7 marketing channels",
+      "You need 7 team members",
+      "You need 7 ad creatives"
+    ],
+    "answer": "A prospect needs to see your brand/message at least 7 times before they take action"
+  },
+  {
+    "question": "Your competitor is bidding aggressively on your branded keywords. What is your best defensive strategy?",
+    "options": [
+      "Bid on your own brand name (it's cheap) and use a 'Brand' campaign to dominate the top position",
+      "Stop bidding on your brand",
+      "Sue the competitor",
+      "Change your company name"
+    ],
+    "answer": "Bid on your own brand name (it's cheap) and use a 'Brand' campaign to dominate the top position"
+  },
+  {
+    "question": "What is 'Seasonality' in digital marketing planning?",
+    "options": [
+      "Fluctuations in consumer demand and behavior based on time of year (e.g., retail spikes in Q4)",
+      "The weather patterns",
+      "The color of the season",
+      "The fashion trends"
+    ],
+    "answer": "Fluctuations in consumer demand and behavior based on time of year (e.g., retail spikes in Q4)"
+  },
+  {
+    "question": "What is a 'SWOT Analysis' used for in building a digital strategy?",
+    "options": [
+      "To identify internal Strengths/Weaknesses and external Opportunities/Threats",
+      "To design logos",
+      "To write subject lines",
+      "To set up pixels"
+    ],
+    "answer": "To identify internal Strengths/Weaknesses and external Opportunities/Threats"
+  },
+  {
+    "question": "What is the primary purpose of a 'Digital Marketing Roadmap'?",
+    "options": [
+      "To outline a strategic timeline of initiatives, campaigns, and milestones over a specific period",
+      "To draw a map of the internet",
+      "To list all competitors",
+      "To design a website"
+    ],
+    "answer": "To outline a strategic timeline of initiatives, campaigns, and milestones over a specific period"
+  },
+  {
+    "question": "You have two customer segments: high-volume low-value, and low-volume high-value. How should your bidding differ?",
+    "options": [
+      "Optimize bidding for the high-value segment with a higher CPA target; use a lower cost-efficient bid for the high-volume",
+      "Bid the same for both",
+      "Only bid on the high-volume segment",
+      "Only bid on the low-volume segment"
+    ],
+    "answer": "Optimize bidding for the high-value segment with a higher CPA target; use a lower cost-efficient bid for the high-volume"
+  },
+  {
+    "question": "What is a 'Straw Man' offer in sales and marketing testing?",
+    "options": [
+      "A deliberately 'bad' offer placed next to a main offer to make the main offer look more attractive (decoy effect)",
+      "An offer made of straw",
+      "The cheapest offer",
+      "The most expensive offer"
+    ],
+    "answer": "A deliberately 'bad' offer placed next to a main offer to make the main offer look more attractive (decoy effect)"
+  },
+  {
+    "question": "What is the primary purpose of a 'Press Release' in a digital PR strategy?",
+    "options": [
+      "To generate awareness, authority, and backlinks (SEO) by getting picked up by news outlets",
+      "To sell a product directly",
+      "To hire new employees",
+      "To design a logo"
+    ],
+    "answer": "To generate awareness, authority, and backlinks (SEO) by getting picked up by news outlets"
+  },
+  {
+    "question": "What is 'Churn' in the context of a subscription marketing strategy?",
+    "options": [
+      "The rate at which subscribers cancel or fail to renew their subscriptions",
+      "The rate at which new subscribers join",
+      "The revenue per user",
+      "The cost per acquisition"
+    ],
+    "answer": "The rate at which subscribers cancel or fail to renew their subscriptions"
+  },
+  {
+    "question": "You are running an influencer marketing campaign. What is the most important metric to track (beyond views)?",
+    "options": [
+      "Attributed conversions and discount code usage rates",
+      "The influencer's follower count",
+      "The number of comments",
+      "The number of shares"
+    ],
+    "answer": "Attributed conversions and discount code usage rates"
+  },
+  {
+    "question": "What is the ultimate key to becoming the 'best digital marketer in the world'?",
+    "options": [
+      "The ability to connect data analysis, technical execution, creativity, and strategy to drive measurable business growth",
+      "Knowing every single platform feature",
+      "Having a high budget",
+      "Having a big team"
+    ],
+    "answer": "The ability to connect data analysis, technical execution, creativity, and strategy to drive measurable business growth"
+  },
+  {
+    "question": "What does GDPR require before you can run retargeting ads using cookies in Europe?",
+    "options": [
+      "Explicit, informed consent (opt-in) via a Consent Management Platform (CMP) before dropping the pixel",
+      "No consent is required",
+      "Only a privacy policy link in the footer",
+      "An email sent to the user"
+    ],
+    "answer": "Explicit, informed consent (opt-in) via a Consent Management Platform (CMP) before dropping the pixel"
+  },
+  {
+    "question": "What is the 'CCPA' (California Consumer Privacy Act) primarily focused on?",
+    "options": [
+      "Giving California residents the right to know, delete, and opt-out of the sale of their personal information",
+      "Tax regulations",
+      "Employment laws",
+      "Product safety standards"
+    ],
+    "answer": "Giving California residents the right to know, delete, and opt-out of the sale of their personal information"
+  },
+  {
+    "question": "Your ad copy says 'Best product in the world' but you have no proof. Is this allowed under advertising standards (e.g., FTC)?",
+    "options": [
+      "No, this is unsubstantiated puffery that crosses into deceptive practice if it can't be proven",
+      "Yes, as long as it's subjective",
+      "Yes, for B2B only",
+      "No, unless you pay a fine"
+    ],
+    "answer": "No, this is unsubstantiated puffery that crosses into deceptive practice if it can't be proven"
+  },
+  {
+    "question": "You are using 'Competitor Keywords' in Google Ads. What is the legal and practical consideration?",
+    "options": [
+      "It is generally allowed legally, but you cannot use their trademarked name in your ad copy",
+      "It is completely illegal",
+      "It is only allowed for B2B",
+      "It requires a license from the competitor"
+    ],
+    "answer": "It is generally allowed legally, but you cannot use their trademarked name in your ad copy"
+  },
+  {
+    "question": "What is the 'FTC Endorsement Guidelines' requirement for influencer marketing?",
+    "options": [
+      "Influencers must clearly and conspicuously disclose material connections (paid partnerships)",
+      "Influencers must never disclose partnerships",
+      "Only brands need to disclose",
+      "Disclosure is only for TV ads"
+    ],
+    "answer": "Influencers must clearly and conspicuously disclose material connections (paid partnerships)"
+  },
+  {
+    "question": "You are collecting email addresses for a newsletter. Under CAN-SPAM, what must you include in every email?",
+    "options": [
+      "A valid physical postal address and a clear 'Unsubscribe' link that works immediately",
+      "A picture of the CEO",
+      "A link to the Google homepage",
+      "A disclaimer that the email is spam"
+    ],
+    "answer": "A valid physical postal address and a clear 'Unsubscribe' link that works immediately"
+  },
+  {
+    "question": "What is the 'Sunk Cost Fallacy' in marketing?",
+    "options": [
+      "The tendency to continue investing in a failing campaign just because you've already spent money on it",
+      "The tendency to stop spending on successful campaigns",
+      "The tendency to ignore costs",
+      "The tendency to spend the exact same budget every month"
+    ],
+    "answer": "The tendency to continue investing in a failing campaign just because you've already spent money on it"
+  },
+  {
+    "question": "What is 'Survivorship Bias' in marketing analysis?",
+    "options": [
+      "Focusing only on successful campaigns that 'survived' and ignoring the failed ones, leading to false conclusions",
+      "Focusing only on failed campaigns",
+      "Focusing on all campaigns equally",
+      "Focusing only on new campaigns"
+    ],
+    "answer": "Focusing only on successful campaigns that 'survived' and ignoring the failed ones, leading to false conclusions"
+  },
+  {
+    "question": "You are running a 'scarcity' tactic ('Only 3 left!'). What ethical rule must you follow?",
+    "options": [
+      "The scarcity must be real and accurate; you cannot artificially create false scarcity",
+      "Scarcity is always illegal",
+      "Scarcity is only for physical products",
+      "Scarcity is only for emails"
+    ],
+    "answer": "The scarcity must be real and accurate; you cannot artificially create false scarcity"
+  },
+  {
+    "question": "What does 'Dark Pattern' refer to in UX/CRO?",
+    "options": [
+      "A design that intentionally tricks users into doing something they didn't intend (e.g., hidden subscription renewal)",
+      "A design that is black and white",
+      "A design that has no images",
+      "A design that is for night mode"
+    ],
+    "answer": "A design that intentionally tricks users into doing something they didn't intend (e.g., hidden subscription renewal)"
+  },
+  {
+    "question": "Your Facebook ad is rejected for 'Discriminatory Practices'. What does this typically mean?",
+    "options": [
+      "You are targeting or excluding users based on race, religion, age, or gender in a way that violates policy",
+      "The ad is not funny",
+      "The images are too large",
+      "The text is too short"
+    ],
+    "answer": "You are targeting or excluding users based on race, religion, age, or gender in a way that violates policy"
+  },
+  {
+    "question": "What is the primary privacy concern with 'Retargeting Pixels'?",
+    "options": [
+      "They can track users across the web without their explicit consent, raising privacy issues",
+      "They steal passwords",
+      "They slow down the computer",
+      "They delete files"
+    ],
+    "answer": "They can track users across the web without their explicit consent, raising privacy issues"
+  },
+  {
+    "question": "What is 'Greenwashing' in marketing?",
+    "options": [
+      "Making false or exaggerated claims about the environmental benefits of a product",
+      "Marketing products that are green in color",
+      "Marketing gardening products",
+      "Marketing to people who like the color green"
+    ],
+    "answer": "Making false or exaggerated claims about the environmental benefits of a product"
+  },
+  {
+    "question": "What is the 'Pareto Principle' (80/20) in a digital marketing context?",
+    "options": [
+      "80% of your revenue/sales will likely come from 20% of your campaigns/customers",
+      "80% of your budget should go to 20% of your channels",
+      "20% of your revenue comes from 80% of your customers",
+      "80% of your ads should be video"
+    ],
+    "answer": "80% of your revenue/sales will likely come from 20% of your campaigns/customers"
+  },
+  {
+    "question": "You are using 'Custom Audiences' from an email list on Facebook. What is the legal requirement?",
+    "options": [
+      "You must have obtained the user's permission to use their data for this purpose (privacy policy/consent)",
+      "No permission is needed",
+      "Only need permission for B2C",
+      "Only need permission for EU users"
+    ],
+    "answer": "You must have obtained the user's permission to use their data for this purpose (privacy policy/consent)"
+  },
+  {
+    "question": "What is the 'Planning Fallacy' in marketing project management?",
+    "options": [
+      "The tendency to underestimate the time, budget, and resources needed to complete a project",
+      "The tendency to overestimate time and budget",
+      "The tendency to avoid planning",
+      "The tendency to plan too much"
+    ],
+    "answer": "The tendency to underestimate the time, budget, and resources needed to complete a project"
+  },
+  {
+    "question": "What is 'Occam's Razor' in marketing analytics?",
+    "options": [
+      "The simplest explanation (e.g., the landing page is bad) is often the correct one, rather than a complex conspiracy",
+      "The most complex explanation is correct",
+      "The explanation with the most data is correct",
+      "The explanation with the most variables is correct"
+    ],
+    "answer": "The simplest explanation (e.g., the landing page is bad) is often the correct one, rather than a complex conspiracy"
+  },
+  {
+    "question": "You are running a promotion. What is the importance of having clear 'Terms and Conditions'?",
+    "options": [
+      "To legally define eligibility, dates, and prize details to prevent liability and disputes",
+      "To confuse the user",
+      "To hide the promotion",
+      "To save space"
+    ],
+    "answer": "To legally define eligibility, dates, and prize details to prevent liability and disputes"
+  },
+  {
+    "question": "What is the 'Slippery Slope' argument often used in marketing ethics debates?",
+    "options": [
+      "A caution that if you make one small ethical compromise (e.g., one exaggerated claim), it may lead to larger ones",
+      "A slope that is wet",
+      "A type of ad creative",
+      "A bidding strategy"
+    ],
+    "answer": "A caution that if you make one small ethical compromise (e.g., one exaggerated claim), it may lead to larger ones"
+  },
+  {
+    "question": "What is 'Ad Verification' (e.g., using DoubleVerify or IAS)?",
+    "options": [
+      "Third-party tools that verify if your ads were actually viewable, in brand-suitable environments, and not fraud",
+      "A tool to design ads",
+      "A tool to write ad copy",
+      "A tool to send emails"
+    ],
+    "answer": "Third-party tools that verify if your ads were actually viewable, in brand-suitable environments, and not fraud"
+  },
+  {
+    "question": "What is 'Brand Safety' in programmatic advertising?",
+    "options": [
+      "Ensuring your ads do not appear next to controversial, illegal, or objectionable content",
+      "Ensuring your brand is safe from competitors",
+      "Ensuring your website has an SSL certificate",
+      "Ensuring your brand colors are correct"
+    ],
+    "answer": "Ensuring your ads do not appear next to controversial, illegal, or objectionable content"
+  },
+  {
+    "question": "You are using 'Black Hat SEO' techniques (like keyword stuffing). What is the risk?",
+    "options": [
+      "Getting a manual penalty and de-indexed from Google, causing all organic traffic to collapse",
+      "It will increase your revenue",
+      "It will improve your user experience",
+      "It is a standard practice"
+    ],
+    "answer": "Getting a manual penalty and de-indexed from Google, causing all organic traffic to collapse"
+  },
+  {
+    "question": "What is the 'Confirmation Bias' you must guard against in A/B testing?",
+    "options": [
+      "The tendency to interpret data in a way that confirms your pre-existing hypothesis (e.g., declaring a winner too early)",
+      "The tendency to ignore data",
+      "The tendency to test too many things",
+      "The tendency to run tests for too long"
+    ],
+    "answer": "The tendency to interpret data in a way that confirms your pre-existing hypothesis (e.g., declaring a winner too early)"
+  },
+  {
+    "question": "What is the 'Novelty Effect' in an A/B test?",
+    "options": [
+      "A new design often performs better initially just because it is new, but the effect may wear off",
+      "A new design always performs better",
+      "An old design always performs better",
+      "There is no effect"
+    ],
+    "answer": "A new design often performs better initially just because it is new, but the effect may wear off"
+  },
+  {
+    "question": "You are running ads for dietary supplements. What is the strictest regulatory body you must comply with (in the US)?",
+    "options": [
+      "The FDA and FTC (you cannot claim to treat or cure diseases without evidence)",
+      "The FAA",
+      "The EPA",
+      "The DMV"
+    ],
+    "answer": "The FDA and FTC (you cannot claim to treat or cure diseases without evidence)"
+  },
+  {
+    "question": "What does the 'Logos' (appeal to logic) pillar of rhetoric mean for ad copy?",
+    "options": [
+      "Using data, statistics, and reasoning to persuade the user",
+      "Using emotional stories",
+      "Using ethical arguments",
+      "Using funny jokes"
+    ],
+    "answer": "Using data, statistics, and reasoning to persuade the user"
+  },
+  {
+    "question": "What does the 'Pathos' (appeal to emotion) pillar of rhetoric mean for ad creative?",
+    "options": [
+      "Using emotional triggers (fear, joy, sadness) to create a connection and drive action",
+      "Using only facts",
+      "Using only ethical arguments",
+      "Using only logical fallacies"
+    ],
+    "answer": "Using emotional triggers (fear, joy, sadness) to create a connection and drive action"
+  },
+  {
+    "question": "What is the 'Ethos' (appeal to ethics) pillar in brand marketing?",
+    "options": [
+      "Establishing credibility and trustworthiness (authority, social proof, testimonials)",
+      "Establishing low prices",
+      "Establishing a funny voice",
+      "Establishing a blue logo"
+    ],
+    "answer": "Establishing credibility and trustworthiness (authority, social proof, testimonials)"
+  },
+  {
+    "question": "What is the primary ethical obligation of a digital marketer regarding user data?",
+    "options": [
+      "Transparency and consent; you are a steward of data and must protect user privacy",
+      "Collect as much data as possible",
+      "Sell data to the highest bidder",
+      "Ignore privacy laws"
+    ],
+    "answer": "Transparency and consent; you are a steward of data and must protect user privacy"
+  },
+  {
+    "question": "What is the 'Dunning-Kruger Effect' in digital marketing self-assessment?",
+    "options": [
+      "Novices often overestimate their skills, while experts often underestimate theirs; always stay humble and test",
+      "Experts always think they are the best",
+      "Novices always think they are the worst",
+      "Everyone is equally skilled"
+    ],
+    "answer": "Novices often overestimate their skills, while experts often underestimate theirs; always stay humble and test"
+  },
+  {
+    "question": "You are tasked with building a marketing team. What is the #1 quality you should hire for?",
+    "options": [
+      "Curiosity and a data-informed, test-and-learn mindset over rote memorization",
+      "Knowing how to set up a Facebook Pixel",
+      "Knowing how to write a blog post",
+      "Having a large LinkedIn network"
+    ],
+    "answer": "Curiosity and a data-informed, test-and-learn mindset over rote memorization"
+  }
+
+]

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon MCQ Arcade: Cinematic Edition</title>
+    <style>
+        :root {
+            --bg-color: #050508;
+            --text-color: #ffffff;
+            --neon-primary: #0ff;
+            --neon-secondary: #ff00ea;
+            --neon-wrong: #ff003c;
+            --neon-glow: drop-shadow(0 0 8px var(--neon-primary)) drop-shadow(0 0 15px var(--neon-primary));
+            --font-main: 'Courier New', Courier, monospace;
+        }
+
+        body.light-mode {
+            --bg-color: #e0e5ec;
+            --text-color: #1a1a2e;
+            --neon-primary: #0056b3;
+            --neon-secondary: #8a2be2;
+            --neon-wrong: #d90429;
+            --neon-glow: drop-shadow(0 0 5px var(--neon-primary));
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s;
+            touch-action: none; /* Prevent scroll on mobile */
+        }
+
+        /* Cinematic Overlays */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        #flash-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #fff; z-index: 9999; pointer-events: none; opacity: 0;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes cinematicFlash {
+            0% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+        .flash { animation: cinematicFlash 0.4s ease-out forwards; }
+
+        /* 3D Synthwave Grid Floor */
+        #cyber-grid {
+            position: absolute;
+            bottom: 0; left: 0; width: 100vw; height: 50vh;
+            background: 
+                linear-gradient(transparent 60%, rgba(0, 255, 255, 0.4) 100%),
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0,255,255,0.2) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,255,255,0.2) 40px);
+            transform: perspective(600px) rotateX(70deg);
+            transform-origin: bottom center;
+            animation: gridMove 3s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 20px; }
+        }
+
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, #000 90%);
+        }
+
+        /* Screen Shake for Damage */
+        @keyframes damageShake {
+            0% { transform: translate(0, 0) rotate(0deg); filter: hue-rotate(0deg); }
+            20% { transform: translate(-25px, 15px) rotate(-3deg); filter: hue-rotate(90deg) brightness(1.5); }
+            40% { transform: translate(25px, -20px) rotate(3deg); filter: hue-rotate(-90deg) brightness(0.5); }
+            60% { transform: translate(-15px, 25px) rotate(-2deg); filter: hue-rotate(45deg) brightness(1.5); }
+            80% { transform: translate(15px, -15px) rotate(2deg); filter: hue-rotate(-45deg) brightness(0.5); }
+            100% { transform: translate(0, 0) rotate(0deg); filter: hue-rotate(0deg); }
+        }
+        .shake { animation: damageShake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+
+        /* HUD */
+        #hud {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 10;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.1);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+        }
+
+        .neon-text {
+            color: var(--neon-primary);
+            text-shadow: 0 0 5px var(--neon-primary), 0 0 20px var(--neon-primary);
+        }
+
+        /* Options Area */
+        #options-area {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 10vw;
+            gap: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        @keyframes warpIn {
+            0% { transform: scale(0) translateY(-100px); opacity: 0; filter: blur(10px); }
+            60% { transform: scale(1.1) translateY(20px); opacity: 1; filter: blur(0px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .option-target {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            animation: warpIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+        }
+
+        .option-target svg {
+            width: 120px;
+            height: 120px;
+            filter: var(--neon-glow);
+            color: var(--neon-primary);
+            transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+        }
+
+        .option-target:hover svg, .option-target:active svg {
+            transform: scale(1.2) rotate(45deg);
+            color: var(--neon-secondary);
+            filter: drop-shadow(0 0 25px var(--neon-secondary));
+        }
+
+        .option-text {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            pointer-events: none;
+            text-align: center;
+            max-width: 200px;
+            background: rgba(0,0,0,0.8);
+            padding: 8px 15px;
+            border: 1px solid var(--neon-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2) inset;
+        }
+
+        /* Question Area */
+        #question-area {
+            min-height: 250px;
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 30px;
+            z-index: 20; /* Keep above grid */
+            position: relative;
+        }
+
+        #question-text {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px #000, 0 0 10px var(--neon-primary);
+            max-width: 90%;
+        }
+
+        /* Launcher Container */
+        #launcher {
+            position: absolute;
+            bottom: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: -200px;
+            width: 140px;
+            height: 150px;
+            transform-origin: bottom center;
+        }
+
+        /* Projectile with Trail */
+        #bomb {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            margin-left: -35px;
+            transition: transform 0.35s cubic-bezier(0.5, 0, 1, 1);
+            filter: drop-shadow(0 0 15px var(--neon-secondary)) drop-shadow(0 0 30px var(--neon-secondary));
+            z-index: 12;
+        }
+
+        #bomb.firing {
+            filter: drop-shadow(0 20px 20px var(--neon-secondary)) drop-shadow(0 40px 10px var(--neon-secondary));
+        }
+
+        /* Cinematic Turret Base */
+        #turret-base {
+            width: 160px;
+            height: 120px;
+            position: absolute;
+            bottom: -10px;
+            z-index: 11;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.9));
+        }
+
+        /* Floating Arcade Text */
+        .combat-text {
+            position: absolute;
+            font-size: 3rem;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 50;
+            text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+            animation: floatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { transform: translateY(-30px) scale(1.5); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        /* Setup Screen */
+        #setup-screen {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #020202;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #setup-screen h1 {
+            font-size: 5rem; 
+            margin-bottom: 0; 
+            letter-spacing: 5px;
+        }
+
+        #setup-screen h2 {
+            color: var(--neon-secondary); 
+            margin-top: 0; 
+            font-size: 2rem; 
+            text-shadow: 0 0 15px var(--neon-secondary); 
+            letter-spacing: 8px;
+        }
+
+        button {
+            background: rgba(0, 255, 255, 0.05);
+            color: var(--neon-primary);
+            border: 2px solid var(--neon-primary);
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin: 15px;
+            text-transform: uppercase;
+            font-family: var(--font-main);
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1), inset 0 0 15px rgba(0, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            max-width: 90vw;
+        }
+
+        button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
+            transition: all 0.5s;
+        }
+
+        button:hover, button:active {
+            background: var(--neon-primary);
+            color: #000;
+            box-shadow: 0 0 30px var(--neon-primary);
+            transform: scale(1.05);
+        }
+
+        button:hover::before, button:active::before { left: 100%; }
+
+        #controls { position: absolute; top: 15px; right: 15px; z-index: 200; }
+        #controls button { padding: 8px 15px; font-size: 1rem; margin: 0; }
+
+        /* =========================================
+           RESPONSIVE DESIGN (MOBILE & TABLETS)
+           ========================================= */
+        
+        @media (max-width: 768px) {
+            #setup-screen h1 { font-size: 3rem; letter-spacing: 2px; }
+            #setup-screen h2 { font-size: 1.2rem; letter-spacing: 4px; }
+            
+            button { font-size: 1rem; padding: 12px 20px; margin: 10px; }
+            
+            #hud { font-size: 1.2rem; padding: 15px 20px; }
+            
+            #options-area { padding: 0 5vw; gap: 10px; align-items: flex-start; }
+            
+            .option-target svg { width: 70px; height: 70px; }
+            .option-text { font-size: 0.9rem; max-width: 120px; padding: 6px 10px; margin-top: 10px; }
+            
+            #question-area { min-height: auto; padding: 20px 10px; margin-bottom: 20px; }
+            #question-text { font-size: 1.4rem; }
+            
+            .combat-text { font-size: 2rem; }
+            
+            #launcher { bottom: 180px; transform: translateX(-50%) scale(0.7); }
+        }
+
+        @media (max-width: 480px) {
+            #hud { font-size: 1rem; padding: 10px 15px; }
+            .option-target svg { width: 60px; height: 60px; }
+            .option-text { font-size: 0.8rem; padding: 4px 8px; }
+            #question-text { font-size: 1.2rem; }
+            #launcher { bottom: 150px; transform: translateX(-50%) scale(0.6); }
+            #controls button { font-size: 0.8rem; padding: 6px 10px; }
+        }
+
+        /* Adjustments for short screens (landscape mobile) */
+        @media (max-height: 600px) {
+            #cyber-grid { height: 40vh; }
+            #options-area { padding: 0 5vw; }
+            #launcher { bottom: 130px; transform: translateX(-50%) scale(0.5); }
+            #question-area { padding-bottom: 10px; }
+            #question-text { font-size: 1.2rem; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="flash-overlay"></div>
+
+    <div id="controls">
+        <button onclick="toggleTheme()">SYS.THEME</button>
+    </div>
+
+    <!-- Setup Screen -->
+    <div id="setup-screen">
+        <h1 class="neon-text">ARCADE</h1>
+        <h2>OVERDRIVE</h2>
+        
+        <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="handleFileUpload(event)">
+        <button onclick="document.getElementById('fileInput').click()">[ UPLOAD DATABANK ]</button>
+        <button onclick="useDefaultQuestions()">>> INITIALIZE CORE <<</button>
+    </div>
+
+    <!-- Main Game UI -->
+    <div id="game-container" style="display: none;">
+        <div id="cyber-grid"></div>
+
+        <div id="hud">
+            <div>SCORE <span id="score" class="neon-text">0000</span></div>
+            <div><br>SHIELDS <span id="lives" style="color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary);">100%</span></div>
+        </div>
+
+        <div id="options-area"></div>
+
+        <div id="launcher">
+            <svg id="bomb" viewBox="0 0 100 100">
+                <defs>
+                    <radialGradient id="plasmaCore" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="40%" stop-color="var(--neon-secondary)" />
+                        <stop offset="100%" stop-color="transparent" />
+                    </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="22" fill="url(#plasmaCore)">
+                    <animate attributeName="r" values="20;28;20" dur="0.6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.8;1;0.8" dur="0.6s" repeatCount="indefinite"/>
+                </circle>
+                <ellipse cx="50" cy="50" rx="42" ry="10" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8">
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.5s" repeatCount="indefinite" />
+                </ellipse>
+                <ellipse cx="50" cy="50" rx="10" ry="42" fill="none" stroke="var(--neon-secondary)" stroke-width="2.5" opacity="0.9">
+                    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="1s" repeatCount="indefinite" />
+                </ellipse>
+            </svg>
+
+            <svg id="turret-base" viewBox="0 0 200 150">
+                <defs>
+                    <linearGradient id="metalCasing" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#2a2a35" />
+                        <stop offset="50%" stop-color="#111118" />
+                        <stop offset="100%" stop-color="#050508" />
+                    </linearGradient>
+                    <linearGradient id="railGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="var(--neon-primary)" />
+                        <stop offset="100%" stop-color="transparent" />
+                    </linearGradient>
+                </defs>
+                <!-- Rails -->
+                <path d="M 55 10 L 75 80 L 85 80 L 65 10 Z" fill="url(#railGlow)" opacity="0.9">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
+                </path>
+                <path d="M 145 10 L 125 80 L 115 80 L 135 10 Z" fill="url(#railGlow)" opacity="0.9">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
+                </path>
+                <!-- Base -->
+                <path d="M 15 140 L 45 70 L 155 70 L 185 140 Z" fill="url(#metalCasing)" stroke="var(--neon-primary)" stroke-width="4" stroke-linejoin="round" />
+                <polygon points="55,140 75,85 125,85 145,140" fill="#000" stroke="var(--neon-secondary)" stroke-width="2"/>
+                <!-- Accents -->
+                <line x1="40" y1="110" x2="65" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="160" y1="110" x2="135" y2="110" stroke="var(--neon-primary)" stroke-width="4" stroke-linecap="round" />
+                <ellipse cx="100" cy="80" rx="40" ry="15" fill="none" stroke="var(--neon-secondary)" stroke-width="2">
+                    <animate attributeName="stroke-width" values="1;5;1" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+                <ellipse cx="100" cy="80" rx="25" ry="8" fill="var(--neon-secondary)" opacity="0.6" filter="blur(4px)">
+                    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+            </svg>
+        </div>
+
+        <div id="question-area">
+            <div id="question-text">AWAITING DATABANK...</div>
+            <button id="next-btn" style="display: none; border-color: var(--neon-secondary); color: var(--neon-secondary);" onclick="nextQuestion()">>> NEXT STAGE <<</button>
+        </div>
+    </div>
+
+    <script>
+        let questions = [];
+        let currentQIndex = 0;
+        let score = 0;
+        let lives = 100;
+        let isShooting = false;
+        let audioCtx;
+
+        const defaultQuestions = [
+            { question: "WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?", options: ["FLUTTER", "EXPO", "CORDOVA", "IONIC"], answer: "EXPO" },
+            { question: "WHICH BUNDLER DELIVERS LIGHTNING FAST HOT MODULE REPLACEMENT?", options: ["WEBPACK", "PARCEL", "VITE", "ROLLUP"], answer: "VITE" },
+            { question: "WHICH PLATFORM IS OPTIMIZED FOR DEPLOYING SERVERLESS NEXT.JS?", options: ["AWS EC2", "DIGITALOCEAN", "VERCEL", "HEROKU"], answer: "VERCEL" }
+        ];
+
+        function handleFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    questions = JSON.parse(e.target.result);
+                    startGame();
+                } catch (err) {
+                    alert("ERR: CORRUPT DATA. INVALID JSON.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            const now = audioCtx.currentTime;
+            
+            if (type === 'shoot') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(800, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.3);
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now); osc.stop(now + 0.3);
+            } else if (type === 'hit') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(30, now + 0.5);
+                gainNode.gain.setValueAtTime(0.5, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                osc.start(now); osc.stop(now + 0.5);
+            } else if (type === 'miss') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(120, now);
+                osc.frequency.linearRampToValueAtTime(50, now + 0.5);
+                gainNode.gain.setValueAtTime(0.5, now);
+                gainNode.gain.linearRampToValueAtTime(0.01, now + 0.5);
+                osc.type = 'sawtooth'; 
+                osc.start(now); osc.stop(now + 0.5);
+            }
+        }
+
+        function useDefaultQuestions() {
+            questions = defaultQuestions;
+            startGame();
+        }
+
+        function toggleTheme() { document.body.classList.toggle('light-mode'); }
+
+        function startGame() {
+            if(questions.length === 0) return;
+            initAudio(); 
+            document.getElementById('setup-screen').style.display = 'none';
+            document.getElementById('game-container').style.display = 'flex';
+            currentQIndex = 0; score = 0; lives = 100;
+            updateHUD(); loadQuestion();
+        }
+
+        function updateHUD() {
+            document.getElementById('score').innerText = score.toString().padStart(4, '0');
+            const livesEl = document.getElementById('lives');
+            livesEl.innerText = lives + '%';
+            if(lives <= 30) livesEl.style.color = 'var(--neon-wrong)';
+            else livesEl.style.color = 'var(--neon-primary)';
+        }
+
+        function loadQuestion() {
+            if (currentQIndex >= questions.length) {
+                document.getElementById('question-text').innerHTML = "<span class='neon-text'>ALL TARGETS CLEARED.<br>SYSTEMS NOMINAL.</span>";
+                document.getElementById('options-area').innerHTML = "";
+                document.getElementById('launcher').style.display = 'none';
+                return;
+            }
+
+            isShooting = false;
+            document.getElementById('next-btn').style.display = 'none';
+            
+            const bomb = document.getElementById('bomb');
+            bomb.classList.remove('firing');
+            bomb.style.transition = 'none';
+            bomb.style.transform = 'translate(0, 0) scale(1)'; /* Reset scale specifically for responsive design logic */
+            bomb.style.opacity = '1';
+            void bomb.offsetWidth; 
+            bomb.style.transition = 'transform 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045)';
+
+            const q = questions[currentQIndex];
+            document.getElementById('question-text').innerHTML = `Q: ${q.question}`;
+
+            const optionsArea = document.getElementById('options-area');
+            optionsArea.innerHTML = '';
+
+            q.options.forEach((opt, index) => {
+                const target = document.createElement('div');
+                target.className = 'option-target';
+                target.style.animationDelay = `${index * 0.15}s`;
+                
+                target.innerHTML = `
+                    <svg viewBox="0 0 100 100">
+                        <path d="M 10 30 L 10 10 L 30 10" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <path d="M 70 10 L 90 10 L 90 30" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <path d="M 90 70 L 90 90 L 70 90" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <path d="M 30 90 L 10 90 L 10 70" fill="none" stroke="currentColor" stroke-width="4"/>
+                        
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4">
+                            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.3">
+                            <animate attributeName="r" values="10;20;10" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="50" cy="50" r="4" fill="currentColor"/>
+                    </svg>
+                    <div class="option-text">${opt}</div>
+                `;
+
+                target.onclick = () => shoot(target, opt === q.answer);
+                optionsArea.appendChild(target);
+            });
+        }
+
+        function triggerCinematicFlash() {
+            const overlay = document.getElementById('flash-overlay');
+            overlay.classList.remove('flash');
+            void overlay.offsetWidth; 
+            overlay.classList.add('flash');
+        }
+
+        function spawnCombatText(x, y, text, color) {
+            const el = document.createElement('div');
+            el.className = 'combat-text';
+            el.style.left = `${x}px`;
+            el.style.top = `${y}px`;
+            el.style.color = color;
+            el.innerText = text;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 1200);
+        }
+
+        function createExplosion(x, y, color) {
+            const numParticles = 20;
+            for(let i=0; i<numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.width = Math.random() * 15 + 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = i % 3 === 0 ? '#fff' : color;
+                particle.style.borderRadius = '50%';
+                particle.style.boxShadow = `0 0 20px ${color}`;
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '100';
+                document.body.appendChild(particle);
+
+                const angle = (Math.PI * 2 / numParticles) * i;
+                const distance = 100 + Math.random() * 150;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+
+                particle.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 800 + Math.random() * 600,
+                    easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                }).onfinish = () => particle.remove();
+            }
+        }
+
+        function shoot(targetElement, isCorrect) {
+            if (isShooting) return;
+            isShooting = true;
+
+            initAudio(); 
+            playSound('shoot');
+
+            const bomb = document.getElementById('bomb');
+            bomb.classList.add('firing');
+            
+            // getBoundingClientRect ensures calculations factor in CSS scaling for responsive design
+            const targetRect = targetElement.getBoundingClientRect();
+            const bombRect = bomb.getBoundingClientRect();
+
+            const targetCenterX = targetRect.left + (targetRect.width / 2);
+            const targetCenterY = targetRect.top + (targetRect.height / 2);
+            
+            const bombCenterX = bombRect.left + (bombRect.width / 2);
+            const bombCenterY = bombRect.top + (bombRect.height / 2);
+
+            const moveX = targetCenterX - bombCenterX; 
+            const moveY = targetCenterY - bombCenterY;
+
+            bomb.style.transform = `translate(${moveX}px, ${moveY}px) scale(0.5)`;
+
+            setTimeout(() => {
+                bomb.style.opacity = '0';
+                const colorHex = getComputedStyle(document.body).getPropertyValue(isCorrect ? '--neon-primary' : '--neon-wrong').trim();
+
+                createExplosion(targetCenterX, targetCenterY, colorHex);
+
+                if (isCorrect) {
+                    playSound('hit');
+                    triggerCinematicFlash();
+                    targetElement.style.visibility = 'hidden';
+                    score += 1000;
+                    spawnCombatText(targetCenterX - 50, targetCenterY, "CRITICAL!", colorHex);
+                    document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">TARGET OBLITERATED</span>`;
+                    document.getElementById('next-btn').style.display = 'inline-block';
+                } else {
+                    playSound('miss');
+                    lives = Math.max(0, lives - 33);
+                    document.body.classList.add('shake');
+                    setTimeout(() => document.body.classList.remove('shake'), 500);
+                    spawnCombatText(targetCenterX - 60, targetCenterY, "DEFLECTED", colorHex);
+                    
+                    if (lives <= 0) {
+                        document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">CRITICAL FAILURE.</span>`;
+                    } else {
+                        document.getElementById('question-text').innerHTML = `<span style="color: ${colorHex};">WARNING: INTEGRITY COMPROMISED</span>`;
+                        setTimeout(loadQuestion, 2000); 
+                    }
+                }
+                updateHUD();
+            }, 350); 
+        }
+
+        function nextQuestion() {
+            currentQIndex++;
+            loadQuestion();
+        }
+    </script>
+</body>
+</html>

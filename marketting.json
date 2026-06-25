@@ -1,0 +1,803 @@
+[
+  {
+    "question": "What is 'Active Listening' in sales communication?",
+    "options": [
+      "Fully concentrating on the speaker, understanding their message, and responding thoughtfully",
+      "Waiting for your turn to talk",
+      "Interrupting the speaker",
+      "Ignoring what is said"
+    ],
+    "answer": "Fully concentrating on the speaker, understanding their message, and responding thoughtfully"
+  },
+  {
+    "question": "What is 'Empathy' in a sales conversation?",
+    "options": [
+      "Understanding and sharing the feelings of the customer",
+      "Feeling sorry for the customer",
+      "Ignoring customer emotions",
+      "Telling the customer what to do"
+    ],
+    "answer": "Understanding and sharing the feelings of the customer"
+  },
+  {
+    "question": "What is a 'Needs Analysis' in sales?",
+    "options": [
+      "A systematic process of identifying a prospect's problems, goals, and requirements",
+      "A product demonstration",
+      "A price negotiation",
+      "A contract signing"
+    ],
+    "answer": "A systematic process of identifying a prospect's problems, goals, and requirements"
+  },
+  {
+    "question": "What is the 'Solution Selling' approach?",
+    "options": [
+      "Focusing on solving the customer's specific problem rather than just selling a product",
+      "Selling a product without understanding the problem",
+      "Selling the cheapest product",
+      "Selling the most expensive product"
+    ],
+    "answer": "Focusing on solving the customer's specific problem rather than just selling a product"
+  },
+  {
+    "question": "What is 'Consultative Selling'?",
+    "options": [
+      "Acting as a trusted advisor who provides expertise and guidance to the customer",
+      "Pushing a product aggressively",
+      "Only discussing price",
+      "Only discussing features"
+    ],
+    "answer": "Acting as a trusted advisor who provides expertise and guidance to the customer"
+  },
+  {
+    "question": "What is the 'Opening' in a sales call?",
+    "options": [
+      "The first few moments where you establish rapport and state the purpose of the call",
+      "The closing of the call",
+      "The middle of the call",
+      "The follow-up"
+    ],
+    "answer": "The first few moments where you establish rapport and state the purpose of the call"
+  },
+  {
+    "question": "What is 'Rapport Building'?",
+    "options": [
+      "Creating a connection and mutual trust with the prospect",
+      "Ignoring the prospect",
+      "Talking only about yourself",
+      "Using technical jargon"
+    ],
+    "answer": "Creating a connection and mutual trust with the prospect"
+  },
+  {
+    "question": "What is a 'Trial Close'?",
+    "options": [
+      "A question used to test the prospect's readiness to buy before the final close",
+      "The final signing of the contract",
+      "The initial greeting",
+      "The follow-up email"
+    ],
+    "answer": "A question used to test the prospect's readiness to buy before the final close"
+  },
+  {
+    "question": "What is the 'Assumptive Close' technique?",
+    "options": [
+      "Acting as if the customer has already decided to buy (e.g., 'Will that be delivery or pickup?')",
+      "Asking if they want to buy",
+      "Ignoring the customer",
+      "Offering a discount"
+    ],
+    "answer": "Acting as if the customer has already decided to buy (e.g., 'Will that be delivery or pickup?')"
+  },
+  {
+    "question": "What is the 'Alternative Close' technique?",
+    "options": [
+      "Giving the customer a choice between two positive options (e.g., 'Red or blue?')",
+      "Asking 'yes or no'",
+      "Offering only one option",
+      "Offering no options"
+    ],
+    "answer": "Giving the customer a choice between two positive options (e.g., 'Red or blue?')"
+  },
+  {
+    "question": "What is the 'Urgency Close' technique?",
+    "options": [
+      "Creating a time-limited offer to encourage immediate decision-making",
+      "Taking time to decide",
+      "Ignoring deadlines",
+      "Offering a permanent discount"
+    ],
+    "answer": "Creating a time-limited offer to encourage immediate decision-making"
+  },
+  {
+    "question": "What is 'Price Objection' handling?",
+    "options": [
+      "Addressing concerns about cost by reframing value or offering solutions",
+      "Agreeing to lower the price immediately",
+      "Ignoring the concern",
+      "Ending the call"
+    ],
+    "answer": "Addressing concerns about cost by reframing value or offering solutions"
+  },
+  {
+    "question": "What is the 'Feel, Felt, Found' method for handling objections?",
+    "options": [
+      "'I understand how you feel, others felt that way, and they found...'",
+      "'Feel the product, feel the price, find the value'",
+      "'Fake it, fake it, fake it'",
+      "'Find, engage, lose, find'"
+    ],
+    "answer": "'I understand how you feel, others felt that way, and they found...'"
+  },
+  {
+    "question": "What is 'Negotiation' in sales?",
+    "options": [
+      "A discussion between parties to reach a mutually acceptable agreement on terms",
+      "Demanding your terms without compromise",
+      "Accepting all terms immediately",
+      "Ignoring the other party"
+    ],
+    "answer": "A discussion between parties to reach a mutually acceptable agreement on terms"
+  },
+  {
+    "question": "What is 'BATNA' in negotiation?",
+    "options": [
+      "Best Alternative To a Negotiated Agreement (your fallback option)",
+      "Best Action To Negotiate Agreement",
+      "Basic Agreement Terms for Negotiation",
+      "Backup Agreement for Terms and Actions"
+    ],
+    "answer": "Best Alternative To a Negotiated Agreement (your fallback option)"
+  },
+  {
+    "question": "What is 'Win-Win' negotiation?",
+    "options": [
+      "An outcome where both parties feel they have gained value",
+      "An outcome where one party loses",
+      "An outcome where both parties lose",
+      "An outcome that is not beneficial"
+    ],
+    "answer": "An outcome where both parties feel they have gained value"
+  },
+  {
+    "question": "What is 'Anchoring' in price negotiation?",
+    "options": [
+      "Making the first offer to set a reference point for the negotiation",
+      "Making the last offer",
+      "Ignoring the price",
+      "Accepting the first price"
+    ],
+    "answer": "Making the first offer to set a reference point for the negotiation"
+  },
+  {
+    "question": "What is 'Concession' in negotiation?",
+    "options": [
+      "Giving up something of value to move the deal forward",
+      "Demanding more value",
+      "Stopping the negotiation",
+      "Signing the contract"
+    ],
+    "answer": "Giving up something of value to move the deal forward"
+  },
+  {
+    "question": "What is a 'Contract' in sales?",
+    "options": [
+      "A legally binding agreement between two or more parties",
+      "A verbal promise",
+      "A handshake",
+      "An invoice"
+    ],
+    "answer": "A legally binding agreement between two or more parties"
+  },
+  {
+    "question": "What is 'Post-Sale Follow-up'?",
+    "options": [
+      "Contacting the customer after the sale to ensure satisfaction and build loyalty",
+      "Contacting the customer only before the sale",
+      "Not contacting after the sale",
+      "Contacting only competitors"
+    ],
+    "answer": "Contacting the customer after the sale to ensure satisfaction and build loyalty"
+  },
+  {
+    "question": "What is 'Referral Selling'?",
+    "options": [
+      "Asking satisfied customers to recommend your product to others",
+      "Selling to existing customers",
+      "Selling to cold leads",
+      "Selling through ads"
+    ],
+    "answer": "Asking satisfied customers to recommend your product to others"
+  },
+  {
+    "question": "What is 'Account Management'?",
+    "options": [
+      "Managing and nurturing relationships with existing customers for retention and growth",
+      "Acquiring new customers",
+      "Managing only complaints",
+      "Managing only billing"
+    ],
+    "answer": "Managing and nurturing relationships with existing customers for retention and growth"
+  },
+  {
+    "question": "What is a 'Quarterly Business Review' (QBR)?",
+    "options": [
+      "A regular strategic review with a client to assess performance and plan future initiatives",
+      "An annual tax review",
+      "A monthly expense report",
+      "A daily sales report"
+    ],
+    "answer": "A regular strategic review with a client to assess performance and plan future initiatives"
+  },
+  {
+    "question": "What is 'Objection' in sales?",
+    "options": [
+      "A reason or concern raised by a prospect that could prevent a sale",
+      "A positive reaction",
+      "A sign of a completed sale",
+      "A product feature"
+    ],
+    "answer": "A reason or concern raised by a prospect that could prevent a sale"
+  },
+  {
+    "question": "What is 'Stakeholder Mapping' in B2B sales?",
+    "options": [
+      "Identifying all individuals involved in a purchasing decision and their influence",
+      "Mapping physical locations",
+      "Mapping competitors",
+      "Mapping product features"
+    ],
+    "answer": "Identifying all individuals involved in a purchasing decision and their influence"
+  },
+  {
+    "question": "What is 'Discovery' in a sales process?",
+    "options": [
+      "A phase where you ask questions to uncover the prospect's needs and challenges",
+      "A phase where you give a demo",
+      "A phase where you send a proposal",
+      "A phase where you close"
+    ],
+    "answer": "A phase where you ask questions to uncover the prospect's needs and challenges"
+  },
+  {
+    "question": "What is 'Demo' in a sales process?",
+    "options": [
+      "A live demonstration of how the product/service works for the prospect",
+      "A contract signing",
+      "A price quote",
+      "An invoice"
+    ],
+    "answer": "A live demonstration of how the product/service works for the prospect"
+  },
+  {
+    "question": "What is 'Proposal' in the sales cycle?",
+    "options": [
+      "A formal document detailing the solution, scope, pricing, and terms for the prospect",
+      "A verbal suggestion",
+      "A product brochure",
+      "A company policy"
+    ],
+    "answer": "A formal document detailing the solution, scope, pricing, and terms for the prospect"
+  },
+  {
+    "question": "What is the purpose of a 'Closing Statement'?",
+    "options": [
+      "To summarize value and ask for a commitment to move forward",
+      "To end the conversation without commitment",
+      "To talk about the weather",
+      "To discuss competitors"
+    ],
+    "answer": "To summarize value and ask for a commitment to move forward"
+  },
+  {
+    "question": "What is the most important skill in sales communication?",
+    "options": [
+      "Asking thoughtful questions and listening more than speaking",
+      "Talking continuously",
+      "Using only technical terms",
+      "Reading from a script"
+    ],
+    "answer": "Asking thoughtful questions and listening more than speaking"
+  },
+  {
+    "question": "What is the primary difference between 'Search Ads' and 'Display Ads'?",
+    "options": [
+      "Search ads are text-based and appear on SERPs; Display ads are visual and appear on websites/apps",
+      "Search ads are for B2C; Display ads are for B2B",
+      "Search ads are cheaper; Display ads are more expensive",
+      "There is no difference"
+    ],
+    "answer": "Search ads are text-based and appear on SERPs; Display ads are visual and appear on websites/apps"
+  },
+  {
+    "question": "What is 'Quality Score' in Google Ads?",
+    "options": [
+      "A metric (1-10) measuring ad relevance, CTR, and landing page experience that affects CPC",
+      "The number of 5-star reviews an ad has",
+      "The speed of the website",
+      "The number of keywords in the ad"
+    ],
+    "answer": "A metric (1-10) measuring ad relevance, CTR, and landing page experience that affects CPC"
+  },
+  {
+    "question": "What does 'Smart Bidding' in Google Ads use to optimize conversions?",
+    "options": [
+      "Machine learning and real-time auction-time signals",
+      "Manual bid adjustments only",
+      "Historical data from 5 years ago",
+      "Competitor bid averages"
+    ],
+    "answer": "Machine learning and real-time auction-time signals"
+  },
+  {
+    "question": "What is the difference between 'Broad Match', 'Phrase Match', and 'Exact Match' keywords?",
+    "options": [
+      "Broad matches misspellings; Phrase matches word order; Exact matches the precise term",
+      "Broad is for images; Phrase is for video; Exact is for text",
+      "They all function identically",
+      "Broad is cheapest; Exact is most expensive"
+    ],
+    "answer": "Broad matches misspellings; Phrase matches word order; Exact matches the precise term"
+  },
+  {
+    "question": "What is a 'Negative Keyword' in Google Ads?",
+    "options": [
+      "A keyword that prevents your ad from showing for irrelevant searches",
+      "A keyword with a negative bid",
+      "A keyword that deletes your ad",
+      "A keyword that only shows ads to competitors"
+    ],
+    "answer": "A keyword that prevents your ad from showing for irrelevant searches"
+  },
+  {
+    "question": "What is 'Ad Rank' in Google Ads?",
+    "options": [
+      "A value (based on bid, Quality Score, and extensions) that determines ad position",
+      "The number of times an ad is shown",
+      "The age of the ad account",
+      "The total budget spent"
+    ],
+    "answer": "A value (based on bid, Quality Score, and extensions) that determines ad position"
+  },
+  {
+    "question": "What is the difference between 'Impressions' and 'Reach' in social media advertising?",
+    "options": [
+      "Impressions are total views; Reach is unique users who saw the ad",
+      "They are the same",
+      "Impressions are for paid ads; Reach is for organic posts",
+      "Reach is total views; Impressions are unique users"
+    ],
+    "answer": "Impressions are total views; Reach is unique users who saw the ad"
+  },
+  {
+    "question": "What is a 'Pixel' in Facebook/Meta advertising?",
+    "options": [
+      "A piece of code that tracks user behavior and conversions on your website",
+      "A type of image ad",
+      "A video format",
+      "A bidding strategy"
+    ],
+    "answer": "A piece of code that tracks user behavior and conversions on your website"
+  },
+  {
+    "question": "What is 'Lookalike Audience' in Facebook Ads?",
+    "options": [
+      "An audience built by Facebook's algorithm to mimic the traits of your existing customers",
+      "An audience that looks like your competitors",
+      "An audience of random users",
+      "An audience of all website visitors"
+    ],
+    "answer": "An audience built by Facebook's algorithm to mimic the traits of your existing customers"
+  },
+  {
+    "question": "What is the difference between 'Conversion Campaigns' and 'Traffic Campaigns'?",
+    "options": [
+      "Conversion campaigns optimize for valuable actions; Traffic campaigns optimize for link clicks",
+      "Traffic campaigns are for sales; Conversion campaigns are for views",
+      "They are the same",
+      "Conversion campaigns are cheaper"
+    ],
+    "answer": "Conversion campaigns optimize for valuable actions; Traffic campaigns optimize for link clicks"
+  },
+  {
+    "question": "What is 'Ad Fatigue' in paid social media?",
+    "options": [
+      "When a target audience sees an ad too many times and stops engaging",
+      "When the ad budget runs out",
+      "When the ad pixel stops working",
+      "When the ad is approved"
+    ],
+    "answer": "When a target audience sees an ad too many times and stops engaging"
+  },
+  {
+    "question": "What is 'Frequency' in ad metrics?",
+    "options": [
+      "The average number of times a unique user sees an ad",
+      "The number of total clicks",
+      "The total budget spent",
+      "The number of ad creatives used"
+    ],
+    "answer": "The average number of times a unique user sees an ad"
+  },
+  {
+    "question": "What is the advantage of 'Dynamic Creative' ads?",
+    "options": [
+      "They automatically generate multiple ad variants from a catalog of images/text",
+      "They are cheaper than static ads",
+      "They never need approval",
+      "They only work on TikTok"
+    ],
+    "answer": "They automatically generate multiple ad variants from a catalog of images/text"
+  },
+  {
+    "question": "What is 'View-Through Conversion' (VTC)?",
+    "options": [
+      "A conversion attributed to a user who saw an ad but didn't click, and converted later",
+      "A conversion that happens instantly after a click",
+      "A conversion from organic search",
+      "A conversion from direct traffic"
+    ],
+    "answer": "A conversion attributed to a user who saw an ad but didn't click, and converted later"
+  },
+  {
+    "question": "What is the difference between 'CPC' and 'CPM' bidding?",
+    "options": [
+      "CPC bids per click; CPM bids per 1,000 impressions",
+      "CPC is for social; CPM is for search",
+      "They are the same",
+      "CPM is cheaper than CPC"
+    ],
+    "answer": "CPC bids per click; CPM bids per 1,000 impressions"
+  },
+  {
+    "question": "What is 'Programmatic Advertising'?",
+    "options": [
+      "The automated, AI-driven buying/selling of digital ad inventory in real-time",
+      "Manually buying ads from a salesperson",
+      "Buying TV ad slots",
+      "Buying billboard space"
+    ],
+    "answer": "The automated, AI-driven buying/selling of digital ad inventory in real-time"
+  },
+  {
+    "question": "What is a 'DSP' (Demand-Side Platform)?",
+    "options": [
+      "A software platform that allows advertisers to buy ad inventory automatically from multiple exchanges",
+      "A type of website",
+      "A social media app",
+      "A design tool"
+    ],
+    "answer": "A software platform that allows advertisers to buy ad inventory automatically from multiple exchanges"
+  },
+  {
+    "question": "What is 'Retargeting' (Remarketing)?",
+    "options": [
+      "Serving ads to users who previously visited your website or app",
+      "Serving ads to brand-new users",
+      "Serving ads to employees",
+      "Serving ads to competitors"
+    ],
+    "answer": "Serving ads to users who previously visited your website or app"
+  },
+  {
+    "question": "What is the 'Facebook Auction' based on?",
+    "options": [
+      "Bid amount, estimated action rate, and ad quality/relevance",
+      "Only the highest bidder",
+      "Only ad length",
+      "Only the number of followers"
+    ],
+    "answer": "Bid amount, estimated action rate, and ad quality/relevance"
+  },
+  {
+    "question": "What is 'Cost Per Acquisition' (CPA) goal in paid ads?",
+    "options": [
+      "The maximum amount you are willing to pay for a conversion",
+      "The total budget for the campaign",
+      "The cost per click",
+      "The cost per impression"
+    ],
+    "answer": "The maximum amount you are willing to pay for a conversion"
+  },
+  {
+    "question": "What is a 'UGC Ad' (User-Generated Content Ad)?",
+    "options": [
+      "An ad using real customer photos/videos rather than studio-produced content",
+      "An ad created by AI",
+      "An ad with no images",
+      "An ad that only runs on TV"
+    ],
+    "answer": "An ad using real customer photos/videos rather than studio-produced content"
+  },
+  {
+    "question": "What is the best practice for 'Ad Creative Rotation'?",
+    "options": [
+      "Rotate creatives frequently to avoid ad fatigue and test new variants",
+      "Use only one creative forever",
+      "Rotate only once a year",
+      "Use the exact same creative on all platforms"
+    ],
+    "answer": "Rotate creatives frequently to avoid ad fatigue and test new variants"
+  },
+  {
+    "question": "What is the 'Google Display Network' (GDN)?",
+    "options": [
+      "A network of over 2 million websites, apps, and videos where Google ads can appear",
+      "Only YouTube videos",
+      "Only Google Search results",
+      "Only Gmail"
+    ],
+    "answer": "A network of over 2 million websites, apps, and videos where Google ads can appear"
+  },
+  {
+    "question": "What is 'Target CPA' bidding strategy?",
+    "options": [
+      "An automated bidding strategy where Google sets bids to get as many conversions as possible at your target CPA",
+      "A manual bidding strategy where you set each bid individually",
+      "A strategy that ignores CPA goals",
+      "A strategy for traffic only"
+    ],
+    "answer": "An automated bidding strategy where Google sets bids to get as many conversions as possible at your target CPA"
+  },
+  {
+    "question": "What is 'Target ROAS' bidding?",
+    "options": [
+      "An automated strategy that maximizes conversion value to hit a specific return on ad spend",
+      "A strategy that maximizes clicks",
+      "A strategy that minimizes cost",
+      "A strategy that ignores revenue"
+    ],
+    "answer": "An automated strategy that maximizes conversion value to hit a specific return on ad spend"
+  },
+  {
+    "question": "What is a 'Ad Extension' in Google Ads?",
+    "options": [
+      "Additional information (site links, callouts, phone numbers) that expands your ad",
+      "A separate ad that runs after the main ad",
+      "A type of keyword",
+      "A negative keyword"
+    ],
+    "answer": "Additional information (site links, callouts, phone numbers) that expands your ad"
+  },
+  {
+    "question": "What is 'Ad Scheduling'?",
+    "options": [
+      "Setting specific days/times for your ads to run to optimize for when your audience is active",
+      "Running ads 24/7 without pause",
+      "Scheduling ads to run only on weekends",
+      "Scheduling ads to run only at midnight"
+    ],
+    "answer": "Setting specific days/times for your ads to run to optimize for when your audience is active"
+  },
+  {
+    "question": "What is 'Geofencing' in digital advertising?",
+    "options": [
+      "Showing ads to users when they enter a specific geographic boundary (e.g., near a store)",
+      "Showing ads to users based on their age",
+      "Showing ads to users based on their device type",
+      "Showing ads globally without restrictions"
+    ],
+    "answer": "Showing ads to users when they enter a specific geographic boundary (e.g., near a store)"
+  },
+  {
+    "question": "What is the main benefit of 'TikTok Ads' for brands?",
+    "options": [
+      "High engagement with short-form, authentic, and trend-driven video content",
+      "Long-form educational content",
+      "Professional B2B networking",
+      "Text-only updates"
+    ],
+    "answer": "High engagement with short-form, authentic, and trend-driven video content"
+  },
+  {
+    "question": "What is 'In-Stream Video Ad' on YouTube?",
+    "options": [
+      "An ad that plays before, during, or after a YouTube video",
+      "An ad that only appears in search results",
+      "An ad that is displayed on the YouTube homepage only",
+      "An ad that is text-based"
+    ],
+    "answer": "An ad that plays before, during, or after a YouTube video"
+  },
+  {
+    "question": "What is 'Skippable vs. Non-Skippable' video ads?",
+    "options": [
+      "Skippable ads allow the user to skip after 5 seconds; Non-skippable must be watched in full",
+      "Skippable ads are longer; Non-skippable are shorter",
+      "Skippable ads are cheaper; Non-skippable are free",
+      "There is no difference"
+    ],
+    "answer": "Skippable ads allow the user to skip after 5 seconds; Non-skippable must be watched in full"
+  },
+  {
+    "question": "What is 'Amazon Advertising' primarily used for?",
+    "options": [
+      "Promoting products directly on Amazon's marketplace to drive sales at the point of purchase",
+      "Building brand awareness on social media",
+      "Running TV commercials",
+      "Sending email newsletters"
+    ],
+    "answer": "Promoting products directly on Amazon's marketplace to drive sales at the point of purchase"
+  },
+  {
+    "question": "What is 'Sponsored Products' on Amazon?",
+    "options": [
+      "A pay-per-click ad that promotes individual product listings within Amazon search results",
+      "A free promotion on Amazon",
+      "A type of coupon",
+      "A product review"
+    ],
+    "answer": "A pay-per-click ad that promotes individual product listings within Amazon search results"
+  },
+  {
+    "question": "What is 'Attribution Window' in ad platforms?",
+    "options": [
+      "The time period after an ad click/view during which a conversion is attributed to that ad",
+      "The time it takes for an ad to load",
+      "The time an ad is visible on screen",
+      "The length of the ad video"
+    ],
+    "answer": "The time period after an ad click/view during which a conversion is attributed to that ad"
+  },
+  {
+    "question": "What is 'First-Click Attribution' model?",
+    "options": [
+      "Assigning 100% of conversion credit to the very first ad interaction a user had",
+      "Assigning 100% of credit to the last click",
+      "Assigning equal credit to all touchpoints",
+      "Assigning no credit to any touchpoint"
+    ],
+    "answer": "Assigning 100% of conversion credit to the very first ad interaction a user had"
+  },
+  {
+    "question": "What is 'Last-Click Attribution' model?",
+    "options": [
+      "Assigning 100% of conversion credit to the last ad interaction before the conversion",
+      "Assigning 100% of credit to the first click",
+      "Assigning equal credit to all touchpoints",
+      "Assigning no credit to any touchpoint"
+    ],
+    "answer": "Assigning 100% of conversion credit to the last ad interaction before the conversion"
+  },
+  {
+    "question": "What is 'Data-Driven Attribution'?",
+    "options": [
+      "Using machine learning to assign credit to each touchpoint based on its actual impact",
+      "Randomly assigning credit",
+      "Assigning all credit to the first click",
+      "Assigning all credit to the last click"
+    ],
+    "answer": "Using machine learning to assign credit to each touchpoint based on its actual impact"
+  },
+  {
+    "question": "What is 'Budget Pacing' in ad campaigns?",
+    "options": [
+      "Managing how daily budget is spent over time to avoid running out too early",
+      "Spending the entire budget in the first hour",
+      "Saving budget for the end of the month",
+      "Not setting any budget"
+    ],
+    "answer": "Managing how daily budget is spent over time to avoid running out too early"
+  },
+  {
+    "question": "What is 'Ad Copy Testing'?",
+    "options": [
+      "Running multiple versions of ad text/headlines to see which performs best (A/B testing)",
+      "Testing the speed of the ad",
+      "Testing the color of the ad",
+      "Testing the sound of the ad"
+    ],
+    "answer": "Running multiple versions of ad text/headlines to see which performs best (A/B testing)"
+  },
+  {
+    "question": "What is the recommended primary text length for a Facebook News Feed ad?",
+    "options": [
+      "Short, punchy text (125 characters or less) to avoid truncation",
+      "Very long paragraphs (500+ characters)",
+      "Only emojis",
+      "No text at all"
+    ],
+    "answer": "Short, punchy text (125 characters or less) to avoid truncation"
+  },
+  {
+    "question": "What is the ideal aspect ratio for a Facebook/Instagram video ad?",
+    "options": [
+      "1:1 (Square) or 4:5 (Vertical) for mobile-optimized viewing",
+      "16:9 (Widescreen) only",
+      "21:9 (Cinematic) only",
+      "3:2 (Portrait) only"
+    ],
+    "answer": "1:1 (Square) or 4:5 (Vertical) for mobile-optimized viewing"
+  },
+  {
+    "question": "What is 'Cross-Device Tracking' in digital ads?",
+    "options": [
+      "Tracking user behavior across multiple devices (phone, tablet, desktop) to unify the journey",
+      "Tracking only on desktop",
+      "Tracking only on mobile",
+      "Tracking only on tablets"
+    ],
+    "answer": "Tracking user behavior across multiple devices (phone, tablet, desktop) to unify the journey"
+  },
+  {
+    "question": "What is the impact of iOS 14/ATT changes on Facebook Ads?",
+    "options": [
+      "Reduced tracking capabilities and conversion reporting due to user opt-out requirements",
+      "Increased tracking capabilities",
+      "No change at all",
+      "Free advertising for all"
+    ],
+    "answer": "Reduced tracking capabilities and conversion reporting due to user opt-out requirements"
+  },
+  {
+    "question": "What is a 'Server-Side Tracking'?",
+    "options": [
+      "Sending conversion data directly from your server to the ad platform, bypassing browser blockers",
+      "Tracking using only cookies",
+      "Tracking using only pixels",
+      "Tracking manually on a spreadsheet"
+    ],
+    "answer": "Sending conversion data directly from your server to the ad platform, bypassing browser blockers"
+  },
+  {
+    "question": "What is the primary KPI for a 'Brand Awareness' campaign?",
+    "options": [
+      "Reach and Unique Impressions",
+      "Click-Through Rate (CTR)",
+      "Conversions",
+      "Cost Per Lead (CPL)"
+    ],
+    "answer": "Reach and Unique Impressions"
+  },
+  {
+    "question": "What is the primary KPI for a 'Conversion' campaign?",
+    "options": [
+      "Cost Per Acquisition (CPA) and Return on Ad Spend (ROAS)",
+      "Impressions",
+      "Likes",
+      "Video Views"
+    ],
+    "answer": "Cost Per Acquisition (CPA) and Return on Ad Spend (ROAS)"
+  },
+  {
+    "question": "What is 'Ad Placement' optimization?",
+    "options": [
+      "Choosing where your ad appears (Feeds, Stories, In-Stream, etc.) to maximize performance",
+      "Choosing only one placement",
+      "Choosing random placements",
+      "Choosing placements that are most expensive"
+    ],
+    "answer": "Choosing where your ad appears (Feeds, Stories, In-Stream, etc.) to maximize performance"
+  },
+  {
+    "question": "What is the benefit of using 'Automated Rules' in Google/Meta Ads?",
+    "options": [
+      "They automatically pause, adjust bids, or send alerts based on performance triggers",
+      "They delete all your ads",
+      "They spend all your budget instantly",
+      "They only run on weekends"
+    ],
+    "answer": "They automatically pause, adjust bids, or send alerts based on performance triggers"
+  },
+  {
+    "question": "What is 'Creative Brief' for ad production?",
+    "options": [
+      "A document outlining the goal, audience, key message, and visual direction for an ad",
+      "A short description of the budget",
+      "A list of competitor ads",
+      "A legal disclaimer"
+    ],
+    "answer": "A document outlining the goal, audience, key message, and visual direction for an ad"
+  },
+  {
+    "question": "What is the golden rule of running profitable digital ads?",
+    "options": [
+      "Test, measure, optimize, and scale (never set and forget)",
+      "Set a high budget and leave it",
+      "Only run ads on weekends",
+      "Use the same ad for 6 months"
+    ],
+    "answer": "Test, measure, optimize, and scale (never set and forget)"
+  }
+
+]
