@@ -295,7 +295,7 @@
     font-family: 'Orbitron', monospace;
     font-size: clamp(0.8rem, 1.8vw, 1rem);
     font-weight: 700;
-    color: #00FFFF;
+    color: whitesmoke;
     letter-spacing: 1.5px;
     line-height: 1.65;
     text-shadow: 0 0 10px rgba(0,255,255,0.55);
@@ -822,72 +822,265 @@
 // ─────────────────────────────────────────────
 //  STATE
 // ─────────────────────────────────────────────
-let questions      = [];
-let currentIdx     = 0;
-let score          = 0;
-let lives          = 3;          // 3 shield units
-let maxLives       = 3;
-let isShooting     = false;
-let audioCtx       = null;
-let checkpointIdx  = null;       // index at 30% mark
+let questions       = [];
+let currentIdx      = 0;
+let score           = 0;
+let lives           = 3;
+let maxLives        = 3;
+let isShooting      = false;
+let audioCtx        = null;
+let masterGain      = null;
+let musicGain       = null;
+let sfxGain         = null;
+let isMuted         = false;
+let volume          = 0.7;
+let musicRunning    = false;
+let musicScheduler  = null;
+let nextBarTime     = 0;
+let barCount        = 0;
+let checkpointIdx   = null;
 let checkpointSaved = false;
 let extraLifeGiven  = false;
-let hasRevive       = false;     // earned at 50%
+let hasRevive       = false;
 let currentBankKey  = null;
 
-const LIVES_MAX     = 3;
-const LS_PREFIX     = 'arcade_bank_';
+const LIVES_MAX = 3;
+const LS_PREFIX = 'arcade_bank_';
 
 // ─────────────────────────────────────────────
-//  AUDIO
+//  AUDIO ENGINE
 // ─────────────────────────────────────────────
 function initAudio() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx) { if (audioCtx.state === 'suspended') audioCtx.resume(); return; }
+  audioCtx   = new (window.AudioContext || window.webkitAudioContext)();
+  masterGain = audioCtx.createGain();
+  musicGain  = audioCtx.createGain();
+  sfxGain    = audioCtx.createGain();
+  musicGain.connect(masterGain);
+  sfxGain.connect(masterGain);
+  masterGain.connect(audioCtx.destination);
+  masterGain.gain.value = isMuted ? 0 : volume;
+  musicGain.gain.value  = 0.52;
+  sfxGain.gain.value    = 1.0;
   if (audioCtx.state === 'suspended') audioCtx.resume();
 }
+
+function applyVolume() {
+  if (!masterGain) return;
+  masterGain.gain.setTargetAtTime(isMuted ? 0 : volume, audioCtx.currentTime, 0.05);
+  renderMusicControls();
+}
+
+// ── SYNTHWAVE MUSIC ──────────────────────────
+const PENTA = [110,130.81,146.83,164.81,196, 220,261.63,293.66,329.63,392];
+const BASS_NOTES = [55,65.41,73.42,82.41,98,110];
+const BPM  = 128;
+const BEAT = 60 / BPM;
+const BAR  = BEAT * 4;
+
+function startMusic() {
+  if (musicRunning || !audioCtx) return;
+  musicRunning = true;
+  nextBarTime  = audioCtx.currentTime + 0.05;
+  barCount     = 0;
+  scheduleMusic();
+}
+
+function stopMusic() {
+  musicRunning = false;
+  if (musicScheduler) { clearTimeout(musicScheduler); musicScheduler = null; }
+}
+
+function scheduleMusic() {
+  if (!musicRunning) return;
+  while (nextBarTime < audioCtx.currentTime + BAR * 2) {
+    scheduleBar(nextBarTime, barCount);
+    nextBarTime += BAR;
+    barCount++;
+  }
+  musicScheduler = setTimeout(scheduleMusic, BAR * 1000 * 0.5);
+}
+
+function scheduleBar(t, bar) {
+  scheduleDrums(t);
+  scheduleBass(t, bar);
+  if (bar % 2 === 0) schedulePad(t, bar);
+  if (bar % 4 === 2) scheduleArp(t);
+}
+
+// ── DRUMS ────────────────────────────────────
+function scheduleDrums(t) {
+  [0,2].forEach(b => scheduleKick(t + b * BEAT));
+  [1,3].forEach(b => scheduleSnare(t + b * BEAT));
+  for (let i = 0; i < 8; i++) scheduleHihat(t + i * BEAT * 0.5, i % 2 === 0 ? 0.16 : 0.07);
+}
+
+function scheduleKick(t) {
+  const len = audioCtx.sampleRate * 0.25;
+  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+  const d   = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) {
+    const env  = Math.exp(-i / (audioCtx.sampleRate * 0.08));
+    const freq = 55 * Math.exp(-i / (audioCtx.sampleRate * 0.04));
+    d[i] = Math.sin(2 * Math.PI * freq * i / audioCtx.sampleRate) * env;
+  }
+  const src = audioCtx.createBufferSource(); src.buffer = buf;
+  const g = audioCtx.createGain(); g.gain.value = 1.1;
+  src.connect(g); g.connect(musicGain); src.start(t);
+}
+
+function scheduleSnare(t) {
+  const len = audioCtx.sampleRate * 0.18;
+  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+  const d   = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.05));
+  const src = audioCtx.createBufferSource(); src.buffer = buf;
+  const hpf = audioCtx.createBiquadFilter(); hpf.type='highpass'; hpf.frequency.value=1500;
+  const g   = audioCtx.createGain(); g.gain.value = 0.5;
+  src.connect(hpf); hpf.connect(g); g.connect(musicGain); src.start(t);
+  const osc = audioCtx.createOscillator(); osc.type='triangle';
+  osc.frequency.setValueAtTime(220,t); osc.frequency.exponentialRampToValueAtTime(80,t+0.1);
+  const g2  = audioCtx.createGain();
+  g2.gain.setValueAtTime(0.28,t); g2.gain.exponentialRampToValueAtTime(0.001,t+0.15);
+  osc.connect(g2); g2.connect(musicGain); osc.start(t); osc.stop(t+0.15);
+}
+
+function scheduleHihat(t, vol) {
+  const len = audioCtx.sampleRate * 0.05;
+  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+  const d   = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.012));
+  const src = audioCtx.createBufferSource(); src.buffer = buf;
+  const hpf = audioCtx.createBiquadFilter(); hpf.type='highpass'; hpf.frequency.value=8000;
+  const g   = audioCtx.createGain(); g.gain.value = vol;
+  src.connect(hpf); hpf.connect(g); g.connect(musicGain); src.start(t);
+}
+
+// ── BASS ─────────────────────────────────────
+const BASS_PAT = [0,0,3,0, 1,1,4,1, 2,2,0,2, 1,1,3,1];
+function scheduleBass(t, bar) {
+  for (let s = 0; s < 16; s++) {
+    const st   = t + s * BEAT * 0.25;
+    const note = BASS_NOTES[BASS_PAT[(bar*16+s) % BASS_PAT.length]];
+    const dur  = BEAT * 0.22;
+    const osc  = audioCtx.createOscillator(); osc.type='sawtooth'; osc.frequency.value=note;
+    const lpf  = audioCtx.createBiquadFilter(); lpf.type='lowpass';
+    lpf.frequency.setValueAtTime(800,st); lpf.frequency.exponentialRampToValueAtTime(200,st+dur);
+    const g = audioCtx.createGain();
+    g.gain.setValueAtTime(0,st); g.gain.linearRampToValueAtTime(0.32,st+0.01);
+    g.gain.exponentialRampToValueAtTime(0.001,st+dur);
+    osc.connect(lpf); lpf.connect(g); g.connect(musicGain); osc.start(st); osc.stop(st+dur);
+  }
+}
+
+// ── PAD CHORDS ───────────────────────────────
+const PAD_CHORDS = [
+  [220,261.63,329.63], // Am
+  [174.61,220,261.63], // F
+  [130.81,164.81,196], // C
+  [196,246.94,293.66], // G
+];
+function schedulePad(t, bar) {
+  const chord = PAD_CHORDS[(Math.floor(bar/2)) % PAD_CHORDS.length];
+  chord.forEach(freq => {
+    const osc  = audioCtx.createOscillator(); osc.type='sawtooth'; osc.frequency.value=freq;
+    const osc2 = audioCtx.createOscillator(); osc2.type='sine'; osc2.frequency.value=freq*2.008;
+    const lpf  = audioCtx.createBiquadFilter(); lpf.type='lowpass'; lpf.frequency.value=1200;
+    const dly  = audioCtx.createDelay(); dly.delayTime.value=0.025;
+    const g = audioCtx.createGain();
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(0.05,t+BAR*0.3);
+    g.gain.setValueAtTime(0.05,t+BAR*1.7); g.gain.linearRampToValueAtTime(0,t+BAR*2);
+    osc.connect(lpf); osc2.connect(dly); dly.connect(lpf); lpf.connect(g); g.connect(musicGain);
+    osc.start(t); osc2.start(t); osc.stop(t+BAR*2); osc2.stop(t+BAR*2);
+  });
+}
+
+// ── ARP MELODY ───────────────────────────────
+const ARP_PAT = [0,2,4,6,5,3,1,0,2,4,7,5,4,2,0,3];
+function scheduleArp(t) {
+  for (let s = 0; s < 16; s++) {
+    const st   = t + s * BEAT * 0.25;
+    const note = PENTA[ARP_PAT[s] % PENTA.length] * 2;
+    const dur  = BEAT * 0.18;
+    const osc  = audioCtx.createOscillator(); osc.type='square'; osc.frequency.value=note;
+    const g = audioCtx.createGain();
+    g.gain.setValueAtTime(0,st); g.gain.linearRampToValueAtTime(0.08,st+0.01);
+    g.gain.exponentialRampToValueAtTime(0.001,st+dur);
+    osc.connect(g); g.connect(musicGain); osc.start(st); osc.stop(st+dur);
+  }
+}
+
+// ── SFX ──────────────────────────────────────
 function playSound(type) {
-  if (!audioCtx) return;
+  if (!audioCtx || !sfxGain) return;
   const osc  = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
-  osc.connect(gain); gain.connect(audioCtx.destination);
+  osc.connect(gain); gain.connect(sfxGain);
   const t = audioCtx.currentTime;
   if (type === 'shoot') {
     osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(900, t);
-    osc.frequency.exponentialRampToValueAtTime(80, t+.35);
-    gain.gain.setValueAtTime(.28, t);
-    gain.gain.exponentialRampToValueAtTime(.01, t+.35);
+    osc.frequency.setValueAtTime(900,t); osc.frequency.exponentialRampToValueAtTime(80,t+.35);
+    gain.gain.setValueAtTime(.28,t); gain.gain.exponentialRampToValueAtTime(.01,t+.35);
     osc.start(t); osc.stop(t+.35);
   } else if (type === 'hit') {
     osc.type = 'square';
-    osc.frequency.setValueAtTime(160, t);
-    osc.frequency.exponentialRampToValueAtTime(40, t+.5);
-    gain.gain.setValueAtTime(.4, t);
-    gain.gain.exponentialRampToValueAtTime(.01, t+.5);
+    osc.frequency.setValueAtTime(160,t); osc.frequency.exponentialRampToValueAtTime(40,t+.5);
+    gain.gain.setValueAtTime(.4,t); gain.gain.exponentialRampToValueAtTime(.01,t+.5);
     osc.start(t); osc.stop(t+.5);
   } else if (type === 'miss') {
     osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(120, t);
-    osc.frequency.linearRampToValueAtTime(40, t+.5);
-    gain.gain.setValueAtTime(.4, t);
-    gain.gain.linearRampToValueAtTime(.01, t+.5);
+    osc.frequency.setValueAtTime(120,t); osc.frequency.linearRampToValueAtTime(40,t+.5);
+    gain.gain.setValueAtTime(.4,t); gain.gain.linearRampToValueAtTime(.01,t+.5);
     osc.start(t); osc.stop(t+.5);
   } else if (type === 'powerup') {
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(400, t);
-    osc.frequency.linearRampToValueAtTime(800, t+.3);
-    gain.gain.setValueAtTime(.3, t);
-    gain.gain.exponentialRampToValueAtTime(.01, t+.5);
+    osc.frequency.setValueAtTime(400,t); osc.frequency.linearRampToValueAtTime(800,t+.3);
+    gain.gain.setValueAtTime(.3,t); gain.gain.exponentialRampToValueAtTime(.01,t+.5);
     osc.start(t); osc.stop(t+.5);
   } else if (type === 'checkpoint') {
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(300, t);
-    osc.frequency.linearRampToValueAtTime(600, t+.2);
-    osc.frequency.linearRampToValueAtTime(450, t+.4);
-    gain.gain.setValueAtTime(.25, t);
-    gain.gain.exponentialRampToValueAtTime(.01, t+.4);
+    osc.frequency.setValueAtTime(300,t); osc.frequency.linearRampToValueAtTime(600,t+.2);
+    osc.frequency.linearRampToValueAtTime(450,t+.4);
+    gain.gain.setValueAtTime(.25,t); gain.gain.exponentialRampToValueAtTime(.01,t+.4);
     osc.start(t); osc.stop(t+.4);
   }
+}
+
+// ── MUTE / VOLUME ────────────────────────────
+function toggleMute() {
+  isMuted = !isMuted;
+  applyVolume();
+}
+
+function setVolume(v) {
+  volume  = Math.max(0, Math.min(1, parseFloat(v)));
+  isMuted = (volume === 0);
+  applyVolume();
+}
+
+function applyVolume() {
+  if (!masterGain) return;
+  masterGain.gain.setTargetAtTime(isMuted ? 0 : volume, audioCtx.currentTime, 0.05);
+  renderMusicControls();
+}
+
+function renderMusicControls() {
+  const muteIcon = document.getElementById('mc-mute-icon');
+  if (muteIcon) {
+    const useMute = isMuted || volume === 0;
+    // swap between the two symbol paths
+    muteIcon.innerHTML = useMute
+      ? `<line x1="3" y1="3" x2="21" y2="21" stroke="#FF003C" stroke-width="2.5" stroke-linecap="round"/>
+         <path d="M9 9v6h4l5 5V4l-5 5H9z" fill="none" stroke="#FF003C" stroke-width="2" stroke-linejoin="round"/>`
+      : `<path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
+         <path d="M19 12c0-2.21-1.79-4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+         <path d="M22.5 12c0-4.14-3.36-7.5-7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`;
+  }
+  const fill = document.getElementById('mc-vol-fill');
+  const knob = document.getElementById('mc-vol-knob');
+  const pct  = isMuted ? 0 : volume;
+  if (fill) fill.setAttribute('width', String(Math.round(pct * 100)));
+  if (knob) knob.setAttribute('cx', String(4 + Math.round(pct * 100)));
 }
 
 // ─────────────────────────────────────────────
@@ -1158,7 +1351,7 @@ function buildLabelHTML(text, idx) {
   const c = colors[idx % 4];
   const div = document.createElement('div');
   div.className = 'opt-label-html';
-  div.style.color = c;
+  div.style.color = "white";
   div.style.borderColor = c;
   div.style.border = `1.5px solid ${c}`;
   div.textContent = text;
@@ -1211,7 +1404,9 @@ function shoot(targetEl, isCorrect) {
       : getComputedStyle(document.body).getPropertyValue('--red').trim();
 
     createExplosion(toX, toY, color);
-    spawnCombatText(toX - 60, toY - 20, isCorrect ? 'CRITICAL!' : 'DEFLECTED', color);
+    const feedbackbox = "BRILLA👨‍🎓-BOSSU🙌-SHARK🦈-TYPESHIT😎".split("-")
+    const rand = Math.floor(Math.random()*feedbackbox.length)
+    spawnCombatText(toX - 60, toY - 20, isCorrect ? feedbackbox[rand] : 'Naa ❌', color);
 
     if (isCorrect) {
       playSound('hit');
