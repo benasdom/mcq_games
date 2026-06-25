@@ -8,8 +8,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap');
 
   :root {
-    --void:    #02020A;
-    --cyan:    #00FFFF;
+    --void:    #02020a;
+    --cyan:    #00ffffad;
     --magenta: #FF00FF;
     --amber:   #FFB300;
     --red:     #FF003C;
@@ -30,7 +30,6 @@
     user-select: none;
   }
 
-  /* ── SCANLINE OVERLAY ── */
   body::after {
     content: "";
     position: fixed; inset: 0;
@@ -38,7 +37,6 @@
     pointer-events: none; z-index: 9000;
   }
 
-  /* ── FLASH ── */
   #flash {
     position: fixed; inset: 0;
     background: #fff; opacity: 0;
@@ -48,7 +46,6 @@
   @keyframes flash { 0%{opacity:.7} 100%{opacity:0} }
   .flashing { animation: flash .35s ease-out forwards !important; }
 
-  /* ── SHAKE ── */
   @keyframes shake {
     0%,100%{ transform:translate(0,0) }
     20%{ transform:translate(-18px,10px) rotate(-2deg) }
@@ -58,7 +55,6 @@
   }
   .shaking { animation: shake .45s ease both !important; }
 
-  /* ── SCREENS ── */
   .screen {
     position: fixed; inset: 0;
     display: flex; flex-direction: column;
@@ -69,11 +65,7 @@
   }
   .screen.hidden { opacity:0; pointer-events:none; }
 
-  /* ── SETUP SCREEN ── */
-  #setup-screen {
-    gap: 20px;
-    padding: 20px;
-  }
+  #setup-screen { gap: 20px; padding: 20px; }
 
   .title-svg-wrap { width: min(600px, 95vw); }
 
@@ -82,7 +74,6 @@
     width: min(480px, 92vw);
   }
 
-  /* neon button */
   .btn {
     font-family: var(--font-display);
     font-size: clamp(.7rem, 2.2vw, 1.1rem);
@@ -110,17 +101,15 @@
   .btn:hover .btn-text { color: #fff; }
   .btn:active { transform: scale(.97); }
 
-  /* saved banks list */
   #banks-list {
     display: flex; flex-direction: column; gap: 8px;
     width: 100%; max-height: 200px; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: var(--cyan) transparent;
   }
   #banks-list::-webkit-scrollbar { width: 4px; }
   #banks-list::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
 
-  .bank-entry {
-    display: flex; align-items: center; gap: 8px;
-  }
+  .bank-entry { display: flex; align-items: center; gap: 8px; }
   .bank-entry .btn { flex: 1; }
   .bank-del {
     font-family: var(--font-mono); font-size: 1rem;
@@ -131,7 +120,6 @@
   }
   .bank-del:hover { background: var(--red); color: #000; }
 
-  /* ── GAME SCREEN ── */
   #game-screen {
     position: fixed; inset: 0;
     display: flex; flex-direction: column;
@@ -140,24 +128,30 @@
   }
   #game-screen.active { pointer-events: all; }
 
-  /* SVG background that fills the whole screen */
   #bg-svg {
     position: fixed; inset: 0;
     width: 100vw; height: 100vh;
     z-index: 1; pointer-events: none;
   }
 
-  /* HUD */
   #hud-svg {
     position: fixed; top: 0; left: 0;
     width: 100%; z-index: 60;
     pointer-events: none;
   }
 
-  /* OPTIONS AREA */
+  /* ── LEVEL BADGE on HUD ── */
+  #level-badge-wrap {
+    position: fixed;
+    top: 6px; left: 50%; transform: translateX(-50%);
+    z-index: 65;
+    pointer-events: none;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
   #options-area {
     position: fixed;
-    top: 90px; left: 0; right: 0;
+    top: 100px; left: 0; right: 0;
     display: flex; justify-content: space-around; align-items: center;
     flex-wrap: wrap; gap: 16px;
     padding: 10px 5vw;
@@ -185,9 +179,6 @@
   .opt-svg .ring { stroke: var(--cyan); fill: none; stroke-width: 2; transition: stroke .25s; }
   .opt-svg .core { fill: var(--cyan); transition: fill .25s; }
 
-  .opt-label-svg { width: clamp(110px, 18vw, 170px); }
-
-  /* HTML option label — replaces SVG text so long text wraps */
   .opt-label-html {
     position: relative;
     width: clamp(120px, 20vw, 190px);
@@ -208,36 +199,22 @@
     max-height: 90px;
     overflow: hidden;
   }
-
-  /* on hover: expand to show full text, allow scroll if very long */
   .opt-wrap:hover .opt-label-html {
     max-height: 260px;
     overflow-y: auto;
     box-shadow: 0 0 18px currentColor;
     z-index: 200;
   }
-  .opt-wrap:hover .opt-label-html::-webkit-scrollbar { width: 3px; }
-  .opt-wrap:hover .opt-label-html::-webkit-scrollbar-thumb { background: currentColor; border-radius: 2px; }
-
-  /* corner marks for opt label using outline + pseudo */
-  .opt-label-html::before,
-  .opt-label-html::after {
+  .opt-label-html::before, .opt-label-html::after {
     content: '';
     position: absolute;
     width: 8px; height: 8px;
     border-color: currentColor;
     border-style: solid;
   }
-  .opt-label-html::before {
-    top: 0; left: 0;
-    border-width: 2px 0 0 2px;
-  }
-  .opt-label-html::after {
-    bottom: 0; right: 0;
-    border-width: 0 2px 2px 0;
-  }
+  .opt-label-html::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+  .opt-label-html::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
 
-  /* QUESTION AREA */
   #question-area {
     position: fixed; bottom: 0; left: 0; right: 0;
     z-index: 70;
@@ -248,11 +225,7 @@
     pointer-events: all;
   }
 
-  /* Scrollable question box wrapper */
-  #q-box-wrap {
-    width: min(900px, 96vw);
-    position: relative;
-  }
+  #q-box-wrap { width: min(900px, 96vw); position: relative; }
 
   #q-box {
     width: 100%;
@@ -269,9 +242,7 @@
   }
   #q-box::-webkit-scrollbar { width: 4px; }
   #q-box::-webkit-scrollbar-thumb { background: #00FFFF; border-radius: 2px; }
-  #q-box::-webkit-scrollbar-track { background: transparent; }
 
-  /* corner SVG marks absolutely positioned over the box */
   #q-corners {
     position: absolute; inset: 0;
     pointer-events: none; z-index: 2;
@@ -279,7 +250,6 @@
     overflow: visible;
   }
 
-  /* scroll-fade hint at bottom */
   #q-box-wrap::after {
     content: '';
     position: absolute;
@@ -305,12 +275,9 @@
     -webkit-user-select: text;
   }
 
-  #next-btn-wrap {
-    display: none;
-  }
+  #next-btn-wrap { display: none; }
   #next-btn-wrap .btn { width: 280px; }
 
-  /* COMBAT FLOAT */
   .combat-float {
     position: fixed;
     font-family: var(--font-display);
@@ -328,7 +295,6 @@
     100%{ transform: translateY(-90px) scale(1); opacity:0; }
   }
 
-  /* OVERLAY PANELS (checkpoint, extra life, game over) */
   .panel-overlay {
     position: fixed; inset: 0;
     background: rgba(2,2,10,.88);
@@ -341,20 +307,39 @@
   .panel-overlay.hidden { display: none; }
   .panel-svg-wrap { width: min(520px, 90vw); }
 
-  /* LIVES ICONS row */
-  #lives-icons {
-    display: flex; gap: 6px; align-items: center;
+  /* ── LEVEL INTRO OVERLAY ── */
+  #level-intro {
+    position: fixed; inset: 0;
+    background: rgba(2,2,10,0.96);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 300;
+    gap: 0;
+    backdrop-filter: blur(6px);
+    animation: introFadeIn .4s ease forwards;
+  }
+  #level-intro.hidden { display: none; }
+  @keyframes introFadeIn { from{opacity:0;transform:scale(1.04)} to{opacity:1;transform:scale(1)} }
+
+  /* ── LEVEL PROGRESS BAR (inside HUD area) ── */
+  #level-progress-bar {
+    position: fixed;
+    top: 92px; left: 0; right: 0;
+    height: 3px;
+    z-index: 62;
+    pointer-events: none;
+    background: rgba(0,255,255,0.08);
+  }
+  #level-progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #00FFFF, #FF00FF);
+    transition: width 0.5s ease;
+    box-shadow: 0 0 8px #FF00FF;
+    width: 0%;
   }
 
-  /* scrollbar hide for banks */
-  #banks-list { scrollbar-width: thin; scrollbar-color: var(--cyan) transparent; }
-
-  @media (max-width: 480px) {
-    #options-area { gap: 10px; padding: 8px 3vw; }
-  }
-  @media (max-height: 620px) {
-    #options-area { top: 72px; }
-  }
+  @media (max-width: 480px) { #options-area { gap: 10px; padding: 8px 3vw; } }
+  @media (max-height: 620px) { #options-area { top: 78px; } }
 </style>
 </head>
 <body>
@@ -363,19 +348,11 @@
 
 <!-- ═══════════════════ SETUP SCREEN ═══════════════════ -->
 <div id="setup-screen" class="screen">
-
-  <!-- Animated title SVG -->
   <div class="title-svg-wrap">
     <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="glow-c">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="glow-m">
-          <feGaussianBlur stdDeviation="5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
+        <filter id="glow-c"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="glow-m"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#00FFFF"/>
           <stop offset="50%" stop-color="#FF00FF"/>
@@ -384,29 +361,14 @@
           </stop>
         </linearGradient>
       </defs>
-      <!-- grid lines -->
       <line x1="0" y1="125" x2="600" y2="125" stroke="#00FFFF" stroke-width=".5" opacity=".4"/>
       <line x1="0" y1="5"   x2="600" y2="5"   stroke="#00FFFF" stroke-width=".5" opacity=".4"/>
-      <!-- main title -->
-      <text x="300" y="78" text-anchor="middle"
-            font-family="'Orbitron',monospace" font-size="68" font-weight="900"
-            fill="url(#title-grad)" filter="url(#glow-m)" letter-spacing="6">
-        ARCADE
-      </text>
-      <!-- subtitle -->
-      <text x="300" y="118" text-anchor="middle"
-            font-family="'Orbitron',monospace" font-size="22" font-weight="700"
-            fill="#FF00FF" filter="url(#glow-c)" letter-spacing="18" opacity=".9">
-        OVERDRIVE
-      </text>
-      <!-- corner marks -->
+      <text x="300" y="78" text-anchor="middle" font-family="'Orbitron',monospace" font-size="68" font-weight="900" fill="url(#title-grad)" filter="url(#glow-m)" letter-spacing="6">ARCADE</text>
+      <text x="300" y="118" text-anchor="middle" font-family="'Orbitron',monospace" font-size="22" font-weight="700" fill="#FF00FF" filter="url(#glow-c)" letter-spacing="18" opacity=".9">OVERDRIVE</text>
       <g stroke="#00FFFF" stroke-width="2" fill="none" opacity=".6">
-        <path d="M8,8 L8,22 M8,8 L22,8"/>
-        <path d="M592,8 L592,22 M592,8 L578,8"/>
-        <path d="M8,122 L8,108 M8,122 L22,122"/>
-        <path d="M592,122 L592,108 M592,122 L578,122"/>
+        <path d="M8,8 L8,22 M8,8 L22,8"/><path d="M592,8 L592,22 M592,8 L578,8"/>
+        <path d="M8,122 L8,108 M8,122 L22,122"/><path d="M592,122 L592,108 M592,122 L578,122"/>
       </g>
-      <!-- animated scan line -->
       <rect x="0" y="0" width="600" height="3" fill="#FF00FF" opacity=".25">
         <animate attributeName="y" values="0;130;0" dur="3s" repeatCount="indefinite"/>
       </rect>
@@ -414,7 +376,6 @@
   </div>
 
   <div class="setup-actions">
-    <!-- upload -->
     <input type="file" id="file-input" accept=".json" style="display:none" multiple onchange="handleUpload(event)">
     <div class="btn" onclick="document.getElementById('file-input').click()" style="color:var(--magenta)">
       <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
@@ -426,11 +387,7 @@
       </svg>
       <div class="btn-text" style="color:var(--magenta)">[ UPLOAD DATABANK ]</div>
     </div>
-
-    <!-- saved banks -->
     <div id="banks-list"></div>
-
-    <!-- default -->
     <div class="btn" onclick="useDefault()">
       <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
         <rect class="btn-rect" x="2" y="2" width="396" height="50" rx="3" fill="rgba(0,255,255,0.05)" stroke="currentColor" stroke-width="2"/>
@@ -447,7 +404,6 @@
 <!-- ═══════════════════ GAME SCREEN ═══════════════════ -->
 <div id="game-screen">
 
-  <!-- FULL-PAGE SVG BACKGROUND -->
   <svg id="bg-svg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <radialGradient id="bg-grad" cx="50%" cy="40%" r="55%">
@@ -461,120 +417,96 @@
         <stop offset="0%" stop-color="transparent"/>
         <stop offset="100%" stop-color="rgba(0,255,255,0.25)"/>
       </linearGradient>
-      <filter id="glow2">
-        <feGaussianBlur stdDeviation="4" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
+      <filter id="glow2"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>
-
-    <!-- Base fill -->
     <rect width="1000" height="700" fill="url(#bg-grad)"/>
-    <!-- Hex grid -->
     <rect width="1000" height="700" fill="url(#hex-grid)"/>
-
-    <!-- Perspective floor grid -->
     <g transform="translate(500,700) rotate(-90) scale(1)">
-      <!-- horizontal lines with perspective illusion -->
       <g stroke="rgba(0,255,255,0.18)" stroke-width="1" fill="none">
-        <line x1="-500" y1="30"  x2="500" y2="30"/>
-        <line x1="-500" y1="90"  x2="500" y2="90"/>
+        <line x1="-500" y1="30" x2="500" y2="30"/>
+        <line x1="-500" y1="90" x2="500" y2="90"/>
         <line x1="-500" y1="170" x2="500" y2="170"/>
         <line x1="-500" y1="270" x2="500" y2="270"/>
         <line x1="-500" y1="400" x2="500" y2="400"/>
       </g>
-      <!-- vertical convergence lines -->
       <g stroke="rgba(255,0,255,0.12)" stroke-width="1" fill="none">
-        <line x1="0"    y1="0" x2="-80" y2="400"/>
-        <line x1="0"    y1="0" x2="-200" y2="400"/>
-        <line x1="0"    y1="0" x2="-350" y2="400"/>
-        <line x1="0"    y1="0" x2="80"  y2="400"/>
-        <line x1="0"    y1="0" x2="200" y2="400"/>
-        <line x1="0"    y1="0" x2="350" y2="400"/>
+        <line x1="0" y1="0" x2="-80" y2="400"/>
+        <line x1="0" y1="0" x2="-200" y2="400"/>
+        <line x1="0" y1="0" x2="-350" y2="400"/>
+        <line x1="0" y1="0" x2="80" y2="400"/>
+        <line x1="0" y1="0" x2="200" y2="400"/>
+        <line x1="0" y1="0" x2="350" y2="400"/>
       </g>
     </g>
-
-    <!-- Decorative circuit traces left -->
     <g stroke="rgba(0,255,255,0.2)" stroke-width="1.5" fill="none">
       <path d="M0,200 L60,200 L60,160 L120,160 L120,200 L180,200"/>
-      <circle cx="60"  cy="200" r="3" fill="rgba(0,255,255,0.4)"/>
+      <circle cx="60" cy="200" r="3" fill="rgba(0,255,255,0.4)"/>
       <circle cx="120" cy="200" r="3" fill="rgba(0,255,255,0.4)"/>
-      <path d="M0,280 L40,280 L40,320 L100,320">
-        <animate attributeName="stroke-dashoffset" values="0;-140" dur="2s" repeatCount="indefinite"/>
-      </path>
+      <path d="M0,280 L40,280 L40,320 L100,320"><animate attributeName="stroke-dashoffset" values="0;-140" dur="2s" repeatCount="indefinite"/></path>
       <path d="M0,350 L80,350 L80,300 L160,300"/>
     </g>
-
-    <!-- Decorative circuit traces right -->
     <g stroke="rgba(255,0,255,0.2)" stroke-width="1.5" fill="none">
       <path d="M1000,200 L940,200 L940,160 L880,160 L880,200 L820,200"/>
       <circle cx="940" cy="200" r="3" fill="rgba(255,0,255,0.4)"/>
       <circle cx="880" cy="200" r="3" fill="rgba(255,0,255,0.4)"/>
-      <path d="M1000,300 L920,300 L920,340 L860,340">
-        <animate attributeName="stroke-dashoffset" values="0;-140" dur="2.5s" repeatCount="indefinite"/>
-      </path>
+      <path d="M1000,300 L920,300 L920,340 L860,340"><animate attributeName="stroke-dashoffset" values="0;-140" dur="2.5s" repeatCount="indefinite"/></path>
     </g>
-
-    <!-- Sun / horizon glow -->
     <ellipse cx="500" cy="700" rx="300" ry="80" fill="none" stroke="#FF00FF" stroke-width="2" opacity=".5"/>
     <ellipse cx="500" cy="700" rx="240" ry="55" fill="none" stroke="#FF00FF" stroke-width="1.5" opacity=".4"/>
     <ellipse cx="500" cy="700" rx="180" ry="35" fill="none" stroke="#00FFFF" stroke-width="1" opacity=".4"/>
     <ellipse cx="500" cy="700" rx="500" ry="120" fill="url(#floor-grad)" opacity=".15"/>
-
-    <!-- Animated scan line on bg -->
     <rect x="0" y="0" width="1000" height="2" fill="#00FFFF" opacity=".08">
       <animate attributeName="y" values="0;700;0" dur="5s" repeatCount="indefinite"/>
     </rect>
   </svg>
 
   <!-- HUD SVG -->
-  <svg id="hud-svg" viewBox="0 0 1000 90" xmlns="http://www.w3.org/2000/svg" style="height:90px">
+  <svg id="hud-svg" viewBox="0 0 1000 92" xmlns="http://www.w3.org/2000/svg" style="height:92px">
     <defs>
       <linearGradient id="hud-fade" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%"   stop-color="rgba(2,2,10,.95)"/>
+        <stop offset="0%" stop-color="rgba(2,2,10,.95)"/>
         <stop offset="100%" stop-color="transparent"/>
       </linearGradient>
-      <filter id="hud-glow">
-        <feGaussianBlur stdDeviation="3" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
+      <filter id="hud-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>
-    <rect width="1000" height="90" fill="url(#hud-fade)"/>
-    <line x1="0" y1="88" x2="1000" y2="88" stroke="rgba(0,255,255,0.15)" stroke-width="1"/>
+    <rect width="1000" height="92" fill="url(#hud-fade)"/>
+    <line x1="0" y1="90" x2="1000" y2="90" stroke="rgba(0,255,255,0.15)" stroke-width="1"/>
 
     <!-- Score -->
-    <text x="20" y="30" font-family="'Orbitron',monospace" font-size="11" fill="rgba(0,255,255,0.5)" letter-spacing="3">SCORE</text>
-    <text id="hud-score" x="20" y="70" font-family="'Orbitron',monospace" font-size="36" font-weight="900" fill="#00FFFF" filter="url(#hud-glow)" letter-spacing="4">0000</text>
+    <text x="20" y="28" font-family="'Orbitron',monospace" font-size="10" fill="rgba(0,255,255,0.5)" letter-spacing="3">SCORE</text>
+    <text id="hud-score" x="20" y="68" font-family="'Orbitron',monospace" font-size="34" font-weight="900" fill="#00FFFF" filter="url(#hud-glow)" letter-spacing="4">0000</text>
 
-    <!-- Center title -->
-    <text x="500" y="52" text-anchor="middle" font-family="'Orbitron',monospace" font-size="13" fill="rgba(0,255,255,0.3)" letter-spacing="10">ARCADE OVERDRIVE</text>
+    <!-- Center: Level + Q info -->
+    <text id="hud-level" x="500" y="32" text-anchor="middle" font-family="'Orbitron',monospace" font-size="13" font-weight="700" fill="#FF00FF" filter="url(#hud-glow)" letter-spacing="5">LEVEL 1 / 1</text>
+    <!-- level progress stripe -->
+    <rect x="350" y="38" width="300" height="2" rx="1" fill="rgba(255,0,255,0.15)"/>
+    <rect id="hud-lvl-bar" x="350" y="38" width="0" height="2" rx="1" fill="#FF00FF" opacity=".8"/>
+    <text id="hud-q" x="500" y="76" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,255,0.6)" letter-spacing="2">Q 1 / 40</text>
 
     <!-- Lives label -->
-    <text x="980" y="30" text-anchor="end" font-family="'Orbitron',monospace" font-size="11" fill="rgba(0,255,255,0.5)" letter-spacing="3">SHIELDS</text>
-    <!-- Lives bar group -->
-    <g id="hud-lives-group" transform="translate(770,50)">
-      <!-- filled dynamically by JS -->
-    </g>
+    <text x="980" y="28" text-anchor="end" font-family="'Orbitron',monospace" font-size="10" fill="rgba(0,255,255,0.5)" letter-spacing="3">SHIELDS</text>
+    <g id="hud-lives-group" transform="translate(770,50)"></g>
 
-    <!-- Q counter -->
-    <text id="hud-q" x="500" y="78" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,0,255,0.6)" letter-spacing="2">Q 1 / 1</text>
-
-    <!-- corner marks -->
+    <!-- corners -->
     <g stroke="#00FFFF" stroke-width="1.5" fill="none" opacity=".4">
       <path d="M5,5 L5,18 M5,5 L18,5"/>
       <path d="M995,5 L995,18 M995,5 L982,5"/>
     </g>
   </svg>
 
+  <!-- LEVEL PROGRESS BAR (thin stripe under HUD) -->
+  <div id="level-progress-bar"><div id="level-progress-fill"></div></div>
+
   <!-- OPTION TARGETS -->
   <div id="options-area"></div>
 
-  <!-- LAUNCHER SVG (turret) -->
+  <!-- LAUNCHER SVG -->
   <svg id="launcher-svg" xmlns="http://www.w3.org/2000/svg"
        style="position:fixed;bottom:200px;left:50%;transform:translateX(-50%);width:clamp(100px,16vw,160px);z-index:80;pointer-events:none;overflow:visible;">
     <defs>
       <radialGradient id="plasma-core" cx="50%" cy="50%" r="50%">
-        <stop offset="0%"   stop-color="#fff"/>
-        <stop offset="35%"  stop-color="#FF00FF"/>
+        <stop offset="0%" stop-color="#fff"/>
+        <stop offset="35%" stop-color="#FF00FF"/>
         <stop offset="100%" stop-color="transparent"/>
       </radialGradient>
       <linearGradient id="rail-glow" x1="0%" y1="100%" x2="0%" y2="0%">
@@ -582,17 +514,12 @@
         <stop offset="100%" stop-color="transparent"/>
       </linearGradient>
       <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%"   stop-color="#1E1E2E"/>
-        <stop offset="60%"  stop-color="#0A0A1A"/>
+        <stop offset="0%" stop-color="#1E1E2E"/>
+        <stop offset="60%" stop-color="#0A0A1A"/>
         <stop offset="100%" stop-color="#02020A"/>
       </linearGradient>
-      <filter id="turret-glow">
-        <feGaussianBlur stdDeviation="5" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
+      <filter id="turret-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>
-
-    <!-- Projectile -->
     <g id="bomb-g">
       <circle cx="100" cy="38" r="18" fill="url(#plasma-core)" filter="url(#turret-glow)">
         <animate attributeName="r" values="14;22;14" dur=".6s" repeatCount="indefinite"/>
@@ -604,28 +531,21 @@
         <animateTransform attributeName="transform" type="rotate" from="360 100 38" to="0 100 38" dur=".9s" repeatCount="indefinite"/>
       </ellipse>
     </g>
-
-    <!-- Turret body (viewBox 200x150, shifted) -->
     <g transform="translate(0,50)">
-      <!-- Rails -->
       <path d="M72 0 L82 55 L90 55 L80 0 Z" fill="url(#rail-glow)" opacity=".8">
         <animate attributeName="opacity" values=".4;1;.4" dur="1s" repeatCount="indefinite"/>
       </path>
       <path d="M128 0 L118 55 L110 55 L120 0 Z" fill="url(#rail-glow)" opacity=".8">
         <animate attributeName="opacity" values=".4;1;.4" dur="1s" repeatCount="indefinite" begin=".5s"/>
       </path>
-      <!-- Hexagonal base plate -->
       <polygon points="10,105 30,60 170,60 190,105 170,150 30,150" fill="url(#metal)" stroke="#00FFFF" stroke-width="3"/>
-      <!-- Inner accent -->
       <polygon points="40,105 55,72 145,72 160,105 145,138 55,138" fill="#000" stroke="#FF00FF" stroke-width="1.5"/>
-      <!-- Charging ring -->
       <ellipse cx="100" cy="62" rx="38" ry="12" fill="none" stroke="#00FFFF" stroke-width="2">
         <animate attributeName="stroke-width" values="1;5;1" dur=".8s" repeatCount="indefinite"/>
       </ellipse>
       <ellipse cx="100" cy="62" rx="24" ry="7" fill="#FF00FF" opacity=".5" style="filter:blur(3px)">
         <animate attributeName="opacity" values=".2;.8;.2" dur=".8s" repeatCount="indefinite"/>
       </ellipse>
-      <!-- Side accents -->
       <line x1="25" y1="100" x2="50" y2="100" stroke="#00FFFF" stroke-width="3" stroke-linecap="round"/>
       <line x1="175" y1="100" x2="150" y2="100" stroke="#00FFFF" stroke-width="3" stroke-linecap="round"/>
       <circle cx="25" cy="100" r="4" fill="#00FFFF" opacity=".8"><animate attributeName="opacity" values=".3;1;.3" dur="1.2s" repeatCount="indefinite"/></circle>
@@ -639,7 +559,6 @@
       <div id="q-box">
         <div id="q-text">AWAITING DATABANK...</div>
       </div>
-      <!-- SVG corner marks overlay -->
       <svg id="q-corners" viewBox="0 0 900 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <g stroke="#00FFFF" stroke-width="2.5" fill="none">
           <path d="M4,4 L4,20 M4,4 L20,4"/>
@@ -660,37 +579,122 @@
   </div>
 </div>
 
+<!-- ═══════════════════ LEVEL INTRO SCREEN ═══════════════════ -->
+<div id="level-intro" class="hidden">
+  <svg id="li-svg" viewBox="0 0 520 320" style="width:min(520px,92vw)" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="li-glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <linearGradient id="li-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00FFFF"/>
+        <stop offset="50%" stop-color="#FF00FF"/>
+        <stop offset="100%" stop-color="#00FFFF"/>
+      </linearGradient>
+    </defs>
+    <!-- border -->
+    <rect x="2" y="2" width="516" height="316" rx="6" fill="rgba(2,2,10,.97)" stroke="url(#li-grad)" stroke-width="2.5"/>
+    <!-- corners -->
+    <g stroke="#FF00FF" stroke-width="2.5" fill="none">
+      <path d="M14,14 L14,32 M14,14 L32,14"/>
+      <path d="M506,14 L506,32 M506,14 L488,14"/>
+      <path d="M14,306 L14,288 M14,306 L32,306"/>
+      <path d="M506,306 L506,288 M506,306 L488,306"/>
+    </g>
+    <!-- LEVEL label -->
+    <text x="260" y="88" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(0,255,255,0.5)" letter-spacing="8">INITIALIZING</text>
+    <!-- Big level number -->
+    <text id="li-number" x="260" y="190" text-anchor="middle" font-family="'Orbitron',monospace" font-size="86" font-weight="900" fill="url(#li-grad)" filter="url(#li-glow)" letter-spacing="4">LVL 1</text>
+    <!-- questions count -->
+    <text id="li-qcount" x="260" y="236" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,0,255,0.7)" letter-spacing="3">40 TARGETS TO DESTROY</text>
+    <!-- divider -->
+    <line x1="60" y1="258" x2="460" y2="258" stroke="rgba(0,255,255,0.2)" stroke-width="1"/>
+    <!-- tip -->
+    <text id="li-tip" x="260" y="285" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="11" fill="rgba(255,255,255,0.35)" letter-spacing="1"></text>
+    <!-- scan line -->
+    <rect x="2" y="2" width="516" height="3" fill="url(#li-grad)" opacity=".5">
+      <animate attributeName="y" values="2;318;2" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+  </svg>
+  <!-- countdown -->
+  <div id="li-countdown" style="font-family:'Orbitron',monospace;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;color:#FF00FF;letter-spacing:8px;text-shadow:0 0 24px #FF00FF;margin-top:4px;"></div>
+  <div class="btn" id="li-skip-btn" onclick="skipIntro()" style="width:220px;color:rgba(0,255,255,0.4);margin-top:8px">
+    <svg viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="1" y="1" width="218" height="42" rx="3" fill="rgba(0,255,255,0.03)" stroke="currentColor" stroke-width="1"/>
+    </svg>
+    <div class="btn-text" style="color:rgba(0,255,255,0.45);font-size:.6rem;letter-spacing:5px">TAP TO SKIP</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LEVEL COMPLETE PANEL ═══════════════════ -->
+<div id="levelcomplete-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap" style="width:min(560px,92vw)">
+    <svg viewBox="0 0 520 290" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="lc-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="lc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00FFFF"/>
+          <stop offset="50%" stop-color="#FF00FF"/>
+          <stop offset="100%" stop-color="#00FF88"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="516" height="286" rx="6" fill="rgba(2,2,10,.97)" stroke="url(#lc-grad)" stroke-width="2.5"/>
+      <g stroke="#00FFFF" stroke-width="2.5" fill="none">
+        <path d="M14,14 L14,30 M14,14 L30,14"/>
+        <path d="M506,14 L506,30 M506,14 L490,14"/>
+        <path d="M14,276 L14,260 M14,276 L30,276"/>
+        <path d="M506,276 L506,260 M506,276 L490,276"/>
+      </g>
+      <!-- CLEARED! text -->
+      <text x="260" y="72" text-anchor="middle" font-family="'Orbitron',monospace" font-size="46" font-weight="900" fill="url(#lc-grad)" filter="url(#lc-glow)" letter-spacing="6">CLEARED!</text>
+      <!-- animated star burst -->
+      <g id="lc-stars" opacity=".7">
+        <line x1="260" y1="88" x2="260" y2="102" stroke="#FFB300" stroke-width="2"><animate attributeName="opacity" values="1;0;1" dur=".6s" repeatCount="indefinite"/></line>
+        <line x1="240" y1="92" x2="232" y2="104" stroke="#FF00FF" stroke-width="2"><animate attributeName="opacity" values="0;1;0" dur=".6s" repeatCount="indefinite"/></line>
+        <line x1="280" y1="92" x2="288" y2="104" stroke="#00FFFF" stroke-width="2"><animate attributeName="opacity" values="0;1;0" dur=".6s" repeatCount="indefinite" begin=".3s"/></line>
+      </g>
+      <line x1="40" y1="115" x2="480" y2="115" stroke="rgba(0,255,255,0.18)" stroke-width="1"/>
+      <!-- level cleared label -->
+      <text id="lc-level-txt" x="260" y="152" text-anchor="middle" font-family="'Orbitron',monospace" font-size="16" font-weight="700" fill="#00FFFF" letter-spacing="5">LEVEL 1 COMPLETE</text>
+      <!-- score -->
+      <text id="lc-score" x="260" y="188" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,255,255,0.7)" letter-spacing="3">SCORE: 0000</text>
+      <!-- bonus -->
+      <text id="lc-bonus" x="260" y="218" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,0.8)" letter-spacing="2"></text>
+      <!-- next level preview -->
+      <text id="lc-next-preview" x="260" y="252" text-anchor="middle" font-family="'Orbitron',monospace" font-size="12" fill="rgba(255,0,255,0.6)" letter-spacing="4">▸ LEVEL 2 AWAITS</text>
+      <!-- scan line -->
+      <rect x="2" y="2" width="516" height="3" fill="url(#lc-grad)" opacity=".5">
+        <animate attributeName="y" values="2;288;2" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
+  </div>
+  <div class="btn" onclick="startNextLevel()" style="width:280px;color:var(--magenta)">
+    <svg viewBox="0 0 280 54" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="276" height="50" rx="3" fill="rgba(255,0,255,0.1)" stroke="currentColor" stroke-width="2"/>
+      <line x1="2" y1="2" x2="14" y2="2" stroke="currentColor" stroke-width="3"/>
+      <line x1="278" y1="52" x2="266" y2="52" stroke="currentColor" stroke-width="3"/>
+    </svg>
+    <div class="btn-text" style="color:var(--magenta)">&gt;&gt; NEXT LEVEL &lt;&lt;</div>
+  </div>
+</div>
+
 <!-- ═══════════════════ CHECKPOINT PANEL ═══════════════════ -->
 <div id="checkpoint-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="cp-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
+      <defs><filter id="cp-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
       <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.95)" stroke="#FFB300" stroke-width="2.5"/>
-      <!-- corner marks -->
       <g stroke="#FFB300" stroke-width="2.5" fill="none">
-        <path d="M12,12 L12,28 M12,12 L28,12"/>
-        <path d="M508,12 L508,28 M508,12 L492,12"/>
-        <path d="M12,208 L12,192 M12,208 L28,208"/>
-        <path d="M508,208 L508,192 M508,208 L492,208"/>
+        <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,208 L12,192 M12,208 L28,208"/><path d="M508,208 L508,192 M508,208 L492,208"/>
       </g>
-      <!-- checkpoint badge -->
       <polygon points="260,30 295,50 295,90 260,110 225,90 225,50" fill="none" stroke="#FFB300" stroke-width="2" filter="url(#cp-glow)"/>
       <text x="260" y="76" text-anchor="middle" dominant-baseline="middle" font-family="'Orbitron',monospace" font-size="22" font-weight="900" fill="#FFB300">30%</text>
-      <!-- title -->
       <text x="260" y="138" text-anchor="middle" font-family="'Orbitron',monospace" font-size="18" font-weight="700" fill="#FFB300" filter="url(#cp-glow)" letter-spacing="4">CHECKPOINT SAVED</text>
       <text x="260" y="165" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.7)" letter-spacing="2">SECTOR LOCKED — RESUME AVAILABLE</text>
-      <!-- scan line -->
-      <rect x="2" y="2" width="516" height="3" fill="#FFB300" opacity=".5">
-        <animate attributeName="y" values="2;216;2" dur="2.5s" repeatCount="indefinite"/>
-      </rect>
+      <rect x="2" y="2" width="516" height="3" fill="#FFB300" opacity=".5"><animate attributeName="y" values="2;216;2" dur="2.5s" repeatCount="indefinite"/></rect>
     </svg>
   </div>
   <div class="btn" onclick="dismissPanel('checkpoint-panel')" style="width:280px;color:var(--amber)">
-    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
-      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/>
-    </svg>
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/></svg>
     <div class="btn-text" style="color:var(--amber)">ACKNOWLEDGED</div>
   </div>
 </div>
@@ -699,33 +703,23 @@
 <div id="extralife-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="el-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
+      <defs><filter id="el-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
       <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.95)" stroke="#00FF88" stroke-width="2.5"/>
       <g stroke="#00FF88" stroke-width="2.5" fill="none">
-        <path d="M12,12 L12,28 M12,12 L28,12"/>
-        <path d="M508,12 L508,28 M508,12 L492,12"/>
-        <path d="M12,208 L12,192 M12,208 L28,208"/>
-        <path d="M508,208 L508,192 M508,208 L492,208"/>
+        <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,208 L12,192 M12,208 L28,208"/><path d="M508,208 L508,192 M508,208 L492,208"/>
       </g>
-      <!-- heart shape via path -->
       <path d="M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z" fill="#00FF88" filter="url(#el-glow)">
         <animate attributeName="d" values="M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z;M260,108 C260,108 224,78 224,58 C224,42 236,32 253,41 C257,44 260,48 260,48 C260,48 263,44 267,41 C284,32 296,42 296,58 C296,78 260,108 260,108 Z;M260,100 C260,100 230,75 230,58 C230,46 240,38 255,45 C258,47 260,50 260,50 C260,50 262,47 265,45 C280,38 290,46 290,58 C290,75 260,100 260,100 Z" dur="1s" repeatCount="indefinite"/>
       </path>
-      <!-- 50% badge -->
       <text x="260" y="60" text-anchor="middle" dominant-baseline="middle" font-family="'Orbitron',monospace" font-size="14" font-weight="900" fill="#02020A">50%</text>
       <text x="260" y="138" text-anchor="middle" font-family="'Orbitron',monospace" font-size="18" font-weight="700" fill="#00FF88" filter="url(#el-glow)" letter-spacing="3">EXTRA LIFE EARNED</text>
       <text x="260" y="165" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,.7)" letter-spacing="2">SHIELDS RESTORED — REVIVE READY</text>
-      <rect x="2" y="2" width="516" height="3" fill="#00FF88" opacity=".5">
-        <animate attributeName="y" values="2;216;2" dur="2s" repeatCount="indefinite"/>
-      </rect>
+      <rect x="2" y="2" width="516" height="3" fill="#00FF88" opacity=".5"><animate attributeName="y" values="2;216;2" dur="2s" repeatCount="indefinite"/></rect>
     </svg>
   </div>
   <div class="btn" onclick="dismissPanel('extralife-panel')" style="width:280px;color:var(--green)">
-    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
-      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,136,0.08)" stroke="currentColor" stroke-width="2"/>
-    </svg>
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,136,0.08)" stroke="currentColor" stroke-width="2"/></svg>
     <div class="btn-text" style="color:var(--green)">POWER UP!</div>
   </div>
 </div>
@@ -733,7 +727,7 @@
 <!-- ═══════════════════ GAME OVER PANEL ═══════════════════ -->
 <div id="gameover-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
-    <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 520 270" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="go-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         <linearGradient id="go-grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -741,40 +735,31 @@
           <stop offset="100%" stop-color="#FF00FF"/>
         </linearGradient>
       </defs>
-      <rect x="2" y="2" width="516" height="256" rx="6" fill="rgba(2,2,10,.97)" stroke="#FF003C" stroke-width="2.5"/>
+      <rect x="2" y="2" width="516" height="266" rx="6" fill="rgba(2,2,10,.97)" stroke="#FF003C" stroke-width="2.5"/>
       <g stroke="#FF003C" stroke-width="2.5" fill="none">
-        <path d="M12,12 L12,28 M12,12 L28,12"/>
-        <path d="M508,12 L508,28 M508,12 L492,12"/>
-        <path d="M12,252 L12,236 M12,252 L28,252"/>
-        <path d="M508,252 L508,236 M508,252 L492,252"/>
+        <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,262 L12,246 M12,262 L28,262"/><path d="M508,262 L508,246 M508,262 L492,262"/>
       </g>
-      <text x="260" y="80" text-anchor="middle" font-family="'Orbitron',monospace" font-size="42" font-weight="900" fill="url(#go-grad)" filter="url(#go-glow)" letter-spacing="5">FAILURE</text>
-      <line x1="40" y1="100" x2="480" y2="100" stroke="rgba(255,0,60,.4)" stroke-width="1"/>
-      <text id="go-score" x="260" y="140" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,255,255,.6)" letter-spacing="3">FINAL SCORE: 0000</text>
-      <text id="go-checkpoint" x="260" y="170" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.8)" letter-spacing="2"></text>
-      <text id="go-revive" x="260" y="198" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,.8)" letter-spacing="2"></text>
-      <rect x="2" y="2" width="516" height="3" fill="#FF003C" opacity=".6">
-        <animate attributeName="y" values="2;258;2" dur="2s" repeatCount="indefinite"/>
-      </rect>
+      <text x="260" y="82" text-anchor="middle" font-family="'Orbitron',monospace" font-size="42" font-weight="900" fill="url(#go-grad)" filter="url(#go-glow)" letter-spacing="5">FAILURE</text>
+      <line x1="40" y1="102" x2="480" y2="102" stroke="rgba(255,0,60,.4)" stroke-width="1"/>
+      <text id="go-level" x="260" y="136" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,0,60,.6)" letter-spacing="3">LEVEL 1</text>
+      <text id="go-score" x="260" y="162" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,255,255,.6)" letter-spacing="3">FINAL SCORE: 0000</text>
+      <text id="go-checkpoint" x="260" y="190" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.8)" letter-spacing="2"></text>
+      <text id="go-revive" x="260" y="216" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,.8)" letter-spacing="2"></text>
+      <rect x="2" y="2" width="516" height="3" fill="#FF003C" opacity=".6"><animate attributeName="y" values="2;268;2" dur="2s" repeatCount="indefinite"/></rect>
     </svg>
   </div>
   <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-    <div id="revive-btn-wrap" class="btn" onclick="revive()" style="width:220px;color:var(--green);display:none">
-      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
-        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(0,255,136,0.1)" stroke="currentColor" stroke-width="2"/>
-      </svg>
+    <div id="revive-btn-wrap" class="btn" onclick="revive()" style="width:200px;color:var(--green);display:none">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(0,255,136,0.1)" stroke="currentColor" stroke-width="2"/></svg>
       <div class="btn-text" style="color:var(--green)">REVIVE</div>
     </div>
-    <div id="checkpoint-resume-btn" class="btn" onclick="resumeCheckpoint()" style="width:220px;color:var(--amber);display:none">
-      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
-        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/>
-      </svg>
-      <div class="btn-text" style="color:var(--amber)">RESUME CHECKPOINT</div>
+    <div id="checkpoint-resume-btn" class="btn" onclick="resumeCheckpoint()" style="width:200px;color:var(--amber);display:none">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--amber)">CHECKPOINT</div>
     </div>
-    <div class="btn" onclick="backToMenu()" style="width:220px;color:var(--red)">
-      <svg viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
-        <rect class="btn-rect" x="2" y="2" width="216" height="46" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/>
-      </svg>
+    <div class="btn" onclick="backToMenu()" style="width:200px;color:var(--red)">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/></svg>
       <div class="btn-text" style="color:var(--red)">MAIN MENU</div>
     </div>
   </div>
@@ -783,7 +768,7 @@
 <!-- ═══════════════════ VICTORY PANEL ═══════════════════ -->
 <div id="victory-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
-    <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="v-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         <linearGradient id="v-grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -792,64 +777,67 @@
           <stop offset="100%" stop-color="#00FF88"/>
         </linearGradient>
       </defs>
-      <rect x="2" y="2" width="516" height="216" rx="6" fill="rgba(2,2,10,.97)" stroke="#00FFFF" stroke-width="2.5"/>
+      <rect x="2" y="2" width="516" height="256" rx="6" fill="rgba(2,2,10,.97)" stroke="#00FFFF" stroke-width="2.5"/>
       <g stroke="#00FFFF" stroke-width="2.5" fill="none">
-        <path d="M12,12 L12,28 M12,12 L28,12"/>
-        <path d="M508,12 L508,28 M508,12 L492,12"/>
-        <path d="M12,208 L12,192 M12,208 L28,208"/>
-        <path d="M508,208 L508,192 M508,208 L492,208"/>
+        <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M508,12 L508,28 M508,12 L492,12"/>
+        <path d="M12,248 L12,232 M12,248 L28,248"/><path d="M508,248 L508,232 M508,248 L492,248"/>
       </g>
       <!-- Trophy -->
-      <path d="M220,90 C220,60 240,45 260,45 C280,45 300,60 300,90 C300,112 286,128 270,132 L270,150 L290,150 L290,162 L230,162 L230,150 L250,150 L250,132 C234,128 220,112 220,90 Z" fill="none" stroke="url(#v-grad)" stroke-width="2.5" filter="url(#v-glow)"/>
-      <line x1="220" y1="90" x2="200" y2="90" stroke="url(#v-grad)" stroke-width="2.5"/>
-      <line x1="300" y1="90" x2="320" y2="90" stroke="url(#v-grad)" stroke-width="2.5"/>
-      <text id="v-score" x="260" y="185" text-anchor="middle" font-family="'Orbitron',monospace" font-size="20" font-weight="900" fill="url(#v-grad)" filter="url(#v-glow)" letter-spacing="4">SCORE: 0000</text>
-      <text x="260" y="210" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="12" fill="rgba(0,255,255,.6)" letter-spacing="3">ALL TARGETS CLEARED</text>
-      <rect x="2" y="2" width="516" height="3" fill="url(#v-grad)" opacity=".6">
-        <animate attributeName="y" values="2;216;2" dur="2s" repeatCount="indefinite"/>
-      </rect>
+      <path d="M220,100 C220,70 240,55 260,55 C280,55 300,70 300,100 C300,122 286,138 270,142 L270,160 L290,160 L290,172 L230,172 L230,160 L250,160 L250,142 C234,138 220,122 220,100 Z" fill="none" stroke="url(#v-grad)" stroke-width="2.5" filter="url(#v-glow)"/>
+      <line x1="220" y1="100" x2="200" y2="100" stroke="url(#v-grad)" stroke-width="2.5"/>
+      <line x1="300" y1="100" x2="320" y2="100" stroke="url(#v-grad)" stroke-width="2.5"/>
+      <text x="260" y="56" text-anchor="middle" font-family="'Orbitron',monospace" font-size="24" font-weight="900" fill="url(#v-grad)" filter="url(#v-glow)" letter-spacing="5">VICTORY</text>
+      <text id="v-levels" x="260" y="200" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="12" fill="rgba(0,255,255,.5)" letter-spacing="3">ALL LEVELS CLEARED</text>
+      <text id="v-score" x="260" y="228" text-anchor="middle" font-family="'Orbitron',monospace" font-size="20" font-weight="900" fill="url(#v-grad)" filter="url(#v-glow)" letter-spacing="4">SCORE: 0000</text>
+      <rect x="2" y="2" width="516" height="3" fill="url(#v-grad)" opacity=".6"><animate attributeName="y" values="2;256;2" dur="2s" repeatCount="indefinite"/></rect>
     </svg>
   </div>
   <div class="btn" onclick="backToMenu()" style="width:280px;color:var(--cyan)">
-    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
-      <rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,255,0.06)" stroke="currentColor" stroke-width="2"/>
-    </svg>
+    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="276" height="46" rx="3" fill="rgba(0,255,255,0.06)" stroke="currentColor" stroke-width="2"/></svg>
     <div class="btn-text">MAIN MENU</div>
   </div>
 </div>
 
 <script>
 // ─────────────────────────────────────────────
+//  CONSTANTS
+// ─────────────────────────────────────────────
+const QUESTIONS_PER_LEVEL = 40;
+const LIVES_MAX  = 3;
+const LS_PREFIX  = 'arcade_bank_';
+
+// ─────────────────────────────────────────────
 //  STATE
 // ─────────────────────────────────────────────
-let questions       = [];
-let currentIdx      = 0;
+let questions       = [];   // full question bank
+let currentLevel    = 1;    // 1-based
+let totalLevels     = 1;
+let levelQuestions  = [];   // slice for current level
+let levelIdx        = 0;    // index within levelQuestions
 let score           = 0;
-let lives           = 3;
-let maxLives        = 3;
+let lives           = LIVES_MAX;
 let isShooting      = false;
-let audioCtx        = null;
-let masterGain      = null;
-let musicGain       = null;
-let sfxGain         = null;
-let isMuted         = false;
-let volume          = 0.7;
-let musicRunning    = false;
-let musicScheduler  = null;
-let nextBarTime     = 0;
-let barCount        = 0;
-let checkpointIdx   = null;
+let checkpointIdx   = null; // within-level index
 let checkpointSaved = false;
 let extraLifeGiven  = false;
 let hasRevive       = false;
 let currentBankKey  = null;
-
-const LIVES_MAX = 3;
-const LS_PREFIX = 'arcade_bank_';
+let introTimer      = null;
 
 // ─────────────────────────────────────────────
 //  AUDIO ENGINE
 // ─────────────────────────────────────────────
+let audioCtx     = null;
+let masterGain   = null;
+let musicGain    = null;
+let sfxGain      = null;
+let isMuted      = false;
+let volume       = 0.7;
+let musicRunning = false;
+let musicSched   = null;
+let nextBarTime  = 0;
+let barCount     = 0;
+
 function initAudio() {
   if (audioCtx) { if (audioCtx.state === 'suspended') audioCtx.resume(); return; }
   audioCtx   = new (window.AudioContext || window.webkitAudioContext)();
@@ -865,291 +853,142 @@ function initAudio() {
   if (audioCtx.state === 'suspended') audioCtx.resume();
 }
 
-function applyVolume() {
-  if (!masterGain) return;
-  masterGain.gain.setTargetAtTime(isMuted ? 0 : volume, audioCtx.currentTime, 0.05);
-  renderMusicControls();
-}
-
-// ── SYNTHWAVE MUSIC ──────────────────────────
-const PENTA = [110,130.81,146.83,164.81,196, 220,261.63,293.66,329.63,392];
+const PENTA      = [110,130.81,146.83,164.81,196,220,261.63,293.66,329.63,392];
 const BASS_NOTES = [55,65.41,73.42,82.41,98,110];
-const BPM  = 128;
-const BEAT = 60 / BPM;
-const BAR  = BEAT * 4;
+const BPM  = 128, BEAT = 60/BPM, BAR = BEAT*4;
 
 function startMusic() {
   if (musicRunning || !audioCtx) return;
-  musicRunning = true;
-  nextBarTime  = audioCtx.currentTime + 0.05;
-  barCount     = 0;
+  musicRunning = true; nextBarTime = audioCtx.currentTime+0.05; barCount = 0;
   scheduleMusic();
 }
-
 function stopMusic() {
   musicRunning = false;
-  if (musicScheduler) { clearTimeout(musicScheduler); musicScheduler = null; }
+  if (musicSched) { clearTimeout(musicSched); musicSched = null; }
 }
-
 function scheduleMusic() {
   if (!musicRunning) return;
-  while (nextBarTime < audioCtx.currentTime + BAR * 2) {
-    scheduleBar(nextBarTime, barCount);
-    nextBarTime += BAR;
-    barCount++;
+  while (nextBarTime < audioCtx.currentTime + BAR*2) {
+    scheduleBar(nextBarTime, barCount); nextBarTime += BAR; barCount++;
   }
-  musicScheduler = setTimeout(scheduleMusic, BAR * 1000 * 0.5);
+  musicSched = setTimeout(scheduleMusic, BAR*1000*0.5);
 }
-
 function scheduleBar(t, bar) {
-  scheduleDrums(t);
-  scheduleBass(t, bar);
-  if (bar % 2 === 0) schedulePad(t, bar);
-  if (bar % 4 === 2) scheduleArp(t);
+  scheduleDrums(t); scheduleBass(t, bar);
+  if (bar%2===0) schedulePad(t,bar);
+  if (bar%4===2) scheduleArp(t);
 }
-
-// ── DRUMS ────────────────────────────────────
 function scheduleDrums(t) {
-  [0,2].forEach(b => scheduleKick(t + b * BEAT));
-  [1,3].forEach(b => scheduleSnare(t + b * BEAT));
-  for (let i = 0; i < 8; i++) scheduleHihat(t + i * BEAT * 0.5, i % 2 === 0 ? 0.16 : 0.07);
+  [0,2].forEach(b=>scheduleKick(t+b*BEAT));
+  [1,3].forEach(b=>scheduleSnare(t+b*BEAT));
+  for(let i=0;i<8;i++) scheduleHihat(t+i*BEAT*0.5,i%2===0?0.16:0.07);
 }
-
 function scheduleKick(t) {
-  const len = audioCtx.sampleRate * 0.25;
-  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
-  const d   = buf.getChannelData(0);
-  for (let i = 0; i < len; i++) {
-    const env  = Math.exp(-i / (audioCtx.sampleRate * 0.08));
-    const freq = 55 * Math.exp(-i / (audioCtx.sampleRate * 0.04));
-    d[i] = Math.sin(2 * Math.PI * freq * i / audioCtx.sampleRate) * env;
-  }
-  const src = audioCtx.createBufferSource(); src.buffer = buf;
-  const g = audioCtx.createGain(); g.gain.value = 1.1;
-  src.connect(g); g.connect(musicGain); src.start(t);
+  const len=audioCtx.sampleRate*0.25, buf=audioCtx.createBuffer(1,len,audioCtx.sampleRate), d=buf.getChannelData(0);
+  for(let i=0;i<len;i++){const env=Math.exp(-i/(audioCtx.sampleRate*0.08)),freq=55*Math.exp(-i/(audioCtx.sampleRate*0.04));d[i]=Math.sin(2*Math.PI*freq*i/audioCtx.sampleRate)*env;}
+  const src=audioCtx.createBufferSource();src.buffer=buf;const g=audioCtx.createGain();g.gain.value=1.1;src.connect(g);g.connect(musicGain);src.start(t);
 }
-
 function scheduleSnare(t) {
-  const len = audioCtx.sampleRate * 0.18;
-  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
-  const d   = buf.getChannelData(0);
-  for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.05));
-  const src = audioCtx.createBufferSource(); src.buffer = buf;
-  const hpf = audioCtx.createBiquadFilter(); hpf.type='highpass'; hpf.frequency.value=1500;
-  const g   = audioCtx.createGain(); g.gain.value = 0.5;
-  src.connect(hpf); hpf.connect(g); g.connect(musicGain); src.start(t);
-  const osc = audioCtx.createOscillator(); osc.type='triangle';
-  osc.frequency.setValueAtTime(220,t); osc.frequency.exponentialRampToValueAtTime(80,t+0.1);
-  const g2  = audioCtx.createGain();
-  g2.gain.setValueAtTime(0.28,t); g2.gain.exponentialRampToValueAtTime(0.001,t+0.15);
-  osc.connect(g2); g2.connect(musicGain); osc.start(t); osc.stop(t+0.15);
+  const len=audioCtx.sampleRate*0.18,buf=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.05));
+  const src=audioCtx.createBufferSource();src.buffer=buf;
+  const hpf=audioCtx.createBiquadFilter();hpf.type='highpass';hpf.frequency.value=1500;
+  const g=audioCtx.createGain();g.gain.value=0.5;src.connect(hpf);hpf.connect(g);g.connect(musicGain);src.start(t);
+  const osc=audioCtx.createOscillator();osc.type='triangle';osc.frequency.setValueAtTime(220,t);osc.frequency.exponentialRampToValueAtTime(80,t+0.1);
+  const g2=audioCtx.createGain();g2.gain.setValueAtTime(0.28,t);g2.gain.exponentialRampToValueAtTime(0.001,t+0.15);
+  osc.connect(g2);g2.connect(musicGain);osc.start(t);osc.stop(t+0.15);
 }
-
-function scheduleHihat(t, vol) {
-  const len = audioCtx.sampleRate * 0.05;
-  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
-  const d   = buf.getChannelData(0);
-  for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.012));
-  const src = audioCtx.createBufferSource(); src.buffer = buf;
-  const hpf = audioCtx.createBiquadFilter(); hpf.type='highpass'; hpf.frequency.value=8000;
-  const g   = audioCtx.createGain(); g.gain.value = vol;
-  src.connect(hpf); hpf.connect(g); g.connect(musicGain); src.start(t);
+function scheduleHihat(t,vol) {
+  const len=audioCtx.sampleRate*0.05,buf=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.exp(-i/(audioCtx.sampleRate*0.012));
+  const src=audioCtx.createBufferSource();src.buffer=buf;
+  const hpf=audioCtx.createBiquadFilter();hpf.type='highpass';hpf.frequency.value=8000;
+  const g=audioCtx.createGain();g.gain.value=vol;src.connect(hpf);hpf.connect(g);g.connect(musicGain);src.start(t);
 }
-
-// ── BASS ─────────────────────────────────────
-const BASS_PAT = [0,0,3,0, 1,1,4,1, 2,2,0,2, 1,1,3,1];
-function scheduleBass(t, bar) {
-  for (let s = 0; s < 16; s++) {
-    const st   = t + s * BEAT * 0.25;
-    const note = BASS_NOTES[BASS_PAT[(bar*16+s) % BASS_PAT.length]];
-    const dur  = BEAT * 0.22;
-    const osc  = audioCtx.createOscillator(); osc.type='sawtooth'; osc.frequency.value=note;
-    const lpf  = audioCtx.createBiquadFilter(); lpf.type='lowpass';
-    lpf.frequency.setValueAtTime(800,st); lpf.frequency.exponentialRampToValueAtTime(200,st+dur);
-    const g = audioCtx.createGain();
-    g.gain.setValueAtTime(0,st); g.gain.linearRampToValueAtTime(0.32,st+0.01);
-    g.gain.exponentialRampToValueAtTime(0.001,st+dur);
-    osc.connect(lpf); lpf.connect(g); g.connect(musicGain); osc.start(st); osc.stop(st+dur);
-  }
+const BASS_PAT=[0,0,3,0,1,1,4,1,2,2,0,2,1,1,3,1];
+function scheduleBass(t,bar) {
+  for(let s=0;s<16;s++){const st=t+s*BEAT*0.25,note=BASS_NOTES[BASS_PAT[(bar*16+s)%BASS_PAT.length]],dur=BEAT*0.22;
+    const osc=audioCtx.createOscillator();osc.type='sawtooth';osc.frequency.value=note;
+    const lpf=audioCtx.createBiquadFilter();lpf.type='lowpass';lpf.frequency.setValueAtTime(800,st);lpf.frequency.exponentialRampToValueAtTime(200,st+dur);
+    const g=audioCtx.createGain();g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.32,st+0.01);g.gain.exponentialRampToValueAtTime(0.001,st+dur);
+    osc.connect(lpf);lpf.connect(g);g.connect(musicGain);osc.start(st);osc.stop(st+dur);}
 }
-
-// ── PAD CHORDS ───────────────────────────────
-const PAD_CHORDS = [
-  [220,261.63,329.63], // Am
-  [174.61,220,261.63], // F
-  [130.81,164.81,196], // C
-  [196,246.94,293.66], // G
-];
-function schedulePad(t, bar) {
-  const chord = PAD_CHORDS[(Math.floor(bar/2)) % PAD_CHORDS.length];
-  chord.forEach(freq => {
-    const osc  = audioCtx.createOscillator(); osc.type='sawtooth'; osc.frequency.value=freq;
-    const osc2 = audioCtx.createOscillator(); osc2.type='sine'; osc2.frequency.value=freq*2.008;
-    const lpf  = audioCtx.createBiquadFilter(); lpf.type='lowpass'; lpf.frequency.value=1200;
-    const dly  = audioCtx.createDelay(); dly.delayTime.value=0.025;
-    const g = audioCtx.createGain();
-    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(0.05,t+BAR*0.3);
-    g.gain.setValueAtTime(0.05,t+BAR*1.7); g.gain.linearRampToValueAtTime(0,t+BAR*2);
-    osc.connect(lpf); osc2.connect(dly); dly.connect(lpf); lpf.connect(g); g.connect(musicGain);
-    osc.start(t); osc2.start(t); osc.stop(t+BAR*2); osc2.stop(t+BAR*2);
+const PAD_CHORDS=[[220,261.63,329.63],[174.61,220,261.63],[130.81,164.81,196],[196,246.94,293.66]];
+function schedulePad(t,bar) {
+  const chord=PAD_CHORDS[(Math.floor(bar/2))%PAD_CHORDS.length];
+  chord.forEach(freq=>{
+    const osc=audioCtx.createOscillator();osc.type='sawtooth';osc.frequency.value=freq;
+    const osc2=audioCtx.createOscillator();osc2.type='sine';osc2.frequency.value=freq*2.008;
+    const lpf=audioCtx.createBiquadFilter();lpf.type='lowpass';lpf.frequency.value=1200;
+    const dly=audioCtx.createDelay();dly.delayTime.value=0.025;
+    const g=audioCtx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.05,t+BAR*0.3);g.gain.setValueAtTime(0.05,t+BAR*1.7);g.gain.linearRampToValueAtTime(0,t+BAR*2);
+    osc.connect(lpf);osc2.connect(dly);dly.connect(lpf);lpf.connect(g);g.connect(musicGain);osc.start(t);osc2.start(t);osc.stop(t+BAR*2);osc2.stop(t+BAR*2);
   });
 }
-
-// ── ARP MELODY ───────────────────────────────
-const ARP_PAT = [0,2,4,6,5,3,1,0,2,4,7,5,4,2,0,3];
+const ARP_PAT=[0,2,4,6,5,3,1,0,2,4,7,5,4,2,0,3];
 function scheduleArp(t) {
-  for (let s = 0; s < 16; s++) {
-    const st   = t + s * BEAT * 0.25;
-    const note = PENTA[ARP_PAT[s] % PENTA.length] * 2;
-    const dur  = BEAT * 0.18;
-    const osc  = audioCtx.createOscillator(); osc.type='square'; osc.frequency.value=note;
-    const g = audioCtx.createGain();
-    g.gain.setValueAtTime(0,st); g.gain.linearRampToValueAtTime(0.08,st+0.01);
-    g.gain.exponentialRampToValueAtTime(0.001,st+dur);
-    osc.connect(g); g.connect(musicGain); osc.start(st); osc.stop(st+dur);
-  }
+  for(let s=0;s<16;s++){const st=t+s*BEAT*0.25,note=PENTA[ARP_PAT[s]%PENTA.length]*2,dur=BEAT*0.18;
+    const osc=audioCtx.createOscillator();osc.type='square';osc.frequency.value=note;
+    const g=audioCtx.createGain();g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.08,st+0.01);g.gain.exponentialRampToValueAtTime(0.001,st+dur);
+    osc.connect(g);g.connect(musicGain);osc.start(st);osc.stop(st+dur);}
 }
 
-// ── SFX ──────────────────────────────────────
 function playSound(type) {
-  if (!audioCtx || !sfxGain) return;
-  const osc  = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.connect(gain); gain.connect(sfxGain);
-  const t = audioCtx.currentTime;
-  if (type === 'shoot') {
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(900,t); osc.frequency.exponentialRampToValueAtTime(80,t+.35);
-    gain.gain.setValueAtTime(.28,t); gain.gain.exponentialRampToValueAtTime(.01,t+.35);
-    osc.start(t); osc.stop(t+.35);
-  } else if (type === 'hit') {
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(160,t); osc.frequency.exponentialRampToValueAtTime(40,t+.5);
-    gain.gain.setValueAtTime(.4,t); gain.gain.exponentialRampToValueAtTime(.01,t+.5);
-    osc.start(t); osc.stop(t+.5);
-  } else if (type === 'miss') {
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(120,t); osc.frequency.linearRampToValueAtTime(40,t+.5);
-    gain.gain.setValueAtTime(.4,t); gain.gain.linearRampToValueAtTime(.01,t+.5);
-    osc.start(t); osc.stop(t+.5);
-  } else if (type === 'powerup') {
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(400,t); osc.frequency.linearRampToValueAtTime(800,t+.3);
-    gain.gain.setValueAtTime(.3,t); gain.gain.exponentialRampToValueAtTime(.01,t+.5);
-    osc.start(t); osc.stop(t+.5);
-  } else if (type === 'checkpoint') {
-    osc.type = 'triangle';
-    osc.frequency.setValueAtTime(300,t); osc.frequency.linearRampToValueAtTime(600,t+.2);
-    osc.frequency.linearRampToValueAtTime(450,t+.4);
-    gain.gain.setValueAtTime(.25,t); gain.gain.exponentialRampToValueAtTime(.01,t+.4);
-    osc.start(t); osc.stop(t+.4);
+  if (!audioCtx||!sfxGain) return;
+  const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+  osc.connect(gain);gain.connect(sfxGain);
+  const t=audioCtx.currentTime;
+  if(type==='shoot'){osc.type='sawtooth';osc.frequency.setValueAtTime(900,t);osc.frequency.exponentialRampToValueAtTime(80,t+.35);gain.gain.setValueAtTime(.28,t);gain.gain.exponentialRampToValueAtTime(.01,t+.35);osc.start(t);osc.stop(t+.35);}
+  else if(type==='hit'){osc.type='square';osc.frequency.setValueAtTime(160,t);osc.frequency.exponentialRampToValueAtTime(40,t+.5);gain.gain.setValueAtTime(.4,t);gain.gain.exponentialRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
+  else if(type==='miss'){osc.type='sawtooth';osc.frequency.setValueAtTime(120,t);osc.frequency.linearRampToValueAtTime(40,t+.5);gain.gain.setValueAtTime(.4,t);gain.gain.linearRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
+  else if(type==='powerup'){osc.type='sine';osc.frequency.setValueAtTime(400,t);osc.frequency.linearRampToValueAtTime(800,t+.3);gain.gain.setValueAtTime(.3,t);gain.gain.exponentialRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
+  else if(type==='checkpoint'){osc.type='triangle';osc.frequency.setValueAtTime(300,t);osc.frequency.linearRampToValueAtTime(600,t+.2);osc.frequency.linearRampToValueAtTime(450,t+.4);gain.gain.setValueAtTime(.25,t);gain.gain.exponentialRampToValueAtTime(.01,t+.4);osc.start(t);osc.stop(t+.4);}
+  else if(type==='levelup'){
+    // Triumphant jingle for level complete
+    const notes=[523,659,784,1047];
+    notes.forEach((freq,i)=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type='square';o.connect(g);g.connect(sfxGain);
+      const st=t+i*0.12;
+      o.frequency.value=freq;
+      g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.18,st+0.02);g.gain.exponentialRampToValueAtTime(0.001,st+0.25);
+      o.start(st);o.stop(st+0.25);
+    });
   }
-}
-
-// ── MUTE / VOLUME ────────────────────────────
-function toggleMute() {
-  isMuted = !isMuted;
-  applyVolume();
-}
-
-function setVolume(v) {
-  volume  = Math.max(0, Math.min(1, parseFloat(v)));
-  isMuted = (volume === 0);
-  applyVolume();
-}
-
-function applyVolume() {
-  if (!masterGain) return;
-  masterGain.gain.setTargetAtTime(isMuted ? 0 : volume, audioCtx.currentTime, 0.05);
-  renderMusicControls();
-}
-
-function renderMusicControls() {
-  const muteIcon = document.getElementById('mc-mute-icon');
-  if (muteIcon) {
-    const useMute = isMuted || volume === 0;
-    // swap between the two symbol paths
-    muteIcon.innerHTML = useMute
-      ? `<line x1="3" y1="3" x2="21" y2="21" stroke="#FF003C" stroke-width="2.5" stroke-linecap="round"/>
-         <path d="M9 9v6h4l5 5V4l-5 5H9z" fill="none" stroke="#FF003C" stroke-width="2" stroke-linejoin="round"/>`
-      : `<path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
-         <path d="M19 12c0-2.21-1.79-4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-         <path d="M22.5 12c0-4.14-3.36-7.5-7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`;
-  }
-  const fill = document.getElementById('mc-vol-fill');
-  const knob = document.getElementById('mc-vol-knob');
-  const pct  = isMuted ? 0 : volume;
-  if (fill) fill.setAttribute('width', String(Math.round(pct * 100)));
-  if (knob) knob.setAttribute('cx', String(4 + Math.round(pct * 100)));
 }
 
 // ─────────────────────────────────────────────
 //  LOCAL STORAGE — BANKS
 // ─────────────────────────────────────────────
 function saveBank(name, data) {
-  const key = LS_PREFIX + name;
-  localStorage.setItem(key, JSON.stringify({ name, data, savedAt: Date.now() }));
+  localStorage.setItem(LS_PREFIX+name, JSON.stringify({name,data,savedAt:Date.now()}));
   renderBanksList();
 }
-
 function loadBanks() {
-  const banks = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const k = localStorage.key(i);
-    if (k.startsWith(LS_PREFIX)) {
-      try { banks.push(JSON.parse(localStorage.getItem(k))); } catch(e) {}
-    }
-  }
+  const banks=[];
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith(LS_PREFIX)){try{banks.push(JSON.parse(localStorage.getItem(k)));}catch(e){}}}
   return banks;
 }
-
-function deleteBank(name) {
-  localStorage.removeItem(LS_PREFIX + name);
-  renderBanksList();
-}
-
+function deleteBank(name){localStorage.removeItem(LS_PREFIX+name);renderBanksList();}
 function renderBanksList() {
-  const list = document.getElementById('banks-list');
-  const banks = loadBanks();
-  list.innerHTML = '';
-  if (banks.length === 0) return;
-
-  // header
-  const hdr = document.createElementNS('http://www.w3.org/2000/svg','svg');
-  hdr.setAttribute('viewBox','0 0 400 20');
-  hdr.style.width = '100%';
-  hdr.innerHTML = `<text x="0" y="14" font-family="'Share Tech Mono',monospace" font-size="11"
-    fill="rgba(0,255,255,0.45)" letter-spacing="3">─── SAVED DATABANKS ───</text>`;
+  const list=document.getElementById('banks-list');
+  const banks=loadBanks();
+  list.innerHTML='';
+  if(!banks.length) return;
+  const hdr=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  hdr.setAttribute('viewBox','0 0 400 20');hdr.style.width='100%';
+  hdr.innerHTML=`<text x="0" y="14" font-family="'Share Tech Mono',monospace" font-size="11" fill="rgba(0,255,255,0.45)" letter-spacing="3">─── SAVED DATABANKS ───</text>`;
   list.appendChild(hdr);
-
-  banks.sort((a,b)=>b.savedAt-a.savedAt).forEach(bank => {
-    const wrap = document.createElement('div');
-    wrap.className = 'bank-entry';
-
-    const btn = document.createElement('div');
-    btn.className = 'btn';
-    btn.style.color = 'var(--green)';
-    btn.onclick = () => { questions = bank.data; currentBankKey = bank.name; startGame(); };
-    btn.innerHTML = `
-      <svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg">
-        <rect class="btn-rect" x="1" y="1" width="318" height="44" rx="3"
-          fill="rgba(0,255,136,0.05)" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-      <div class="btn-text" style="color:var(--green);font-size:.7rem;letter-spacing:2px">
-        ${bank.name.substring(0,28)} &nbsp;<span style="opacity:.5">[${bank.data.length}Q]</span>
-      </div>`;
-
-    const del = document.createElement('button');
-    del.className = 'bank-del';
-    del.textContent = '✕';
-    del.onclick = (e) => {
-      e.stopPropagation();
-      if (confirm(`Delete "${bank.name}"?`)) { deleteBank(bank.name); }
-    };
-
-    wrap.appendChild(btn);
-    wrap.appendChild(del);
-    list.appendChild(wrap);
+  banks.sort((a,b)=>b.savedAt-a.savedAt).forEach(bank=>{
+    const lvls=Math.ceil(bank.data.length/QUESTIONS_PER_LEVEL);
+    const wrap=document.createElement('div');wrap.className='bank-entry';
+    const btn=document.createElement('div');btn.className='btn';btn.style.color='var(--green)';
+    btn.onclick=()=>{questions=bank.data;currentBankKey=bank.name;initAudio();startGame();};
+    btn.innerHTML=`<svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="1" y="1" width="318" height="44" rx="3" fill="rgba(0,255,136,0.05)" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="btn-text" style="color:var(--green);font-size:.7rem;letter-spacing:2px">${bank.name.substring(0,22)} <span style="opacity:.5">[${bank.data.length}Q · ${lvls}LVL]</span></div>`;
+    const del=document.createElement('button');del.className='bank-del';del.textContent='✕';
+    del.onclick=(e)=>{e.stopPropagation();if(confirm(`Delete "${bank.name}"?`)){deleteBank(bank.name);}};
+    wrap.appendChild(btn);wrap.appendChild(del);list.appendChild(wrap);
   });
 }
 
@@ -1157,333 +996,341 @@ function renderBanksList() {
 //  UPLOAD
 // ─────────────────────────────────────────────
 function handleUpload(e) {
-  const files = Array.from(e.target.files);
-  if (!files.length) return;
-  let processed = 0;
-  files.forEach(file => {
-    const reader = new FileReader();
-    reader.onload = ev => {
-      try {
-        const parsed = JSON.parse(ev.target.result);
-        const name = file.name.replace(/\.json$/i,'');
-        saveBank(name, parsed);
-        processed++;
-        if (processed === files.length) {
-          // auto-start with last one
-          questions = parsed;
-          currentBankKey = name;
-          initAudio();
-          startGame();
-        }
-      } catch(err) {
-        alert('ERR: CORRUPT DATA — ' + file.name);
-      }
+  const files=Array.from(e.target.files);if(!files.length) return;
+  let processed=0;
+  files.forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      try{
+        const parsed=JSON.parse(ev.target.result);
+        const name=file.name.replace(/\.json$/i,'');
+        saveBank(name,parsed);processed++;
+        if(processed===files.length){questions=parsed;currentBankKey=name;initAudio();startGame();}
+      }catch(err){alert('ERR: CORRUPT DATA — '+file.name);}
     };
     reader.readAsText(file);
   });
-  e.target.value = '';
+  e.target.value='';
 }
 
-const defaultQuestions = [
-  { question:"WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?", options:["FLUTTER","EXPO","CORDOVA","IONIC"], answer:"EXPO" },
-  { question:"WHICH BUNDLER DELIVERS LIGHTNING FAST HMR?", options:["WEBPACK","PARCEL","VITE","ROLLUP"], answer:"VITE" },
-  { question:"WHICH PLATFORM IS OPTIMIZED FOR SERVERLESS NEXT.JS?", options:["AWS EC2","DIGITALOCEAN","VERCEL","HEROKU"], answer:"VERCEL" },
-  { question:"WHAT HOOK MANAGES SIDE EFFECTS IN REACT?", options:["useState","useEffect","useRef","useMemo"], answer:"useEffect" },
-  { question:"WHICH CSS PROPERTY CREATES FLEX CONTAINERS?", options:["display:grid","display:flex","float:left","position:flex"], answer:"display:flex" },
-  { question:"WHAT DOES CDN STAND FOR?", options:["Content Delivery Network","Core Data Node","Cloud Deploy Native","Cache Deploy Now"], answer:"Content Delivery Network" },
+const defaultQuestions=[
+  {question:"WHAT SDK POWERS UNIVERSAL REACT NATIVE APPS?",options:["FLUTTER","EXPO","CORDOVA","IONIC"],answer:"EXPO"},
+  {question:"WHICH BUNDLER DELIVERS LIGHTNING FAST HMR?",options:["WEBPACK","PARCEL","VITE","ROLLUP"],answer:"VITE"},
+  {question:"WHICH PLATFORM IS OPTIMIZED FOR SERVERLESS NEXT.JS?",options:["AWS EC2","DIGITALOCEAN","VERCEL","HEROKU"],answer:"VERCEL"},
+  {question:"WHAT HOOK MANAGES SIDE EFFECTS IN REACT?",options:["useState","useEffect","useRef","useMemo"],answer:"useEffect"},
+  {question:"WHICH CSS PROPERTY CREATES FLEX CONTAINERS?",options:["display:grid","display:flex","float:left","position:flex"],answer:"display:flex"},
+  {question:"WHAT DOES CDN STAND FOR?",options:["Content Delivery Network","Core Data Node","Cloud Deploy Native","Cache Deploy Now"],answer:"Content Delivery Network"},
 ];
 
-function useDefault() {
-  questions = defaultQuestions;
-  currentBankKey = 'DEFAULT';
-  initAudio();
-  startGame();
+function useDefault(){questions=defaultQuestions;currentBankKey='DEFAULT';initAudio();startGame();}
+
+// ─────────────────────────────────────────────
+//  LEVEL HELPERS
+// ─────────────────────────────────────────────
+function getLevelQuestions(lv) {
+  const start=(lv-1)*QUESTIONS_PER_LEVEL;
+  return questions.slice(start, start+QUESTIONS_PER_LEVEL);
+}
+
+function getLevelTips() {
+  const tips=[
+    "SHIELDS RESET AT LEVEL START — STAY SHARP",
+    "MILESTONE BONUSES RESET EACH LEVEL",
+    "ACCURACY IS YOUR ONLY WEAPON",
+    "EACH CORRECT HIT = +1000 PTS",
+    "CHECKPOINT SAVED AT 30% — DON'T PANIC",
+    "EXTRA LIFE AWARDED AT 50% COMPLETION",
+  ];
+  return tips[Math.floor(Math.random()*tips.length)];
+}
+
+// ─────────────────────────────────────────────
+//  LEVEL INTRO
+// ─────────────────────────────────────────────
+function showLevelIntro(lv, onDone) {
+  document.getElementById('li-number').textContent='LVL '+lv;
+  const qc=getLevelQuestions(lv).length;
+  document.getElementById('li-qcount').textContent=qc+' TARGET'+(qc===1?'':'S')+' TO DESTROY';
+  document.getElementById('li-tip').textContent=getLevelTips();
+  const intro=document.getElementById('level-intro');
+  intro.classList.remove('hidden');
+
+  let count=3;
+  const cd=document.getElementById('li-countdown');
+  cd.textContent='LAUNCHING IN '+count+'...';
+  if(introTimer) clearInterval(introTimer);
+  introTimer=setInterval(()=>{
+    count--;
+    if(count<=0){clearInterval(introTimer);introTimer=null;intro.classList.add('hidden');onDone();}
+    else cd.textContent='LAUNCHING IN '+count+'...';
+  },1000);
+}
+
+function skipIntro() {
+  if(introTimer){clearInterval(introTimer);introTimer=null;}
+  document.getElementById('level-intro').classList.add('hidden');
+  actuallyStartLevel();
 }
 
 // ─────────────────────────────────────────────
 //  GAME FLOW
 // ─────────────────────────────────────────────
 function startGame() {
-  if (!questions.length) return;
-  currentIdx       = 0;
-  score            = 0;
-  lives            = LIVES_MAX;
-  checkpointIdx    = null;
-  checkpointSaved  = false;
-  extraLifeGiven   = false;
-  hasRevive        = false;
+  if(!questions.length) return;
+  score         = 0;
+  lives         = LIVES_MAX;
+  currentLevel  = 1;
+  totalLevels   = Math.ceil(questions.length/QUESTIONS_PER_LEVEL);
 
   document.getElementById('setup-screen').classList.add('hidden');
   document.getElementById('game-screen').classList.add('active');
   document.getElementById('gameover-panel').classList.add('hidden');
   document.getElementById('victory-panel').classList.add('hidden');
+  document.getElementById('levelcomplete-panel').classList.add('hidden');
 
+  // Show intro for level 1
+  showLevelIntro(1, actuallyStartLevel);
+  if(!musicRunning){initAudio();startMusic();}
+}
+
+function actuallyStartLevel() {
+  levelQuestions  = getLevelQuestions(currentLevel);
+  levelIdx        = 0;
+  checkpointIdx   = null;
+  checkpointSaved = false;
+  extraLifeGiven  = false;
+  isShooting      = false;
   updateHUD();
   loadQuestion();
 }
 
-function updateHUD() {
-  document.getElementById('hud-score').textContent = score.toString().padStart(4,'0');
-  document.getElementById('hud-q').textContent = `Q ${currentIdx+1} / ${questions.length}`;
+function startNextLevel() {
+  // Shield bonus: restore 1 life for clearing the level
+  if(lives<LIVES_MAX){lives=Math.min(LIVES_MAX,lives+1);}
+  currentLevel++;
+  document.getElementById('levelcomplete-panel').classList.add('hidden');
+  showLevelIntro(currentLevel, actuallyStartLevel);
+}
 
-  // lives as heart icons in SVG
-  const g = document.getElementById('hud-lives-group');
-  g.innerHTML = '';
-  for (let i = 0; i < LIVES_MAX; i++) {
-    const active = i < lives;
-    const x = i * 50;
-    const heart = document.createElementNS('http://www.w3.org/2000/svg','path');
-    // heart centered at x+25, y=0 (group is already translated)
-    const cx = x+25, cy = -10;
-    heart.setAttribute('d',
-      `M${cx},${cy+14} C${cx},${cy+14} ${cx-14},${cy+4} ${cx-14},${cy-4} C${cx-14},${cy-11} ${cx-7},${cy-17} ${cx},${cy-10} C${cx+7},${cy-17} ${cx+14},${cy-11} ${cx+14},${cy-4} C${cx+14},${cy+4} ${cx},${cy+14} ${cx},${cy+14} Z`
-    );
-    heart.setAttribute('fill', active ? '#00FF88' : 'rgba(0,255,136,0.12)');
-    heart.setAttribute('stroke', active ? '#00FF88' : 'rgba(0,255,136,0.3)');
+function updateHUD() {
+  document.getElementById('hud-score').textContent=score.toString().padStart(4,'0');
+  document.getElementById('hud-level').textContent=`LEVEL ${currentLevel} / ${totalLevels}`;
+  document.getElementById('hud-q').textContent=`Q ${levelIdx+1} / ${levelQuestions.length}`;
+
+  // mini progress bar in HUD SVG
+  const pct = levelQuestions.length>0 ? (levelIdx/levelQuestions.length) : 0;
+  const bar = document.getElementById('hud-lvl-bar');
+  if(bar) bar.setAttribute('width', String(Math.round(pct*300)));
+
+  // bottom progress bar
+  const fill=document.getElementById('level-progress-fill');
+  if(fill) fill.style.width=(pct*100)+'%';
+
+  // lives hearts
+  const g=document.getElementById('hud-lives-group');
+  g.innerHTML='';
+  for(let i=0;i<LIVES_MAX;i++){
+    const active=i<lives;const x=i*50;
+    const cx=x+25,cy=-10;
+    const heart=document.createElementNS('http://www.w3.org/2000/svg','path');
+    heart.setAttribute('d',`M${cx},${cy+14} C${cx},${cy+14} ${cx-14},${cy+4} ${cx-14},${cy-4} C${cx-14},${cy-11} ${cx-7},${cy-17} ${cx},${cy-10} C${cx+7},${cy-17} ${cx+14},${cy-11} ${cx+14},${cy-4} C${cx+14},${cy+4} ${cx},${cy+14} ${cx},${cy+14} Z`);
+    heart.setAttribute('fill',active?'#00FF88':'rgba(0,255,136,0.12)');
+    heart.setAttribute('stroke',active?'#00FF88':'rgba(0,255,136,0.3)');
     heart.setAttribute('stroke-width','1.5');
-    if (active) {
-      heart.setAttribute('filter','url(#hud-glow)');
-    }
+    if(active) heart.setAttribute('filter','url(#hud-glow)');
     g.appendChild(heart);
   }
 }
 
 function checkMilestones() {
-  const pct = currentIdx / questions.length;
-
-  if (!checkpointSaved && pct >= 0.30) {
-    checkpointSaved = true;
-    checkpointIdx   = currentIdx;
+  const pct=levelIdx/levelQuestions.length;
+  if(!checkpointSaved&&pct>=0.30){
+    checkpointSaved=true;checkpointIdx=levelIdx;
     playSound('checkpoint');
     document.getElementById('checkpoint-panel').classList.remove('hidden');
   }
-
-  if (!extraLifeGiven && pct >= 0.50) {
-    extraLifeGiven = true;
-    hasRevive      = true;
-    if (lives < LIVES_MAX) lives = Math.min(LIVES_MAX, lives + 1);
+  if(!extraLifeGiven&&pct>=0.50){
+    extraLifeGiven=true;hasRevive=true;
+    if(lives<LIVES_MAX) lives=Math.min(LIVES_MAX,lives+1);
     playSound('powerup');
-    setTimeout(() => {
-      document.getElementById('extralife-panel').classList.remove('hidden');
-    }, checkpointSaved ? 200 : 0);
+    setTimeout(()=>{document.getElementById('extralife-panel').classList.remove('hidden');},
+      checkpointSaved?200:0);
     updateHUD();
   }
 }
 
-function dismissPanel(id) {
-  document.getElementById(id).classList.add('hidden');
-}
+function dismissPanel(id){document.getElementById(id).classList.add('hidden');}
 
 function loadQuestion() {
-  if (currentIdx >= questions.length) {
-    showVictory(); return;
+  if(levelIdx>=levelQuestions.length){
+    // Level cleared!
+    if(currentLevel>=totalLevels){ showVictory(); }
+    else { showLevelComplete(); }
+    return;
   }
   checkMilestones();
+  isShooting=false;
+  document.getElementById('next-btn-wrap').style.display='none';
 
-  isShooting = false;
-  document.getElementById('next-btn-wrap').style.display = 'none';
+  const bg=document.getElementById('bomb-g');
+  bg.style.transition='none';bg.style.transform='translate(0,0)';bg.style.opacity='1';
 
-  // reset bomb
-  const bg = document.getElementById('bomb-g');
-  bg.style.transition = 'none';
-  bg.style.transform  = 'translate(0,0)';
-  bg.style.opacity    = '1';
-
-  const q = questions[currentIdx];
+  const q=levelQuestions[levelIdx];
   setQText(q.question);
 
-  const area = document.getElementById('options-area');
-  area.innerHTML = '';
-
-  q.options.forEach((opt, i) => {
-    const wrap = document.createElement('div');
-    wrap.className = 'opt-wrap';
-    wrap.style.animationDelay = `${i * 0.13}s`;
-
-    // target SVG
-    const tgt = `
-    <svg class="opt-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="tgt-glow-${i}">
-          <feGaussianBlur stdDeviation="3" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <!-- outer frame -->
-      <rect x="5" y="5" width="90" height="90" rx="4" fill="rgba(0,0,0,0.6)"
-            stroke="rgba(0,255,255,0.4)" stroke-width="1.5"/>
-      <!-- corner ticks -->
+  const area=document.getElementById('options-area');
+  area.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const wrap=document.createElement('div');
+    wrap.className='opt-wrap';
+    wrap.style.animationDelay=`${i*0.13}s`;
+    const tgt=`<svg class="opt-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="tgt-glow-${i}"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <rect x="5" y="5" width="90" height="90" rx="4" fill="rgba(0,0,0,0.6)" stroke="rgba(0,255,255,0.4)" stroke-width="1.5"/>
       <g stroke="#00FFFF" stroke-width="2" fill="none">
-        <path d="M10,10 L10,18 M10,10 L18,10"/>
-        <path d="M90,10 L90,18 M90,10 L82,10"/>
-        <path d="M10,90 L10,82 M10,90 L18,90"/>
-        <path d="M90,90 L90,82 M90,90 L82,90"/>
+        <path d="M10,10 L10,18 M10,10 L18,10"/><path d="M90,10 L90,18 M90,10 L82,10"/>
+        <path d="M10,90 L10,82 M10,90 L18,90"/><path d="M90,90 L90,82 M90,90 L82,90"/>
       </g>
-      <!-- rotating ring -->
       <circle class="ring" cx="50" cy="50" r="30" stroke-dasharray="6 4">
         <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="${5+i}s" repeatCount="indefinite"/>
       </circle>
-      <!-- cross-hairs -->
       <line x1="50" y1="22" x2="50" y2="36" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
       <line x1="50" y1="64" x2="50" y2="78" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
       <line x1="22" y1="50" x2="36" y2="50" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
       <line x1="64" y1="50" x2="78" y2="50" stroke="#00FFFF" stroke-width="1" opacity=".5"/>
-      <!-- pulsing core -->
       <circle class="core" cx="50" cy="50" r="10" opacity=".8">
         <animate attributeName="r" values="8;14;8" dur="1.8s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values=".6;1;.6" dur="1.8s" repeatCount="indefinite"/>
       </circle>
       <circle cx="50" cy="50" r="4" fill="#fff" opacity=".9"/>
     </svg>`;
-
-    // label HTML
-    const labelEl = buildLabelHTML(opt, i);
-
-    wrap.innerHTML = tgt;
-    wrap.appendChild(labelEl);
-    wrap.onclick = () => shoot(wrap, opt === q.answer);
+    const labelEl=buildLabelHTML(opt,i);
+    wrap.innerHTML=tgt;wrap.appendChild(labelEl);
+    wrap.onclick=()=>shoot(wrap,opt===q.answer);
     area.appendChild(wrap);
   });
+  updateHUD();
 }
 
-function buildLabelHTML(text, idx) {
-  const colors = ['#00FFFF','#FF00FF','#FFB300','#00FF88'];
-  const c = colors[idx % 4];
-  const div = document.createElement('div');
-  div.className = 'opt-label-html';
-  div.style.color = "white";
-  div.style.borderColor = c;
-  div.style.border = `1.5px solid ${c}`;
-  div.textContent = text;
+function buildLabelHTML(text,idx){
+  const colors=['#00FFFF','#FF00FF','#FFB300','#00FF88'];
+  const c=colors[idx%4];
+  const div=document.createElement('div');
+  div.className='opt-label-html';
+  div.style.color='white';div.style.border=`1.5px solid ${c}`;
+  div.textContent=text;
   return div;
 }
 
-function setQText(txt) {
-  const el = document.getElementById('q-text');
-  el.textContent = txt;
-  // scroll back to top for new questions
-  const box = document.getElementById('q-box');
-  if (box) box.scrollTop = 0;
+function setQText(txt){
+  const el=document.getElementById('q-text');el.textContent=txt;
+  const box=document.getElementById('q-box');if(box) box.scrollTop=0;
 }
 
 // ─────────────────────────────────────────────
-//  SHOOT MECHANIC
+//  SHOOT
 // ─────────────────────────────────────────────
-function shoot(targetEl, isCorrect) {
-  if (isShooting) return;
-  isShooting = true;
-  initAudio();
-  playSound('shoot');
-
-  const bg       = document.getElementById('bomb-g');
-  const launcher = document.getElementById('launcher-svg');
-  const lRect    = launcher.getBoundingClientRect();
-  const tRect    = targetEl.getBoundingClientRect();
-
-  const fromX = lRect.left + lRect.width/2;
-  const fromY = lRect.top  + 38 * (lRect.height / launcher.viewBox.baseVal.height);
-
-  const toX   = tRect.left + tRect.width/2;
-  const toY   = tRect.top  + tRect.height/2;
-
-  const dx = toX - fromX;
-  const dy = toY - fromY;
-
-  // scale factor from SVG coords to screen
-  const scale = lRect.width / launcher.viewBox.baseVal.width;
-  const moveX = dx / scale;
-  const moveY = dy / scale;
-
-  bg.style.transition = 'transform 0.3s cubic-bezier(0.5,0,1,1), opacity 0.1s';
-  bg.style.transform  = `translate(${moveX}px, ${moveY}px) scale(0.4)`;
-
-  setTimeout(() => {
-    bg.style.opacity = '0';
-    const color = isCorrect
-      ? getComputedStyle(document.body).getPropertyValue('--green').trim()
-      : getComputedStyle(document.body).getPropertyValue('--red').trim();
-
-    createExplosion(toX, toY, color);
-    const feedbackbox = "BRILLA👨‍🎓-BOSSU🙌-SHARK🦈-TYPESHIT😎".split("-")
-    const rand = Math.floor(Math.random()*feedbackbox.length)
-    spawnCombatText(toX - 60, toY - 20, isCorrect ? feedbackbox[rand] : 'Naa ❌', color);
-
-    if (isCorrect) {
-      playSound('hit');
-      triggerFlash();
-      score += 1000;
-      targetEl.style.visibility = 'hidden';
+function shoot(targetEl,isCorrect){
+  if(isShooting) return;
+  isShooting=true;initAudio();playSound('shoot');
+  const bg=document.getElementById('bomb-g');
+  const launcher=document.getElementById('launcher-svg');
+  const lRect=launcher.getBoundingClientRect();
+  const tRect=targetEl.getBoundingClientRect();
+  const fromX=lRect.left+lRect.width/2;
+  const fromY=lRect.top+38*(lRect.height/launcher.viewBox.baseVal.height);
+  const dx=tRect.left+tRect.width/2-fromX;
+  const dy=tRect.top+tRect.height/2-fromY;
+  const scale=lRect.width/launcher.viewBox.baseVal.width;
+  bg.style.transition='transform 0.3s cubic-bezier(0.5,0,1,1), opacity 0.1s';
+  bg.style.transform=`translate(${dx/scale}px,${dy/scale}px) scale(0.4)`;
+  setTimeout(()=>{
+    bg.style.opacity='0';
+    const color=isCorrect?'#00FF88':'#FF003C';
+    createExplosion(tRect.left+tRect.width/2, tRect.top+tRect.height/2, color);
+    const feedbackbox="BRILLA👨‍🎓-BOSSU🙌-SHARK🦈-TYPESHIT😎".split("-");
+    spawnCombatText(tRect.left+tRect.width/2-60, tRect.top+tRect.height/2-20,
+      isCorrect?feedbackbox[Math.floor(Math.random()*feedbackbox.length)]:'Naa ❌', color);
+    if(isCorrect){
+      playSound('hit');triggerFlash();
+      score+=1000;targetEl.style.visibility='hidden';
       setQText('▸ TARGET OBLITERATED');
-      document.getElementById('next-btn-wrap').style.display = 'block';
-    } else {
-      playSound('miss');
-      lives = Math.max(0, lives - 1);
+      document.getElementById('next-btn-wrap').style.display='block';
+    }else{
+      playSound('miss');lives=Math.max(0,lives-1);
       document.getElementById('game-screen').classList.add('shaking');
-      setTimeout(() => document.getElementById('game-screen').classList.remove('shaking'), 460);
-
-      if (lives <= 0) {
-        setTimeout(showGameOver, 600);
-      } else {
-        setQText('⚠ INTEGRITY COMPROMISED — SHIELDS: ' + lives + ' REMAINING');
-        setTimeout(loadQuestion, 1800);
-      }
+      setTimeout(()=>document.getElementById('game-screen').classList.remove('shaking'),460);
+      if(lives<=0){setTimeout(showGameOver,600);}
+      else{setQText('⚠ INTEGRITY COMPROMISED — SHIELDS: '+lives+' REMAINING');setTimeout(loadQuestion,1800);}
     }
     updateHUD();
-  }, 310);
+  },310);
 }
 
-function nextQuestion() {
-  currentIdx++;
-  loadQuestion();
+function nextQuestion(){levelIdx++;loadQuestion();}
+
+// ─────────────────────────────────────────────
+//  LEVEL COMPLETE
+// ─────────────────────────────────────────────
+function showLevelComplete() {
+  playSound('levelup');
+  triggerFlash();
+  document.getElementById('lc-level-txt').textContent=`LEVEL ${currentLevel} COMPLETE`;
+  document.getElementById('lc-score').textContent=`SCORE: ${score.toString().padStart(4,'0')}`;
+
+  // Bonus message
+  let bonus='';
+  if(lives===LIVES_MAX) bonus='PERFECT SHIELDS — BONUS +500 PTS';
+  else if(lives>0) bonus='SHIELDS BONUS — +250 PTS';
+  if(bonus){score+=lives===LIVES_MAX?500:250;}
+  document.getElementById('lc-bonus').textContent=bonus;
+
+  const nextLv=currentLevel+1;
+  const nextQ=getLevelQuestions(nextLv).length;
+  document.getElementById('lc-next-preview').textContent=`▸ LEVEL ${nextLv}: ${nextQ} TARGETS AWAIT`;
+
+  document.getElementById('levelcomplete-panel').classList.remove('hidden');
 }
 
 // ─────────────────────────────────────────────
-//  PANELS
+//  GAME OVER / VICTORY / BACK
 // ─────────────────────────────────────────────
-function showGameOver() {
-  document.getElementById('go-score').textContent = 'FINAL SCORE: ' + score.toString().padStart(4,'0');
-
-  const cpTxt = document.getElementById('go-checkpoint');
-  cpTxt.textContent = checkpointIdx !== null
-    ? `CHECKPOINT AT Q${checkpointIdx+1} AVAILABLE`
-    : '';
-
-  const rvTxt = document.getElementById('go-revive');
-  rvTxt.textContent = hasRevive ? '◆ EXTRA LIFE REVIVE READY' : '';
-
-  document.getElementById('revive-btn-wrap').style.display = hasRevive ? 'block' : 'none';
-  document.getElementById('checkpoint-resume-btn').style.display = checkpointIdx !== null ? 'block' : 'none';
-
+function showGameOver(){
+  document.getElementById('go-level').textContent=`LEVEL ${currentLevel} · Q ${levelIdx+1}/${levelQuestions.length}`;
+  document.getElementById('go-score').textContent='FINAL SCORE: '+score.toString().padStart(4,'0');
+  document.getElementById('go-checkpoint').textContent=checkpointIdx!==null?`CHECKPOINT AT Q${checkpointIdx+1} AVAILABLE`:'';
+  document.getElementById('go-revive').textContent=hasRevive?'◆ EXTRA LIFE REVIVE READY':'';
+  document.getElementById('revive-btn-wrap').style.display=hasRevive?'block':'none';
+  document.getElementById('checkpoint-resume-btn').style.display=checkpointIdx!==null?'block':'none';
   document.getElementById('gameover-panel').classList.remove('hidden');
 }
 
-function revive() {
-  if (!hasRevive) return;
-  hasRevive = false;
-  lives = LIVES_MAX;
+function revive(){
+  if(!hasRevive) return;
+  hasRevive=false;lives=LIVES_MAX;
   document.getElementById('gameover-panel').classList.add('hidden');
-  updateHUD();
-  loadQuestion(); // stay at same question
+  updateHUD();loadQuestion();
 }
 
-function resumeCheckpoint() {
-  if (checkpointIdx === null) return;
-  currentIdx = checkpointIdx;
-  lives = LIVES_MAX;
-  score = Math.max(0, score - 500); // small penalty
+function resumeCheckpoint(){
+  if(checkpointIdx===null) return;
+  levelIdx=checkpointIdx;lives=LIVES_MAX;
+  score=Math.max(0,score-500);
   document.getElementById('gameover-panel').classList.add('hidden');
-  updateHUD();
-  loadQuestion();
+  updateHUD();loadQuestion();
 }
 
-function showVictory() {
-  document.getElementById('v-score').textContent = 'SCORE: ' + score.toString().padStart(4,'0');
+function showVictory(){
+  playSound('levelup');triggerFlash();
+  document.getElementById('v-levels').textContent=`ALL ${totalLevels} LEVEL${totalLevels===1?'':'S'} CLEARED`;
+  document.getElementById('v-score').textContent='SCORE: '+score.toString().padStart(4,'0');
   document.getElementById('victory-panel').classList.remove('hidden');
 }
 
-function backToMenu() {
-  document.getElementById('gameover-panel').classList.add('hidden');
-  document.getElementById('victory-panel').classList.add('hidden');
+function backToMenu(){
+  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel'].forEach(id=>{
+    document.getElementById(id).classList.add('hidden');
+  });
   document.getElementById('game-screen').classList.remove('active');
   document.getElementById('setup-screen').classList.remove('hidden');
   renderBanksList();
@@ -1492,54 +1339,29 @@ function backToMenu() {
 // ─────────────────────────────────────────────
 //  VFX
 // ─────────────────────────────────────────────
-function triggerFlash() {
-  const f = document.getElementById('flash');
-  f.classList.remove('flashing');
-  void f.offsetWidth;
-  f.classList.add('flashing');
+function triggerFlash(){const f=document.getElementById('flash');f.classList.remove('flashing');void f.offsetWidth;f.classList.add('flashing');}
+
+function spawnCombatText(x,y,text,color){
+  const el=document.createElement('div');el.className='combat-float';
+  el.style.left=x+'px';el.style.top=y+'px';el.style.color=color;el.textContent=text;
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1200);
 }
 
-function spawnCombatText(x, y, text, color) {
-  const el = document.createElement('div');
-  el.className = 'combat-float';
-  el.style.left  = x + 'px';
-  el.style.top   = y + 'px';
-  el.style.color = color;
-  el.textContent = text;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 1200);
-}
-
-function createExplosion(cx, cy, color) {
-  for (let i = 0; i < 18; i++) {
-    const p = document.createElement('div');
-    const size = Math.random() * 14 + 5;
-    p.style.cssText = `
-      position:fixed; left:${cx}px; top:${cy}px;
-      width:${size}px; height:${size}px;
-      background:${i%3===0?'#fff':color};
-      border-radius:50%;
-      box-shadow:0 0 ${size*2}px ${color};
-      pointer-events:none; z-index:999;`;
+function createExplosion(cx,cy,color){
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');const size=Math.random()*14+5;
+    p.style.cssText=`position:fixed;left:${cx}px;top:${cy}px;width:${size}px;height:${size}px;background:${i%3===0?'#fff':color};border-radius:50%;box-shadow:0 0 ${size*2}px ${color};pointer-events:none;z-index:999;`;
     document.body.appendChild(p);
-    const angle    = (Math.PI*2/18)*i;
-    const dist     = 80 + Math.random()*130;
-    const tx = Math.cos(angle)*dist;
-    const ty = Math.sin(angle)*dist;
-    p.animate([
-      {transform:'translate(0,0) scale(1)', opacity:1},
-      {transform:`translate(${tx}px,${ty}px) scale(0)`, opacity:0}
-    ],{duration:700+Math.random()*500, easing:'cubic-bezier(.1,.9,.2,1)'}
-    ).onfinish = () => p.remove();
+    const angle=(Math.PI*2/18)*i,dist=80+Math.random()*130;
+    p.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px) scale(0)`,opacity:0}],
+      {duration:700+Math.random()*500,easing:'cubic-bezier(.1,.9,.2,1)'}).onfinish=()=>p.remove();
   }
 }
 
 // ─────────────────────────────────────────────
 //  INIT
 // ─────────────────────────────────────────────
-window.onload = () => {
-  renderBanksList();
-};
+window.onload=()=>renderBanksList();
 </script>
 </body>
 </html>
