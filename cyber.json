@@ -1,0 +1,3662 @@
+[
+  {
+    "question": "You notice an employee's account has been logged in from two different countries simultaneously. What should be your FIRST action?",
+    "options": [
+      "Immediately disable the account and initiate incident response",
+      "Send an email to the employee asking if they're traveling",
+      "Check the VPN logs to see if it's a false positive",
+      "Wait 24 hours to see if the activity continues"
+    ],
+    "answer": "Immediately disable the account and initiate incident response"
+  },
+  {
+    "question": "What is the primary purpose of a salt in password hashing?",
+    "options": [
+      "To prevent rainbow table attacks by making identical passwords produce different hashes",
+      "To encrypt the password before hashing",
+      "To make the password longer and harder to guess",
+      "To compress the hash for storage efficiency"
+    ],
+    "answer": "To prevent rainbow table attacks by making identical passwords produce different hashes"
+  },
+  {
+    "question": "During a penetration test, you discover port 445 is open on a Windows server. What service is most likely running?",
+    "options": [
+      "SMB (Server Message Block)",
+      "RDP (Remote Desktop Protocol)",
+      "DNS (Domain Name System)",
+      "DHCP (Dynamic Host Configuration Protocol)"
+    ],
+    "answer": "SMB (Server Message Block)"
+  },
+  {
+    "question": "What type of attack involves intercepting and modifying communications between two parties without their knowledge?",
+    "options": [
+      "Man-in-the-Middle (MITM) attack",
+      "Denial of Service (DoS) attack",
+      "SQL Injection attack",
+      "Cross-Site Scripting (XSS) attack"
+    ],
+    "answer": "Man-in-the-Middle (MITM) attack"
+  },
+  {
+    "question": "Which protocol should you use to securely transfer files to a remote server?",
+    "options": [
+      "SFTP (SSH File Transfer Protocol)",
+      "FTP (File Transfer Protocol)",
+      "TFTP (Trivial File Transfer Protocol)",
+      "HTTP (Hypertext Transfer Protocol)"
+    ],
+    "answer": "SFTP (SSH File Transfer Protocol)"
+  },
+  {
+    "question": "You receive an email from your CEO requesting an urgent wire transfer. The email address looks correct but the tone is unusual. What type of attack is this?",
+    "options": [
+      "Spear phishing / Business Email Compromise (BEC)",
+      "Mass phishing campaign",
+      "Vishing attack",
+      "Smishing attack"
+    ],
+    "answer": "Spear phishing / Business Email Compromise (BEC)"
+  },
+  {
+    "question": "What is the primary function of a Web Application Firewall (WAF)?",
+    "options": [
+      "Filter and monitor HTTP traffic to protect against web application attacks",
+      "Encrypt data at rest in the database",
+      "Manage user authentication and authorization",
+      "Load balance traffic across multiple servers"
+    ],
+    "answer": "Filter and monitor HTTP traffic to protect against web application attacks"
+  },
+  {
+    "question": "In cryptography, what does non-repudiation ensure?",
+    "options": [
+      "The sender cannot deny having sent a message",
+      "The message cannot be read by unauthorized parties",
+      "The message has not been altered in transit",
+      "The receiver has acknowledged receipt"
+    ],
+    "answer": "The sender cannot deny having sent a message"
+  },
+  {
+    "question": "What is the purpose of a honeypot in network security?",
+    "options": [
+      "To attract and analyze attacker behavior by mimicking real systems",
+      "To filter spam emails from reaching user inboxes",
+      "To encrypt all network traffic automatically",
+      "To backup critical data in real-time"
+    ],
+    "answer": "To attract and analyze attacker behavior by mimicking real systems"
+  },
+  {
+    "question": "Which DNS record type is used to specify the mail server for a domain?",
+    "options": [
+      "MX (Mail Exchange) record",
+      "A (Address) record",
+      "CNAME (Canonical Name) record",
+      "TXT (Text) record"
+    ],
+    "answer": "MX (Mail Exchange) record"
+  },
+  {
+    "question": "You discover a SQL injection vulnerability in a legacy application. The dev team needs 3 weeks to patch it. What is your BEST immediate mitigation?",
+    "options": [
+      "Deploy a WAF rule to block malicious SQL patterns targeting that parameter",
+      "Take the application offline until the patch is ready",
+      "Inform users to change their passwords",
+      "Add a CAPTCHA to the login page"
+    ],
+    "answer": "Deploy a WAF rule to block malicious SQL patterns targeting that parameter"
+  },
+  {
+    "question": "What does the CIA triad stand for in information security?",
+    "options": [
+      "Confidentiality, Integrity, Availability",
+      "Control, Integrity, Authentication",
+      "Confidentiality, Identification, Authorization",
+      "Cybersecurity, Intelligence, Analysis"
+    ],
+    "answer": "Confidentiality, Integrity, Availability"
+  },
+  {
+    "question": "An attacker registers a domain name 'g00gle.com' to trick users. What type of attack is this?",
+    "options": [
+      "Typosquatting / URL hijacking",
+      "Domain hijacking",
+      "DNS cache poisoning",
+      "ARP spoofing"
+    ],
+    "answer": "Typosquatting / URL hijacking"
+  },
+  {
+    "question": "Which tool would you use to capture and analyze network packets in real-time?",
+    "options": [
+      "Wireshark",
+      "Metasploit",
+      "Burp Suite",
+      "Nmap"
+    ],
+    "answer": "Wireshark"
+  },
+  {
+    "question": "What is the primary security benefit of implementing Multi-Factor Authentication (MFA)?",
+    "options": [
+      "It adds an additional layer of security even if the password is compromised",
+      "It encrypts all user data automatically",
+      "It eliminates the need for strong passwords",
+      "It prevents phishing attacks completely"
+    ],
+    "answer": "It adds an additional layer of security even if the password is compromised"
+  },
+  {
+    "question": "During log analysis, you see multiple failed login attempts followed by a success from the same IP within seconds. This is most likely a:",
+    "options": [
+      "Brute force attack",
+      "DDoS attack",
+      "Insider threat",
+      "Zero-day exploit"
+    ],
+    "answer": "Brute force attack"
+  },
+  {
+    "question": "What port does HTTPS typically use?",
+    "options": [
+      "443",
+      "80",
+      "22",
+      "8080"
+    ],
+    "answer": "443"
+  },
+  {
+    "question": "Which encryption type uses the same key for both encryption and decryption?",
+    "options": [
+      "Symmetric encryption",
+      "Asymmetric encryption",
+      "Hashing",
+      "Digital signatures"
+    ],
+    "answer": "Symmetric encryption"
+  },
+  {
+    "question": "What is the purpose of a security.txt file on a website?",
+    "options": [
+      "To provide security researchers with a standardized way to report vulnerabilities",
+      "To encrypt sensitive data transmitted from the website",
+      "To store user authentication tokens",
+      "To define the Content Security Policy for the site"
+    ],
+    "answer": "To provide security researchers with a standardized way to report vulnerabilities"
+  },
+  {
+    "question": "An attacker injects malicious scripts into a website's comment section that executes in other users' browsers. This is an example of:",
+    "options": [
+      "Stored/Persistent Cross-Site Scripting (XSS)",
+      "SQL Injection",
+      "Cross-Site Request Forgery (CSRF)",
+      "Server-Side Request Forgery (SSRF)"
+    ],
+    "answer": "Stored/Persistent Cross-Site Scripting (XSS)"
+  },
+  {
+    "question": "What is the primary purpose of a SIEM (Security Information and Event Management) system?",
+    "options": [
+      "Aggregate and correlate security logs from multiple sources for real-time analysis",
+      "Encrypt all data entering and leaving the network",
+      "Automatically patch all vulnerabilities in the environment",
+      "Manage user identities and access controls"
+    ],
+    "answer": "Aggregate and correlate security logs from multiple sources for real-time analysis"
+  },
+  {
+    "question": "Which command would you use to list all open ports on a Linux system?",
+    "options": [
+      "netstat -tuln",
+      "ls -la",
+      "ps aux",
+      "grep --open-ports"
+    ],
+    "answer": "netstat -tuln"
+  },
+  {
+    "question": "What is the purpose of a certificate revocation list (CRL) in PKI?",
+    "options": [
+      "To list digital certificates that have been revoked before their expiration date",
+      "To store public keys of all users in the organization",
+      "To generate new SSL/TLS certificates automatically",
+      "To encrypt communication between certificate authorities"
+    ],
+    "answer": "To list digital certificates that have been revoked before their expiration date"
+  },
+  {
+    "question": "You find a USB drive in the parking lot labeled 'Confidential - Salary Data 2024'. What should you do?",
+    "options": [
+      "Do not plug it in; report it to the security team following the organization's policy",
+      "Plug it into your computer to check if the data is real",
+      "Throw it away to prevent anyone from accessing it",
+      "Plug it into an isolated, air-gapped computer to investigate"
+    ],
+    "answer": "Do not plug it in; report it to the security team following the organization's policy"
+  },
+  {
+    "question": "What protocol is used to securely connect to a remote server's command line?",
+    "options": [
+      "SSH (Secure Shell)",
+      "Telnet",
+      "RDP (Remote Desktop Protocol)",
+      "VNC (Virtual Network Computing)"
+    ],
+    "answer": "SSH (Secure Shell)"
+  },
+  {
+    "question": "Which type of malware encrypts files and demands payment for the decryption key?",
+    "options": [
+      "Ransomware",
+      "Trojan horse",
+      "Worm",
+      "Spyware"
+    ],
+    "answer": "Ransomware"
+  },
+  {
+    "question": "What is the principle of least privilege?",
+    "options": [
+      "Users are given only the minimum access necessary to perform their job functions",
+      "All users have administrator access but with additional logging",
+      "Access is granted based on employee seniority",
+      "Users can access everything except explicitly denied resources"
+    ],
+    "answer": "Users are given only the minimum access necessary to perform their job functions"
+  },
+  {
+    "question": "During a web application test, you notice the application returns different error messages for valid vs invalid usernames. This vulnerability is known as:",
+    "options": [
+      "User enumeration",
+      "SQL injection",
+      "Session fixation",
+      "Insecure direct object reference"
+    ],
+    "answer": "User enumeration"
+  },
+  {
+    "question": "What is the purpose of an Intrusion Detection System (IDS)?",
+    "options": [
+      "To monitor network traffic and alert on suspicious activity",
+      "To block all incoming traffic by default",
+      "To encrypt data traveling across the network",
+      "To manage firewall rules automatically"
+    ],
+    "answer": "To monitor network traffic and alert on suspicious activity"
+  },
+  {
+    "question": "Which hashing algorithm is considered cryptographically broken and should NOT be used for password storage?",
+    "options": [
+      "MD5",
+      "SHA-256",
+      "bcrypt",
+      "Argon2"
+    ],
+    "answer": "MD5"
+  },
+  {
+    "question": "What is a zero-day vulnerability?",
+    "options": [
+      "A vulnerability that is unknown to the vendor and has no available patch",
+      "A vulnerability that has been known for exactly zero days",
+      "A vulnerability that only affects systems at midnight",
+      "A vulnerability that requires zero user interaction"
+    ],
+    "answer": "A vulnerability that is unknown to the vendor and has no available patch"
+  },
+  {
+    "question": "In the context of OWASP Top 10, what does 'Broken Access Control' refer to?",
+    "options": [
+      "Users can perform actions or access data beyond their intended permissions",
+      "The building's physical access card system is malfunctioning",
+      "The server room door lock is broken",
+      "Two-factor authentication is not implemented"
+    ],
+    "answer": "Users can perform actions or access data beyond their intended permissions"
+  },
+  {
+    "question": "What is the purpose of a DMZ (Demilitarized Zone) in network architecture?",
+    "options": [
+      "To host public-facing services while isolating them from the internal network",
+      "To provide a backup internet connection",
+      "To store all encrypted passwords for the organization",
+      "To monitor employee internet usage"
+    ],
+    "answer": "To host public-facing services while isolating them from the internal network"
+  },
+  {
+    "question": "Which HTTP response header helps prevent MIME type sniffing?",
+    "options": [
+      "X-Content-Type-Options: nosniff",
+      "Content-Security-Policy",
+      "Strict-Transport-Security",
+      "X-Frame-Options"
+    ],
+    "answer": "X-Content-Type-Options: nosniff"
+  },
+  {
+    "question": "An attacker sends a specially crafted packet that causes a buffer overflow in a service. This is an example of:",
+    "options": [
+      "Exploitation of a software vulnerability",
+      "Social engineering attack",
+      "Physical security breach",
+      "Policy violation"
+    ],
+    "answer": "Exploitation of a software vulnerability"
+  },
+  {
+    "question": "What is the primary function of the Kerberos protocol?",
+    "options": [
+      "To provide secure authentication over a non-secure network using tickets",
+      "To encrypt files stored on a hard drive",
+      "To transfer files between systems securely",
+      "To block malicious IP addresses"
+    ],
+    "answer": "To provide secure authentication over a non-secure network using tickets"
+  },
+  {
+    "question": "You need to scan a network for live hosts and open ports. Which tool is most appropriate?",
+    "options": [
+      "Nmap",
+      "Wireshark",
+      "John the Ripper",
+      "Hydra"
+    ],
+    "answer": "Nmap"
+  },
+  {
+    "question": "What type of attack floods a network with traffic to make a service unavailable?",
+    "options": [
+      "Denial of Service (DoS) attack",
+      "Phishing attack",
+      "Man-in-the-middle attack",
+      "Eavesdropping attack"
+    ],
+    "answer": "Denial of Service (DoS) attack"
+  },
+  {
+    "question": "Which AWS service is used to manage Identity and Access Management?",
+    "options": [
+      "AWS IAM",
+      "AWS S3",
+      "AWS EC2",
+      "AWS RDS"
+    ],
+    "answer": "AWS IAM"
+  },
+  {
+    "question": "What is a common indicator of a phishing email?",
+    "options": [
+      "Urgent language, unexpected attachments, and mismatched URLs",
+      "Perfect grammar from a known colleague",
+      "An email from your IT department about scheduled maintenance",
+      "A calendar invite for a meeting during business hours"
+    ],
+    "answer": "Urgent language, unexpected attachments, and mismatched URLs"
+  },
+  {
+    "question": "What does an Intrusion Prevention System (IPS) do that an IDS does not?",
+    "options": [
+      "It can automatically block detected threats in real-time",
+      "It uses fewer system resources",
+      "It only monitors email traffic",
+      "It requires no configuration"
+    ],
+    "answer": "It can automatically block detected threats in real-time"
+  },
+  {
+    "question": "Which command would you use to check file permissions on a Linux system?",
+    "options": [
+      "ls -l",
+      "chmod",
+      "grep",
+      "sudo su"
+    ],
+    "answer": "ls -l"
+  },
+  {
+    "question": "What is the purpose of a Public Key Infrastructure (PKI)?",
+    "options": [
+      "To manage digital certificates and public-key encryption",
+      "To physically secure server rooms",
+      "To manage employee public social media profiles",
+      "To publish government security standards"
+    ],
+    "answer": "To manage digital certificates and public-key encryption"
+  },
+  {
+    "question": "An attacker exploits a vulnerability in Log4j to execute remote code. This vulnerability is classified as:",
+    "options": [
+      "Remote Code Execution (RCE)",
+      "Cross-Site Scripting (XSS)",
+      "Local File Inclusion (LFI)",
+      "Cross-Site Request Forgery (CSRF)"
+    ],
+    "answer": "Remote Code Execution (RCE)"
+  },
+  {
+    "question": "What is a VLAN's primary security benefit?",
+    "options": [
+      "Network segmentation to isolate traffic between different departments",
+      "Encrypting all data automatically",
+      "Providing faster network speeds",
+      "Eliminating the need for firewalls"
+    ],
+    "answer": "Network segmentation to isolate traffic between different departments"
+  },
+  {
+    "question": "Which protocol provides confidentiality, integrity, and authenticity for web traffic?",
+    "options": [
+      "TLS (Transport Layer Security)",
+      "TCP (Transmission Control Protocol)",
+      "UDP (User Datagram Protocol)",
+      "ICMP (Internet Control Message Protocol)"
+    ],
+    "answer": "TLS (Transport Layer Security)"
+  },
+  {
+    "question": "You notice outbound traffic on port 6667 to an unknown external IP. This is typically associated with:",
+    "options": [
+      "IRC botnet command and control communication",
+      "Normal web browsing",
+      "Video conferencing traffic",
+      "Database replication"
+    ],
+    "answer": "IRC botnet command and control communication"
+  },
+  {
+    "question": "What is the purpose of security hardening?",
+    "options": [
+      "To reduce attack surface by disabling unnecessary services and configuring secure settings",
+      "To physically reinforce server room walls",
+      "To make passwords harder to remember",
+      "To increase network speed under attack"
+    ],
+    "answer": "To reduce attack surface by disabling unnecessary services and configuring secure settings"
+  },
+  {
+    "question": "Which tool is commonly used for password cracking?",
+    "options": [
+      "Hashcat",
+      "Wireshark",
+      "Nmap",
+      "Metasploit"
+    ],
+    "answer": "Hashcat"
+  },
+  {
+    "question": "What does the term 'pharming' refer to?",
+    "options": [
+      "Redirecting website traffic to a fraudulent site via DNS poisoning or host file modification",
+      "Sending mass spam emails",
+      "Growing fake social media accounts",
+      "Farming cryptocurrency using stolen resources"
+    ],
+    "answer": "Redirecting website traffic to a fraudulent site via DNS poisoning or host file modification"
+  },
+  {
+    "question": "What is a key security concern with using default credentials on IoT devices?",
+    "options": [
+      "Attackers can easily gain unauthorized access using well-known default usernames and passwords",
+      "Default credentials are too complex for users to remember",
+      "IoT devices with default credentials automatically update themselves",
+      "Default credentials encrypt network traffic by default"
+    ],
+    "answer": "Attackers can easily gain unauthorized access using well-known default usernames and passwords"
+  },
+  {
+    "question": "In cloud security, what is the 'shared responsibility model'?",
+    "options": [
+      "The cloud provider secures the infrastructure while the customer secures their data and applications",
+      "All security responsibilities are shared equally with third-party auditors",
+      "Multiple companies share the responsibility for a single cloud account",
+      "Security tasks are randomly distributed among employees"
+    ],
+    "answer": "The cloud provider secures the infrastructure while the customer secures their data and applications"
+  },
+  {
+    "question": "What type of attack involves sending SYN packets with a spoofed source IP to exhaust server resources?",
+    "options": [
+      "SYN flood attack",
+      "UDP flood attack",
+      "HTTP flood attack",
+      "DNS amplification attack"
+    ],
+    "answer": "SYN flood attack"
+  },
+  {
+    "question": "What is the purpose of the 'Strict-Transport-Security' HTTP header (HSTS)?",
+    "options": [
+      "To force browsers to use HTTPS for all future connections to that domain",
+      "To compress HTTP responses for faster loading",
+      "To cache static content on the client side",
+      "To allow cross-origin resource sharing"
+    ],
+    "answer": "To force browsers to use HTTPS for all future connections to that domain"
+  },
+  {
+    "question": "An organization's backup strategy requires storing backups offsite. What is the primary purpose?",
+    "options": [
+      "To ensure data recovery in case of physical disaster at the primary site",
+      "To reduce backup storage costs",
+      "To make backups run faster",
+      "To comply with tax regulations"
+    ],
+    "answer": "To ensure data recovery in case of physical disaster at the primary site"
+  },
+  {
+    "question": "What is LDAP injection?",
+    "options": [
+      "Manipulating LDAP queries by injecting malicious input to bypass authentication or extract data",
+      "Physically injecting malicious code into LDAP servers",
+      "A type of SQL injection specific to LDAP databases",
+      "Injecting LDAP credentials into network traffic"
+    ],
+    "answer": "Manipulating LDAP queries by injecting malicious input to bypass authentication or extract data"
+  },
+  {
+    "question": "Which of these is an example of a strong password policy?",
+    "options": [
+      "Minimum 12 characters with uppercase, lowercase, numbers, and special characters",
+      "At least 6 characters with one number",
+      "A single word followed by the current year",
+      "The user's birthday and pet's name combined"
+    ],
+    "answer": "Minimum 12 characters with uppercase, lowercase, numbers, and special characters"
+  },
+  {
+    "question": "What does ARP spoofing allow an attacker to do?",
+    "options": [
+      "Associate their MAC address with another host's IP address to intercept traffic",
+      "Delete all ARP tables on the network",
+      "Encrypt all ARP traffic automatically",
+      "Create new IP addresses without authorization"
+    ],
+    "answer": "Associate their MAC address with another host's IP address to intercept traffic"
+  },
+  {
+    "question": "What is the primary purpose of a vulnerability assessment?",
+    "options": [
+      "To identify, classify, and prioritize vulnerabilities in systems",
+      "To exploit vulnerabilities and gain access",
+      "To monitor employee productivity",
+      "To install security patches automatically"
+    ],
+    "answer": "To identify, classify, and prioritize vulnerabilities in systems"
+  },
+  {
+    "question": "Which HTTP status code indicates that access to a resource is forbidden?",
+    "options": [
+      "403 Forbidden",
+      "404 Not Found",
+      "500 Internal Server Error",
+      "200 OK"
+    ],
+    "answer": "403 Forbidden"
+  },
+  {
+    "question": "What is the purpose of input sanitization in web applications?",
+    "options": [
+      "To clean user input by removing or encoding potentially malicious characters",
+      "To format user input to look visually appealing",
+      "To compress user input for storage efficiency",
+      "To translate user input into multiple languages"
+    ],
+    "answer": "To clean user input by removing or encoding potentially malicious characters"
+  },
+  {
+    "question": "A security analyst notices unusual DNS requests for randomly generated subdomains. This is indicative of:",
+    "options": [
+      "DNS tunneling / data exfiltration",
+      "Legitimate CDN traffic",
+      "Load balancer health checks",
+      "Web crawler indexing activity"
+    ],
+    "answer": "DNS tunneling / data exfiltration"
+  },
+  {
+    "question": "What is the primary function of fail2ban?",
+    "options": [
+      "Block IP addresses after repeated failed authentication attempts",
+      "Create secure passwords for users",
+      "Encrypt SSH traffic automatically",
+      "Monitor CPU usage on servers"
+    ],
+    "answer": "Block IP addresses after repeated failed authentication attempts"
+  },
+  {
+    "question": "What does the term 'lateral movement' mean in cybersecurity?",
+    "options": [
+      "An attacker moving from one compromised system to another within a network",
+      "A DDoS attack moving across different target IPs",
+      "Legitimate users moving data between departments",
+      "Network traffic being rerouted through different countries"
+    ],
+    "answer": "An attacker moving from one compromised system to another within a network"
+  },
+  {
+    "question": "What is a watering hole attack?",
+    "options": [
+      "Compromising a website frequently visited by a target group to infect visitors",
+      "Poisoning a physical water supply near a data center",
+      "Flooding a website with traffic from multiple sources",
+      "Stealing credentials through fake Wi-Fi at coffee shops"
+    ],
+    "answer": "Compromising a website frequently visited by a target group to infect visitors"
+  },
+  {
+    "question": "In penetration testing, what is the difference between black box and white box testing?",
+    "options": [
+      "Black box testing has no prior knowledge of the system; white box has full knowledge",
+      "Black box uses dark web tools; white box uses licensed tools",
+      "Black box tests hardware; white box tests software",
+      "Black box is illegal; white box is legal"
+    ],
+    "answer": "Black box testing has no prior knowledge of the system; white box has full knowledge"
+  },
+  {
+    "question": "What is the purpose of a Network Access Control (NAC) solution?",
+    "options": [
+      "To enforce security policies on devices before allowing network access",
+      "To speed up network traffic routing",
+      "To provide Wi-Fi connectivity to guests",
+      "To monitor social media usage on the network"
+    ],
+    "answer": "To enforce security policies on devices before allowing network access"
+  },
+  {
+    "question": "Which encryption standard is currently recommended by NIST for securing classified information?",
+    "options": [
+      "AES-256 (Advanced Encryption Standard)",
+      "DES (Data Encryption Standard)",
+      "3DES (Triple DES)",
+      "RC4 (Rivest Cipher 4)"
+    ],
+    "answer": "AES-256 (Advanced Encryption Standard)"
+  },
+  {
+    "question": "An attacker modifies the host file on a user's computer to redirect bank.com to a phishing site. This is:",
+    "options": [
+      "Local DNS poisoning",
+      "Cross-site scripting",
+      "Buffer overflow attack",
+      "ARP spoofing"
+    ],
+    "answer": "Local DNS poisoning"
+  },
+  {
+    "question": "What does the 'X-Frame-Options' HTTP response header prevent?",
+    "options": [
+      "Clickjacking attacks by controlling whether a page can be embedded in an iframe",
+      "SQL injection in database queries",
+      "Cross-site scripting in user input",
+      "Buffer overflow in HTTP requests"
+    ],
+    "answer": "Clickjacking attacks by controlling whether a page can be embedded in an iframe"
+  },
+  {
+    "question": "What is the purpose of a security operations center (SOC)?",
+    "options": [
+      "To continuously monitor, detect, investigate, and respond to cybersecurity threats",
+      "To develop software applications securely",
+      "To manage employee payroll and HR systems",
+      "To provide physical security for the office building"
+    ],
+    "answer": "To continuously monitor, detect, investigate, and respond to cybersecurity threats"
+  },
+  {
+    "question": "Which protocol is vulnerable to the POODLE attack?",
+    "options": [
+      "SSL 3.0",
+      "TLS 1.3",
+      "SSH-2",
+      "IPSec"
+    ],
+    "answer": "SSL 3.0"
+  },
+  {
+    "question": "What is the primary risk of using WEP encryption on Wi-Fi?",
+    "options": [
+      "It is easily crackable within minutes using freely available tools",
+      "It slows down network performance significantly",
+      "It requires a license fee for each connected device",
+      "It only works with specific hardware vendors"
+    ],
+    "answer": "It is easily crackable within minutes using freely available tools"
+  },
+  {
+    "question": "In threat modeling, what does STRIDE stand for?",
+    "options": [
+      "Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege",
+      "Scanning, Testing, Remediation, Investigation, Deployment, Evaluation",
+      "Security, Trust, Risk, Intelligence, Detection, Enforcement",
+      "Source, Target, Route, Interface, Domain, Endpoint"
+    ],
+    "answer": "Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege"
+  },
+  {
+    "question": "What is a race condition vulnerability?",
+    "options": [
+      "A flaw where the system's behavior depends on the timing of events allowing unexpected results",
+      "A condition where two processes compete for the same CPU core",
+      "A vulnerability that only affects racing video games",
+      "A type of network congestion attack"
+    ],
+    "answer": "A flaw where the system's behavior depends on the timing of events allowing unexpected results"
+  },
+  {
+    "question": "What tool would you use to intercept and modify HTTP/HTTPS requests between a browser and web server?",
+    "options": [
+      "Burp Suite",
+      "Wireshark",
+      "Nmap",
+      "Hydra"
+    ],
+    "answer": "Burp Suite"
+  },
+  {
+    "question": "What does the principle of 'defense in depth' mean?",
+    "options": [
+      "Implementing multiple layers of security controls throughout the IT environment",
+      "Burying data cables deep underground",
+      "Having multiple backup generators for the data center",
+      "Encrypting data multiple times with different algorithms"
+    ],
+    "answer": "Implementing multiple layers of security controls throughout the IT environment"
+  },
+  {
+    "question": "An email claims to be from IT support asking you to verify your password by replying with it. This is:",
+    "options": [
+      "A social engineering / phishing attack",
+      "A standard IT security audit procedure",
+      "A password strength verification test",
+      "An automated password reset tool"
+    ],
+    "answer": "A social engineering / phishing attack"
+  },
+  {
+    "question": "What is the purpose of penetration testing?",
+    "options": [
+      "To simulate real-world attacks to identify security weaknesses before malicious actors do",
+      "To check if software meets all functional requirements",
+      "To test how many users can simultaneously access a system",
+      "To evaluate employee performance under stress"
+    ],
+    "answer": "To simulate real-world attacks to identify security weaknesses before malicious actors do"
+  },
+  {
+    "question": "Which type of firewall operates at the application layer of the OSI model?",
+    "options": [
+      "Web Application Firewall (WAF) / Layer 7 Firewall",
+      "Packet filtering firewall",
+      "Stateful inspection firewall",
+      "Circuit-level gateway"
+    ],
+    "answer": "Web Application Firewall (WAF) / Layer 7 Firewall"
+  },
+  {
+    "question": "What is the purpose of salting passwords before hashing?",
+    "options": [
+      "To ensure identical passwords produce different hashes and prevent pre-computed attacks",
+      "To make the password taste better to the database",
+      "To compress the password hash for storage",
+      "To encrypt the password so it can be decrypted later"
+    ],
+    "answer": "To ensure identical passwords produce different hashes and prevent pre-computed attacks"
+  },
+  {
+    "question": "You discover a cryptocurrency miner running on a production server. This is most likely:",
+    "options": [
+      "Cryptojacking - unauthorized use of resources for cryptocurrency mining",
+      "A legitimate scheduled task by the finance department",
+      "A performance testing tool",
+      "A server optimization utility"
+    ],
+    "answer": "Cryptojacking - unauthorized use of resources for cryptocurrency mining"
+  },
+  {
+    "question": "What is the purpose of DNSSEC?",
+    "options": [
+      "To add cryptographic signatures to DNS records to prevent spoofing and cache poisoning",
+      "To encrypt all DNS traffic end-to-end",
+      "To speed up DNS query resolution",
+      "To block malicious domain names"
+    ],
+    "answer": "To add cryptographic signatures to DNS records to prevent spoofing and cache poisoning"
+  },
+  {
+    "question": "What is a session fixation attack?",
+    "options": [
+      "An attacker forces a user to use a known session ID, then hijacks it after authentication",
+      "A user's session times out unexpectedly",
+      "Multiple users share the same session simultaneously",
+      "Sessions are stored in an insecure database"
+    ],
+    "answer": "An attacker forces a user to use a known session ID, then hijacks it after authentication"
+  },
+  {
+    "question": "What is the purpose of data classification policies?",
+    "options": [
+      "To define categories of data sensitivity and appropriate handling requirements for each",
+      "To organize files alphabetically on servers",
+      "To compress data based on its type",
+      "To determine which employees can use social media"
+    ],
+    "answer": "To define categories of data sensitivity and appropriate handling requirements for each"
+  },
+  {
+    "question": "Which protocol is used for secure email transmission?",
+    "options": [
+      "S/MIME or PGP",
+      "SMTP (plain)",
+      "POP3",
+      "IMAP"
+    ],
+    "answer": "S/MIME or PGP"
+  },
+  {
+    "question": "What does an 'Account Takeover' (ATO) attack refer to?",
+    "options": [
+      "An attacker gains unauthorized access to a legitimate user's account",
+      "An administrator deletes a user account",
+      "A user voluntarily transfers account ownership",
+      "An account is automatically archived due to inactivity"
+    ],
+    "answer": "An attacker gains unauthorized access to a legitimate user's account"
+  },
+  {
+    "question": "In the MITRE ATT&CK framework, what does 'Execution' refer to?",
+    "options": [
+      "Techniques that result in adversary-controlled code running on a target system",
+      "Methods for encrypting exfiltrated data",
+      "Ways to delete system logs",
+      "Techniques for initial network reconnaissance"
+    ],
+    "answer": "Techniques that result in adversary-controlled code running on a target system"
+  },
+  {
+    "question": "What is the purpose of a software bill of materials (SBOM)?",
+    "options": [
+      "To list all components and dependencies in a software application for transparency and vulnerability management",
+      "To calculate the licensing cost of software",
+      "To track developer hours spent on a project",
+      "To provide marketing materials for the software"
+    ],
+    "answer": "To list all components and dependencies in a software application for transparency and vulnerability management"
+  },
+  {
+    "question": "A server responds to ping requests but no TCP ports are open. Which Nmap scan type would best detect filtered ports?",
+    "options": [
+      "SYN scan (-sS) with version detection",
+      "TCP connect scan (-sT) only",
+      "UDP scan (-sU) only",
+      "Ping sweep (-sn) only"
+    ],
+    "answer": "SYN scan (-sS) with version detection"
+  },
+  {
+    "question": "What is the primary danger of XML External Entity (XXE) injection?",
+    "options": [
+      "It can lead to disclosure of internal files, SSRF, and denial of service",
+      "It only affects the visual display of XML data",
+      "It slows down XML parsing without security impact",
+      "It only affects legacy systems running Windows XP"
+    ],
+    "answer": "It can lead to disclosure of internal files, SSRF, and denial of service"
+  },
+  {
+    "question": "What is the function of a reverse proxy in security architecture?",
+    "options": [
+      "To intercept client requests and forward them to backend servers, hiding server details",
+      "To allow servers to initiate connections to clients",
+      "To reverse engineer malware samples",
+      "To proxy employee internet traffic to the outside"
+    ],
+    "answer": "To intercept client requests and forward them to backend servers, hiding server details"
+  },
+  {
+    "question": "Which of these is NOT a valid method for secure password storage?",
+    "options": [
+      "Base64 encoding passwords",
+      "Using bcrypt with a salt",
+      "Using Argon2 with a salt",
+      "Using PBKDF2 with a salt"
+    ],
+    "answer": "Base64 encoding passwords"
+  },
+  {
+    "question": "What is the purpose of an incident response plan?",
+    "options": [
+      "To define procedures for detecting, responding to, and recovering from security incidents",
+      "To list all software installed in the organization",
+      "To schedule regular employee training sessions",
+      "To document office evacuation procedures for fire emergencies"
+    ],
+    "answer": "To define procedures for detecting, responding to, and recovering from security incidents"
+  },
+  {
+    "question": "What is typosquatting in the context of package managers?",
+    "options": [
+      "Registering malicious packages with names similar to popular packages to trick developers",
+      "Fixing typos in package documentation",
+      "Automatically correcting package installation commands",
+      "Creating backup copies of packages"
+    ],
+    "answer": "Registering malicious packages with names similar to popular packages to trick developers"
+  },
+  {
+    "question": "What attack does Content Security Policy (CSP) primarily help mitigate?",
+    "options": [
+      "Cross-Site Scripting (XSS) and data injection attacks",
+      "Denial of Service (DoS) attacks",
+      "Brute force login attempts",
+      "Physical theft of servers"
+    ],
+    "answer": "Cross-Site Scripting (XSS) and data injection attacks"
+  },
+  {
+    "question": "What is the NIST Cybersecurity Framework's five core functions?",
+    "options": [
+      "Identify, Protect, Detect, Respond, Recover",
+      "Plan, Build, Test, Deploy, Monitor",
+      "Scan, Patch, Train, Audit, Report",
+      "Prevent, Detect, Analyze, Contain, Eradicate"
+    ],
+    "answer": "Identify, Protect, Detect, Respond, Recover"
+  },
+  {
+    "question": "An application uses sequential order IDs in URLs. User A can view User B's data by incrementing the ID. This is:",
+    "options": [
+      "Insecure Direct Object Reference (IDOR)",
+      "Cross-Site Request Forgery",
+      "Server-Side Request Forgery",
+      "SQL Injection"
+    ],
+    "answer": "Insecure Direct Object Reference (IDOR)"
+  },
+  {
+    "question": "What is the purpose of a Security Assertion Markup Language (SAML)?",
+    "options": [
+      "To exchange authentication and authorization data between parties, enabling Single Sign-On",
+      "To encrypt emails in transit",
+      "To mark up security documents in XML",
+      "To scan for malware on endpoints"
+    ],
+    "answer": "To exchange authentication and authorization data between parties, enabling Single Sign-On"
+  },
+  {
+    "question": "What is a pass-the-hash attack?",
+    "options": [
+      "Using a captured password hash to authenticate without knowing the plaintext password",
+      "Transferring hash files between servers securely",
+      "Converting plaintext passwords to hashes for storage",
+      "Comparing password hashes for similarity"
+    ],
+    "answer": "Using a captured password hash to authenticate without knowing the plaintext password"
+  },
+  {
+    "question": "What is a supply chain attack?",
+    "options": [
+      "Compromising a trusted third-party vendor or software to infiltrate target organizations",
+      "Physically intercepting delivery trucks to steal hardware",
+      "Attacking inventory management systems to disrupt ordering",
+      "A DDoS attack against shipping companies"
+    ],
+    "answer": "Compromising a trusted third-party vendor or software to infiltrate target organizations"
+  },
+  {
+    "question": "Which Wireshark filter shows all HTTP GET requests?",
+    "options": [
+      "http.request.method == \"GET\"",
+      "tcp.port == 80",
+      "http.response.code == 200",
+      "ip.src == 192.168.1.1"
+    ],
+    "answer": "http.request.method == \"GET\""
+  },
+  {
+    "question": "What does the term 'living off the land' mean in cybersecurity?",
+    "options": [
+      "Attackers using legitimate, built-in system tools (like PowerShell or WMI) for malicious purposes",
+      "Living in a rural area to avoid cyber attacks",
+      "Using only on-premise infrastructure rather than cloud services",
+      "A farming-based approach to growing security operations"
+    ],
+    "answer": "Attackers using legitimate, built-in system tools (like PowerShell or WMI) for malicious purposes"
+  },
+  {
+    "question": "What is the purpose of data loss prevention (DLP) tools?",
+    "options": [
+      "To detect and prevent unauthorized transmission of sensitive data outside the organization",
+      "To back up data to prevent accidental deletion",
+      "To compress data files to save storage space",
+      "To encrypt all data at rest automatically"
+    ],
+    "answer": "To detect and prevent unauthorized transmission of sensitive data outside the organization"
+  },
+  {
+    "question": "What is cross-site request forgery (CSRF)?",
+    "options": [
+      "Forcing an authenticated user to execute unwanted actions on a web application",
+      "Stealing cross-site cookies through XSS",
+      "Forging HTTPS certificates for fake websites",
+      "Making requests across different web servers legitimately"
+    ],
+    "answer": "Forcing an authenticated user to execute unwanted actions on a web application"
+  },
+  {
+    "question": "What is the purpose of a jump server / bastion host?",
+    "options": [
+      "To provide a secure, monitored single point of access to an internal network",
+      "To host jump scares on a Halloween website",
+      "To automatically failover network traffic during outages",
+      "To increase network speed by caching content"
+    ],
+    "answer": "To provide a secure, monitored single point of access to an internal network"
+  },
+  {
+    "question": "What does 'zero trust architecture' mean?",
+    "options": [
+      "Never trust, always verify - no implicit trust regardless of network location",
+      "Having zero trust in all employees",
+      "Using zero encryption on internal traffic",
+      "Trusting all devices inside the corporate network"
+    ],
+    "answer": "Never trust, always verify - no implicit trust regardless of network location"
+  },
+  {
+    "question": "Which tool would you use to exploit a known vulnerability in a target system during a penetration test?",
+    "options": [
+      "Metasploit",
+      "Nessus",
+      "Wireshark",
+      "Nmap"
+    ],
+    "answer": "Metasploit"
+  },
+  {
+    "question": "What is the purpose of an asset inventory in cybersecurity?",
+    "options": [
+      "To maintain a comprehensive list of all hardware, software, and data assets for risk management",
+      "To calculate the financial value of the company",
+      "To list employees and their salaries",
+      "To catalog office furniture and supplies"
+    ],
+    "answer": "To maintain a comprehensive list of all hardware, software, and data assets for risk management"
+  },
+  {
+    "question": "An attacker uses ' OR '1'='1' -- in a login form. This is:",
+    "options": [
+      "SQL Injection authentication bypass",
+      "Cross-site scripting payload",
+      "LDAP injection query",
+      "Command injection argument"
+    ],
+    "answer": "SQL Injection authentication bypass"
+  },
+  {
+    "question": "What is the primary purpose of an endpoint detection and response (EDR) solution?",
+    "options": [
+      "Continuously monitor endpoints for threats and provide investigation and remediation capabilities",
+      "Install antivirus signature updates daily",
+      "Block USB devices from being connected",
+      "Encrypt hard drives with BitLocker"
+    ],
+    "answer": "Continuously monitor endpoints for threats and provide investigation and remediation capabilities"
+  },
+  {
+    "question": "What does the 'SameSite' cookie attribute help prevent?",
+    "options": [
+      "Cross-Site Request Forgery (CSRF) attacks",
+      "SQL injection",
+      "Man-in-the-middle attacks",
+      "Cross-Site Scripting (XSS)"
+    ],
+    "answer": "Cross-Site Request Forgery (CSRF) attacks"
+  },
+  {
+    "question": "What is threat hunting?",
+    "options": [
+      "Proactively searching through networks and endpoints to find threats that evaded existing security tools",
+      "Hunting down and prosecuting cyber criminals",
+      "Scanning job boards for threat actor postings",
+      "Shutting down phishing websites manually"
+    ],
+    "answer": "Proactively searching through networks and endpoints to find threats that evaded existing security tools"
+  },
+  {
+    "question": "What is the primary risk of using RDP (port 3389) exposed directly to the internet?",
+    "options": [
+      "Brute force attacks leading to unauthorized remote access and potential ransomware deployment",
+      "Excessive bandwidth consumption by remote users",
+      "License compliance violations for remote access",
+      "Automatic installation of Windows updates"
+    ],
+    "answer": "Brute force attacks leading to unauthorized remote access and potential ransomware deployment"
+  },
+  {
+    "question": "What is a golden ticket attack in Active Directory?",
+    "options": [
+      "Forging a Kerberos ticket-granting ticket (TGT) to gain unlimited domain access",
+      "Winning a free ticket to a security conference",
+      "Receiving a priority support ticket from Microsoft",
+      "A phishing email about winning a lottery"
+    ],
+    "answer": "Forging a Kerberos ticket-granting ticket (TGT) to gain unlimited domain access"
+  },
+  {
+    "question": "What is the purpose of threat intelligence?",
+    "options": [
+      "To collect and analyze information about current and potential threats to improve defenses",
+      "To create fake threats to test employees",
+      "To delete threat-related logs from systems",
+      "To report threats to law enforcement only"
+    ],
+    "answer": "To collect and analyze information about current and potential threats to improve defenses"
+  },
+  {
+    "question": "Which of these is a common indicator of command and control (C2) traffic?",
+    "options": [
+      "Beaconing - regular, periodic outbound connections at consistent intervals",
+      "High-volume streaming to YouTube",
+      "Frequent DNS queries for google.com",
+      "Large file downloads during business hours"
+    ],
+    "answer": "Beaconing - regular, periodic outbound connections at consistent intervals"
+  },
+  {
+    "question": "What is the purpose of a risk register?",
+    "options": [
+      "To document identified risks, their likelihood, impact, and mitigation strategies",
+      "To register new employees for security training",
+      "To record all software licenses owned by the organization",
+      "To track daily stock prices of cybersecurity companies"
+    ],
+    "answer": "To document identified risks, their likelihood, impact, and mitigation strategies"
+  },
+  {
+    "question": "What does HTTP Strict Transport Security (HSTS) preloading accomplish?",
+    "options": [
+      "The domain is hardcoded into browsers as HTTPS-only, protecting even the first visit",
+      "Preloads website content before the user visits for faster browsing",
+      "Loads the HTTP version of the site before upgrading to HTTPS",
+      "Pre-compresses website assets for mobile devices"
+    ],
+    "answer": "The domain is hardcoded into browsers as HTTPS-only, protecting even the first visit"
+  },
+  {
+    "question": "An attacker exploits a vulnerability in a plugin that hasn't been updated in 2 years. This is:",
+    "options": [
+      "Exploitation of a known vulnerability due to poor patch management",
+      "A zero-day attack",
+      "An insider threat",
+      "A physical security breach"
+    ],
+    "answer": "Exploitation of a known vulnerability due to poor patch management"
+  },
+  {
+    "question": "What is the purpose of role-based access control (RBAC)?",
+    "options": [
+      "Assign permissions based on job roles rather than individual user accounts",
+      "Control physical access to server rooms based on body type",
+      "Rotate employee roles to prevent burnout",
+      "Assign temporary acting roles during manager absence"
+    ],
+    "answer": "Assign permissions based on job roles rather than individual user accounts"
+  },
+  {
+    "question": "What is a server-side request forgery (SSRF) attack?",
+    "options": [
+      "Forcing the server to make requests to unintended locations, potentially accessing internal resources",
+      "Forging server SSL certificates",
+      "Making fake requests to a server from multiple clients",
+      "Creating counterfeit servers to trick users"
+    ],
+    "answer": "Forcing the server to make requests to unintended locations, potentially accessing internal resources"
+  },
+  {
+    "question": "What is the purpose of file integrity monitoring (FIM)?",
+    "options": [
+      "To detect changes to critical system files that may indicate compromise",
+      "To monitor the speed of file transfers",
+      "To check if files are properly formatted",
+      "To monitor disk space usage"
+    ],
+    "answer": "To detect changes to critical system files that may indicate compromise"
+  },
+  {
+    "question": "What does a TCP three-way handshake accomplish?",
+    "options": [
+      "Establishes a reliable connection between client and server using SYN, SYN-ACK, ACK",
+      "Encrypts the data being transmitted",
+      "Authenticates the user before allowing connections",
+      "Compresses data before transmission"
+    ],
+    "answer": "Establishes a reliable connection between client and server using SYN, SYN-ACK, ACK"
+  },
+  {
+    "question": "What is the difference between encoding and encryption?",
+    "options": [
+      "Encoding transforms data for compatibility; encryption transforms data for confidentiality using a key",
+      "They are the same thing with different names",
+      "Encoding is stronger than encryption",
+      "Encryption is used for URLs; encoding is used for passwords"
+    ],
+    "answer": "Encoding transforms data for compatibility; encryption transforms data for confidentiality using a key"
+  },
+  {
+    "question": "What is a kerberoasting attack?",
+    "options": [
+      "Requesting Kerberos service tickets and cracking them offline to reveal service account passwords",
+      "Overheating domain controllers to cause failure",
+      "Sending excessive Kerberos requests to cause denial of service",
+      "Roasting coffee beans in the server room"
+    ],
+    "answer": "Requesting Kerberos service tickets and cracking them offline to reveal service account passwords"
+  },
+  {
+    "question": "What should you do immediately after discovering a data breach?",
+    "options": [
+      "Contain the breach and follow the incident response plan",
+      "Announce it publicly on social media",
+      "Delete all logs to hide the breach",
+      "Turn off all systems immediately"
+    ],
+    "answer": "Contain the breach and follow the incident response plan"
+  },
+  {
+    "question": "What is the purpose of network segmentation?",
+    "options": [
+      "To divide a network into smaller segments to improve security, performance, and contain breaches",
+      "To physically cut network cables into smaller pieces",
+      "To split the IT department into different teams",
+      "To distribute Wi-Fi coverage across an office"
+    ],
+    "answer": "To divide a network into smaller segments to improve security, performance, and contain breaches"
+  },
+  {
+    "question": "An Android app requests permissions to access contacts, camera, and location for a flashlight app. This is suspicious because:",
+    "options": [
+      "The requested permissions are excessive and unnecessary for the app's stated functionality",
+      "Flashlight apps should never use the camera LED",
+      "All Android apps need all permissions by default",
+      "It's normal for flashlight apps to require access to contacts"
+    ],
+    "answer": "The requested permissions are excessive and unnecessary for the app's stated functionality"
+  },
+  {
+    "question": "What is the primary goal of a purple team exercise?",
+    "options": [
+      "To foster collaboration between red (attack) and blue (defense) teams to improve overall security",
+      "To have two teams compete for the best security metrics",
+      "To create a new team color for security operations",
+      "To test only physical security controls"
+    ],
+    "answer": "To foster collaboration between red (attack) and blue (defense) teams to improve overall security"
+  },
+  {
+    "question": "What is a buffer overflow attack?",
+    "options": [
+      "Writing more data to a buffer than it can hold, overwriting adjacent memory to execute malicious code",
+      "Filling a server's disk space to capacity",
+      "Sending too many packets to fill the network buffer",
+      "Overflowing a user's email inbox with spam"
+    ],
+    "answer": "Writing more data to a buffer than it can hold, overwriting adjacent memory to execute malicious code"
+  },
+  {
+    "question": "What is the purpose of a privileged access management (PAM) solution?",
+    "options": [
+      "To control, monitor, and secure access to privileged accounts and credentials",
+      "To give all users administrator privileges",
+      "To manage employee access badges for the office",
+      "To remove passwords entirely from the environment"
+    ],
+    "answer": "To control, monitor, and secure access to privileged accounts and credentials"
+  },
+  {
+    "question": "What port does DNS typically use?",
+    "options": [
+      "53",
+      "443",
+      "25",
+      "22"
+    ],
+    "answer": "53"
+  },
+  {
+    "question": "What is a smishing attack?",
+    "options": [
+      "Phishing conducted through SMS text messages",
+      "A physical attack involving smashing devices",
+      "A phishing attack that uses smoke signals",
+      "An attack that bypasses SSL encryption"
+    ],
+    "answer": "Phishing conducted through SMS text messages"
+  },
+  {
+    "question": "What is the purpose of a web proxy in security?",
+    "options": [
+      "To inspect, filter, and log web traffic between users and the internet",
+      "To replace the need for a web server",
+      "To host websites on behalf of the company",
+      "To provide Wi-Fi connectivity"
+    ],
+    "answer": "To inspect, filter, and log web traffic between users and the internet"
+  },
+  {
+    "question": "What is the purpose of OpenVAS?",
+    "options": [
+      "Open-source vulnerability scanning and management",
+      "Opening virtual application services",
+      "Providing open virtual private networks",
+      "Managing open-source software licenses"
+    ],
+    "answer": "Open-source vulnerability scanning and management"
+  },
+  {
+    "question": "What is the primary purpose of the Payment Card Industry Data Security Standard (PCI DSS)?",
+    "options": [
+      "To protect cardholder data and ensure secure payment card processing",
+      "To regulate credit card interest rates",
+      "To issue payment cards to consumers",
+      "To manage bank accounts for businesses"
+    ],
+    "answer": "To protect cardholder data and ensure secure payment card processing"
+  },
+  {
+    "question": "What is credential stuffing?",
+    "options": [
+      "Automated injection of breached username/password pairs to gain access to user accounts",
+      "Filling out user registration forms with fake data",
+      "Stuffing credentials into a locked safe",
+      "Creating new credentials for every login attempt"
+    ],
+    "answer": "Automated injection of breached username/password pairs to gain access to user accounts"
+  },
+  {
+    "question": "What is the primary purpose of a SOAR platform?",
+    "options": [
+      "Security Orchestration, Automation, and Response - to automate and coordinate security operations tasks",
+      "To soar above the network and monitor from the cloud",
+      "To provide security for aircraft systems",
+      "To scan open ports and report results"
+    ],
+    "answer": "Security Orchestration, Automation, and Response - to automate and coordinate security operations tasks"
+  },
+  {
+    "question": "What does a firewall rule specifying 'deny any any' do?",
+    "options": [
+      "Blocks all traffic not explicitly allowed by previous rules",
+      "Allows all traffic through the firewall",
+      "Denies only specific IP addresses",
+      "Blocks traffic only during specific times"
+    ],
+    "answer": "Blocks all traffic not explicitly allowed by previous rules"
+  },
+  {
+    "question": "What is a phishing simulation?",
+    "options": [
+      "A controlled exercise sending fake phishing emails to employees to test and improve security awareness",
+      "A virtual reality game about fishing",
+      "A simulation of water-based attacks on data centers",
+      "Testing how fast IT can delete phishing emails"
+    ],
+    "answer": "A controlled exercise sending fake phishing emails to employees to test and improve security awareness"
+  },
+  {
+    "question": "What is the purpose of the 'Secure' flag on cookies?",
+    "options": [
+      "To ensure cookies are only transmitted over HTTPS connections",
+      "To encrypt the cookie value in the browser's storage",
+      "To prevent cookies from being created on insecure sites",
+      "To secure the physical cookie jar"
+    ],
+    "answer": "To ensure cookies are only transmitted over HTTPS connections"
+  },
+  {
+    "question": "What is OSINT in cybersecurity?",
+    "options": [
+      "Open Source Intelligence - gathering information from publicly available sources",
+      "Operating System Internal Network Traffic",
+      "Open Security Incident Notification Tool",
+      "Online System Integrity Test"
+    ],
+    "answer": "Open Source Intelligence - gathering information from publicly available sources"
+  },
+  {
+    "question": "What is an advanced persistent threat (APT)?",
+    "options": [
+      "A sophisticated, long-term cyber attack campaign typically by nation-state actors",
+      "A virus that persists after multiple reboots",
+      "An advanced antivirus that persistently scans for threats",
+      "A threat that advances through a network automatically"
+    ],
+    "answer": "A sophisticated, long-term cyber attack campaign typically by nation-state actors"
+  },
+  {
+    "question": "What is the difference between blacklisting and whitelisting?",
+    "options": [
+      "Blacklisting blocks known bad items; whitelisting allows only known good items",
+      "Blacklisting is for email; whitelisting is for applications",
+      "There is no difference - they are synonyms",
+      "Blacklisting is more secure than whitelisting"
+    ],
+    "answer": "Blacklisting blocks known bad items; whitelisting allows only known good items"
+  },
+  {
+    "question": "What command would you use to check active network connections on Windows?",
+    "options": [
+      "netstat -ano",
+      "ipconfig /all",
+      "ping localhost",
+      "tracert google.com"
+    ],
+    "answer": "netstat -ano"
+  },
+  {
+    "question": "What is the purpose of an air-gapped network?",
+    "options": [
+      "To physically isolate a network from unsecured networks, including the internet",
+      "To provide wireless connectivity throughout a building",
+      "To filter air particles in the data center",
+      "To increase network bandwidth by removing cables"
+    ],
+    "answer": "To physically isolate a network from unsecured networks, including the internet"
+  },
+  {
+    "question": "What is token-based authentication?",
+    "options": [
+      "Using a generated token (like JWT) to authenticate requests instead of transmitting credentials each time",
+      "Using physical tokens (coins) to unlock accounts",
+      "Authenticating users through their social media tokens",
+      "Generating tokens for each keystroke"
+    ],
+    "answer": "Using a generated token (like JWT) to authenticate requests instead of transmitting credentials each time"
+  },
+  {
+    "question": "What is the purpose of an application allowlisting solution?",
+    "options": [
+      "To only permit approved applications to execute, blocking all others including malware",
+      "To create a wishlist of applications to purchase",
+      "To allow all applications to run without restriction",
+      "To list applications that are allowed to connect to the internet"
+    ],
+    "answer": "To only permit approved applications to execute, blocking all others including malware"
+  },
+  {
+    "question": "What does the 'exp' claim in a JWT token represent?",
+    "options": [
+      "The expiration time after which the token is no longer valid",
+      "The expertise level of the token issuer",
+      "The expected response time for API calls",
+      "The export format of the token"
+    ],
+    "answer": "The expiration time after which the token is no longer valid"
+  },
+  {
+    "question": "What is a reflective XSS attack?",
+    "options": [
+      "Malicious script is reflected off the web server in an immediate response, like in error messages or search results",
+      "XSS that reflects on the user's choices",
+      "An attack that uses mirrors to redirect traffic",
+      "Self-modifying code that reflects on its own execution"
+    ],
+    "answer": "Malicious script is reflected off the web server in an immediate response, like in error messages or search results"
+  },
+  {
+    "question": "What is the purpose of auditing in cybersecurity?",
+    "options": [
+      "To systematically review and verify security controls, policies, and compliance",
+      "To listen to audio recordings of phone calls",
+      "To perform financial tax calculations",
+      "To audit employee attendance records"
+    ],
+    "answer": "To systematically review and verify security controls, policies, and compliance"
+  },
+  {
+    "question": "What is a drive-by download attack?",
+    "options": [
+      "Malware automatically downloads and executes when a user visits a compromised website",
+      "Downloading files while driving a car",
+      "A high-speed file download from a server",
+      "Downloading drive encryption software"
+    ],
+    "answer": "Malware automatically downloads and executes when a user visits a compromised website"
+  },
+  {
+    "question": "What is the purpose of an SPF record in DNS?",
+    "options": [
+      "To specify which mail servers are authorized to send email on behalf of a domain",
+      "To specify the preferred file server for the domain",
+      "To set the sun protection factor for outdoor servers",
+      "To specify the secure password format for the domain"
+    ],
+    "answer": "To specify which mail servers are authorized to send email on behalf of a domain"
+  },
+  {
+    "question": "What is the CIA triad extension known as the Parkerian Hexad?",
+    "options": [
+      "Confidentiality, Integrity, Availability, Authenticity, Possession/Control, Utility",
+      "Confidentiality, Integrity, Availability, Privacy, Safety, Reliability",
+      "Control, Integrity, Authentication, Authorization, Auditing, Non-repudiation",
+      "Security, Privacy, Compliance, Governance, Risk, Trust"
+    ],
+    "answer": "Confidentiality, Integrity, Availability, Authenticity, Possession/Control, Utility"
+  },
+  {
+    "question": "What is a cryptographic nonce?",
+    "options": [
+      "A number used once to prevent replay attacks and ensure uniqueness",
+      "A non-encrypted message component",
+      "A type of encryption that's used only once",
+      "A nonsense value used for testing"
+    ],
+    "answer": "A number used once to prevent replay attacks and ensure uniqueness"
+  },
+  {
+    "question": "What is the primary purpose of the OWASP Top 10?",
+    "options": [
+      "To document the most critical security risks to web applications for awareness and mitigation",
+      "To rank the top 10 best web application developers",
+      "To list the 10 most visited websites for security testing",
+      "To provide a top 10 list of security tools"
+    ],
+    "answer": "To document the most critical security risks to web applications for awareness and mitigation"
+  },
+  {
+    "question": "What is business email compromise (BEC)?",
+    "options": [
+      "A targeted attack impersonating executives or partners to trick employees into transferring funds or data",
+      "When a business email server crashes",
+      "Compromising business emails by CC'ing too many recipients",
+      "A business decision to use only personal email accounts"
+    ],
+    "answer": "A targeted attack impersonating executives or partners to trick employees into transferring funds or data"
+  },
+  {
+    "question": "What is the difference between a virus and a worm?",
+    "options": [
+      "A virus requires user interaction to spread; a worm can spread automatically",
+      "They are identical in behavior",
+      "A worm requires user interaction; a virus spreads automatically",
+      "A virus affects hardware; a worm affects software"
+    ],
+    "answer": "A virus requires user interaction to spread; a worm can spread automatically"
+  },
+  {
+    "question": "What is the purpose of data masking?",
+    "options": [
+      "To create a structurally similar but inauthentic version of data for testing and training",
+      "To delete data from databases permanently",
+      "To cover up data breaches from the public",
+      "To encrypt data with military-grade algorithms"
+    ],
+    "answer": "To create a structurally similar but inauthentic version of data for testing and training"
+  },
+  {
+    "question": "What is the purpose of a secure enclave in hardware?",
+    "options": [
+      "To provide an isolated, encrypted area for processing sensitive data, separated from the main processor",
+      "To physically separate servers in different rooms",
+      "To enclose network cables in secure conduits",
+      "To create a safe room for IT staff"
+    ],
+    "answer": "To provide an isolated, encrypted area for processing sensitive data, separated from the main processor"
+  },
+  {
+    "question": "What is remote code execution (RCE)?",
+    "options": [
+      "An attacker's ability to execute arbitrary commands on a target system remotely",
+      "Running code on your own machine from a remote location",
+      "Executing code scheduled for a later time",
+      "Remote desktop connection for legitimate administration"
+    ],
+    "answer": "An attacker's ability to execute arbitrary commands on a target system remotely"
+  },
+  {
+    "question": "What is the purpose of an acceptable use policy (AUP)?",
+    "options": [
+      "To define what users may and may not do with organizational IT resources",
+      "To list which websites are acceptable to visit during lunch",
+      "To specify which employees can use which applications",
+      "To document acceptable password formats"
+    ],
+    "answer": "To define what users may and may not do with organizational IT resources"
+  },
+  {
+    "question": "What is a directory traversal attack?",
+    "options": [
+      "Accessing files and directories stored outside the web root folder using path manipulation like '../'",
+      "Mapping all directories on a server for documentation",
+      "Traversing through the organizational chart of a company",
+      "Walking through the physical office directories"
+    ],
+    "answer": "Accessing files and directories stored outside the web root folder using path manipulation like '../'"
+  },
+  {
+    "question": "What is the purpose of threat modeling?",
+    "options": [
+      "To systematically identify and evaluate potential threats to a system to prioritize defenses",
+      "To create fictional threats for entertainment",
+      "To model physical threats to data centers",
+      "To build miniature models of threat scenarios"
+    ],
+    "answer": "To systematically identify and evaluate potential threats to a system to prioritize defenses"
+  },
+  {
+    "question": "What is a hash collision?",
+    "options": [
+      "When two different inputs produce the same hash output",
+      "When hashing algorithms run into each other",
+      "When a hash function fails to produce output",
+      "When two servers hash data at the same time"
+    ],
+    "answer": "When two different inputs produce the same hash output"
+  },
+  {
+    "question": "What is the purpose of security awareness training?",
+    "options": [
+      "To educate employees about security risks and their role in protecting organizational assets",
+      "To train employees on how to use security cameras",
+      "To teach physical self-defense techniques",
+      "To certify employees as security guards"
+    ],
+    "answer": "To educate employees about security risks and their role in protecting organizational assets"
+  },
+  {
+    "question": "What is a replay attack?",
+    "options": [
+      "Capturing and retransmitting valid data transmissions to trick the recipient",
+      "Recording a video of an attack and replaying it later",
+      "Replaying previously deleted security logs",
+      "Playing back audio recordings of network traffic"
+    ],
+    "answer": "Capturing and retransmitting valid data transmissions to trick the recipient"
+  },
+  {
+    "question": "What does the 'HttpOnly' cookie flag do?",
+    "options": [
+      "Prevents client-side scripts from accessing the cookie, mitigating certain XSS attacks",
+      "Makes the cookie only work over HTTP, not HTTPS",
+      "Restricts the cookie to only HTTP response headers",
+      "Allows only HTTP methods to access the cookie"
+    ],
+    "answer": "Prevents client-side scripts from accessing the cookie, mitigating certain XSS attacks"
+  },
+  {
+    "question": "What is steganography?",
+    "options": [
+      "Hiding data within other non-secret data, like embedding a message inside an image file",
+      "A method of typing very fast",
+      "Drawing secret messages on cave walls",
+      "Encrypting data with multiple layers of cryptography"
+    ],
+    "answer": "Hiding data within other non-secret data, like embedding a message inside an image file"
+  },
+  {
+    "question": "What is the difference between 2FA and MFA?",
+    "options": [
+      "2FA requires exactly two factors; MFA requires two or more factors",
+      "They are completely unrelated concepts",
+      "MFA is less secure than 2FA",
+      "2FA requires hardware tokens; MFA uses software"
+    ],
+    "answer": "2FA requires exactly two factors; MFA requires two or more factors"
+  },
+  {
+    "question": "What is a supply chain attack example?",
+    "options": [
+      "The SolarWinds Orion compromise where attackers added malware to official software updates",
+      "Physically blocking delivery of servers to a data center",
+      "Sending phishing emails to suppliers",
+      "Negotiating better prices with hardware vendors"
+    ],
+    "answer": "The SolarWinds Orion compromise where attackers added malware to official software updates"
+  },
+  {
+    "question": "What is the purpose of egress filtering?",
+    "options": [
+      "To monitor and control outbound traffic to prevent data exfiltration and C2 communication",
+      "To filter incoming traffic only",
+      "To speed up internet connections",
+      "To filter employee internet access based on productivity"
+    ],
+    "answer": "To monitor and control outbound traffic to prevent data exfiltration and C2 communication"
+  },
+  {
+    "question": "What is a time-of-check to time-of-use (TOCTOU) vulnerability?",
+    "options": [
+      "A race condition where the state of a resource changes between when it's checked and when it's used",
+      "Checking the system clock for accuracy",
+      "Timing how long a security check takes",
+      "Using time-based one-time passwords"
+    ],
+    "answer": "A race condition where the state of a resource changes between when it's checked and when it's used"
+  },
+  {
+    "question": "What is a digital certificate?",
+    "options": [
+      "An electronic document that binds a public key to an identity, signed by a trusted certificate authority",
+      "A scanned copy of a physical certificate",
+      "An email confirming account registration",
+      "A certificate stored in a digital wallet"
+    ],
+    "answer": "An electronic document that binds a public key to an identity, signed by a trusted certificate authority"
+  },
+  {
+    "question": "What is the purpose of an incident response retainer?",
+    "options": [
+      "A pre-arranged contract with a security firm for rapid incident response services when needed",
+      "A tool used to retain incident evidence",
+      "A retention policy for security incident logs",
+      "Retaining employees specifically for incident response"
+    ],
+    "answer": "A pre-arranged contract with a security firm for rapid incident response services when needed"
+  },
+  {
+    "question": "What is a side-channel attack?",
+    "options": [
+      "Exploiting information gained from the physical implementation of a system rather than weaknesses in the algorithm itself",
+      "Attacking through a side door of a building",
+      "A backup communication channel for attackers",
+      "An attack that comes from the side of the network"
+    ],
+    "answer": "Exploiting information gained from the physical implementation of a system rather than weaknesses in the algorithm itself"
+  },
+  {
+    "question": "What is the purpose of the NIST SP 800-53 standard?",
+    "options": [
+      "To provide security and privacy controls for federal information systems and organizations",
+      "To specify the 53 best security tools",
+      "To list 53 types of cyber attacks",
+      "To define 53 encryption algorithms"
+    ],
+    "answer": "To provide security and privacy controls for federal information systems and organizations"
+  },
+  {
+    "question": "What is container escape?",
+    "options": [
+      "An attacker breaking out of a container to access the host operating system or other containers",
+      "Containers being moved between different cloud regions",
+      "Escaping special characters in container configuration files",
+      "Uninstalling container runtime from a system"
+    ],
+    "answer": "An attacker breaking out of a container to access the host operating system or other containers"
+  },
+  {
+    "question": "What is the purpose of a responsible disclosure policy?",
+    "options": [
+      "To provide a framework for security researchers to report vulnerabilities without legal risk",
+      "To disclose all security incidents to the public immediately",
+      "To hide vulnerabilities from users",
+      "To disclose employee salaries responsibly"
+    ],
+    "answer": "To provide a framework for security researchers to report vulnerabilities without legal risk"
+  },
+  {
+    "question": "What is typosquatting?",
+    "options": [
+      "Registering domain names that are common misspellings of legitimate domains to catch user traffic",
+      "Fixing typing errors in domain names",
+      "A type of squat exercise for IT professionals",
+      "Squatting on a physical keyboard to type"
+    ],
+    "answer": "Registering domain names that are common misspellings of legitimate domains to catch user traffic"
+  },
+  {
+    "question": "What is the purpose of a virtual private network (VPN)?",
+    "options": [
+      "To create an encrypted tunnel for secure communication over untrusted networks",
+      "To virtually simulate a private network for gaming",
+      "To replace physical network cables with virtual ones",
+      "To create fake IP addresses for anonymity only"
+    ],
+    "answer": "To create an encrypted tunnel for secure communication over untrusted networks"
+  },
+  {
+    "question": "What is the purpose of a YARA rule?",
+    "options": [
+      "To identify and classify malware samples based on textual or binary patterns",
+      "Yet Another Random Algorithm for encryption",
+      "To configure YARA-compatible firewalls",
+      "To manage user permissions in Active Directory"
+    ],
+    "answer": "To identify and classify malware samples based on textual or binary patterns"
+  },
+  {
+    "question": "What is an evil twin attack?",
+    "options": [
+      "Setting up a rogue Wi-Fi access point that mimics a legitimate one to intercept user traffic",
+      "Creating a duplicate of a good person",
+      "Hacking into twin siblings' devices",
+      "A DDoS attack using mirrored traffic"
+    ],
+    "answer": "Setting up a rogue Wi-Fi access point that mimics a legitimate one to intercept user traffic"
+  },
+  {
+    "question": "What is the purpose of disk encryption like BitLocker or FileVault?",
+    "options": [
+      "To protect data at rest by encrypting the entire storage device",
+      "To compress disk contents for more storage space",
+      "To partition disks into multiple volumes",
+      "To speed up disk read/write operations"
+    ],
+    "answer": "To protect data at rest by encrypting the entire storage device"
+  },
+  {
+    "question": "What is a domain generation algorithm (DGA)?",
+    "options": [
+      "An algorithm used by malware to generate many domain names for C2 communication to evade blocking",
+      "An algorithm to generate domain names for new businesses",
+      "A method to register domains automatically",
+      "A tool to generate premium domain names for sale"
+    ],
+    "answer": "An algorithm used by malware to generate many domain names for C2 communication to evade blocking"
+  },
+  {
+    "question": "What does SSL/TLS mutual authentication involve?",
+    "options": [
+      "Both client and server present certificates to verify each other's identity",
+      "The server authenticates to two clients simultaneously",
+      "Two servers authenticating to each other at the same time",
+      "Multiple SSL certificates on the same server"
+    ],
+    "answer": "Both client and server present certificates to verify each other's identity"
+  },
+  {
+    "question": "What is the purpose of a post-incident review?",
+    "options": [
+      "To analyze the incident, identify lessons learned, and improve future response capabilities",
+      "To review employee performance for bonuses",
+      "To post about the incident on social media",
+      "To review the incident with competitors"
+    ],
+    "answer": "To analyze the incident, identify lessons learned, and improve future response capabilities"
+  },
+  {
+    "question": "What is footprinting in penetration testing?",
+    "options": [
+      "Passively gathering information about a target system or organization before active testing",
+      "Leaving physical footprints at a crime scene",
+      "Calculating the carbon footprint of data centers",
+      "Walking through the target's office to observe"
+    ],
+    "answer": "Passively gathering information about a target system or organization before active testing"
+  },
+  {
+    "question": "What is the purpose of a bug bounty program?",
+    "options": [
+      "To incentivize external security researchers to find and report vulnerabilities for rewards",
+      "To pay bounties for capturing hackers",
+      "To count bugs in software code",
+      "To exterminate insects in data centers"
+    ],
+    "answer": "To incentivize external security researchers to find and report vulnerabilities for rewards"
+  },
+  {
+    "question": "What does a '403 Forbidden' HTTP response indicate?",
+    "options": [
+      "The server understood the request but refuses to authorize it",
+      "The requested resource was not found on the server",
+      "The server is temporarily unavailable",
+      "The request was successful"
+    ],
+    "answer": "The server understood the request but refuses to authorize it"
+  },
+  {
+    "question": "What is the purpose of SELinux or AppArmor?",
+    "options": [
+      "Mandatory Access Control (MAC) systems to restrict processes beyond standard Unix permissions",
+      "Antivirus software for Linux systems",
+      "Firewall configuration tools",
+      "Network monitoring applications"
+    ],
+    "answer": "Mandatory Access Control (MAC) systems to restrict processes beyond standard Unix permissions"
+  },
+  {
+    "question": "What is a watering hole attack targeting a specific industry?",
+    "options": [
+      "Compromising a website known to be visited by professionals in that industry to infect them",
+      "Poisoning the water supply at an industry conference",
+      "Flooding industry websites with excessive traffic",
+      "Stealing water resources from industrial facilities"
+    ],
+    "answer": "Compromising a website known to be visited by professionals in that industry to infect them"
+  },
+  {
+    "question": "What is the purpose of DNSSEC validation?",
+    "options": [
+      "To verify that DNS responses are authentic and haven't been tampered with",
+      "To validate that domain names are spelled correctly",
+      "To check if DNS servers are online",
+      "To validate the speed of DNS resolution"
+    ],
+    "answer": "To verify that DNS responses are authentic and haven't been tampered with"
+  },
+  {
+    "question": "What is an API gateway's security function?",
+    "options": [
+      "To centralize authentication, rate limiting, and request validation for API endpoints",
+      "To physically secure the server running APIs",
+      "To convert APIs from REST to GraphQL automatically",
+      "To generate API documentation"
+    ],
+    "answer": "To centralize authentication, rate limiting, and request validation for API endpoints"
+  },
+  {
+    "question": "What is the purpose of checksums and hashes in file downloads?",
+    "options": [
+      "To verify the integrity of downloaded files and ensure they haven't been tampered with",
+      "To compress files for faster downloads",
+      "To track how many times a file is downloaded",
+      "To encrypt the file during transit"
+    ],
+    "answer": "To verify the integrity of downloaded files and ensure they haven't been tampered with"
+  },
+  {
+    "question": "What is a denial of service through resource exhaustion?",
+    "options": [
+      "Making a service unavailable by consuming its finite resources like memory, CPU, or connections",
+      "Denying service to unauthorized users",
+      "Exhausting the power supply of a data center",
+      "Running out of physical storage space"
+    ],
+    "answer": "Making a service unavailable by consuming its finite resources like memory, CPU, or connections"
+  },
+  {
+    "question": "What is the purpose of the Cyber Kill Chain framework?",
+    "options": [
+      "To model the stages of a cyber attack from reconnaissance to actions on objectives",
+      "To literally kill cyber criminals",
+      "To chain-link multiple security tools together",
+      "To create a kill switch for the internet"
+    ],
+    "answer": "To model the stages of a cyber attack from reconnaissance to actions on objectives"
+  },
+  {
+    "question": "What is a firmware rootkit?",
+    "options": [
+      "Malware embedded in device firmware that persists even after operating system reinstallation",
+      "Rootkit installed in the root directory of a website",
+      "A firmware update that adds root access",
+      "A toolkit for managing device firmware"
+    ],
+    "answer": "Malware embedded in device firmware that persists even after operating system reinstallation"
+  },
+  {
+    "question": "What is the purpose of a security assessment?",
+    "options": [
+      "To evaluate the security posture of systems, applications, and processes against defined criteria",
+      "To calculate the financial value of security tools",
+      "To assess employee performance in security roles",
+      "To assess physical property value"
+    ],
+    "answer": "To evaluate the security posture of systems, applications, and processes against defined criteria"
+  },
+  {
+    "question": "What is a banner grab?",
+    "options": [
+      "Connecting to a service and capturing its initial response to identify software and version",
+      "Physically stealing banners from a security conference",
+      "Downloading advertising banners from websites",
+      "Grabbing attention with security alerts"
+    ],
+    "answer": "Connecting to a service and capturing its initial response to identify software and version"
+  },
+  {
+    "question": "What is the purpose of the General Data Protection Regulation (GDPR)?",
+    "options": [
+      "To protect the personal data and privacy of EU citizens, imposing requirements on data controllers and processors",
+      "To regulate how fast data can be transferred globally",
+      "To protect data centers from physical attacks",
+      "To dictate which encryption algorithms can be used"
+    ],
+    "answer": "To protect the personal data and privacy of EU citizens, imposing requirements on data controllers and processors"
+  },
+  {
+    "question": "What is a logic bomb?",
+    "options": [
+      "Malicious code that executes when specific conditions are met, such as a date or event",
+      "A bomb that explodes when it detects logic",
+      "A faulty logic gate in hardware",
+      "A tool for testing logical conditions in code"
+    ],
+    "answer": "Malicious code that executes when specific conditions are met, such as a date or event"
+  },
+  {
+    "question": "What is the purpose of the Common Vulnerability Scoring System (CVSS)?",
+    "options": [
+      "To provide a standardized way to assess and communicate the severity of security vulnerabilities",
+      "To create common usernames and passwords for testing",
+      "To score the performance of vulnerability scanners",
+      "To rank common vulnerabilities by their age"
+    ],
+    "answer": "To provide a standardized way to assess and communicate the severity of security vulnerabilities"
+  },
+  {
+    "question": "What is a pass-the-ticket attack?",
+    "options": [
+      "Using a stolen Kerberos ticket to authenticate without the user's password",
+      "Passing a physical ticket to gain building access",
+      "Passing authentication tickets between servers for load balancing",
+      "Ticketing system password reset"
+    ],
+    "answer": "Using a stolen Kerberos ticket to authenticate without the user's password"
+  },
+  {
+    "question": "What is the purpose of the 'X-XSS-Protection' header?",
+    "options": [
+      "To enable the browser's built-in XSS filter (though now largely deprecated in favor of CSP)",
+      "To protect against cross-site scripting in XML files",
+      "To provide XSS protection for cross-origin requests",
+      "To encrypt XSS payloads"
+    ],
+    "answer": "To enable the browser's built-in XSS filter (though now largely deprecated in favor of CSP)"
+  },
+  {
+    "question": "What is a reverse shell?",
+    "options": [
+      "A connection initiated from a compromised host back to an attacker's system, providing command line access",
+      "A shell that runs commands in reverse order",
+      "An alternative command shell for Linux",
+      "Connecting to a server via SSH from the attacker's machine"
+    ],
+    "answer": "A connection initiated from a compromised host back to an attacker's system, providing command line access"
+  },
+  {
+    "question": "What is the purpose of federation in identity management?",
+    "options": [
+      "To allow users to access multiple systems across organizational boundaries using a single identity",
+      "To combine multiple companies into one federation",
+      "To federalize cybersecurity regulations",
+      "To create a federation of security tools"
+    ],
+    "answer": "To allow users to access multiple systems across organizational boundaries using a single identity"
+  },
+  {
+    "question": "What is SQL truncation attack?",
+    "options": [
+      "Exploiting database column length limits to truncate input and bypass security checks",
+      "Deleting data by truncating SQL tables",
+      "Shortening SQL queries for performance",
+      "Truncating SQL log files"
+    ],
+    "answer": "Exploiting database column length limits to truncate input and bypass security checks"
+  },
+  {
+    "question": "What is the purpose of the diamond model of intrusion analysis?",
+    "options": [
+      "To analyze cyber threats by examining adversary, capability, infrastructure, and victim relationships",
+      "To analyze the four corners of network security",
+      "To model diamond-shaped network topologies",
+      "To value security assets like diamonds"
+    ],
+    "answer": "To analyze cyber threats by examining adversary, capability, infrastructure, and victim relationships"
+  },
+  {
+    "question": "What is a web shell?",
+    "options": [
+      "A malicious script uploaded to a web server that provides an attacker with a web-based interface for remote access",
+      "A secure shell for web developers",
+      "The outer shell of a web application's architecture",
+      "A protective shell around web servers"
+    ],
+    "answer": "A malicious script uploaded to a web server that provides an attacker with a web-based interface for remote access"
+  },
+  {
+    "question": "What does 'defense in depth' mean in practical terms?",
+    "options": [
+      "Implementing firewalls, IDS/IPS, endpoint protection, access controls, encryption, and monitoring in layers",
+      "Defending only the deepest parts of the network",
+      "Digging deep trenches around data centers for defense",
+      "Having multiple backup generators at different depths underground"
+    ],
+    "answer": "Implementing firewalls, IDS/IPS, endpoint protection, access controls, encryption, and monitoring in layers"
+  },
+  {
+    "question": "What is a blind SQL injection?",
+    "options": [
+      "When an attacker infers database information through behavioral responses without seeing direct error messages or data",
+      "An SQL injection performed by visually impaired hackers",
+      "SQL injection that doesn't use any special characters",
+      "An injection attack that doesn't target databases"
+    ],
+    "answer": "When an attacker infers database information through behavioral responses without seeing direct error messages or data"
+  },
+  {
+    "question": "What is the purpose of a compensating control?",
+    "options": [
+      "An alternative security measure implemented when the primary control cannot be applied",
+      "Financial compensation for security incidents",
+      "Paying employees for following security policies",
+      "Compensating customers for data breaches"
+    ],
+    "answer": "An alternative security measure implemented when the primary control cannot be applied"
+  },
+  {
+    "question": "What is DNS over HTTPS (DoH)?",
+    "options": [
+      "Encrypting DNS queries within HTTPS traffic to improve privacy and prevent eavesdropping",
+      "A denial of service over HTTPS",
+      "Running DNS services on the same port as HTTPS",
+      "DNS queries that only return HTTPS-enabled sites"
+    ],
+    "answer": "Encrypting DNS queries within HTTPS traffic to improve privacy and prevent eavesdropping"
+  },
+  {
+    "question": "What is the purpose of an attestation in cybersecurity?",
+    "options": [
+      "To verify and prove the integrity and authenticity of a system or software state",
+      "To attend a security certification course",
+      "To test the performance of security tools",
+      "To attest to employee attendance at security training"
+    ],
+    "answer": "To verify and prove the integrity and authenticity of a system or software state"
+  },
+  {
+    "question": "What is a rogue access point?",
+    "options": [
+      "An unauthorized wireless access point connected to a network, potentially bypassing security controls",
+      "An authorized access point that's malfunctioning",
+      "A mobile hotspot provided by IT",
+      "A Wi-Fi access point painted red"
+    ],
+    "answer": "An unauthorized wireless access point connected to a network, potentially bypassing security controls"
+  },
+  {
+    "question": "What is the difference between hashing and encryption?",
+    "options": [
+      "Hashing is one-way and irreversible; encryption is two-way and reversible with a key",
+      "Hashing is stronger than encryption",
+      "Encryption produces fixed-length output; hashing produces variable-length",
+      "There is no difference"
+    ],
+    "answer": "Hashing is one-way and irreversible; encryption is two-way and reversible with a key"
+  },
+  {
+    "question": "What is a command injection attack?",
+    "options": [
+      "Injecting and executing arbitrary operating system commands through a vulnerable application",
+      "Typing commands too quickly into a terminal",
+      "A military-style command structure for cyber attacks",
+      "Injecting commands into an email to make it execute"
+    ],
+    "answer": "Injecting and executing arbitrary operating system commands through a vulnerable application"
+  },
+  {
+    "question": "What is the purpose of the SANS Critical Security Controls?",
+    "options": [
+      "A prioritized framework of defensive actions to improve cybersecurity posture",
+      "To control which SANS courses are available",
+      "To critically review SANS certification exams",
+      "To control access to SANS facilities"
+    ],
+    "answer": "A prioritized framework of defensive actions to improve cybersecurity posture"
+  },
+  {
+    "question": "What is a macro virus?",
+    "options": [
+      "Malware embedded in document macros (like Microsoft Office) that executes when the document is opened",
+      "A very large virus file",
+      "A virus that affects macro-economic systems",
+      "A virus that only infects macro photography software"
+    ],
+    "answer": "Malware embedded in document macros (like Microsoft Office) that executes when the document is opened"
+  },
+  {
+    "question": "What is the purpose of ISO 27001?",
+    "options": [
+      "An international standard for establishing, implementing, and maintaining an information security management system (ISMS)",
+      "To certify security professionals with 27001 hours of experience",
+      "To list 27001 types of security controls",
+      "To define 27001 encryption standards"
+    ],
+    "answer": "An international standard for establishing, implementing, and maintaining an information security management system (ISMS)"
+  },
+  {
+    "question": "What is a honeytoken?",
+    "options": [
+      "A fake digital entity designed to detect unauthorized access, similar to a honeypot but as a single data item",
+      "A cryptocurrency used to pay bug bounties",
+      "A token used in multi-factor authentication",
+      "A sweet treat given to security analysts"
+    ],
+    "answer": "A fake digital entity designed to detect unauthorized access, similar to a honeypot but as a single data item"
+  },
+  {
+    "question": "What is the purpose of memory protection techniques like ASLR and DEP?",
+    "options": [
+      "To make it harder for attackers to exploit memory corruption vulnerabilities by randomizing memory addresses and marking data as non-executable",
+      "To protect RAM from physical theft",
+      "To encrypt data stored in memory",
+      "To speed up memory access times"
+    ],
+    "answer": "To make it harder for attackers to exploit memory corruption vulnerabilities by randomizing memory addresses and marking data as non-executable"
+  },
+  {
+    "question": "What is a DNS amplification attack?",
+    "options": [
+      "A DDoS attack that exploits open DNS resolvers to flood a target with amplified DNS responses",
+      "Making DNS servers resolve faster",
+      "Amplifying DNS signals for better coverage",
+      "Increasing the volume of legitimate DNS queries"
+    ],
+    "answer": "A DDoS attack that exploits open DNS resolvers to flood a target with amplified DNS responses"
+  },
+  {
+    "question": "What is the purpose of a key management system (KMS)?",
+    "options": [
+      "To securely generate, distribute, store, rotate, and revoke cryptographic keys throughout their lifecycle",
+      "To manage physical keys to the server room",
+      "To manage keyboard shortcuts in applications",
+      "To keep track of software license keys"
+    ],
+    "answer": "To securely generate, distribute, store, rotate, and revoke cryptographic keys throughout their lifecycle"
+  },
+  {
+    "question": "What is a forced browsing attack?",
+    "options": [
+      "Directly accessing URLs to discover resources not linked from the application's visible pages",
+      "Forcing users to browse specific websites",
+      "Browser hijacking to force page reloads",
+      "Automatically browsing through all pages of a site"
+    ],
+    "answer": "Directly accessing URLs to discover resources not linked from the application's visible pages"
+  },
+  {
+    "question": "What is the purpose of the HIPAA Security Rule?",
+    "options": [
+      "To protect electronic protected health information (ePHI) with administrative, physical, and technical safeguards",
+      "To secure hippopotamus data in zoos",
+      "To provide hip protection for athletes",
+      "To regulate hip replacement surgery security"
+    ],
+    "answer": "To protect electronic protected health information (ePHI) with administrative, physical, and technical safeguards"
+  },
+  {
+    "question": "What is a deserialization attack?",
+    "options": [
+      "Exploiting insecure deserialization to execute code or manipulate application logic when data is unserialized",
+      "Reorganizing serialized data for efficiency",
+      "Converting parallel data back to serial format",
+      "Reading serial numbers from hardware components"
+    ],
+    "answer": "Exploiting insecure deserialization to execute code or manipulate application logic when data is unserialized"
+  },
+  {
+    "question": "What is the purpose of sandboxing?",
+    "options": [
+      "To run applications in an isolated environment to prevent them from affecting the host system",
+      "To play in a sandbox like children",
+      "To clean sand from network equipment",
+      "To build sandcastles around servers for physical protection"
+    ],
+    "answer": "To run applications in an isolated environment to prevent them from affecting the host system"
+  },
+  {
+    "question": "What is an OAuth 2.0 implicit grant vulnerability?",
+    "options": [
+      "Access tokens being exposed in URL fragments or referrer headers, allowing token theft",
+      "The implicit grant being too explicit about permissions",
+      "OAuth implicitly granting all permissions without user consent",
+      "Implicit trust in OAuth providers"
+    ],
+    "answer": "Access tokens being exposed in URL fragments or referrer headers, allowing token theft"
+  },
+  {
+    "question": "What is the purpose of configuration management?",
+    "options": [
+      "To establish and maintain consistent, secure settings across systems and track changes",
+      "To configure management approval for security purchases",
+      "To manage the configuration of office furniture",
+      "To configure employee management hierarchies"
+    ],
+    "answer": "To establish and maintain consistent, secure settings across systems and track changes"
+  },
+  {
+    "question": "What is a trust-on-first-use (TOFU) security model?",
+    "options": [
+      "Trusting a host's key on the first connection and alerting on subsequent key changes",
+      "Trusting all first-time users of a system",
+      "Using tofu as a security mechanism",
+      "Trusting only the first firewall rule"
+    ],
+    "answer": "Trusting a host's key on the first connection and alerting on subsequent key changes"
+  },
+  {
+    "question": "What is the purpose of an out-of-band (OOB) security verification?",
+    "options": [
+      "Using a separate communication channel to verify a transaction or identity",
+      "Verifying security of out-of-band radio frequencies",
+      "Bandwidth testing for security tools",
+      "Out-of-band musical verification of security alerts"
+    ],
+    "answer": "Using a separate communication channel to verify a transaction or identity"
+  },
+  {
+    "question": "What is a bootkit?",
+    "options": [
+      "Malware that infects the master boot record (MBR) or UEFI to load before the operating system",
+      "A toolkit for booting multiple operating systems",
+      "Bootable USB drives with security tools",
+      "A kit for repairing damaged boots"
+    ],
+    "answer": "Malware that infects the master boot record (MBR) or UEFI to load before the operating system"
+  },
+  {
+    "question": "What is the purpose of a breach and attack simulation (BAS) tool?",
+    "options": [
+      "To continuously and safely simulate attack scenarios to test and validate security controls",
+      "To simulate beach landing attacks for military training",
+      "To breach security intentionally for fun",
+      "To simulate breaches in physical walls"
+    ],
+    "answer": "To continuously and safely simulate attack scenarios to test and validate security controls"
+  },
+  {
+    "question": "What is the difference between a threat vector and an attack surface?",
+    "options": [
+      "A threat vector is the path an attacker uses; attack surface is the sum of all possible entry points",
+      "There is no difference - they are synonyms",
+      "A threat vector is physical; attack surface is digital",
+      "A threat vector is external; attack surface is internal"
+    ],
+    "answer": "A threat vector is the path an attacker uses; attack surface is the sum of all possible entry points"
+  },
+  {
+    "question": "What is a padding oracle attack?",
+    "options": [
+      "Exploiting error messages about padding validity in encrypted data to decrypt ciphertext without the key",
+      "An attack on Oracle database padding settings",
+      "Adding padding to make attacks look larger",
+      "Attacking padded cells in physical security"
+    ],
+    "answer": "Exploiting error messages about padding validity in encrypted data to decrypt ciphertext without the key"
+  },
+  {
+    "question": "What is the purpose of a security control framework?",
+    "options": [
+      "To provide a structured set of security controls and best practices for organizations to implement",
+      "To physically frame security cameras",
+      "To control the framework of a security building",
+      "To frame security incidents for investigation"
+    ],
+    "answer": "To provide a structured set of security controls and best practices for organizations to implement"
+  },
+  {
+    "question": "What is an HTTP request smuggling attack?",
+    "options": [
+      "Exploiting discrepancies in how front-end and back-end servers parse HTTP requests to smuggle requests",
+      "Smuggling HTTP traffic inside other protocols",
+      "Hiding HTTP requests in DNS queries",
+      "Illegally importing HTTP requests across borders"
+    ],
+    "answer": "Exploiting discrepancies in how front-end and back-end servers parse HTTP requests to smuggle requests"
+  },
+  {
+    "question": "What is the purpose of elliptic curve cryptography (ECC)?",
+    "options": [
+      "To provide equivalent security to RSA with smaller key sizes for better performance",
+      "To create elliptical curves for network graphs",
+      "To encrypt elliptic-shaped data structures",
+      "To curve network traffic around firewalls"
+    ],
+    "answer": "To provide equivalent security to RSA with smaller key sizes for better performance"
+  },
+  {
+    "question": "What is a resource exhaustion attack via zip bombs?",
+    "options": [
+      "A malicious compressed file that expands to an enormous size to crash or overwhelm the system processing it",
+      "A bomb that explodes with compressed files",
+      "Exhausting resources by downloading too many ZIP tools",
+      "Using zip ties to physically restrain resources"
+    ],
+    "answer": "A malicious compressed file that expands to an enormous size to crash or overwhelm the system processing it"
+  },
+  {
+    "question": "What is the purpose of the 'Referrer-Policy' HTTP header?",
+    "options": [
+      "To control how much referrer information is sent when navigating from one page to another",
+      "To refer policy violations to management",
+      "To create a policy for employee referrals",
+      "To refer security policies to other departments"
+    ],
+    "answer": "To control how much referrer information is sent when navigating from one page to another"
+  },
+  {
+    "question": "What is a DLL hijacking attack?",
+    "options": [
+      "Placing a malicious DLL in a location where an application will load it instead of the legitimate DLL",
+      "Hijacking a DLL truck on the highway",
+      "Deleting DLL files from a system",
+      "Renaming DLL files to prevent loading"
+    ],
+    "answer": "Placing a malicious DLL in a location where an application will load it instead of the legitimate DLL"
+  },
+  {
+    "question": "What is the purpose of a disaster recovery plan (DRP)?",
+    "options": [
+      "To document procedures to recover IT infrastructure and services after a disaster",
+      "To prevent all disasters from occurring",
+      "To recover lost office furniture after a disaster",
+      "To plan disasters for testing purposes"
+    ],
+    "answer": "To document procedures to recover IT infrastructure and services after a disaster"
+  },
+  {
+    "question": "What is a clickjacking attack?",
+    "options": [
+      "Tricking users into clicking something different from what they perceive, often using transparent iframes",
+      "Hijacking mouse clicks for malicious purposes",
+      "Clicking faster than humanly possible",
+      "Stealing computer mice from offices"
+    ],
+    "answer": "Tricking users into clicking something different from what they perceive, often using transparent iframes"
+  },
+  {
+    "question": "What is the purpose of a certificate authority (CA)?",
+    "options": [
+      "To issue and verify digital certificates used in PKI to establish trust",
+      "To provide authority over certificates of achievement",
+      "To authorize certificate programs at universities",
+      "To authenticate birth certificates"
+    ],
+    "answer": "To issue and verify digital certificates used in PKI to establish trust"
+  },
+  {
+    "question": "What is a spear phishing attack vs regular phishing?",
+    "options": [
+      "Spear phishing is highly targeted at specific individuals; regular phishing is sent to mass audiences",
+      "Spear phishing uses actual spears; phishing uses fishing rods",
+      "Spear phishing only targets CEOs; phishing targets everyone else",
+      "There is no difference"
+    ],
+    "answer": "Spear phishing is highly targeted at specific individuals; regular phishing is sent to mass audiences"
+  },
+  {
+    "question": "What is the purpose of runtime application self-protection (RASP)?",
+    "options": [
+      "To detect and block attacks in real-time from within the application runtime environment",
+      "To protect applications that run too fast",
+      "To self-destruct applications when attacked",
+      "To apply runtime patches for speed improvements"
+    ],
+    "answer": "To detect and block attacks in real-time from within the application runtime environment"
+  },
+  {
+    "question": "What is Kerberos delegation abuse?",
+    "options": [
+      "Exploiting Kerberos delegation settings to impersonate users and access resources across services",
+      "Delegating Kerberos administration to other teams",
+      "Abusing delegation of security responsibilities",
+      "Improperly delegating encryption tasks"
+    ],
+    "answer": "Exploiting Kerberos delegation settings to impersonate users and access resources across services"
+  },
+  {
+    "question": "What is the purpose of a next-generation firewall (NGFW)?",
+    "options": [
+      "To combine traditional firewall functionality with application awareness, IPS, and threat intelligence",
+      "To replace older firewalls with the next version",
+      "To firewall the next generation of employees",
+      "To provide firewall services for next-gen gaming consoles"
+    ],
+    "answer": "To combine traditional firewall functionality with application awareness, IPS, and threat intelligence"
+  },
+  {
+    "question": "What is a password spraying attack?",
+    "options": [
+      "Trying a few common passwords against many accounts to avoid account lockout",
+      "Spraying passwords onto a wall to see which stick",
+      "Using water to erase written passwords",
+      "Distributing passwords through sprinkler systems"
+    ],
+    "answer": "Trying a few common passwords against many accounts to avoid account lockout"
+  },
+  {
+    "question": "What is the purpose of security orchestration?",
+    "options": [
+      "To integrate different security tools and systems to work together in automated workflows",
+      "To conduct an orchestra of security guards",
+      "To orchestrate physical security patrols",
+      "To compose security-themed music"
+    ],
+    "answer": "To integrate different security tools and systems to work together in automated workflows"
+  },
+  {
+    "question": "What is a DHCP starvation attack?",
+    "options": [
+      "Exhausting the DHCP server's IP pool by requesting many leases with fake MAC addresses",
+      "Starving DHCP servers of power",
+      "Preventing DHCP from serving IPs by physical means",
+      "Not feeding the DHCP server administrator"
+    ],
+    "answer": "Exhausting the DHCP server's IP pool by requesting many leases with fake MAC addresses"
+  },
+  {
+    "question": "What is the purpose of a security policy?",
+    "options": [
+      "To formally document the organization's security expectations, rules, and responsibilities",
+      "To purchase insurance for security incidents",
+      "To cover up security breaches",
+      "To decorate the office walls with security posters"
+    ],
+    "answer": "To formally document the organization's security expectations, rules, and responsibilities"
+  },
+  {
+    "question": "What is the purpose of a biometric authentication system?",
+    "options": [
+      "To verify identity using unique biological characteristics like fingerprints, iris patterns, or facial features",
+      "To create biological viruses for testing",
+      "To measure the biological impact of cyber attacks",
+      "To authenticate biological research documents"
+    ],
+    "answer": "To verify identity using unique biological characteristics like fingerprints, iris patterns, or facial features"
+  },
+  {
+    "question": "What is a mashup attack in web security?",
+    "options": [
+      "Combining data or functionality from multiple sources to create unintended or malicious functionality",
+      "Mashing potatoes while hacking",
+      "A physical attack using mashed vegetables",
+      "Mixing different programming languages in one file"
+    ],
+    "answer": "Combining data or functionality from multiple sources to create unintended or malicious functionality"
+  },
+  {
+    "question": "What is the purpose of the NIST Cybersecurity Framework (CSF)?",
+    "options": [
+      "To provide a voluntary framework of standards, guidelines, and best practices to manage cybersecurity risk",
+      "To create a mandatory certification for all companies",
+      "To replace all other security frameworks",
+      "To provide a framework only for US military systems"
+    ],
+    "answer": "To provide a voluntary framework of standards, guidelines, and best practices to manage cybersecurity risk"
+  },
+  {
+    "question": "What is a subdomain takeover vulnerability?",
+    "options": [
+      "When a subdomain points to a service that no longer exists, allowing an attacker to claim it",
+      "Taking over a domain by gaining admin access",
+      "Registering all subdomains of a domain",
+      "Physically taking over subdomain servers"
+    ],
+    "answer": "When a subdomain points to a service that no longer exists, allowing an attacker to claim it"
+  },
+  {
+    "question": "What is the purpose of the 'Permissions-Policy' HTTP header?",
+    "options": [
+      "To control which browser features and APIs can be used by a page and its embedded frames",
+      "To set file permissions on the web server",
+      "To define user permissions in the application",
+      "To request permission from users for data collection"
+    ],
+    "answer": "To control which browser features and APIs can be used by a page and its embedded frames"
+  },
+  {
+    "question": "What is a vishing attack?",
+    "options": [
+      "Voice phishing - using phone calls to trick people into revealing sensitive information",
+      "Video-based phishing attacks",
+      "Virtual fishing simulation games",
+      "Phishing attacks on virtual machines"
+    ],
+    "answer": "Voice phishing - using phone calls to trick people into revealing sensitive information"
+  },
+  {
+    "question": "What is the purpose of a security audit trail?",
+    "options": [
+      "To maintain a chronological record of system activities for monitoring, forensics, and compliance",
+      "To audit hiking trails near data centers",
+      "To trail behind security guards on patrol",
+      "To create a trail mix for security auditors"
+    ],
+    "answer": "To maintain a chronological record of system activities for monitoring, forensics, and compliance"
+  },
+  {
+    "question": "What is an API injection attack?",
+    "options": [
+      "Injecting malicious input through API parameters to manipulate backend queries or commands",
+      "Physically injecting code into API servers",
+      "APIs that automatically inject data into databases",
+      "Medical injection APIs for healthcare"
+    ],
+    "answer": "Injecting malicious input through API parameters to manipulate backend queries or commands"
+  },
+  {
+    "question": "What is the purpose of just-in-time (JIT) access?",
+    "options": [
+      "Providing temporary elevated access only when needed and for a limited time",
+      "Compiling access just before it's used",
+      "Accessing systems right on time for meetings",
+      "Providing access based on time zones"
+    ],
+    "answer": "Providing temporary elevated access only when needed and for a limited time"
+  },
+  {
+    "question": "What is a zero-knowledge proof?",
+    "options": [
+      "A cryptographic method where one party proves to another they know a value without revealing the value itself",
+      "Proof that you know nothing about cybersecurity",
+      "Zero evidence of a security breach",
+      "Proving knowledge with zero documentation"
+    ],
+    "answer": "A cryptographic method where one party proves to another they know a value without revealing the value itself"
+  },
+  {
+    "question": "What is the purpose of the Cyber Kill Chain's 'reconnaissance' phase?",
+    "options": [
+      "Attackers gathering information about the target to identify vulnerabilities and plan the attack",
+      "Defenders reconnoitering the attacker's position",
+      "Military reconnaissance of cyber facilities",
+      "Recognizing the faces of cyber criminals"
+    ],
+    "answer": "Attackers gathering information about the target to identify vulnerabilities and plan the attack"
+  },
+  {
+    "question": "What is an insecure deserialization vulnerability?",
+    "options": [
+      "User-supplied serialized data being deserialized without proper validation, potentially leading to code execution",
+      "Losing data during serialization",
+      "Serializing data without proper structure",
+      "Deserializing data too quickly"
+    ],
+    "answer": "User-supplied serialized data being deserialized without proper validation, potentially leading to code execution"
+  },
+  {
+    "question": "What is the purpose of rate limiting on APIs?",
+    "options": [
+      "To prevent abuse by limiting the number of requests a client can make in a given time period",
+      "To rate the quality of API responses",
+      "To limit API functionality based on subscription tier",
+      "To increase API response rates"
+    ],
+    "answer": "To prevent abuse by limiting the number of requests a client can make in a given time period"
+  },
+  {
+    "question": "What is an advanced persistent threat (APT) group?",
+    "options": [
+      "A sophisticated threat actor, often state-sponsored, with long-term objectives and significant resources",
+      "A group that persistently applies security patches",
+      "An advanced study group for persistent security students",
+      "A persistent group of IT administrators"
+    ],
+    "answer": "A sophisticated threat actor, often state-sponsored, with long-term objectives and significant resources"
+  },
+  {
+    "question": "What is the purpose of network traffic analysis (NTA)?",
+    "options": [
+      "To monitor and analyze network traffic patterns to detect anomalies and potential threats",
+      "To create traffic jams on the network for testing",
+      "To analyze vehicle traffic around data centers",
+      "To redirect network traffic for load balancing"
+    ],
+    "answer": "To monitor and analyze network traffic patterns to detect anomalies and potential threats"
+  },
+  {
+    "question": "What is a cookie tossing attack?",
+    "options": [
+      "Exploiting how browsers handle cookies from different subdomains to overwrite or manipulate cookies",
+      "Throwing cookies at servers to crash them",
+      "Tossing cookies between different browsers",
+      "Baking cookies with malicious ingredients"
+    ],
+    "answer": "Exploiting how browsers handle cookies from different subdomains to overwrite or manipulate cookies"
+  },
+  {
+    "question": "What is the purpose of the 'Expect-CT' HTTP header?",
+    "options": [
+      "To allow sites to report and enforce Certificate Transparency requirements (now deprecated for CT logs)",
+      "To expect cross-team collaboration",
+      "To expect certificate types from clients",
+      "To extend certificate timeouts"
+    ],
+    "answer": "To allow sites to report and enforce Certificate Transparency requirements (now deprecated for CT logs)"
+  },
+  {
+    "question": "What is a timing attack?",
+    "options": [
+      "Analyzing the time taken to execute cryptographic operations to extract information about secrets",
+      "Attacking systems at precisely timed intervals",
+      "Scheduling attacks for specific times of day",
+      "An attack that improves with perfect timing"
+    ],
+    "answer": "Analyzing the time taken to execute cryptographic operations to extract information about secrets"
+  },
+  {
+    "question": "What is the purpose of user and entity behavior analytics (UEBA)?",
+    "options": [
+      "To detect anomalies by establishing baselines of normal behavior for users and entities",
+      "To analyze user behavior for marketing purposes",
+      "To track employee productivity metrics",
+      "To implement behavioral conditioning for security awareness"
+    ],
+    "answer": "To detect anomalies by establishing baselines of normal behavior for users and entities"
+  },
+  {
+    "question": "What is a cross-origin resource sharing (CORS) misconfiguration?",
+    "options": [
+      "Allowing untrusted origins to access sensitive resources, potentially leading to data theft",
+      "Configuring CORS for cross-origin websites",
+      "Sharing resources across origins without CORS",
+      "Cross-origin resources that are properly configured"
+    ],
+    "answer": "Allowing untrusted origins to access sensitive resources, potentially leading to data theft"
+  },
+  {
+    "question": "What is the purpose of threat intelligence sharing?",
+    "options": [
+      "To collaboratively exchange threat information between organizations to improve collective defense",
+      "To share threats on social media",
+      "To threaten competitors with intelligence sharing",
+      "To share intelligence about non-existent threats"
+    ],
+    "answer": "To collaboratively exchange threat information between organizations to improve collective defense"
+  },
+  {
+    "question": "What is an HTTP parameter pollution attack?",
+    "options": [
+      "Sending multiple HTTP parameters with the same name to cause unexpected application behavior",
+      "Polluting HTTP requests with garbage data",
+      "An environmental attack on HTTP servers",
+      "Cleaning up HTTP parameters for security"
+    ],
+    "answer": "Sending multiple HTTP parameters with the same name to cause unexpected application behavior"
+  },
+  {
+    "question": "What is the purpose of the zero trust network access (ZTNA) model?",
+    "options": [
+      "To provide access based on identity and context, not network location, with continuous verification",
+      "To provide zero network access to all users",
+      "To trust all users on the network by default",
+      "To eliminate network access entirely"
+    ],
+    "answer": "To provide access based on identity and context, not network location, with continuous verification"
+  },
+  {
+    "question": "What is a form hijacking attack?",
+    "options": [
+      "Injecting malicious JavaScript into payment forms on e-commerce sites to steal credit card data",
+      "Hijacking a physical form from an office",
+      "Converting forms between different formats",
+      "Filling out forms automatically"
+    ],
+    "answer": "Injecting malicious JavaScript into payment forms on e-commerce sites to steal credit card data"
+  },
+  {
+    "question": "What is the purpose of a data protection impact assessment (DPIA)?",
+    "options": [
+      "To identify and minimize data protection risks in projects involving personal data (GDPR requirement)",
+      "To assess the impact of data breaches financially",
+      "To protect data from physical impacts",
+      "To impact data with protection mechanisms"
+    ],
+    "answer": "To identify and minimize data protection risks in projects involving personal data (GDPR requirement)"
+  },
+  {
+    "question": "What is a race condition in web applications?",
+    "options": [
+      "A vulnerability where the outcome depends on the timing of concurrent operations, allowing exploitation",
+      "A competitive race between web applications",
+      "A condition where applications race to load first",
+      "Testing application speed under race conditions"
+    ],
+    "answer": "A vulnerability where the outcome depends on the timing of concurrent operations, allowing exploitation"
+  },
+  {
+    "question": "What is the purpose of the 'Clear-Site-Data' HTTP header?",
+    "options": [
+      "To instruct the browser to clear browsing data (cookies, storage, cache) for the requesting website",
+      "To clear all site data on the internet",
+      "To make website data transparent to users",
+      "To clearly display site data collection practices"
+    ],
+    "answer": "To instruct the browser to clear browsing data (cookies, storage, cache) for the requesting website"
+  },
+  {
+    "question": "What is an e-discovery process in incident response?",
+    "options": [
+      "The process of identifying, collecting, and preserving electronically stored information for legal proceedings",
+      "Discovering electronic devices in an office",
+      "Finding lost emails in the system",
+      "The electronic discovery of new security tools"
+    ],
+    "answer": "The process of identifying, collecting, and preserving electronically stored information for legal proceedings"
+  },
+  {
+    "question": "What is the purpose of certificate pinning?",
+    "options": [
+      "To hardcode a specific certificate or public key into an application to prevent MITM attacks using fake certificates",
+      "To pin certificates to a physical bulletin board",
+      "To attach PINs to digital certificates",
+      "To prevent certificates from expiring"
+    ],
+    "answer": "To hardcode a specific certificate or public key into an application to prevent MITM attacks using fake certificates"
+  },
+  {
+    "question": "What is a SIM swapping attack?",
+    "options": [
+      "Socially engineering mobile carriers to transfer a victim's phone number to an attacker's SIM card",
+      "Physically swapping SIM cards between phones",
+      "A simulation of swapping attacks",
+      "Swapping SIM cards between different countries"
+    ],
+    "answer": "Socially engineering mobile carriers to transfer a victim's phone number to an attacker's SIM card"
+  },
+  {
+    "question": "What is the purpose of data sovereignty?",
+    "options": [
+      "Ensuring data is subject to the laws of the country where it's collected or stored",
+      "Giving data its own sovereign nation",
+      "Ruling over data like a sovereign",
+      "Making data independent from any jurisdiction"
+    ],
+    "answer": "Ensuring data is subject to the laws of the country where it's collected or stored"
+  },
+  {
+    "question": "What is a cryptographic oracle?",
+    "options": [
+      "A system that provides information about encrypted data, potentially allowing an attacker to decrypt it",
+      "A fortune-telling system for cryptography",
+      "An oracle database with encryption",
+      "A person who predicts cryptographic trends"
+    ],
+    "answer": "A system that provides information about encrypted data, potentially allowing an attacker to decrypt it"
+  },
+  {
+    "question": "What is the purpose of the software development lifecycle (SDLC) security integration?",
+    "options": [
+      "To embed security practices throughout all phases of software development from design to deployment",
+      "To develop security software specifically",
+      "To create a lifecycle for security tools",
+      "To secure the development lifecycle of physical products"
+    ],
+    "answer": "To embed security practices throughout all phases of software development from design to deployment"
+  },
+  {
+    "question": "What is a file inclusion vulnerability?",
+    "options": [
+      "An application dynamically including files based on user input, potentially allowing malicious file execution",
+      "Including unnecessary files in a project",
+      "Excluding files from a repository",
+      "A vulnerability that includes all file types"
+    ],
+    "answer": "An application dynamically including files based on user input, potentially allowing malicious file execution"
+  },
+  {
+    "question": "What is the purpose of security baseline configurations?",
+    "options": [
+      "To establish minimum-security settings for systems to reduce vulnerabilities and maintain consistency",
+      "To create a baseline for security tool performance",
+      "To draw baselines in security diagrams",
+      "To establish a basic line of security guards"
+    ],
+    "answer": "To establish minimum-security settings for systems to reduce vulnerabilities and maintain consistency"
+  },
+  {
+    "question": "What is a distributed denial of service (DDoS) attack using botnets?",
+    "options": [
+      "Coordinating many compromised devices to flood a target with traffic simultaneously",
+      "Distributing service denial letters to customers",
+      "A single server denying service to many clients",
+      "Distributing the denial of service across different attack types"
+    ],
+    "answer": "Coordinating many compromised devices to flood a target with traffic simultaneously"
+  },
+  {
+    "question": "What is the purpose of network flow data analysis?",
+    "options": [
+      "To analyze metadata about network communications (source, destination, ports, bytes) to detect anomalies",
+      "To analyze how network traffic flows through rivers",
+      "To create flowcharts of network architecture",
+      "To analyze the workflow of network administrators"
+    ],
+    "answer": "To analyze metadata about network communications (source, destination, ports, bytes) to detect anomalies"
+  },
+  {
+    "question": "What is a cryptographic agility strategy?",
+    "options": [
+      "The ability to quickly switch between cryptographic algorithms and protocols as security needs evolve",
+      "Making cryptography more agile and faster",
+      "Agile development of cryptographic tools",
+      "Physical agility training for cryptographers"
+    ],
+    "answer": "The ability to quickly switch between cryptographic algorithms and protocols as security needs evolve"
+  },
+  {
+    "question": "What is an 'impossible travel' alert in security monitoring?",
+    "options": [
+      "Login attempts from two geographically distant locations in a timeframe impossible for physical travel",
+      "Travel alerts for security conferences",
+      "Impossible to travel to certain secure locations",
+      "Traveling without any security monitoring"
+    ],
+    "answer": "Login attempts from two geographically distant locations in a timeframe impossible for physical travel"
+  },
+  {
+    "question": "What is the purpose of email authentication protocols (SPF, DKIM, DMARC)?",
+    "options": [
+      "To verify that emails are genuinely from the claimed sender and prevent email spoofing",
+      "To authenticate email users before reading",
+      "To encrypt email content end-to-end",
+      "To authenticate attachments in emails"
+    ],
+    "answer": "To verify that emails are genuinely from the claimed sender and prevent email spoofing"
+  },
+  {
+    "question": "What is a dependency confusion attack?",
+    "options": [
+      "Uploading a malicious package with the same name as a private internal package to a public repository",
+      "Confusing dependencies in a project manifest",
+      "An attack that depends on confusing users",
+      "Confusing different dependency managers"
+    ],
+    "answer": "Uploading a malicious package with the same name as a private internal package to a public repository"
+  },
+  {
+    "question": "What is the purpose of threat modeling methodologies like STRIDE or PASTA?",
+    "options": [
+      "To provide structured approaches to identify threats, vulnerabilities, and risks in systems",
+      "To model threats using food names",
+      "To stride through threats quickly",
+      "To serve pasta at threat modeling meetings"
+    ],
+    "answer": "To provide structured approaches to identify threats, vulnerabilities, and risks in systems"
+  },
+  {
+    "question": "What is a quishing attack?",
+    "options": [
+      "Phishing using QR codes to redirect victims to malicious websites or download malware",
+      "Quiet phishing without detection",
+      "Quick phishing attacks",
+      "Phishing for quiz answers"
+    ],
+    "answer": "Phishing using QR codes to redirect victims to malicious websites or download malware"
+  },
+  {
+    "question": "What is the purpose of a service level agreement (SLA) in security?",
+    "options": [
+      "To define the expected level of service, including security responsibilities and incident response times",
+      "To agree on which security services to purchase",
+      "To level the agreement between security teams",
+      "To service security equipment according to agreements"
+    ],
+    "answer": "To define the expected level of service, including security responsibilities and incident response times"
+  },
+  {
+    "question": "What is the purpose of an endpoint protection platform (EPP)?",
+    "options": [
+      "To provide comprehensive security for endpoint devices including antivirus, firewall, and threat detection",
+      "To protect physical endpoints of network cables",
+      "To create a platform for endpoint users to report issues",
+      "To protect only the starting and ending points of data transfers"
+    ],
+    "answer": "To provide comprehensive security for endpoint devices including antivirus, firewall, and threat detection"
+  },
+  {
+    "question": "What is a man-in-the-browser (MITB) attack?",
+    "options": [
+      "Malware that infects the web browser to intercept and manipulate transactions in real-time",
+      "A person sitting inside a browser to watch traffic",
+      "A browser extension for security testing",
+      "Remote desktop into someone's browser"
+    ],
+    "answer": "Malware that infects the web browser to intercept and manipulate transactions in real-time"
+  },
+  {
+    "question": "What is the purpose of entropy in cryptographic key generation?",
+    "options": [
+      "To ensure keys are truly random and unpredictable, preventing attackers from guessing them",
+      "To measure the disorder in encrypted files",
+      "To create entropic conditions for security testing",
+      "To add energy to cryptographic operations"
+    ],
+    "answer": "To ensure keys are truly random and unpredictable, preventing attackers from guessing them"
+  },
+  {
+    "question": "What is a passwordless authentication approach?",
+    "options": [
+      "Using methods like biometrics, security keys, or magic links instead of traditional passwords",
+      "Having no passwords at all with open access",
+      "Removing password fields from login forms",
+      "Using only default passwords for simplicity"
+    ],
+    "answer": "Using methods like biometrics, security keys, or magic links instead of traditional passwords"
+  },
+  {
+    "question": "What is the purpose of log retention policies?",
+    "options": [
+      "To define how long security logs should be kept for compliance, forensics, and operational needs",
+      "To retain logs indefinitely without deletion",
+      "To immediately delete logs for privacy",
+      "To retain log analysis skills in the organization"
+    ],
+    "answer": "To define how long security logs should be kept for compliance, forensics, and operational needs"
+  },
+  {
+    "question": "What is an SSRF to internal service exploitation?",
+    "options": [
+      "Using Server-Side Request Forgery to access internal services not meant to be publicly accessible",
+      "Forging internal service requests legitimately",
+      "An SSRF attack that only affects external services",
+      "Requesting internal services through the front door"
+    ],
+    "answer": "Using Server-Side Request Forgery to access internal services not meant to be publicly accessible"
+  },
+  {
+    "question": "What is the purpose of the 'Feature-Policy' HTTP header (now Permissions-Policy)?",
+    "options": [
+      "To control access to browser features like camera, microphone, and geolocation",
+      "To feature security policies on the website",
+      "To create featured content policies",
+      "To set features for HTTP response headers"
+    ],
+    "answer": "To control access to browser features like camera, microphone, and geolocation"
+  },
+  {
+    "question": "What is a shadow IT risk?",
+    "options": [
+      "Employees using unauthorized IT systems and services without IT department knowledge or approval",
+      "IT systems that operate in the shadows",
+      "Shadow copies of IT systems for backup",
+      "IT systems that cast shadows on other systems"
+    ],
+    "answer": "Employees using unauthorized IT systems and services without IT department knowledge or approval"
+  },
+  {
+    "question": "What is the purpose of a security champion program?",
+    "options": [
+      "To embed security-minded individuals within development teams to promote secure practices",
+      "To win security competitions",
+      "To champion security products in the market",
+      "To create security-themed sports teams"
+    ],
+    "answer": "To embed security-minded individuals within development teams to promote secure practices"
+  },
+  {
+    "question": "What is an adjacent network attack?",
+    "options": [
+      "An attack launched from a compromised system on the same network segment as the target",
+      "Attacking networks that are physically adjacent",
+      "Networks that are adjacent to each other attacking simultaneously",
+      "An attack on the adjacent possible in network theory"
+    ],
+    "answer": "An attack launched from a compromised system on the same network segment as the target"
+  },
+  {
+    "question": "What is the purpose of Microsoft's Credential Guard?",
+    "options": [
+      "To isolate and protect Windows credentials using virtualization-based security",
+      "To guard physical credentials like ID badges",
+      "To guard Windows credentials with a security guard",
+      "To create credentials that guard themselves"
+    ],
+    "answer": "To isolate and protect Windows credentials using virtualization-based security"
+  },
+  {
+    "question": "What is a cryptocurrency wallet drainer?",
+    "options": [
+      "Malicious smart contracts or scripts that steal cryptocurrency from victims' wallets after tricking them into approval",
+      "A wallet that slowly drains money for fees",
+      "A tool to drain cryptocurrency for legitimate testing",
+      "Draining physical wallets of cryptocurrency-themed cards"
+    ],
+    "answer": "Malicious smart contracts or scripts that steal cryptocurrency from victims' wallets after tricking them into approval"
+  },
+  {
+    "question": "What is the purpose of change management in IT security?",
+    "options": [
+      "To control and document changes to systems to prevent unauthorized or untested modifications that could create vulnerabilities",
+      "To manage change in security team leadership",
+      "To change management's attitude towards security",
+      "To change all security tools regularly"
+    ],
+    "answer": "To control and document changes to systems to prevent unauthorized or untested modifications that could create vulnerabilities"
+  },
+  {
+    "question": "What is beacon detection in network security?",
+    "options": [
+      "Identifying periodic outbound connections that may indicate malware command and control communication",
+      "Detecting physical beacons in a network",
+      "Finding Wi-Fi beacons in an office",
+      "Detecting lighthouse beacons near coastal data centers"
+    ],
+    "answer": "Identifying periodic outbound connections that may indicate malware command and control communication"
+  },
+  {
+    "question": "What is the principle of fail-secure?",
+    "options": [
+      "A system defaults to a secure state when it fails, like doors locking during power loss",
+      "Failing to be secure in all situations",
+      "Making sure failures are always secure from observation",
+      "Intentionally failing security for testing"
+    ],
+    "answer": "A system defaults to a secure state when it fails, like doors locking during power loss"
+  },
+  {
+    "question": "What is a session sidejacking attack?",
+    "options": [
+      "Stealing session cookies transmitted over unencrypted connections to impersonate users",
+      "Hijacking sessions from the side of the network",
+      "Sessions that run alongside main sessions",
+      "Side-loading session data into an application"
+    ],
+    "answer": "Stealing session cookies transmitted over unencrypted connections to impersonate users"
+  },
+  {
+    "question": "What is the purpose of Azure Key Vault or AWS Secrets Manager?",
+    "options": [
+      "To securely store and manage sensitive information like API keys, passwords, and certificates in the cloud",
+      "To physically vault keys in a cloud data center",
+      "To manage secrets between employees verbally",
+      "To create vaults for storing cloud resources"
+    ],
+    "answer": "To securely store and manage sensitive information like API keys, passwords, and certificates in the cloud"
+  },
+  {
+    "question": "What is an open redirect vulnerability?",
+    "options": [
+      "A web application redirecting users to an arbitrary URL specified in a parameter without validation",
+      "Redirecting users to open-source websites",
+      "Opening redirect ports on firewalls",
+      "Openly redirecting users to internal pages"
+    ],
+    "answer": "A web application redirecting users to an arbitrary URL specified in a parameter without validation"
+  },
+  {
+    "question": "What is the purpose of just-in-time administration?",
+    "options": [
+      "Providing temporary administrative privileges only when needed for specific tasks and revoking them afterward",
+      "Administering systems right before they're needed",
+      "Time-based administration of all systems",
+      "Just-in-time delivery of administrative supplies"
+    ],
+    "answer": "Providing temporary administrative privileges only when needed for specific tasks and revoking them afterward"
+  },
+  {
+    "question": "What is a hardware security module (HSM)?",
+    "options": [
+      "A dedicated physical device that manages, stores, and protects cryptographic keys and operations",
+      "A module that secures hardware from physical theft",
+      "A software module for hardware detection",
+      "Hardware that modularly adds security"
+    ],
+    "answer": "A dedicated physical device that manages, stores, and protects cryptographic keys and operations"
+  },
+  {
+    "question": "What is the purpose of security regression testing?",
+    "options": [
+      "To verify that new code changes haven't introduced or reintroduced security vulnerabilities",
+      "To regress security back to older standards",
+      "To test security tools for regression in performance",
+      "To regressively test all security controls simultaneously"
+    ],
+    "answer": "To verify that new code changes haven't introduced or reintroduced security vulnerabilities"
+  },
+  {
+    "question": "What is a living-off-the-land binary (LOLBin)?",
+    "options": [
+      "A legitimate, signed Microsoft binary that attackers use for malicious purposes to evade detection",
+      "Binaries that live on land instead of in the cloud",
+      "Living organisms that produce binary code",
+      "Land-based binary operations"
+    ],
+    "answer": "A legitimate, signed Microsoft binary that attackers use for malicious purposes to evade detection"
+  },
+  {
+    "question": "What is the purpose of security metrics and KPIs?",
+    "options": [
+      "To measure and track the effectiveness of security controls and programs over time",
+      "To meter security access to resources",
+      "To convert security into metric measurements",
+      "To keep performance indicators secret for security"
+    ],
+    "answer": "To measure and track the effectiveness of security controls and programs over time"
+  },
+  {
+    "question": "What is a stack canary?",
+    "options": [
+      "A random value placed before the return address on the stack to detect buffer overflows",
+      "A bird that protects computer stacks",
+      "A canary in a coal mine for security alerts",
+      "A stack of canaries for testing"
+    ],
+    "answer": "A random value placed before the return address on the stack to detect buffer overflows"
+  },
+  {
+    "question": "What is the purpose of application security testing (AST)?",
+    "options": [
+      "To identify and remediate security vulnerabilities in software applications throughout development",
+      "To test if applications can be installed",
+      "To apply security patches to applications",
+      "To test application performance under security load"
+    ],
+    "answer": "To identify and remediate security vulnerabilities in software applications throughout development"
+  },
+  {
+    "question": "What is a tailgating/piggybacking attack in physical security?",
+    "options": [
+      "An unauthorized person following an authorized person through a secured door",
+      "Tailgating at a parking lot before an attack",
+      "Piggybacking on a network connection",
+      "Physically carrying someone through a door"
+    ],
+    "answer": "An unauthorized person following an authorized person through a secured door"
+  },
+  {
+    "question": "What is the purpose of the 'X-Content-Type-Options' header?",
+    "options": [
+      "To prevent browsers from MIME-sniffing content types, reducing certain types of attacks",
+      "To set content type options for XML",
+      "To cross-reference content types across domains",
+      "To exclude content types from HTTP responses"
+    ],
+    "answer": "To prevent browsers from MIME-sniffing content types, reducing certain types of attacks"
+  },
+  {
+    "question": "What is an OAuth token replay attack?",
+    "options": [
+      "Capturing and reusing OAuth tokens to gain unauthorized access to protected resources",
+      "Playing back OAuth tokens on a screen",
+      "Recording OAuth flows and replaying them",
+      "Replaying OAuth authorization code grant flows"
+    ],
+    "answer": "Capturing and reusing OAuth tokens to gain unauthorized access to protected resources"
+  },
+  {
+    "question": "What is the purpose of a data classification matrix?",
+    "options": [
+      "To define categories (public, internal, confidential, restricted) and their handling requirements",
+      "To classify data into a mathematical matrix",
+      "To create a matrix of all data in the organization",
+      "To classify data using matrix multiplication"
+    ],
+    "answer": "To define categories (public, internal, confidential, restricted) and their handling requirements"
+  },
+  {
+    "question": "What is an application-level denial of service?",
+    "options": [
+      "Exhausting application resources with seemingly legitimate requests that require heavy processing",
+      "Denial of service at the network level only",
+      "Applications denying service to users intentionally",
+      "Service denial based on application type"
+    ],
+    "answer": "Exhausting application resources with seemingly legitimate requests that require heavy processing"
+  },
+  {
+    "question": "What is the purpose of a cloud access security broker (CASB)?",
+    "options": [
+      "To enforce security policies between cloud users and cloud applications, providing visibility and control",
+      "To broker access to physical clouds",
+      "To provide security for cloud brokerage services",
+      "To access clouds securely for weather monitoring"
+    ],
+    "answer": "To enforce security policies between cloud users and cloud applications, providing visibility and control"
+  },
+  {
+    "question": "What is a SAML assertion replay attack?",
+    "options": [
+      "Intercepting and reusing SAML assertions to impersonate authenticated users",
+      "Playing SAML assertions as audio files",
+      "Replaying SAML authentication flows for testing",
+      "Recording SAML assertions for training purposes"
+    ],
+    "answer": "Intercepting and reusing SAML assertions to impersonate authenticated users"
+  },
+  {
+    "question": "What is the purpose of continuous integration/continuous deployment (CI/CD) security?",
+    "options": [
+      "To integrate security checks and testing into the automated build and deployment pipeline",
+      "To continuously secure CI/CD tools",
+      "To deploy security tools continuously",
+      "To integrate continuous security monitoring"
+    ],
+    "answer": "To integrate security checks and testing into the automated build and deployment pipeline"
+  },
+  {
+    "question": "What is a form action hijacking attack?",
+    "options": [
+      "Modifying the action attribute of an HTML form via JavaScript injection to send data to an attacker's server",
+      "Hijacking physical form actions in an office",
+      "Automatically filling forms with hijacked data",
+      "Action-based form hijacking for testing"
+    ],
+    "answer": "Modifying the action attribute of an HTML form via JavaScript injection to send data to an attacker's server"
+  },
+  {
+    "question": "What is the purpose of security gap analysis?",
+    "options": [
+      "To identify the difference between current security posture and desired state to prioritize improvements",
+      "To analyze gaps in physical security fences",
+      "To create gaps in security for testing",
+      "To gap the analysis between different security teams"
+    ],
+    "answer": "To identify the difference between current security posture and desired state to prioritize improvements"
+  },
+  {
+    "question": "What is a nonce-based replay protection?",
+    "options": [
+      "Using unique one-time values in requests to prevent captured requests from being replayed",
+      "Nonce protection that replays itself",
+      "Protecting replays with nonsense values",
+      "Replay of nonce values for testing"
+    ],
+    "answer": "Using unique one-time values in requests to prevent captured requests from being replayed"
+  },
+  {
+    "question": "What is the purpose of a risk appetite statement?",
+    "options": [
+      "To define the level of risk an organization is willing to accept in pursuit of its objectives",
+      "To state how much appetite for risk employees have",
+      "To create an appetite for risk in the organization",
+      "To state risks that involve food consumption"
+    ],
+    "answer": "To define the level of risk an organization is willing to accept in pursuit of its objectives"
+  },
+  {
+    "question": "What is a Kerberos Silver Ticket attack?",
+    "options": [
+      "Forging a Kerberos service ticket (TGS) to access a specific service without domain admin privileges",
+      "A golden ticket attack with silver coloring",
+      "A silver-colored ticket for Kerberos authentication",
+      "Winning second place in a Kerberos attack competition"
+    ],
+    "answer": "Forging a Kerberos service ticket (TGS) to access a specific service without domain admin privileges"
+  },
+  {
+    "question": "What is the purpose of a security information and event management (SIEM) correlation rule?",
+    "options": [
+      "To combine and analyze multiple log events to identify patterns that indicate security incidents",
+      "To correlate security information with physical events",
+      "To create rules for correlating different SIEM vendors",
+      "To manage events by correlating them with information"
+    ],
+    "answer": "To combine and analyze multiple log events to identify patterns that indicate security incidents"
+  },
+  {
+    "question": "What is a buffer overflow return-oriented programming (ROP) attack?",
+    "options": [
+      "Chaining together existing code snippets ('gadgets') to execute arbitrary operations despite DEP/NX protections",
+      "Programming return values after a buffer overflow",
+      "Overflowing buffers with return-oriented code",
+      "Returning to programming after a buffer overflow"
+    ],
+    "answer": "Chaining together existing code snippets ('gadgets') to execute arbitrary operations despite DEP/NX protections"
+  },
+  {
+    "question": "What is the purpose of the 'Cache-Control' header for security?",
+    "options": [
+      "To prevent sensitive data from being cached by browsers or intermediate proxies",
+      "To control how fast cache memory runs",
+      "To cache security controls for faster access",
+      "To control caching of security headers"
+    ],
+    "answer": "To prevent sensitive data from being cached by browsers or intermediate proxies"
+  },
+  {
+    "question": "What is a deepfake-based social engineering attack?",
+    "options": [
+      "Using AI-generated fake audio or video to impersonate trusted individuals for fraud",
+      "Engineering social situations very deeply",
+      "Deep-diving into fake social media profiles",
+      "Creating fake deep social connections"
+    ],
+    "answer": "Using AI-generated fake audio or video to impersonate trusted individuals for fraud"
+  },
+  {
+    "question": "What is the purpose of a security scorecard?",
+    "options": [
+      "To provide a summarized view of an organization's security posture using key metrics and ratings",
+      "To score security guards on performance",
+      "To create a card game about security",
+      "To score security at sporting events"
+    ],
+    "answer": "To provide a summarized view of an organization's security posture using key metrics and ratings"
+  },
+  {
+    "question": "What is an XML bomb (Billion Laughs attack)?",
+    "options": [
+      "A denial of service attack using recursively defined XML entities that expand exponentially",
+      "A bomb that explodes with XML configuration files",
+      "A billion laugh tracks embedded in XML",
+      "An attack that makes XML parsers laugh"
+    ],
+    "answer": "A denial of service attack using recursively defined XML entities that expand exponentially"
+  },
+  {
+    "question": "What is the purpose of threat intelligence feeds?",
+    "options": [
+      "To provide real-time data about known malicious indicators to enhance detection capabilities",
+      "To feed intelligence to threat actors",
+      "To create feed for threat intelligence teams",
+      "To feed threats with intelligence about the organization"
+    ],
+    "answer": "To provide real-time data about known malicious indicators to enhance detection capabilities"
+  },
+  {
+    "question": "What is a domain fronting technique?",
+    "options": [
+      "Using a high-reputation CDN domain to mask C2 traffic to an attacker-controlled backend",
+      "Putting domains at the front of a network",
+      "Creating front-facing domain pages for security",
+      "Front-loading domains into network configurations"
+    ],
+    "answer": "Using a high-reputation CDN domain to mask C2 traffic to an attacker-controlled backend"
+  },
+  {
+    "question": "What is the purpose of vulnerability disclosure programs?",
+    "options": [
+      "To provide a channel for external researchers to responsibly report security vulnerabilities",
+      "To disclose all vulnerabilities to the public immediately",
+      "To program vulnerability disclosures automatically",
+      "To disclose vulnerabilities only to law enforcement"
+    ],
+    "answer": "To provide a channel for external researchers to responsibly report security vulnerabilities"
+  },
+  {
+    "question": "What is an HTTP/2 rapid reset attack?",
+    "options": [
+      "A DDoS attack exploiting HTTP/2's stream multiplexing by rapidly opening and resetting streams to overwhelm servers",
+      "Rapidly resetting HTTP connections",
+      "Resetting HTTP/2 settings to default",
+      "A rapid response to HTTP/2 vulnerabilities"
+    ],
+    "answer": "A DDoS attack exploiting HTTP/2's stream multiplexing by rapidly opening and resetting streams to overwhelm servers"
+  },
+  {
+    "question": "What is the purpose of data tokenization?",
+    "options": [
+      "To replace sensitive data with non-sensitive token equivalents that can be mapped back when needed",
+      "To create tokens for data encryption",
+      "To tokenize all organizational data",
+      "To create tokens that represent data ownership"
+    ],
+    "answer": "To replace sensitive data with non-sensitive token equivalents that can be mapped back when needed"
+  },
+  {
+    "question": "What is a blind SSRF vulnerability?",
+    "options": [
+      "A Server-Side Request Forgery where the attacker doesn't directly see the response but can infer effects",
+      "An SSRF attack performed by blind attackers",
+      "An SSRF that doesn't send any requests",
+      "Blinding servers with SSRF attacks"
+    ],
+    "answer": "A Server-Side Request Forgery where the attacker doesn't directly see the response but can infer effects"
+  },
+  {
+    "question": "What is the purpose of microsegmentation?",
+    "options": [
+      "To isolate workloads from each other at a granular level within data centers and cloud environments",
+      "To segment microscopic network traffic",
+      "To create very small network segments",
+      "To use microscopes for network segmentation"
+    ],
+    "answer": "To isolate workloads from each other at a granular level within data centers and cloud environments"
+  },
+  {
+    "question": "What is a cryptominer detection technique?",
+    "options": [
+      "Monitoring for high CPU usage, connections to mining pools, and known mining scripts",
+      "Detecting miners physically in the data center",
+      "Mining for cryptographic algorithms",
+      "Detecting encrypted minerals"
+    ],
+    "answer": "Monitoring for high CPU usage, connections to mining pools, and known mining scripts"
+  },
+  {
+    "question": "What is the purpose of the NIST SP 800-61 incident handling guide?",
+    "options": [
+      "To provide guidelines for establishing and operating an incident response capability",
+      "To guide 61 NIST special publications on security",
+      "To handle 800 incidents per year",
+      "To provide special protection for 61 types of incidents"
+    ],
+    "answer": "To provide guidelines for establishing and operating an incident response capability"
+  },
+  {
+    "question": "What is a reflective amplification DDoS attack?",
+    "options": [
+      "Spoofing the victim's IP to send small requests that generate large responses reflected to the victim",
+      "Reflecting on DDoS attacks after they happen",
+      "Amplifying reflective surfaces for DDoS",
+      "Reflection-based amplification of legitimate traffic"
+    ],
+    "answer": "Spoofing the victim's IP to send small requests that generate large responses reflected to the victim"
+  },
+  {
+    "question": "What is the purpose of a security maturity model?",
+    "options": [
+      "To assess and measure the level of maturity of an organization's security program and plan improvements",
+      "To mature security tools over time",
+      "To model security for mature organizations only",
+      "To create mature models of security threats"
+    ],
+    "answer": "To assess and measure the level of maturity of an organization's security program and plan improvements"
+  },
+  {
+    "question": "What is an HTTP Response Splitting attack?",
+    "options": [
+      "Injecting CRLF characters to add malicious HTTP headers or body content to server responses",
+      "Splitting HTTP responses into multiple parts",
+      "Responding to HTTP requests with split personalities",
+      "Splitting HTTP traffic between servers"
+    ],
+    "answer": "Injecting CRLF characters to add malicious HTTP headers or body content to server responses"
+  },
+  {
+    "question": "What is the purpose of continuous security monitoring?",
+    "options": [
+      "To maintain ongoing awareness of security posture, vulnerabilities, and threats in real-time",
+      "To monitor security guards continuously",
+      "To monitor continuous integration pipelines",
+      "To continuously watch security cameras"
+    ],
+    "answer": "To maintain ongoing awareness of security posture, vulnerabilities, and threats in real-time"
+  },
+  {
+    "question": "What is a watering hole vs island hopping attack distinction?",
+    "options": [
+      "Watering hole compromises sites the target visits; island hopping compromises related third parties to reach the target",
+      "Watering hole involves water; island hopping involves islands",
+      "Watering hole targets animals; island hopping targets islands",
+      "They are identical attack strategies"
+    ],
+    "answer": "Watering hole compromises sites the target visits; island hopping compromises related third parties to reach the target"
+  },
+  {
+    "question": "What is the purpose of an ethical wall in cybersecurity?",
+    "options": [
+      "To separate groups within an organization to prevent conflicts of interest and information leakage",
+      "A wall that only ethical hackers can cross",
+      "A firewall with ethical considerations",
+      "A wall built with ethical materials"
+    ],
+    "answer": "To separate groups within an organization to prevent conflicts of interest and information leakage"
+  },
+  {
+    "question": "What is a credential harvesting attack via phishing?",
+    "options": [
+      "Creating fake login pages to capture usernames and passwords from victims",
+      "Harvesting credentials from a physical farm",
+      "Gathering credentials by asking politely",
+      "Collecting credentials that are publicly shared"
+    ],
+    "answer": "Creating fake login pages to capture usernames and passwords from victims"
+  },
+  {
+    "question": "What is the purpose of the zero trust maturity model?",
+    "options": [
+      "To provide a framework for organizations to advance their zero trust architecture implementation",
+      "To mature zero trust into one trust",
+      "To create zero mature trust models",
+      "To model maturity without any trust"
+    ],
+    "answer": "To provide a framework for organizations to advance their zero trust architecture implementation"
+  },
+  {
+    "question": "What is a cache poisoning attack?",
+    "options": [
+      "Inserting malicious content into a cache so that users receive the poisoned content instead of legitimate data",
+      "Poisoning physical cache memory sticks",
+      "Caching poison data for testing",
+      "Removing cache with chemical poisons"
+    ],
+    "answer": "Inserting malicious content into a cache so that users receive the poisoned content instead of legitimate data"
+  },
+  {
+    "question": "What is the purpose of data backup encryption?",
+    "options": [
+      "To protect backed-up data from unauthorized access, even if the backup media is stolen",
+      "To encrypt the process of backing up data",
+      "To back up encryption keys only",
+      "To create encrypted backups of non-sensitive data"
+    ],
+    "answer": "To protect backed-up data from unauthorized access, even if the backup media is stolen"
+  },
+  {
+    "question": "What is a business logic vulnerability?",
+    "options": [
+      "A flaw in the application's legitimate functionality that can be exploited to bypass business rules",
+      "Logical vulnerabilities in business strategies",
+      "Vulnerabilities in business logic textbooks",
+      "Business strategies that are vulnerable to logic"
+    ],
+    "answer": "A flaw in the application's legitimate functionality that can be exploited to bypass business rules"
+  },
+  {
+    "question": "What is the purpose of OSINT in threat intelligence?",
+    "options": [
+      "To gather threat information from publicly available sources like forums, social media, and technical databases",
+      "To open source all threat intelligence",
+      "To use open-source operating systems for intelligence",
+      "To gather intelligence about open-source projects"
+    ],
+    "answer": "To gather threat information from publicly available sources like forums, social media, and technical databases"
+  },
+  {
+    "question": "What is an API rate limit bypass?",
+    "options": [
+      "Circumventing API rate limits using techniques like rotating IPs, headers, or parameters",
+      "Bypassing APIs entirely with unlimited rates",
+      "Rate limits that bypass API protections",
+      "APIs that bypass rate limiters for speed"
+    ],
+    "answer": "Circumventing API rate limits using techniques like rotating IPs, headers, or parameters"
+  },
+  {
+    "question": "What is the purpose of immutable backups?",
+    "options": [
+      "To create backups that cannot be modified or deleted, protecting against ransomware",
+      "To back up immutable data only",
+      "To create backups that never change",
+      "To mute backups for silence"
+    ],
+    "answer": "To create backups that cannot be modified or deleted, protecting against ransomware"
+  }
+]
