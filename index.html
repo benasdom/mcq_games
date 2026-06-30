@@ -340,6 +340,79 @@
 
   @media (max-width: 480px) { #options-area { gap: 10px; padding: 8px 3vw; } }
   @media (max-height: 620px) { #options-area { top: 78px; } }
+
+  /* ── RESPONSIVENESS / TOUCH FEEL ── */
+  .btn, .opt-wrap, .ls-tile, .bank-del { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .btn-text svg { flex-shrink: 0; }
+  .btn-text { gap: 8px; }
+
+  /* ── ARMED (locked-on) TARGET STATE — first tap arms, second tap fires ── */
+  .opt-wrap.armed .opt-svg { filter: drop-shadow(0 0 22px var(--green)); }
+  .opt-wrap.armed .opt-svg .ring { stroke: var(--green); }
+  .opt-wrap.armed .opt-svg .core { fill: var(--green); }
+  .opt-wrap.armed .opt-label-html {
+    max-height: 260px;
+    overflow-y: auto;
+    box-shadow: 0 0 18px var(--green);
+    border-color: var(--green) !important;
+    z-index: 200;
+  }
+  .opt-wrap.armed { animation: armedPulse 0.9s ease-in-out infinite; }
+  @keyframes armedPulse { 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.045); } }
+  .opt-wrap .arm-hint {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    color: var(--green);
+    text-shadow: 0 0 8px var(--green);
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .2s;
+  }
+  .opt-wrap.armed .arm-hint { opacity: 1; height: auto; }
+
+  #targeting-hint {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    color: rgba(0,255,255,0.45);
+    text-align: center;
+    padding-bottom: 2px;
+  }
+
+  /* ── LEVEL SELECT SCREEN ── */
+  #levelselect-screen { gap: 16px; padding: 20px; }
+  #ls-bank-name {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: rgba(0,255,255,0.55);
+  }
+  #ls-grid {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    justify-content: center;
+    max-width: 640px;
+    max-height: 46vh;
+    overflow-y: auto;
+    padding: 8px;
+    scrollbar-width: thin; scrollbar-color: var(--cyan) transparent;
+  }
+  #ls-grid::-webkit-scrollbar { width: 4px; }
+  #ls-grid::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+  .ls-tile {
+    width: 96px; height: 96px;
+    cursor: pointer;
+    position: relative;
+  }
+  .ls-tile.locked { cursor: not-allowed; }
+  .ls-tile svg { width: 100%; height: 100%; display: block; }
+  .ls-tile:not(.locked):hover svg { filter: drop-shadow(0 0 14px var(--magenta)); }
+  .ls-tile:not(.locked):active { transform: scale(.94); }
+  #ls-back-wrap { width: min(320px, 90vw); }
+
+  /* ── CHECKPOINT CHOICE PANEL ── */
+  #checkpoint-choice-panel .panel-svg-wrap { width: min(480px, 90vw); }
 </style>
 </head>
 <body>
@@ -397,6 +470,31 @@
         <line x1="398" y1="52" x2="398" y2="42" stroke="currentColor" stroke-width="3"/>
       </svg>
       <div class="btn-text">&gt;&gt; INITIALIZE CORE &lt;&lt;</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LEVEL SELECT SCREEN ═══════════════════ -->
+<div id="levelselect-screen" class="screen hidden">
+  <svg viewBox="0 0 600 70" style="width:min(600px,95vw)" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="lsel-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <text x="300" y="44" text-anchor="middle" font-family="'Orbitron',monospace" font-size="34" font-weight="900" fill="#00FFFF" filter="url(#lsel-glow)" letter-spacing="5">SELECT SECTOR</text>
+    <g stroke="#00FFFF" stroke-width="2" fill="none" opacity=".6">
+      <path d="M8,8 L8,20 M8,8 L20,8"/><path d="M592,8 L592,20 M592,8 L580,8"/>
+      <path d="M8,62 L8,50 M8,62 L20,62"/><path d="M592,62 L592,50 M592,62 L580,62"/>
+    </g>
+  </svg>
+  <div id="ls-bank-name"></div>
+  <div id="ls-grid"></div>
+  <div id="ls-back-wrap" class="btn" onclick="backToMenu()" style="color:rgba(0,255,255,0.5)">
+    <svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="316" height="42" rx="3" fill="rgba(0,255,255,0.04)" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+    <div class="btn-text" style="color:rgba(0,255,255,0.55);font-size:.65rem">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>BACK TO DATABANKS</span>
     </div>
   </div>
 </div>
@@ -555,6 +653,7 @@
 
   <!-- QUESTION AREA -->
   <div id="question-area" style="z-index:80">
+    <div id="targeting-hint">◂ TAP A TARGET TO LOCK ON · TAP AGAIN TO FIRE ▸</div>
     <div id="q-box-wrap">
       <div id="q-box">
         <div id="q-text">AWAITING DATABANK...</div>
@@ -724,6 +823,44 @@
   </div>
 </div>
 
+<!-- ═══════════════════ CHECKPOINT CHOICE PANEL ═══════════════════ -->
+<div id="checkpoint-choice-panel" class="panel-overlay hidden">
+  <div class="panel-svg-wrap">
+    <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="cc-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <rect x="2" y="2" width="476" height="196" rx="6" fill="rgba(2,2,10,.96)" stroke="#FFB300" stroke-width="2.5"/>
+      <g stroke="#FFB300" stroke-width="2.5" fill="none">
+        <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M468,12 L468,28 M468,12 L452,12"/>
+        <path d="M12,188 L12,172 M12,188 L28,188"/><path d="M468,188 L468,172 M468,188 L452,188"/>
+      </g>
+      <text id="cc-level-txt" x="240" y="60" text-anchor="middle" font-family="'Orbitron',monospace" font-size="20" font-weight="900" fill="#FFB300" filter="url(#cc-glow)" letter-spacing="4">LEVEL 1</text>
+      <text id="cc-checkpoint-txt" x="240" y="92" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(255,179,0,.75)" letter-spacing="2">CHECKPOINT FOUND</text>
+      <text x="240" y="128" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="12" fill="rgba(255,255,255,.45)" letter-spacing="1">CONTINUE FROM SAVE OR RESTART SECTOR?</text>
+      <rect x="2" y="2" width="476" height="3" fill="#FFB300" opacity=".5"><animate attributeName="y" values="2;196;2" dur="2.2s" repeatCount="indefinite"/></rect>
+    </svg>
+  </div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <div class="btn" onclick="ccContinue()" style="width:210px;color:var(--green)">
+      <svg viewBox="0 0 210 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="206" height="46" rx="3" fill="rgba(0,255,136,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--green);font-size:.62rem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>CONTINUE SAVE</span>
+      </div>
+    </div>
+    <div class="btn" onclick="ccRestart()" style="width:210px;color:var(--amber)">
+      <svg viewBox="0 0 210 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="206" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--amber);font-size:.62rem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        <span>RESTART SECTOR</span>
+      </div>
+    </div>
+  </div>
+  <div class="btn" onclick="ccCancel()" style="width:160px;color:rgba(0,255,255,0.4);margin-top:2px">
+    <svg viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="1" y="1" width="158" height="34" rx="3" fill="rgba(0,255,255,0.03)" stroke="currentColor" stroke-width="1"/></svg>
+    <div class="btn-text" style="color:rgba(0,255,255,0.45);font-size:.55rem">CANCEL</div>
+  </div>
+</div>
+
 <!-- ═══════════════════ GAME OVER PANEL ═══════════════════ -->
 <div id="gameover-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
@@ -749,18 +886,41 @@
       <rect x="2" y="2" width="516" height="3" fill="#FF003C" opacity=".6"><animate attributeName="y" values="2;268;2" dur="2s" repeatCount="indefinite"/></rect>
     </svg>
   </div>
-  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-    <div id="revive-btn-wrap" class="btn" onclick="revive()" style="width:200px;color:var(--green);display:none">
-      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(0,255,136,0.1)" stroke="currentColor" stroke-width="2"/></svg>
-      <div class="btn-text" style="color:var(--green)">REVIVE</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:540px">
+    <div id="revive-btn-wrap" class="btn" onclick="revive()" style="width:170px;color:var(--green);display:none">
+      <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="46" rx="3" fill="rgba(0,255,136,0.1)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--green);font-size:.58rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>REVIVE</span>
+      </div>
     </div>
-    <div id="checkpoint-resume-btn" class="btn" onclick="resumeCheckpoint()" style="width:200px;color:var(--amber);display:none">
-      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/></svg>
-      <div class="btn-text" style="color:var(--amber)">CHECKPOINT</div>
+    <div id="checkpoint-resume-btn" class="btn" onclick="resumeCheckpoint()" style="width:170px;color:var(--amber);display:none">
+      <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="46" rx="3" fill="rgba(255,179,0,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--amber);font-size:.58rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>CHECKPOINT</span>
+      </div>
     </div>
-    <div class="btn" onclick="backToMenu()" style="width:200px;color:var(--red)">
-      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="196" height="46" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/></svg>
-      <div class="btn-text" style="color:var(--red)">MAIN MENU</div>
+    <div class="btn" onclick="restartLevel()" style="width:170px;color:var(--cyan)">
+      <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="46" rx="3" fill="rgba(0,255,255,0.06)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--cyan);font-size:.58rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        <span>RESTART</span>
+      </div>
+    </div>
+    <div class="btn" onclick="goToLevelSelectFromGame()" style="width:170px;color:var(--magenta)">
+      <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="46" rx="3" fill="rgba(255,0,255,0.07)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--magenta);font-size:.58rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>SECTORS</span>
+      </div>
+    </div>
+    <div class="btn" onclick="backToMenu()" style="width:170px;color:var(--red)">
+      <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="46" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="btn-text" style="color:var(--red);font-size:.58rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>MAIN MENU</span>
+      </div>
     </div>
   </div>
 </div>
@@ -823,6 +983,11 @@ let extraLifeGiven  = false;
 let hasRevive       = false;
 let currentBankKey  = null;
 let introTimer      = null;
+let levelStartScore = 0;     // score baseline at the start of the current level attempt
+let progress         = null; // persisted progress for the current bank {maxLevelUnlocked, checkpoint, bestScore}
+let pendingLevel      = null; // level awaiting a continue/restart decision
+let armedOptionIdx   = null; // index of the currently "locked on" target (first-tap-armed)
+const LS_PROGRESS_PREFIX = 'arcade_progress_';
 
 // ─────────────────────────────────────────────
 //  AUDIO ENGINE
@@ -939,6 +1104,7 @@ function playSound(type) {
   osc.connect(gain);gain.connect(sfxGain);
   const t=audioCtx.currentTime;
   if(type==='shoot'){osc.type='sawtooth';osc.frequency.setValueAtTime(900,t);osc.frequency.exponentialRampToValueAtTime(80,t+.35);gain.gain.setValueAtTime(.28,t);gain.gain.exponentialRampToValueAtTime(.01,t+.35);osc.start(t);osc.stop(t+.35);}
+  else if(type==='lock'){osc.type='square';osc.frequency.setValueAtTime(700,t);osc.frequency.setValueAtTime(1000,t+.06);gain.gain.setValueAtTime(.18,t);gain.gain.exponentialRampToValueAtTime(.01,t+.12);osc.start(t);osc.stop(t+.12);}
   else if(type==='hit'){osc.type='square';osc.frequency.setValueAtTime(160,t);osc.frequency.exponentialRampToValueAtTime(40,t+.5);gain.gain.setValueAtTime(.4,t);gain.gain.exponentialRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
   else if(type==='miss'){osc.type='sawtooth';osc.frequency.setValueAtTime(120,t);osc.frequency.linearRampToValueAtTime(40,t+.5);gain.gain.setValueAtTime(.4,t);gain.gain.linearRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
   else if(type==='powerup'){osc.type='sine';osc.frequency.setValueAtTime(400,t);osc.frequency.linearRampToValueAtTime(800,t+.3);gain.gain.setValueAtTime(.3,t);gain.gain.exponentialRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
@@ -955,6 +1121,28 @@ function playSound(type) {
       o.start(st);o.stop(st+0.25);
     });
   }
+}
+
+// ─────────────────────────────────────────────
+//  LOCAL STORAGE — PROGRESS (per databank)
+// ─────────────────────────────────────────────
+function defaultProgress(){
+  return { maxLevelUnlocked: 1, checkpoint: null, bestScore: 0 };
+}
+function getProgress(bankKey){
+  try{
+    const raw=localStorage.getItem(LS_PROGRESS_PREFIX+bankKey);
+    if(!raw) return defaultProgress();
+    const parsed=JSON.parse(raw);
+    return Object.assign(defaultProgress(), parsed);
+  }catch(e){ return defaultProgress(); }
+}
+function saveProgress(){
+  if(!currentBankKey||!progress) return;
+  try{ localStorage.setItem(LS_PROGRESS_PREFIX+currentBankKey, JSON.stringify(progress)); }catch(e){}
+}
+function clearProgress(bankKey){
+  localStorage.removeItem(LS_PROGRESS_PREFIX+bankKey);
 }
 
 // ─────────────────────────────────────────────
@@ -983,11 +1171,11 @@ function renderBanksList() {
     const lvls=Math.ceil(bank.data.length/QUESTIONS_PER_LEVEL);
     const wrap=document.createElement('div');wrap.className='bank-entry';
     const btn=document.createElement('div');btn.className='btn';btn.style.color='var(--green)';
-    btn.onclick=()=>{questions=bank.data;currentBankKey=bank.name;initAudio();startGame();};
+    btn.onclick=()=>{questions=bank.data;currentBankKey=bank.name;initAudio();openLevelSelect();};
     btn.innerHTML=`<svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="1" y="1" width="318" height="44" rx="3" fill="rgba(0,255,136,0.05)" stroke="currentColor" stroke-width="1.5"/></svg>
       <div class="btn-text" style="color:var(--green);font-size:.7rem;letter-spacing:2px">${bank.name.substring(0,22)} <span style="opacity:.5">[${bank.data.length}Q · ${lvls}LVL]</span></div>`;
     const del=document.createElement('button');del.className='bank-del';del.textContent='✕';
-    del.onclick=(e)=>{e.stopPropagation();if(confirm(`Delete "${bank.name}"?`)){deleteBank(bank.name);}};
+    del.onclick=(e)=>{e.stopPropagation();if(confirm(`Delete "${bank.name}"?`)){deleteBank(bank.name);clearProgress(bank.name);}};
     wrap.appendChild(btn);wrap.appendChild(del);list.appendChild(wrap);
   });
 }
@@ -1005,7 +1193,7 @@ function handleUpload(e) {
         const parsed=JSON.parse(ev.target.result);
         const name=file.name.replace(/\.json$/i,'');
         saveBank(name,parsed);processed++;
-        if(processed===files.length){questions=parsed;currentBankKey=name;initAudio();startGame();}
+        if(processed===files.length){questions=parsed;currentBankKey=name;initAudio();openLevelSelect();}
       }catch(err){alert('ERR: CORRUPT DATA — '+file.name);}
     };
     reader.readAsText(file);
@@ -1022,7 +1210,7 @@ const defaultQuestions=[
   {question:"WHAT DOES CDN STAND FOR?",options:["Content Delivery Network","Core Data Node","Cloud Deploy Native","Cache Deploy Now"],answer:"Content Delivery Network"},
 ];
 
-function useDefault(){questions=defaultQuestions;currentBankKey='DEFAULT';initAudio();startGame();}
+function useDefault(){questions=defaultQuestions;currentBankKey='DEFAULT';initAudio();openLevelSelect();}
 
 // ─────────────────────────────────────────────
 //  LEVEL HELPERS
@@ -1073,33 +1261,158 @@ function skipIntro() {
 }
 
 // ─────────────────────────────────────────────
-//  GAME FLOW
+//  LEVEL SELECT SCREEN
 // ─────────────────────────────────────────────
-function startGame() {
+function openLevelSelect(){
   if(!questions.length) return;
-  score         = 0;
-  lives         = LIVES_MAX;
-  currentLevel  = 1;
-  totalLevels   = Math.ceil(questions.length/QUESTIONS_PER_LEVEL);
-
+  progress     = getProgress(currentBankKey);
+  totalLevels  = Math.ceil(questions.length/QUESTIONS_PER_LEVEL);
+  renderLevelSelect();
   document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('levelselect-screen').classList.remove('hidden');
+  document.getElementById('game-screen').classList.remove('active');
+  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel'].forEach(id=>{
+    document.getElementById(id).classList.add('hidden');
+  });
+}
+
+function renderLevelSelect(){
+  document.getElementById('ls-bank-name').textContent = `DATABANK: ${currentBankKey} · ${questions.length} TARGETS · ${totalLevels} SECTOR${totalLevels===1?'':'S'}`;
+  const grid=document.getElementById('ls-grid');
+  grid.innerHTML='';
+  for(let lv=1; lv<=totalLevels; lv++){
+    const locked    = lv>progress.maxLevelUnlocked;
+    const cleared    = lv<progress.maxLevelUnlocked;
+    const hasCheckpoint = !!(progress.checkpoint && progress.checkpoint.level===lv);
+    const tile=document.createElement('div');
+    tile.className='ls-tile'+(locked?' locked':'');
+    tile.innerHTML=buildLevelTileSVG(lv, locked, cleared, hasCheckpoint);
+    if(!locked) tile.onclick=()=>selectLevel(lv, hasCheckpoint);
+    grid.appendChild(tile);
+  }
+}
+
+function buildLevelTileSVG(lv, locked, cleared, hasCheckpoint){
+  const strokeColor = locked? 'rgba(0,255,255,0.18)' : (cleared? '#00FF88' : '#00FFFF');
+  const fillColor   = locked? 'rgba(0,0,0,0.4)' : (cleared? 'rgba(0,255,136,0.07)' : 'rgba(0,255,255,0.05)');
+  const numColor    = locked? 'rgba(0,255,255,0.25)' : (cleared? '#00FF88' : '#00FFFF');
+  let badge='';
+  if(locked){
+    // padlock icon
+    badge=`<g transform="translate(50,50)" stroke="rgba(0,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="-14" y="-2" width="28" height="22" rx="3"/>
+      <path d="M-9,-2 V-12 a9,9 0 0 1 18,0 V-2"/>
+    </g>`;
+  } else if(cleared){
+    // checkmark badge top-right
+    badge=`<g transform="translate(78,22)">
+      <circle r="13" fill="#00FF88" opacity=".9"/>
+      <path d="M-6,0 L-1,5 L7,-6" stroke="#02020A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>`;
+  }
+  let cpBadge='';
+  if(hasCheckpoint){
+    cpBadge=`<g transform="translate(22,22)">
+      <circle r="12" fill="#FFB300" opacity=".95"/>
+      <polygon points="0,-6 6,-2 6,7 0,4 -6,7 -6,-2" fill="#02020A"/>
+    </g>`;
+  }
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="ls-glow-${lv}"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <rect x="6" y="6" width="88" height="88" rx="6" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"${locked?'':' filter="url(#ls-glow-'+lv+')"'}/>
+    <g stroke="${strokeColor}" stroke-width="1.5" fill="none" opacity=".7">
+      <path d="M12,12 L12,22 M12,12 L22,12"/><path d="M88,12 L88,22 M88,12 L78,12"/>
+      <path d="M12,88 L12,78 M12,88 L22,88"/><path d="M88,88 L88,78 M88,88 L78,88"/>
+    </g>
+    ${locked? badge : `<text x="50" y="62" text-anchor="middle" font-family="'Orbitron',monospace" font-size="30" font-weight="900" fill="${numColor}">${lv}</text>`}
+    ${badge && !locked? badge: ''}
+    ${cpBadge}
+  </svg>`;
+}
+
+function selectLevel(lv, hasCheckpoint){
+  pendingLevel=lv;
+  initAudio();
+  if(hasCheckpoint){
+    showCheckpointChoice(lv);
+  } else {
+    beginLevelFresh(lv);
+  }
+}
+
+function showCheckpointChoice(lv){
+  document.getElementById('cc-level-txt').textContent=`LEVEL ${lv}`;
+  document.getElementById('cc-checkpoint-txt').textContent=`SAVED AT TARGET ${progress.checkpoint.idx+1}`;
+  document.getElementById('checkpoint-choice-panel').classList.remove('hidden');
+}
+function ccContinue(){
+  document.getElementById('checkpoint-choice-panel').classList.add('hidden');
+  resumeFromCheckpointSelected(pendingLevel);
+}
+function ccRestart(){
+  document.getElementById('checkpoint-choice-panel').classList.add('hidden');
+  beginLevelFresh(pendingLevel);
+}
+function ccCancel(){
+  document.getElementById('checkpoint-choice-panel').classList.add('hidden');
+  pendingLevel=null;
+}
+
+function beginLevelFresh(lv){
+  currentLevel = lv;
+  score        = 0;
+  lives        = LIVES_MAX;
+
+  document.getElementById('levelselect-screen').classList.add('hidden');
   document.getElementById('game-screen').classList.add('active');
   document.getElementById('gameover-panel').classList.add('hidden');
   document.getElementById('victory-panel').classList.add('hidden');
   document.getElementById('levelcomplete-panel').classList.add('hidden');
 
-  // Show intro for level 1
-  showLevelIntro(1, actuallyStartLevel);
-  if(!musicRunning){initAudio();startMusic();}
+  showLevelIntro(lv, actuallyStartLevel);
+  if(!musicRunning){startMusic();}
+}
+
+function resumeFromCheckpointSelected(lv){
+  const cp = progress.checkpoint;
+  currentLevel    = lv;
+  levelQuestions  = getLevelQuestions(lv);
+  levelIdx        = cp.idx;
+  score           = cp.score;
+  levelStartScore = cp.score;
+  lives           = LIVES_MAX;
+  checkpointIdx   = cp.idx;
+  checkpointSaved = true;
+  extraLifeGiven  = (levelQuestions.length>0) && (cp.idx/levelQuestions.length)>=0.5;
+  hasRevive       = false;
+  isShooting      = false;
+  armedOptionIdx  = null;
+
+  document.getElementById('levelselect-screen').classList.add('hidden');
+  document.getElementById('game-screen').classList.add('active');
+  document.getElementById('gameover-panel').classList.add('hidden');
+
+  updateHUD();
+  loadQuestion();
+  if(!musicRunning){startMusic();}
 }
 
 function actuallyStartLevel() {
   levelQuestions  = getLevelQuestions(currentLevel);
   levelIdx        = 0;
-  checkpointIdx   = null;
-  checkpointSaved = false;
-  extraLifeGiven  = false;
   isShooting      = false;
+  levelStartScore = score;
+  armedOptionIdx  = null;
+  // restore an existing persisted checkpoint reference for this level (doesn't move the player,
+  // just keeps the "continue from checkpoint" fallback available if they die again)
+  if(progress && progress.checkpoint && progress.checkpoint.level===currentLevel){
+    checkpointIdx   = progress.checkpoint.idx;
+    checkpointSaved = true;
+  } else {
+    checkpointIdx   = null;
+    checkpointSaved = false;
+  }
+  extraLifeGiven  = false;
   updateHUD();
   loadQuestion();
 }
@@ -1146,6 +1459,10 @@ function checkMilestones() {
   const pct=levelIdx/levelQuestions.length;
   if(!checkpointSaved&&pct>=0.30){
     checkpointSaved=true;checkpointIdx=levelIdx;
+    if(progress){
+      progress.checkpoint = { level: currentLevel, idx: levelIdx, score: score };
+      saveProgress();
+    }
     playSound('checkpoint');
     document.getElementById('checkpoint-panel').classList.remove('hidden');
   }
@@ -1170,6 +1487,7 @@ function loadQuestion() {
   }
   checkMilestones();
   isShooting=false;
+  armedOptionIdx=null;
   document.getElementById('next-btn-wrap').style.display='none';
 
   const bg=document.getElementById('bomb-g');
@@ -1206,10 +1524,32 @@ function loadQuestion() {
     </svg>`;
     const labelEl=buildLabelHTML(opt,i);
     wrap.innerHTML=tgt;wrap.appendChild(labelEl);
-    wrap.onclick=()=>shoot(wrap,opt===q.answer);
+    const hint=document.createElement('div');
+    hint.className='arm-hint';
+    hint.textContent='◂ TAP AGAIN TO FIRE ▸';
+    wrap.appendChild(hint);
+    wrap.dataset.idx=i;
+    wrap.onclick=()=>handleOptionTap(wrap,i,opt===q.answer);
     area.appendChild(wrap);
   });
   updateHUD();
+}
+
+function handleOptionTap(wrap, idx, isCorrect){
+  if(isShooting) return;
+  const area=document.getElementById('options-area');
+  if(armedOptionIdx===idx){
+    // second tap on the same target — FIRE
+    armedOptionIdx=null;
+    shoot(wrap,isCorrect);
+  } else {
+    // first tap (or a different target) — LOCK ON, show full text, don't fire yet
+    armedOptionIdx=idx;
+    Array.from(area.children).forEach(c=>c.classList.remove('armed'));
+    wrap.classList.add('armed');
+    initAudio();playSound('lock');
+    if(navigator.vibrate){ try{ navigator.vibrate(15); }catch(e){} }
+  }
 }
 
 function buildLabelHTML(text,idx){
@@ -1289,16 +1629,36 @@ function showLevelComplete() {
   const nextQ=getLevelQuestions(nextLv).length;
   document.getElementById('lc-next-preview').textContent=`▸ LEVEL ${nextLv}: ${nextQ} TARGETS AWAIT`;
 
+  if(progress){
+    progress.maxLevelUnlocked = Math.max(progress.maxLevelUnlocked, currentLevel+1);
+    if(progress.checkpoint && progress.checkpoint.level===currentLevel) progress.checkpoint=null;
+    progress.bestScore = Math.max(progress.bestScore||0, score);
+    saveProgress();
+  }
+
   document.getElementById('levelcomplete-panel').classList.remove('hidden');
 }
 
 // ─────────────────────────────────────────────
 //  GAME OVER / VICTORY / BACK
 // ─────────────────────────────────────────────
+function showVictory(){
+  playSound('levelup');triggerFlash();
+  document.getElementById('v-levels').textContent=`ALL ${totalLevels} LEVEL${totalLevels===1?'':'S'} CLEARED`;
+  document.getElementById('v-score').textContent='SCORE: '+score.toString().padStart(4,'0');
+  if(progress){
+    progress.maxLevelUnlocked = Math.max(progress.maxLevelUnlocked, totalLevels+1);
+    progress.checkpoint = null;
+    progress.bestScore = Math.max(progress.bestScore||0, score);
+    saveProgress();
+  }
+  document.getElementById('victory-panel').classList.remove('hidden');
+}
+
 function showGameOver(){
   document.getElementById('go-level').textContent=`LEVEL ${currentLevel} · Q ${levelIdx+1}/${levelQuestions.length}`;
   document.getElementById('go-score').textContent='FINAL SCORE: '+score.toString().padStart(4,'0');
-  document.getElementById('go-checkpoint').textContent=checkpointIdx!==null?`CHECKPOINT AT Q${checkpointIdx+1} AVAILABLE`:'';
+  document.getElementById('go-checkpoint').textContent=checkpointIdx!==null?`CHECKPOINT AT Q${checkpointIdx+1} AVAILABLE`:'NO CHECKPOINT REACHED — RESTART ONLY';
   document.getElementById('go-revive').textContent=hasRevive?'◆ EXTRA LIFE REVIVE READY':'';
   document.getElementById('revive-btn-wrap').style.display=hasRevive?'block':'none';
   document.getElementById('checkpoint-resume-btn').style.display=checkpointIdx!==null?'block':'none';
@@ -1309,29 +1669,41 @@ function revive(){
   if(!hasRevive) return;
   hasRevive=false;lives=LIVES_MAX;
   document.getElementById('gameover-panel').classList.add('hidden');
+  armedOptionIdx=null;
   updateHUD();loadQuestion();
 }
 
 function resumeCheckpoint(){
   if(checkpointIdx===null) return;
   levelIdx=checkpointIdx;lives=LIVES_MAX;
-  score=Math.max(0,score-500);
+  score=Math.max(0,(progress&&progress.checkpoint&&progress.checkpoint.level===currentLevel)?progress.checkpoint.score:score);
+  document.getElementById('gameover-panel').classList.add('hidden');
+  armedOptionIdx=null;
+  updateHUD();loadQuestion();
+}
+
+function restartLevel(){
+  levelIdx        = 0;
+  lives           = LIVES_MAX;
+  score           = levelStartScore;
+  isShooting      = false;
+  armedOptionIdx  = null;
   document.getElementById('gameover-panel').classList.add('hidden');
   updateHUD();loadQuestion();
 }
 
-function showVictory(){
-  playSound('levelup');triggerFlash();
-  document.getElementById('v-levels').textContent=`ALL ${totalLevels} LEVEL${totalLevels===1?'':'S'} CLEARED`;
-  document.getElementById('v-score').textContent='SCORE: '+score.toString().padStart(4,'0');
-  document.getElementById('victory-panel').classList.remove('hidden');
+function goToLevelSelectFromGame(){
+  document.getElementById('gameover-panel').classList.add('hidden');
+  document.getElementById('game-screen').classList.remove('active');
+  openLevelSelect();
 }
 
 function backToMenu(){
-  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel'].forEach(id=>{
+  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel'].forEach(id=>{
     document.getElementById(id).classList.add('hidden');
   });
   document.getElementById('game-screen').classList.remove('active');
+  document.getElementById('levelselect-screen').classList.add('hidden');
   document.getElementById('setup-screen').classList.remove('hidden');
   renderBanksList();
 }
