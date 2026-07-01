@@ -85,17 +85,38 @@
     width: 100%;
     padding: 0;
     position: relative;
+    display: block;
   }
-  .btn svg { width:100%; display:block; overflow:visible; }
+  .btn svg { 
+    width:100%; 
+    display:block; 
+    overflow:visible; 
+  }
   .btn .btn-text {
     pointer-events: none;
     position: absolute;
-    inset: 0; display: flex; align-items: center; justify-content: center;
+    inset: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 8px;
     font-family: var(--font-display);
     font-size: clamp(.65rem, 2vw, 1rem);
     font-weight: 700;
     letter-spacing: 4px;
     text-shadow: 0 0 12px currentColor;
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+  .btn .btn-text span {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .btn .btn-text svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
   }
   .btn:hover .btn-rect { stroke-width: 3; filter: drop-shadow(0 0 12px currentColor); }
   .btn:hover .btn-text { color: #fff; }
@@ -140,7 +161,6 @@
     pointer-events: none;
   }
 
-  /* ── LEVEL BADGE on HUD ── */
   #level-badge-wrap {
     position: fixed;
     top: 6px; left: 50%; transform: translateX(-50%);
@@ -307,7 +327,6 @@
   .panel-overlay.hidden { display: none; }
   .panel-svg-wrap { width: min(520px, 90vw); }
 
-  /* ── LEVEL INTRO OVERLAY ── */
   #level-intro {
     position: fixed; inset: 0;
     background: rgba(2,2,10,0.96);
@@ -321,7 +340,6 @@
   #level-intro.hidden { display: none; }
   @keyframes introFadeIn { from{opacity:0;transform:scale(1.04)} to{opacity:1;transform:scale(1)} }
 
-  /* ── LEVEL PROGRESS BAR (inside HUD area) ── */
   #level-progress-bar {
     position: fixed;
     top: 92px; left: 0; right: 0;
@@ -341,12 +359,8 @@
   @media (max-width: 480px) { #options-area { gap: 10px; padding: 8px 3vw; } }
   @media (max-height: 620px) { #options-area { top: 78px; } }
 
-  /* ── RESPONSIVENESS / TOUCH FEEL ── */
   .btn, .opt-wrap, .ls-tile, .bank-del { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-  .btn-text svg { flex-shrink: 0; }
-  .btn-text { gap: 8px; }
 
-  /* ── ARMED (locked-on) TARGET STATE — first tap arms, second tap fires ── */
   .opt-wrap.armed .opt-svg { filter: drop-shadow(0 0 22px var(--green)); }
   .opt-wrap.armed .opt-svg .ring { stroke: var(--green); }
   .opt-wrap.armed .opt-svg .core { fill: var(--green); }
@@ -381,7 +395,6 @@
     padding-bottom: 2px;
   }
 
-  /* ── LEVEL SELECT SCREEN ── */
   #levelselect-screen { gap: 16px; padding: 20px; }
   #ls-bank-name {
     font-family: 'Share Tech Mono', monospace;
@@ -411,15 +424,196 @@
   .ls-tile:not(.locked):active { transform: scale(.94); }
   #ls-back-wrap { width: min(320px, 90vw); }
 
-  /* ── CHECKPOINT CHOICE PANEL ── */
   #checkpoint-choice-panel .panel-svg-wrap { width: min(480px, 90vw); }
+
+  #pin-toggle-btn {
+    position: absolute;
+    top: -16px; right: 6px;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    z-index: 85;
+    pointer-events: all;
+    transition: transform .15s;
+  }
+  #pin-toggle-btn:active { transform: scale(.88); }
+  #pin-toggle-btn svg { width: 100%; height: 100%; overflow: visible; }
+  #pin-toggle-btn .pin-ring { stroke: rgba(0,255,255,0.4); fill: rgba(0,0,0,0.7); transition: stroke .2s; }
+  #pin-toggle-btn .pin-glyph { fill: rgba(0,255,255,0.55); transition: fill .2s; }
+  #pin-toggle-btn.pinned .pin-ring { stroke: var(--amber); filter: drop-shadow(0 0 6px var(--amber)); }
+  #pin-toggle-btn.pinned .pin-glyph { fill: var(--amber); }
+
+  #note-editor-panel .panel-svg-wrap { width: min(560px, 92vw); }
+  #ne-body {
+    width: min(560px, 92vw);
+    background: rgba(2,2,10,.97);
+    border: 2px solid var(--amber);
+    border-radius: 6px;
+    padding: 20px 22px 16px;
+    box-sizing: border-box;
+    box-shadow: 0 0 24px rgba(255,179,0,0.15);
+  }
+  #ne-header {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-shadow: 0 0 10px var(--amber);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  #ne-question-preview {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    color: whitesmoke;
+    line-height: 1.5;
+    background: rgba(255,179,0,0.06);
+    border-left: 3px solid var(--amber);
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    max-height: 90px;
+    overflow-y: auto;
+  }
+  #ne-answer-row {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  #ne-answer-row .correct { color: var(--green); }
+  #ne-answer-row .wrong { color: var(--red); text-decoration: line-through; opacity: .85; }
+  #ne-note-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: 2px;
+    color: rgba(0,255,255,0.5);
+    margin-bottom: 6px;
+  }
+  #ne-note-input {
+    width: 100%;
+    min-height: 70px;
+    resize: vertical;
+    background: rgba(0,0,0,0.6);
+    border: 1.5px solid rgba(0,255,255,0.3);
+    border-radius: 4px;
+    color: whitesmoke;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .82rem;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+  }
+  #ne-note-input:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 10px rgba(255,179,0,0.25); }
+  #ne-btn-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  #notes-screen { padding: 16px; gap: 14px; }
+  #notes-list-wrap {
+    width: min(760px, 96vw);
+    max-height: 68vh;
+    overflow-y: auto;
+    padding: 4px 4px 20px;
+    scrollbar-width: thin; scrollbar-color: var(--amber) transparent;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  #notes-list-wrap::-webkit-scrollbar { width: 5px; }
+  #notes-list-wrap::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+  .notes-bank-group { display: flex; flex-direction: column; gap: 10px; }
+  .notes-bank-header {
+    font-family: 'Orbitron', monospace;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--magenta);
+    text-shadow: 0 0 8px var(--magenta);
+    border-bottom: 1px solid rgba(255,0,255,0.25);
+    padding-bottom: 6px;
+  }
+  .note-card {
+    background: rgba(255,179,0,0.04);
+    border: 1.5px solid rgba(255,179,0,0.35);
+    border-radius: 5px;
+    padding: 12px 14px;
+    position: relative;
+  }
+  .note-card .nc-q {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .78rem;
+    color: whitesmoke;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    padding-right: 70px;
+  }
+  .note-card .nc-answers {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .5px;
+    display: flex; flex-direction: column; gap: 2px;
+    margin-bottom: 8px;
+  }
+  .note-card .nc-answers .correct { color: var(--green); }
+  .note-card .nc-answers .wrong { color: var(--red); }
+  .note-card .nc-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .74rem;
+    color: rgba(255,179,0,0.85);
+    background: rgba(0,0,0,0.4);
+    border-left: 2px solid var(--amber);
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .note-card .nc-meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .58rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+  .nc-actions {
+    position: absolute; top: 10px; right: 10px;
+    display: flex; gap: 6px;
+  }
+  .nc-icon-btn {
+    width: 28px; height: 28px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,255,255,0.3);
+    transition: border-color .15s, background .15s;
+  }
+  .nc-icon-btn:hover { border-color: var(--cyan); background: rgba(0,255,255,0.1); }
+  .nc-icon-btn.danger:hover { border-color: var(--red); background: rgba(255,0,60,0.12); }
+  .nc-icon-btn svg { width: 15px; height: 15px; }
+  #notes-empty {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .82rem;
+    letter-spacing: 2px;
+    color: rgba(255,179,0,0.4);
+    text-align: center;
+    padding: 40px 20px;
+  }
+  #notes-back-wrap { width: min(320px, 90vw); }
+
+  .count-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 20px; height: 20px; padding: 0 5px;
+    border-radius: 10px;
+    background: var(--amber);
+    color: #02020A;
+    font-family: 'Orbitron', monospace;
+    font-size: .62rem;
+    font-weight: 900;
+    margin-left: 6px;
+  }
 </style>
 </head>
 <body>
 
 <div id="flash"></div>
 
-<!-- ═══════════════════ SETUP SCREEN ═══════════════════ -->
+<!-- SETUP SCREEN -->
 <div id="setup-screen" class="screen">
   <div class="title-svg-wrap">
     <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
@@ -461,6 +655,20 @@
       <div class="btn-text" style="color:var(--magenta)">[ UPLOAD DATABANK ]</div>
     </div>
     <div id="banks-list"></div>
+    <div class="btn" onclick="openNotesScreen()" style="color:var(--amber)">
+      <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
+        <rect class="btn-rect" x="2" y="2" width="396" height="50" rx="3" fill="rgba(255,179,0,0.05)" stroke="currentColor" stroke-width="2"/>
+        <line x1="2" y1="2" x2="12" y2="2" stroke="currentColor" stroke-width="3"/>
+        <line x1="2" y1="2" x2="2" y2="12" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="388" y2="52" stroke="currentColor" stroke-width="3"/>
+        <line x1="398" y1="52" x2="398" y2="42" stroke="currentColor" stroke-width="3"/>
+      </svg>
+      <div class="btn-text" style="color:var(--amber)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>REVIEW NOTES</span>
+        <span id="notes-count-badge" class="count-badge" style="display:none">0</span>
+      </div>
+    </div>
     <div class="btn" onclick="useDefault()">
       <svg viewBox="0 0 400 54" xmlns="http://www.w3.org/2000/svg">
         <rect class="btn-rect" x="2" y="2" width="396" height="50" rx="3" fill="rgba(0,255,255,0.05)" stroke="currentColor" stroke-width="2"/>
@@ -474,7 +682,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ LEVEL SELECT SCREEN ═══════════════════ -->
+<!-- LEVEL SELECT SCREEN -->
 <div id="levelselect-screen" class="screen hidden">
   <svg viewBox="0 0 600 70" style="width:min(600px,95vw)" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -499,7 +707,36 @@
   </div>
 </div>
 
-<!-- ═══════════════════ GAME SCREEN ═══════════════════ -->
+<!-- NOTES BROWSER SCREEN -->
+<div id="notes-screen" class="screen hidden">
+  <svg viewBox="0 0 600 70" style="width:min(600px,95vw)" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="notes-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <text x="300" y="44" text-anchor="middle" font-family="'Orbitron',monospace" font-size="32" font-weight="900" fill="#FFB300" filter="url(#notes-glow)" letter-spacing="5">REVIEW NOTES</text>
+    <g stroke="#FFB300" stroke-width="2" fill="none" opacity=".6">
+      <path d="M8,8 L8,20 M8,8 L20,8"/><path d="M592,8 L592,20 M592,8 L580,8"/>
+      <path d="M8,62 L8,50 M8,62 L20,62"/><path d="M592,62 L592,50 M592,62 L580,62"/>
+    </g>
+  </svg>
+  <div id="notes-list-wrap">
+    <div id="notes-empty" style="display:none">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;margin-bottom:10px"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div>NO PINNED TARGETS YET — MISS A QUESTION OR TAP THE PIN ICON IN-GAME TO SAVE IT HERE</div>
+    </div>
+  </div>
+  <div id="notes-back-wrap" class="btn" onclick="closeNotesScreen()" style="color:rgba(255,179,0,0.6)">
+    <svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg">
+      <rect class="btn-rect" x="2" y="2" width="316" height="42" rx="3" fill="rgba(255,179,0,0.05)" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+    <div class="btn-text" style="color:rgba(255,179,0,0.7);font-size:.65rem">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>BACK</span>
+    </div>
+  </div>
+</div>
+
+<!-- GAME SCREEN -->
 <div id="game-screen">
 
   <svg id="bg-svg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -655,6 +892,12 @@
   <div id="question-area" style="z-index:80">
     <div id="targeting-hint">◂ TAP A TARGET TO LOCK ON · TAP AGAIN TO FIRE ▸</div>
     <div id="q-box-wrap">
+      <div id="pin-toggle-btn" onclick="onPinToggleClick()" title="Pin this question for review">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle class="pin-ring" cx="20" cy="20" r="18" stroke-width="2"/>
+          <path class="pin-glyph" d="M20 10c-3.3 0-6 2.7-6 6 0 4.3 6 12.5 6 12.5s6-8.2 6-12.5c0-3.3-2.7-6-6-6zm0 8.3a2.3 2.3 0 110-4.6 2.3 2.3 0 010 4.6z"/>
+        </svg>
+      </div>
       <div id="q-box">
         <div id="q-text">AWAITING DATABANK...</div>
       </div>
@@ -678,7 +921,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ LEVEL INTRO SCREEN ═══════════════════ -->
+<!-- LEVEL INTRO SCREEN -->
 <div id="level-intro" class="hidden">
   <svg id="li-svg" viewBox="0 0 520 320" style="width:min(520px,92vw)" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -689,31 +932,22 @@
         <stop offset="100%" stop-color="#00FFFF"/>
       </linearGradient>
     </defs>
-    <!-- border -->
     <rect x="2" y="2" width="516" height="316" rx="6" fill="rgba(2,2,10,.97)" stroke="url(#li-grad)" stroke-width="2.5"/>
-    <!-- corners -->
     <g stroke="#FF00FF" stroke-width="2.5" fill="none">
       <path d="M14,14 L14,32 M14,14 L32,14"/>
       <path d="M506,14 L506,32 M506,14 L488,14"/>
       <path d="M14,306 L14,288 M14,306 L32,306"/>
       <path d="M506,306 L506,288 M506,306 L488,306"/>
     </g>
-    <!-- LEVEL label -->
     <text x="260" y="88" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(0,255,255,0.5)" letter-spacing="8">INITIALIZING</text>
-    <!-- Big level number -->
     <text id="li-number" x="260" y="190" text-anchor="middle" font-family="'Orbitron',monospace" font-size="86" font-weight="900" fill="url(#li-grad)" filter="url(#li-glow)" letter-spacing="4">LVL 1</text>
-    <!-- questions count -->
     <text id="li-qcount" x="260" y="236" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,0,255,0.7)" letter-spacing="3">40 TARGETS TO DESTROY</text>
-    <!-- divider -->
     <line x1="60" y1="258" x2="460" y2="258" stroke="rgba(0,255,255,0.2)" stroke-width="1"/>
-    <!-- tip -->
     <text id="li-tip" x="260" y="285" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="11" fill="rgba(255,255,255,0.35)" letter-spacing="1"></text>
-    <!-- scan line -->
     <rect x="2" y="2" width="516" height="3" fill="url(#li-grad)" opacity=".5">
       <animate attributeName="y" values="2;318;2" dur="2.2s" repeatCount="indefinite"/>
     </rect>
   </svg>
-  <!-- countdown -->
   <div id="li-countdown" style="font-family:'Orbitron',monospace;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;color:#FF00FF;letter-spacing:8px;text-shadow:0 0 24px #FF00FF;margin-top:4px;"></div>
   <div class="btn" id="li-skip-btn" onclick="skipIntro()" style="width:220px;color:rgba(0,255,255,0.4);margin-top:8px">
     <svg viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg">
@@ -723,7 +957,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ LEVEL COMPLETE PANEL ═══════════════════ -->
+<!-- LEVEL COMPLETE PANEL -->
 <div id="levelcomplete-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap" style="width:min(560px,92vw)">
     <svg viewBox="0 0 520 290" xmlns="http://www.w3.org/2000/svg">
@@ -742,24 +976,17 @@
         <path d="M14,276 L14,260 M14,276 L30,276"/>
         <path d="M506,276 L506,260 M506,276 L490,276"/>
       </g>
-      <!-- CLEARED! text -->
       <text x="260" y="72" text-anchor="middle" font-family="'Orbitron',monospace" font-size="46" font-weight="900" fill="url(#lc-grad)" filter="url(#lc-glow)" letter-spacing="6">CLEARED!</text>
-      <!-- animated star burst -->
       <g id="lc-stars" opacity=".7">
         <line x1="260" y1="88" x2="260" y2="102" stroke="#FFB300" stroke-width="2"><animate attributeName="opacity" values="1;0;1" dur=".6s" repeatCount="indefinite"/></line>
         <line x1="240" y1="92" x2="232" y2="104" stroke="#FF00FF" stroke-width="2"><animate attributeName="opacity" values="0;1;0" dur=".6s" repeatCount="indefinite"/></line>
         <line x1="280" y1="92" x2="288" y2="104" stroke="#00FFFF" stroke-width="2"><animate attributeName="opacity" values="0;1;0" dur=".6s" repeatCount="indefinite" begin=".3s"/></line>
       </g>
       <line x1="40" y1="115" x2="480" y2="115" stroke="rgba(0,255,255,0.18)" stroke-width="1"/>
-      <!-- level cleared label -->
       <text id="lc-level-txt" x="260" y="152" text-anchor="middle" font-family="'Orbitron',monospace" font-size="16" font-weight="700" fill="#00FFFF" letter-spacing="5">LEVEL 1 COMPLETE</text>
-      <!-- score -->
       <text id="lc-score" x="260" y="188" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="14" fill="rgba(255,255,255,0.7)" letter-spacing="3">SCORE: 0000</text>
-      <!-- bonus -->
       <text id="lc-bonus" x="260" y="218" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="13" fill="rgba(0,255,136,0.8)" letter-spacing="2"></text>
-      <!-- next level preview -->
       <text id="lc-next-preview" x="260" y="252" text-anchor="middle" font-family="'Orbitron',monospace" font-size="12" fill="rgba(255,0,255,0.6)" letter-spacing="4">▸ LEVEL 2 AWAITS</text>
-      <!-- scan line -->
       <rect x="2" y="2" width="516" height="3" fill="url(#lc-grad)" opacity=".5">
         <animate attributeName="y" values="2;288;2" dur="2s" repeatCount="indefinite"/>
       </rect>
@@ -775,7 +1002,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ CHECKPOINT PANEL ═══════════════════ -->
+<!-- CHECKPOINT PANEL -->
 <div id="checkpoint-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
@@ -798,7 +1025,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ EXTRA LIFE PANEL ═══════════════════ -->
+<!-- EXTRA LIFE PANEL -->
 <div id="extralife-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
@@ -823,7 +1050,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ CHECKPOINT CHOICE PANEL ═══════════════════ -->
+<!-- CHECKPOINT CHOICE PANEL -->
 <div id="checkpoint-choice-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
@@ -861,7 +1088,40 @@
   </div>
 </div>
 
-<!-- ═══════════════════ GAME OVER PANEL ═══════════════════ -->
+<!-- NOTE EDITOR PANEL -->
+<div id="note-editor-panel" class="panel-overlay hidden">
+  <div id="ne-body">
+    <div id="ne-header">PIN FOR REVIEW?</div>
+    <div id="ne-question-preview"></div>
+    <div id="ne-answer-row"></div>
+    <div id="ne-note-label">YOUR NOTE (OPTIONAL)</div>
+    <textarea id="ne-note-input" placeholder="e.g. mixed up the two similar options — review this concept..."></textarea>
+    <div id="ne-btn-row">
+      <div class="btn" id="ne-pin-btn" onclick="saveNoteFromEditor()" style="width:170px;color:var(--amber)">
+        <svg viewBox="0 0 170 48" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="44" rx="3" fill="rgba(255,179,0,0.1)" stroke="currentColor" stroke-width="2"/></svg>
+        <div class="btn-text" id="ne-pin-btn-text" style="color:var(--amber);font-size:.6rem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>PIN QUESTION</span>
+        </div>
+      </div>
+      <div id="ne-unpin-btn" class="btn" onclick="unpinFromEditor()" style="width:170px;color:var(--red);display:none">
+        <svg viewBox="0 0 170 48" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="44" rx="3" fill="rgba(255,0,60,0.08)" stroke="currentColor" stroke-width="2"/></svg>
+        <div class="btn-text" style="color:var(--red);font-size:.6rem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6M10 11v6M14 11v6"/></svg>
+          <span>UNPIN</span>
+        </div>
+      </div>
+      <div class="btn" id="ne-skip-btn" onclick="skipNoteEditor()" style="width:170px;color:rgba(0,255,255,0.55)">
+        <svg viewBox="0 0 170 48" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="2" y="2" width="166" height="44" rx="3" fill="rgba(0,255,255,0.05)" stroke="currentColor" stroke-width="2"/></svg>
+        <div class="btn-text" id="ne-skip-btn-text" style="color:rgba(0,255,255,0.6);font-size:.6rem">
+          <span>NOT NOW</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAME OVER PANEL -->
 <div id="gameover-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 270" xmlns="http://www.w3.org/2000/svg">
@@ -925,7 +1185,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════ VICTORY PANEL ═══════════════════ -->
+<!-- VICTORY PANEL -->
 <div id="victory-panel" class="panel-overlay hidden">
   <div class="panel-svg-wrap">
     <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
@@ -942,7 +1202,6 @@
         <path d="M12,12 L12,28 M12,12 L28,12"/><path d="M508,12 L508,28 M508,12 L492,12"/>
         <path d="M12,248 L12,232 M12,248 L28,248"/><path d="M508,248 L508,232 M508,248 L492,248"/>
       </g>
-      <!-- Trophy -->
       <path d="M220,100 C220,70 240,55 260,55 C280,55 300,70 300,100 C300,122 286,138 270,142 L270,160 L290,160 L290,172 L230,172 L230,160 L250,160 L250,142 C234,138 220,122 220,100 Z" fill="none" stroke="url(#v-grad)" stroke-width="2.5" filter="url(#v-glow)"/>
       <line x1="220" y1="100" x2="200" y2="100" stroke="url(#v-grad)" stroke-width="2.5"/>
       <line x1="300" y1="100" x2="320" y2="100" stroke="url(#v-grad)" stroke-width="2.5"/>
@@ -988,6 +1247,16 @@ let progress         = null; // persisted progress for the current bank {maxLeve
 let pendingLevel      = null; // level awaiting a continue/restart decision
 let armedOptionIdx   = null; // index of the currently "locked on" target (first-tap-armed)
 const LS_PROGRESS_PREFIX = 'arcade_progress_';
+const LS_NOTES_PREFIX    = 'arcade_notes_';
+
+// ─────────────────────────────────────────────
+//  NOTES / PIN STATE
+// ─────────────────────────────────────────────
+let notesStore        = {};   // notes for currentBankKey, keyed by "level_idx"
+let neMode             = 'manual'; // 'manual' (toggle/edit anytime) or 'suggest' (post-wrong-answer prompt)
+let neTarget            = null; // {level, idx, question, options, answer, userAnswer}
+let neOnDone           = null; // callback invoked after the editor is dismissed (pin, unpin, or skip)
+let neEditingExternalBank = null; // set when editing from the Notes Browser (may differ from currentBankKey)
 
 // ─────────────────────────────────────────────
 //  AUDIO ENGINE
@@ -1110,7 +1379,6 @@ function playSound(type) {
   else if(type==='powerup'){osc.type='sine';osc.frequency.setValueAtTime(400,t);osc.frequency.linearRampToValueAtTime(800,t+.3);gain.gain.setValueAtTime(.3,t);gain.gain.exponentialRampToValueAtTime(.01,t+.5);osc.start(t);osc.stop(t+.5);}
   else if(type==='checkpoint'){osc.type='triangle';osc.frequency.setValueAtTime(300,t);osc.frequency.linearRampToValueAtTime(600,t+.2);osc.frequency.linearRampToValueAtTime(450,t+.4);gain.gain.setValueAtTime(.25,t);gain.gain.exponentialRampToValueAtTime(.01,t+.4);osc.start(t);osc.stop(t+.4);}
   else if(type==='levelup'){
-    // Triumphant jingle for level complete
     const notes=[523,659,784,1047];
     notes.forEach((freq,i)=>{
       const o=audioCtx.createOscillator(),g=audioCtx.createGain();
@@ -1146,6 +1414,56 @@ function clearProgress(bankKey){
 }
 
 // ─────────────────────────────────────────────
+//  LOCAL STORAGE — NOTES (pinned questions, per databank)
+// ─────────────────────────────────────────────
+function noteId(level, idx){ return level+'_'+idx; }
+
+function getNotesStore(bankKey){
+  try{
+    const raw=localStorage.getItem(LS_NOTES_PREFIX+bankKey);
+    if(!raw) return {};
+    const parsed=JSON.parse(raw);
+    return (parsed && typeof parsed==='object') ? parsed : {};
+  }catch(e){ return {}; }
+}
+function saveNotesStoreFor(bankKey, storeObj){
+  try{
+    if(Object.keys(storeObj).length===0){ localStorage.removeItem(LS_NOTES_PREFIX+bankKey); }
+    else{ localStorage.setItem(LS_NOTES_PREFIX+bankKey, JSON.stringify(storeObj)); }
+  }catch(e){}
+}
+function saveNotesStore(){ saveNotesStoreFor(currentBankKey, notesStore); }
+
+function loadNotesForCurrentBank(){
+  notesStore = currentBankKey ? getNotesStore(currentBankKey) : {};
+}
+
+function isQuestionPinned(level, idx){
+  return !!(notesStore && notesStore[noteId(level,idx)]);
+}
+
+function allNoteBankKeys(){
+  const keys=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k && k.startsWith(LS_NOTES_PREFIX)) keys.push(k.slice(LS_NOTES_PREFIX.length));
+  }
+  return keys;
+}
+function totalPinnedCount(){
+  let total=0;
+  allNoteBankKeys().forEach(bk=>{ total += Object.keys(getNotesStore(bk)).length; });
+  return total;
+}
+function updateNotesCountBadge(){
+  const badge=document.getElementById('notes-count-badge');
+  if(!badge) return;
+  const total=totalPinnedCount();
+  if(total>0){ badge.style.display='inline-flex'; badge.textContent=total>99?'99+':String(total); }
+  else{ badge.style.display='none'; }
+}
+
+// ─────────────────────────────────────────────
 //  LOCAL STORAGE — BANKS
 // ─────────────────────────────────────────────
 function saveBank(name, data) {
@@ -1175,7 +1493,7 @@ function renderBanksList() {
     btn.innerHTML=`<svg viewBox="0 0 320 46" xmlns="http://www.w3.org/2000/svg"><rect class="btn-rect" x="1" y="1" width="318" height="44" rx="3" fill="rgba(0,255,136,0.05)" stroke="currentColor" stroke-width="1.5"/></svg>
       <div class="btn-text" style="color:var(--green);font-size:.7rem;letter-spacing:2px">${bank.name.substring(0,22)} <span style="opacity:.5">[${bank.data.length}Q · ${lvls}LVL]</span></div>`;
     const del=document.createElement('button');del.className='bank-del';del.textContent='✕';
-    del.onclick=(e)=>{e.stopPropagation();if(confirm(`Delete "${bank.name}"?`)){deleteBank(bank.name);clearProgress(bank.name);}};
+    del.onclick=(e)=>{e.stopPropagation();if(confirm(`Delete "${bank.name}"?`)){deleteBank(bank.name);clearProgress(bank.name);saveNotesStoreFor(bank.name,{});updateNotesCountBadge();}};
     wrap.appendChild(btn);wrap.appendChild(del);list.appendChild(wrap);
   });
 }
@@ -1267,11 +1585,12 @@ function openLevelSelect(){
   if(!questions.length) return;
   progress     = getProgress(currentBankKey);
   totalLevels  = Math.ceil(questions.length/QUESTIONS_PER_LEVEL);
+  loadNotesForCurrentBank();
   renderLevelSelect();
   document.getElementById('setup-screen').classList.add('hidden');
   document.getElementById('levelselect-screen').classList.remove('hidden');
   document.getElementById('game-screen').classList.remove('active');
-  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel'].forEach(id=>{
+  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel','note-editor-panel'].forEach(id=>{
     document.getElementById(id).classList.add('hidden');
   });
 }
@@ -1284,27 +1603,33 @@ function renderLevelSelect(){
     const locked    = lv>progress.maxLevelUnlocked;
     const cleared    = lv<progress.maxLevelUnlocked;
     const hasCheckpoint = !!(progress.checkpoint && progress.checkpoint.level===lv);
+    const pinCount = countPinnedInLevel(lv);
     const tile=document.createElement('div');
     tile.className='ls-tile'+(locked?' locked':'');
-    tile.innerHTML=buildLevelTileSVG(lv, locked, cleared, hasCheckpoint);
+    tile.innerHTML=buildLevelTileSVG(lv, locked, cleared, hasCheckpoint, pinCount);
     if(!locked) tile.onclick=()=>selectLevel(lv, hasCheckpoint);
     grid.appendChild(tile);
   }
 }
 
-function buildLevelTileSVG(lv, locked, cleared, hasCheckpoint){
+function countPinnedInLevel(lv){
+  if(!notesStore) return 0;
+  let n=0;
+  Object.keys(notesStore).forEach(k=>{ if(k.split('_')[0]===String(lv)) n++; });
+  return n;
+}
+
+function buildLevelTileSVG(lv, locked, cleared, hasCheckpoint, pinCount){
   const strokeColor = locked? 'rgba(0,255,255,0.18)' : (cleared? '#00FF88' : '#00FFFF');
   const fillColor   = locked? 'rgba(0,0,0,0.4)' : (cleared? 'rgba(0,255,136,0.07)' : 'rgba(0,255,255,0.05)');
   const numColor    = locked? 'rgba(0,255,255,0.25)' : (cleared? '#00FF88' : '#00FFFF');
   let badge='';
   if(locked){
-    // padlock icon
     badge=`<g transform="translate(50,50)" stroke="rgba(0,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <rect x="-14" y="-2" width="28" height="22" rx="3"/>
       <path d="M-9,-2 V-12 a9,9 0 0 1 18,0 V-2"/>
     </g>`;
   } else if(cleared){
-    // checkmark badge top-right
     badge=`<g transform="translate(78,22)">
       <circle r="13" fill="#00FF88" opacity=".9"/>
       <path d="M-6,0 L-1,5 L7,-6" stroke="#02020A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1317,6 +1642,14 @@ function buildLevelTileSVG(lv, locked, cleared, hasCheckpoint){
       <polygon points="0,-6 6,-2 6,7 0,4 -6,7 -6,-2" fill="#02020A"/>
     </g>`;
   }
+  let pinBadge='';
+  if(pinCount>0 && !locked){
+    pinBadge=`<g transform="translate(78,78)">
+      <circle r="12" fill="#FFB300" opacity=".95"/>
+      <path d="M0,-5.5c-2.2,0-4,1.8-4,4c0,2.9,4,7.5,4,7.5s4-4.6,4-7.5c0-2.2-1.8-4-4-4z" fill="#02020A" transform="scale(0.9) translate(0,-1)"/>
+      ${pinCount>1?`<text x="0" y="17" text-anchor="middle" font-family="'Orbitron',monospace" font-size="8" font-weight="900" fill="#FFB300">${pinCount}</text>`:''}
+    </g>`;
+  }
   return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <defs><filter id="ls-glow-${lv}"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     <rect x="6" y="6" width="88" height="88" rx="6" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"${locked?'':' filter="url(#ls-glow-'+lv+')"'}/>
@@ -1327,6 +1660,7 @@ function buildLevelTileSVG(lv, locked, cleared, hasCheckpoint){
     ${locked? badge : `<text x="50" y="62" text-anchor="middle" font-family="'Orbitron',monospace" font-size="30" font-weight="900" fill="${numColor}">${lv}</text>`}
     ${badge && !locked? badge: ''}
     ${cpBadge}
+    ${pinBadge}
   </svg>`;
 }
 
@@ -1403,8 +1737,6 @@ function actuallyStartLevel() {
   isShooting      = false;
   levelStartScore = score;
   armedOptionIdx  = null;
-  // restore an existing persisted checkpoint reference for this level (doesn't move the player,
-  // just keeps the "continue from checkpoint" fallback available if they die again)
   if(progress && progress.checkpoint && progress.checkpoint.level===currentLevel){
     checkpointIdx   = progress.checkpoint.idx;
     checkpointSaved = true;
@@ -1418,7 +1750,6 @@ function actuallyStartLevel() {
 }
 
 function startNextLevel() {
-  // Shield bonus: restore 1 life for clearing the level
   if(lives<LIVES_MAX){lives=Math.min(LIVES_MAX,lives+1);}
   currentLevel++;
   document.getElementById('levelcomplete-panel').classList.add('hidden');
@@ -1430,16 +1761,13 @@ function updateHUD() {
   document.getElementById('hud-level').textContent=`LEVEL ${currentLevel} / ${totalLevels}`;
   document.getElementById('hud-q').textContent=`Q ${levelIdx+1} / ${levelQuestions.length}`;
 
-  // mini progress bar in HUD SVG
   const pct = levelQuestions.length>0 ? (levelIdx/levelQuestions.length) : 0;
   const bar = document.getElementById('hud-lvl-bar');
   if(bar) bar.setAttribute('width', String(Math.round(pct*300)));
 
-  // bottom progress bar
   const fill=document.getElementById('level-progress-fill');
   if(fill) fill.style.width=(pct*100)+'%';
 
-  // lives hearts
   const g=document.getElementById('hud-lives-group');
   g.innerHTML='';
   for(let i=0;i<LIVES_MAX;i++){
@@ -1478,9 +1806,224 @@ function checkMilestones() {
 
 function dismissPanel(id){document.getElementById(id).classList.add('hidden');}
 
+// ─────────────────────────────────────────────
+//  NOTES / PIN — helpers
+// ─────────────────────────────────────────────
+function escapeHtml(str){
+  const div=document.createElement('div');
+  div.textContent = str==null ? '' : String(str);
+  return div.innerHTML;
+}
+
+function updatePinToggleUI(){
+  const btn=document.getElementById('pin-toggle-btn');
+  if(!btn) return;
+  const pinned=isQuestionPinned(currentLevel, levelIdx);
+  btn.classList.toggle('pinned', pinned);
+  btn.title = pinned ? 'Pinned — tap to view or edit your note' : 'Pin this question for review';
+}
+
+function onPinToggleClick(){
+  if(!levelQuestions.length || levelIdx>=levelQuestions.length) return;
+  const q=levelQuestions[levelIdx];
+  openNoteEditor('manual', {
+    level: currentLevel, idx: levelIdx,
+    question: q.question, options: q.options.slice(), answer: q.answer,
+    userAnswer: null
+  }, null);
+}
+
+// ─────────────────────────────────────────────
+//  NOTE EDITOR PANEL
+// ─────────────────────────────────────────────
+function openNoteEditor(mode, target, onDone, bankKeyOverride){
+  neMode = mode;
+  neTarget = target;
+  neOnDone = onDone || null;
+  neEditingExternalBank = bankKeyOverride || null;
+
+  const store   = bankKeyOverride ? getNotesStore(bankKeyOverride) : notesStore;
+  const existing = store[noteId(target.level, target.idx)];
+
+  document.getElementById('ne-header').textContent =
+    mode==='suggest' ? 'PIN FOR REVIEW?' : (existing ? 'EDIT NOTE' : 'PIN THIS QUESTION');
+  document.getElementById('ne-question-preview').textContent = target.question;
+
+  const missedAnswer = (target.userAnswer && target.userAnswer!==target.answer)
+    ? target.userAnswer
+    : (existing && existing.userAnswer && existing.userAnswer!==target.answer ? existing.userAnswer : null);
+  let answerHtml = `<div class="correct">✓ CORRECT: ${escapeHtml(target.answer)}</div>`;
+  if(missedAnswer) answerHtml += `<div class="wrong">✗ YOUR PICK: ${escapeHtml(missedAnswer)}</div>`;
+  document.getElementById('ne-answer-row').innerHTML = answerHtml;
+
+  document.getElementById('ne-note-input').value = existing ? (existing.note||'') : '';
+
+  const unpinBtn = document.getElementById('ne-unpin-btn');
+  const pinLabel = document.querySelector('#ne-pin-btn-text span:last-child');
+  const skipTextEl = document.getElementById('ne-skip-btn-text');
+
+  if(mode==='suggest'){
+    unpinBtn.style.display='none';
+    pinLabel.textContent='PIN QUESTION';
+    skipTextEl.innerHTML='<span>NOT NOW</span>';
+  } else {
+    unpinBtn.style.display = existing ? '' : 'none';
+    pinLabel.textContent = existing ? 'SAVE NOTE' : 'PIN QUESTION';
+    skipTextEl.innerHTML='<span>CANCEL</span>';
+  }
+
+  document.getElementById('note-editor-panel').classList.remove('hidden');
+  setTimeout(()=>{ try{ document.getElementById('ne-note-input').focus(); }catch(e){} }, 50);
+}
+
+function saveNoteFromEditor(){
+  if(!neTarget) return;
+  const store = neEditingExternalBank ? getNotesStore(neEditingExternalBank) : notesStore;
+  const id = noteId(neTarget.level, neTarget.idx);
+  const existing = store[id];
+  const noteText = document.getElementById('ne-note-input').value.trim();
+
+  store[id] = {
+    level: neTarget.level,
+    idx: neTarget.idx,
+    question: neTarget.question,
+    options: neTarget.options,
+    answer: neTarget.answer,
+    userAnswer: neTarget.userAnswer || (existing ? existing.userAnswer : null),
+    note: noteText,
+    pinnedAt: existing ? existing.pinnedAt : Date.now(),
+    missCount: (existing ? (existing.missCount||0) : 0) + (neMode==='suggest' ? 1 : 0)
+  };
+
+  if(neEditingExternalBank){
+    saveNotesStoreFor(neEditingExternalBank, store);
+  } else {
+    notesStore = store;
+    saveNotesStore();
+  }
+  updateNotesCountBadge();
+  updatePinToggleUI();
+  finishNoteEditor();
+}
+
+function unpinFromEditor(){
+  if(!neTarget) return;
+  const store = neEditingExternalBank ? getNotesStore(neEditingExternalBank) : notesStore;
+  const id = noteId(neTarget.level, neTarget.idx);
+  delete store[id];
+
+  if(neEditingExternalBank){
+    saveNotesStoreFor(neEditingExternalBank, store);
+  } else {
+    notesStore = store;
+    saveNotesStore();
+  }
+  updateNotesCountBadge();
+  updatePinToggleUI();
+  finishNoteEditor();
+}
+
+function skipNoteEditor(){
+  finishNoteEditor();
+}
+
+function finishNoteEditor(){
+  document.getElementById('note-editor-panel').classList.add('hidden');
+  const cb = neOnDone;
+  neTarget=null; neOnDone=null; neEditingExternalBank=null;
+  if(cb) cb();
+}
+
+// ─────────────────────────────────────────────
+//  NOTES BROWSER SCREEN
+// ─────────────────────────────────────────────
+function openNotesScreen(){
+  renderNotesScreen();
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('notes-screen').classList.remove('hidden');
+}
+function closeNotesScreen(){
+  document.getElementById('notes-screen').classList.add('hidden');
+  document.getElementById('setup-screen').classList.remove('hidden');
+  renderBanksList();
+  updateNotesCountBadge();
+}
+
+function renderNotesScreen(){
+  const wrap=document.getElementById('notes-list-wrap');
+  const emptyEl=document.getElementById('notes-empty');
+  Array.from(wrap.querySelectorAll('.notes-bank-group')).forEach(n=>n.remove());
+
+  const bankKeys=allNoteBankKeys();
+  let totalCount=0;
+
+  bankKeys.forEach(bk=>{
+    const store=getNotesStore(bk);
+    const entries=Object.keys(store).map(id=>Object.assign({id}, store[id]));
+    if(!entries.length) return;
+    entries.sort((a,b)=> (a.level-b.level) || (a.idx-b.idx));
+    totalCount += entries.length;
+
+    const group=document.createElement('div');
+    group.className='notes-bank-group';
+    const header=document.createElement('div');
+    header.className='notes-bank-header';
+    header.textContent=`${bk} · ${entries.length} PINNED`;
+    group.appendChild(header);
+
+    entries.forEach(entry=>{
+      const card=document.createElement('div');
+      card.className='note-card';
+      const wrongLine=(entry.userAnswer && entry.userAnswer!==entry.answer)
+        ? `<div class="wrong">✗ MISSED: ${escapeHtml(entry.userAnswer)}</div>` : '';
+      card.innerHTML=`
+        <div class="nc-actions">
+          <div class="nc-icon-btn" data-act="edit" title="Edit note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00FFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="nc-icon-btn danger" data-act="unpin" title="Unpin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF003C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6M10 11v6M14 11v6"/></svg>
+          </div>
+        </div>
+        <div class="nc-q">${escapeHtml(entry.question)}</div>
+        <div class="nc-answers">
+          <div class="correct">✓ ${escapeHtml(entry.answer)}</div>
+          ${wrongLine}
+        </div>
+        ${entry.note ? `<div class="nc-note">${escapeHtml(entry.note)}</div>` : ''}
+        <div class="nc-meta">LEVEL ${entry.level} · TARGET ${entry.idx+1}${entry.missCount?(' · MISSED '+entry.missCount+'×'):''}</div>
+      `;
+      card.querySelector('[data-act="edit"]').onclick=()=>editNoteFromBrowser(bk, entry);
+      card.querySelector('[data-act="unpin"]').onclick=()=>unpinFromBrowser(bk, entry.id);
+      group.appendChild(card);
+    });
+
+    wrap.appendChild(group);
+  });
+
+  emptyEl.style.display = totalCount===0 ? 'block' : 'none';
+  updateNotesCountBadge();
+}
+
+function editNoteFromBrowser(bankKey, entry){
+  openNoteEditor('manual', {
+    level: entry.level, idx: entry.idx,
+    question: entry.question, options: entry.options, answer: entry.answer,
+    userAnswer: entry.userAnswer
+  }, ()=>{ renderNotesScreen(); }, bankKey);
+}
+
+function unpinFromBrowser(bankKey, id){
+  if(!confirm('Remove this pinned question from your notes?')) return;
+  const store=getNotesStore(bankKey);
+  delete store[id];
+  saveNotesStoreFor(bankKey, store);
+  if(bankKey===currentBankKey){ notesStore=store; updatePinToggleUI(); }
+  renderNotesScreen();
+}
+
 function loadQuestion() {
   if(levelIdx>=levelQuestions.length){
-    // Level cleared!
     if(currentLevel>=totalLevels){ showVictory(); }
     else { showLevelComplete(); }
     return;
@@ -1495,10 +2038,11 @@ function loadQuestion() {
 
   const q=levelQuestions[levelIdx];
   setQText(q.question);
+  updatePinToggleUI();
 
   const area=document.getElementById('options-area');
   area.innerHTML='';
-  q.options.forEach((opt,i)=>{
+  q.options.sort(()=>Math.random() - 0.5).forEach((opt,i)=>{
     const wrap=document.createElement('div');
     wrap.className='opt-wrap';
     wrap.style.animationDelay=`${i*0.13}s`;
@@ -1529,21 +2073,19 @@ function loadQuestion() {
     hint.textContent='◂ TAP AGAIN TO FIRE ▸';
     wrap.appendChild(hint);
     wrap.dataset.idx=i;
-    wrap.onclick=()=>handleOptionTap(wrap,i,opt===q.answer);
+    wrap.onclick=()=>handleOptionTap(wrap,i,opt===q.answer,opt);
     area.appendChild(wrap);
   });
   updateHUD();
 }
 
-function handleOptionTap(wrap, idx, isCorrect){
+function handleOptionTap(wrap, idx, isCorrect, optText){
   if(isShooting) return;
   const area=document.getElementById('options-area');
   if(armedOptionIdx===idx){
-    // second tap on the same target — FIRE
     armedOptionIdx=null;
-    shoot(wrap,isCorrect);
+    shoot(wrap,isCorrect,optText);
   } else {
-    // first tap (or a different target) — LOCK ON, show full text, don't fire yet
     armedOptionIdx=idx;
     Array.from(area.children).forEach(c=>c.classList.remove('armed'));
     wrap.classList.add('armed');
@@ -1570,7 +2112,7 @@ function setQText(txt){
 // ─────────────────────────────────────────────
 //  SHOOT
 // ─────────────────────────────────────────────
-function shoot(targetEl,isCorrect){
+function shoot(targetEl,isCorrect,chosenText){
   if(isShooting) return;
   isShooting=true;initAudio();playSound('shoot');
   const bg=document.getElementById('bomb-g');
@@ -1596,18 +2138,49 @@ function shoot(targetEl,isCorrect){
       score+=1000;targetEl.style.visibility='hidden';
       setQText('▸ TARGET OBLITERATED');
       document.getElementById('next-btn-wrap').style.display='block';
+      updateHUD();
     }else{
       playSound('miss');lives=Math.max(0,lives-1);
       document.getElementById('game-screen').classList.add('shaking');
       setTimeout(()=>document.getElementById('game-screen').classList.remove('shaking'),460);
-      if(lives<=0){setTimeout(showGameOver,600);}
-      else{setQText('⚠ INTEGRITY COMPROMISED — SHIELDS: '+lives+' REMAINING');setTimeout(loadQuestion,1800);}
+      const fatal = lives<=0;
+      const q = levelQuestions[levelIdx];
+      setQText(fatal ? '⚠ SHIELDS DEPLETED — TARGET LOGGED' : '⚠ INTEGRITY COMPROMISED — SHIELDS: '+lives+' REMAINING');
+      updateHUD();
+      setTimeout(()=>{ triggerWrongAnswerFlow(q, chosenText, fatal); }, 900);
     }
-    updateHUD();
   },310);
 }
 
 function nextQuestion(){levelIdx++;loadQuestion();}
+
+// ─────────────────────────────────────────────
+//  WRONG-ANSWER → PIN SUGGESTION
+// ─────────────────────────────────────────────
+function triggerWrongAnswerFlow(q, chosenText, fatal){
+  const alreadyPinned = isQuestionPinned(currentLevel, levelIdx);
+  if(alreadyPinned){
+    const id = noteId(currentLevel, levelIdx);
+    const entry = notesStore[id];
+    if(entry){
+      entry.missCount = (entry.missCount||0)+1;
+      entry.userAnswer = chosenText;
+      saveNotesStore();
+    }
+    proceedAfterWrongAnswer(fatal);
+    return;
+  }
+  openNoteEditor('suggest', {
+    level: currentLevel, idx: levelIdx,
+    question: q.question, options: q.options.slice(), answer: q.answer,
+    userAnswer: chosenText
+  }, ()=>proceedAfterWrongAnswer(fatal));
+}
+
+function proceedAfterWrongAnswer(fatal){
+  if(fatal) showGameOver();
+  else loadQuestion();
+}
 
 // ─────────────────────────────────────────────
 //  LEVEL COMPLETE
@@ -1618,7 +2191,6 @@ function showLevelComplete() {
   document.getElementById('lc-level-txt').textContent=`LEVEL ${currentLevel} COMPLETE`;
   document.getElementById('lc-score').textContent=`SCORE: ${score.toString().padStart(4,'0')}`;
 
-  // Bonus message
   let bonus='';
   if(lives===LIVES_MAX) bonus='PERFECT SHIELDS — BONUS +500 PTS';
   else if(lives>0) bonus='SHIELDS BONUS — +250 PTS';
@@ -1699,13 +2271,15 @@ function goToLevelSelectFromGame(){
 }
 
 function backToMenu(){
-  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel'].forEach(id=>{
+  ['gameover-panel','victory-panel','levelcomplete-panel','checkpoint-panel','extralife-panel','checkpoint-choice-panel','note-editor-panel'].forEach(id=>{
     document.getElementById(id).classList.add('hidden');
   });
   document.getElementById('game-screen').classList.remove('active');
   document.getElementById('levelselect-screen').classList.add('hidden');
+  document.getElementById('notes-screen').classList.add('hidden');
   document.getElementById('setup-screen').classList.remove('hidden');
   renderBanksList();
+  updateNotesCountBadge();
 }
 
 // ─────────────────────────────────────────────
@@ -1733,7 +2307,7 @@ function createExplosion(cx,cy,color){
 // ─────────────────────────────────────────────
 //  INIT
 // ─────────────────────────────────────────────
-window.onload=()=>renderBanksList();
+window.onload=()=>{renderBanksList();updateNotesCountBadge();};
 </script>
 </body>
 </html>
