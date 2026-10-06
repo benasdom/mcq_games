@@ -1,0 +1,2492 @@
+[
+  {
+    "question": "A security engineer needs to ensure that all CloudTrail logs from 50 AWS accounts in an organization are stored immutably for 7 years and can be queried with SQL. Which solution meets these requirements MOST cost-effectively?",
+    "options": [
+      "Create an organization trail delivering logs to an S3 bucket with S3 Object Lock enabled, then use Amazon Athena for queries",
+      "Create a CloudTrail Lake data store with 7-year retention and use CloudTrail Lake SQL queries and dashboards",
+      "Send logs to CloudWatch Logs in each account and use CloudWatch Logs Insights for querying",
+      "Provision an Amazon EMR cluster to process logs stored in S3 and use Apache Spark for queries"
+    ],
+    "answer": "Create a CloudTrail Lake data store with 7-year retention and use CloudTrail Lake SQL queries and dashboards"
+  },
+  {
+    "question": "A developer's IAM policy grants s3:GetObject on a bucket, and the bucket policy also allows the developer. However, the developer still receives Access Denied when reading an object. The object is encrypted with a customer managed KMS key. What is the MOST likely cause?",
+    "options": [
+      "The bucket policy must also grant s3:GetObject to the developer",
+      "The KMS key policy does not permit the developer to use the key",
+      "A service control policy is blocking s3:GetObject for the account",
+      "The developer's IAM policy is missing s3:ListBucket"
+    ],
+    "answer": "The KMS key policy does not permit the developer to use the key"
+  },
+  {
+    "question": "A GuardDuty finding indicates suspicious API activity from an IAM role used by an application. The security team must contain the possible misuse while preserving evidence. Which response is MOST appropriate?",
+    "options": [
+      "Delete all CloudTrail logs to prevent the attacker from covering their tracks",
+      "Ignore the finding until a customer reports impact",
+      "Restrict or disable the suspicious role's permissions, preserve CloudTrail logs, rotate affected credentials, and investigate before restoring access",
+      "Terminate every EC2 instance in the account immediately without collecting context"
+    ],
+    "answer": "Restrict or disable the suspicious role's permissions, preserve CloudTrail logs, rotate affected credentials, and investigate before restoring access"
+  },
+  {
+    "question": "A company needs to inventory sensitive data stored in S3 buckets across 30 AWS accounts in an organization. Findings must be visible from a single location. Which solution meets these requirements?",
+    "options": [
+      "Set the security account as delegated administrator for Amazon Macie and AWS Security Hub, enable Macie to publish findings to Security Hub",
+      "Configure Amazon Inspector in each account to scan S3 buckets and publish findings to Trusted Advisor",
+      "Enable Amazon Macie in each account and send findings to AWS Trusted Advisor",
+      "Set the security account as delegated administrator for AWS Security Hub and use AWS Config rules to scan S3 objects"
+    ],
+    "answer": "Set the security account as delegated administrator for Amazon Macie and AWS Security Hub, enable Macie to publish findings to Security Hub"
+  },
+  {
+    "question": "A security engineer needs to restrict AWS usage to the eu-west-1 Region for all accounts in a specific OU, with exceptions for global services like IAM and CloudFront. What should the engineer use?",
+    "options": [
+      "An IAM permissions boundary on all users in the OU",
+      "A service control policy (SCP) attached to the OU with a Deny for all regions except eu-west-1, using NotAction for global services",
+      "A resource control policy (RCP) attached to each S3 bucket",
+      "AWS Config rules in each account to detect non-compliant regions"
+    ],
+    "answer": "A service control policy (SCP) attached to the OU with a Deny for all regions except eu-west-1, using NotAction for global services"
+  },
+  {
+    "question": "A company wants to give a third-party vendor read-only access to a specific S3 bucket for 24 hours without creating IAM users. Which solution is MOST secure?",
+    "options": [
+      "Create an IAM user with an access key and share the credentials, then delete after 24 hours",
+      "Create a cross-account IAM role with an external ID and a time-based condition in the trust policy, and provide the role ARN to the vendor",
+      "Make the S3 bucket public for 24 hours and then make it private",
+      "Create an S3 presigned URL with a 24-hour expiration for each object"
+    ],
+    "answer": "Create a cross-account IAM role with an external ID and a time-based condition in the trust policy, and provide the role ARN to the vendor"
+  },
+  {
+    "question": "A security engineer needs to detect when an IAM user's access keys are older than 90 days and automatically trigger a remediation workflow. Which combination of services should be used?",
+    "options": [
+      "AWS Config with a custom rule and Amazon EventBridge to trigger remediation",
+      "Amazon GuardDuty with AWS Lambda for automatic remediation",
+      "AWS Trusted Advisor with Amazon SNS notifications",
+      "AWS CloudTrail with CloudWatch Logs metric filters"
+    ],
+    "answer": "AWS Config with a custom rule and Amazon EventBridge to trigger remediation"
+  },
+  {
+    "question": "An EC2 instance in a private subnet needs to access AWS Secrets Manager without traversing the public internet. What is the MOST secure solution?",
+    "options": [
+      "Add a NAT gateway to the VPC and allow outbound HTTPS to Secrets Manager",
+      "Create a VPC interface endpoint for Secrets Manager and use a security group that allows HTTPS from the instance",
+      "Assign a public IP address to the instance and use an IAM role",
+      "Use AWS Direct Connect to route traffic to Secrets Manager"
+    ],
+    "answer": "Create a VPC interface endpoint for Secrets Manager and use a security group that allows HTTPS from the instance"
+  },
+  {
+    "question": "A company needs to enforce MFA for all IAM users accessing the AWS Management Console. Which approach is MOST effective?",
+    "options": [
+      "Enable MFA manually for each user and rely on users to configure it",
+      "Use an IAM policy with the aws:MultiFactorAuthPresent condition set to true for console access",
+      "Enable AWS Shield Advanced for the account",
+      "Use an AWS Organizations SCP to deny all actions without MFA"
+    ],
+    "answer": "Use an IAM policy with the aws:MultiFactorAuthPresent condition set to true for console access"
+  },
+  {
+    "question": "A VPC Flow Log shows an ACCEPT record for inbound ICMP traffic followed by a REJECT record for the response traffic. Security groups allow ICMP inbound, and the network ACL allows ICMP inbound. What is the MOST likely root cause?",
+    "options": [
+      "The security group is missing an outbound rule for ICMP",
+      "The network ACL is blocking outbound ICMP traffic because it is stateless",
+      "The VPC route table is missing a route for the return traffic",
+      "The instance's operating system firewall is blocking the response"
+    ],
+    "answer": "The network ACL is blocking outbound ICMP traffic because it is stateless"
+  },
+  {
+    "question": "A security engineer must ensure all API activity across 40 AWS accounts is logged, tamper-proof, and retained for 7 years. Which solution meets these requirements?",
+    "options": [
+      "Enable CloudTrail in each account with logs to a local S3 bucket",
+      "Create an organization trail delivering to a central S3 bucket with Object Lock and a 7-year lifecycle",
+      "Enable AWS Config in each account with a 7-year retention rule",
+      "Use CloudWatch Logs with a 7-year retention policy in each account"
+    ],
+    "answer": "Create an organization trail delivering to a central S3 bucket with Object Lock and a 7-year lifecycle"
+  },
+  {
+    "question": "A security engineer needs to give a third-party vendor temporary read-only access to one S3 bucket without creating IAM users. What is the MOST secure approach?",
+    "options": [
+      "Create an IAM user and share the access key",
+      "Create a cross-account IAM role with an external ID and a time-based condition",
+      "Make the bucket public temporarily",
+      "Share a presigned URL for the entire bucket"
+    ],
+    "answer": "Create a cross-account IAM role with an external ID and a time-based condition"
+  },
+  {
+    "question": "A company needs to centrally manage security findings and compliance checks across 50 accounts. Which service should be the delegated administrator?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Security Hub",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Security Hub"
+  },
+  {
+    "question": "Which AWS service provides a dedicated, single-tenant hardware security module for cryptographic operations?",
+    "options": [
+      "AWS KMS",
+      "AWS CloudHSM",
+      "AWS Secrets Manager",
+      "AWS Certificate Manager"
+    ],
+    "answer": "AWS CloudHSM"
+  },
+  {
+    "question": "A security engineer needs to block common web exploits and rate-limit requests to an ALB. Which service should be used?",
+    "options": [
+      "AWS Shield Standard",
+      "AWS WAF with rate-based rules",
+      "AWS Network Firewall",
+      "Amazon GuardDuty"
+    ],
+    "answer": "AWS WAF with rate-based rules"
+  },
+  {
+    "question": "A company needs to store and automatically rotate database credentials used by an application. Which service is MOST appropriate?",
+    "options": [
+      "Systems Manager Parameter Store (String)",
+      "AWS Secrets Manager",
+      "AWS KMS custom key store",
+      "Amazon S3 with SSE-KMS"
+    ],
+    "answer": "AWS Secrets Manager"
+  },
+  {
+    "question": "A security engineer wants to protect an S3 bucket so objects cannot be deleted or overwritten for a fixed period. What should be enabled?",
+    "options": [
+      "S3 Versioning only",
+      "S3 Object Lock in compliance mode",
+      "S3 Cross-Region Replication",
+      "S3 Block Public Access"
+    ],
+    "answer": "S3 Object Lock in compliance mode"
+  },
+  {
+    "question": "Which service continuously evaluates AWS resource configurations against desired compliance rules?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config"
+  },
+  {
+    "question": "A company needs to investigate a possible compromise and visualize relationships between entities in AWS. Which service should be used?",
+    "options": [
+      "Amazon Detective",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon Detective"
+  },
+  {
+    "question": "Which AWS service uses machine learning to detect unusual API activity and potentially compromised credentials?",
+    "options": [
+      "Amazon Inspector",
+      "Amazon GuardDuty",
+      "AWS Config",
+      "AWS WAF"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer wants to automatically scan EC2 instances for software vulnerabilities and unintended network exposure. Which service should be used?",
+    "options": [
+      "Amazon Macie",
+      "Amazon Inspector",
+      "AWS Shield",
+      "AWS Network Firewall"
+    ],
+    "answer": "Amazon Inspector"
+  },
+  {
+    "question": "A company needs to control access to AWS accounts centrally using an external identity provider with SAML. Which service should be used?",
+    "options": [
+      "IAM users with access keys",
+      "AWS IAM Identity Center",
+      "Amazon Cognito user pools",
+      "AWS Directory Service"
+    ],
+    "answer": "AWS IAM Identity Center"
+  },
+  {
+    "question": "Which policy type sets the maximum permissions an IAM entity can have, but does not grant permissions by itself?",
+    "options": [
+      "Identity-based policy",
+      "Permissions boundary",
+      "Resource-based policy",
+      "Session policy"
+    ],
+    "answer": "Permissions boundary"
+  },
+  {
+    "question": "A security engineer wants to block all public access to S3 buckets across an organization at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "Which service provides on-demand access to AWS compliance reports and certifications?",
+    "options": [
+      "AWS Artifact",
+      "AWS Config",
+      "AWS Audit Manager",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Artifact"
+  },
+  {
+    "question": "A company needs to enforce encryption in transit for all requests to an S3 bucket. Which control should be used?",
+    "options": [
+      "Bucket policy denying requests where aws:SecureTransport is false",
+      "Enable SSE-S3",
+      "Enable S3 Versioning",
+      "Enable S3 Transfer Acceleration"
+    ],
+    "answer": "Bucket policy denying requests where aws:SecureTransport is false"
+  },
+  {
+    "question": "A security engineer must ensure an EC2 instance can be isolated for forensics without terminating it. What is the BEST approach?",
+    "options": [
+      "Stop the instance and detach the EBS volume",
+      "Replace the security group with one that allows no traffic and enable termination protection",
+      "Delete the instance's IAM role",
+      "Reboot the instance"
+    ],
+    "answer": "Replace the security group with one that allows no traffic and enable termination protection"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in an EBS volume is encrypted at rest and that snapshots are also encrypted. What should be done?",
+    "options": [
+      "Enable EBS encryption by default for the Region and use encrypted AMIs",
+      "Enable S3 default encryption",
+      "Use AWS Secrets Manager for the volume",
+      "Enable AWS Config rule for EBS"
+    ],
+    "answer": "Enable EBS encryption by default for the Region and use encrypted AMIs"
+  },
+  {
+    "question": "A company wants to grant an application running on EC2 access to an S3 bucket without storing long-term credentials. What is the BEST solution?",
+    "options": [
+      "Store access keys in a configuration file on the instance",
+      "Attach an IAM role to the EC2 instance with the required S3 permissions",
+      "Embed credentials in the application code",
+      "Create an IAM user and share keys with the application team"
+    ],
+    "answer": "Attach an IAM role to the EC2 instance with the required S3 permissions"
+  },
+  {
+    "question": "Which AWS service provides a centralized view of security alerts and compliance status across multiple AWS accounts?",
+    "options": [
+      "AWS Trusted Advisor",
+      "AWS Security Hub",
+      "AWS Config",
+      "Amazon Inspector"
+    ],
+    "answer": "AWS Security Hub"
+  },
+  {
+    "question": "A security engineer wants to detect if someone disables CloudTrail in an account. What is the MOST effective approach?",
+    "options": [
+      "Use CloudWatch Events to monitor CloudTrail StopLogging API calls and alert",
+      "Enable S3 Versioning",
+      "Use AWS Artifact",
+      "Enable GuardDuty in all regions"
+    ],
+    "answer": "Use CloudWatch Events to monitor CloudTrail StopLogging API calls and alert"
+  },
+  {
+    "question": "A company needs to encrypt data in transit between on-premises and AWS over a dedicated connection. Which option provides encryption at Layer 2?",
+    "options": [
+      "AWS Site-to-Site VPN",
+      "AWS Direct Connect with MACsec",
+      "AWS Client VPN",
+      "AWS Transit Gateway"
+    ],
+    "answer": "AWS Direct Connect with MACsec"
+  },
+  {
+    "question": "Which AWS service helps automate evidence collection for compliance audits?",
+    "options": [
+      "AWS Audit Manager",
+      "AWS Config",
+      "AWS CloudTrail",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Audit Manager"
+  },
+  {
+    "question": "A security engineer needs to allow only specific IP addresses to access an S3 bucket. Which control should be used?",
+    "options": [
+      "Bucket policy with aws:SourceIp condition",
+      "S3 Block Public Access",
+      "S3 Versioning",
+      "S3 Transfer Acceleration"
+    ],
+    "answer": "Bucket policy with aws:SourceIp condition"
+  },
+  {
+    "question": "A company wants to enforce that all IAM users must use MFA to perform sensitive actions, even if they have the required permissions. What should be used?",
+    "options": [
+      "An IAM policy with a Deny for sensitive actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy with a Deny for sensitive actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "Which service should be used to centrally manage AWS accounts and apply guardrails across an organization?",
+    "options": [
+      "AWS Control Tower",
+      "AWS Config",
+      "AWS Trusted Advisor",
+      "Amazon GuardDuty"
+    ],
+    "answer": "AWS Control Tower"
+  },
+  {
+    "question": "A security engineer needs to monitor for unauthorized changes to security groups across all accounts. Which service is MOST appropriate?",
+    "options": [
+      "AWS Config with managed rules and aggregator",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with managed rules and aggregator"
+  },
+  {
+    "question": "A company wants to use a customer managed KMS key to encrypt data in DynamoDB. What must be configured?",
+    "options": [
+      "Enable DynamoDB encryption at rest with the customer managed key in the table settings",
+      "Use SSE-S3",
+      "Enable S3 Object Lock",
+      "Use CloudHSM directly"
+    ],
+    "answer": "Enable DynamoDB encryption at rest with the customer managed key in the table settings"
+  },
+  {
+    "question": "Which feature of AWS KMS allows temporary permission for a specific operation without modifying the key policy?",
+    "options": [
+      "Key rotation",
+      "Grants",
+      "Aliases",
+      "Multi-Region keys"
+    ],
+    "answer": "Grants"
+  },
+  {
+    "question": "A security engineer wants to protect a web application from SQL injection and cross-site scripting. Which service should be used?",
+    "options": [
+      "AWS WAF with managed rule groups",
+      "AWS Shield Standard",
+      "Amazon GuardDuty",
+      "AWS Network Firewall"
+    ],
+    "answer": "AWS WAF with managed rule groups"
+  },
+  {
+    "question": "A company needs to detect and alert on root account usage across all member accounts. What should be configured?",
+    "options": [
+      "CloudWatch alarm on CloudTrail root login events with SNS notification",
+      "S3 Block Public Access",
+      "AWS Config rule for root MFA",
+      "Amazon Macie"
+    ],
+    "answer": "CloudWatch alarm on CloudTrail root login events with SNS notification"
+  },
+  {
+    "question": "Which AWS service provides a managed data lake that normalizes security logs to the OCSF schema?",
+    "options": [
+      "Amazon Security Lake",
+      "AWS CloudTrail Lake",
+      "Amazon S3",
+      "AWS Config"
+    ],
+    "answer": "Amazon Security Lake"
+  },
+  {
+    "question": "A security engineer must ensure that S3 bucket logs are delivered to a separate logging account. What is the BEST approach?",
+    "options": [
+      "Configure S3 server access logging with a target bucket in the logging account and a bucket policy allowing the source account",
+      "Enable CloudTrail data events",
+      "Use VPC Flow Logs",
+      "Enable GuardDuty in the logging account"
+    ],
+    "answer": "Configure S3 server access logging with a target bucket in the logging account and a bucket policy allowing the source account"
+  },
+  {
+    "question": "A company wants to prevent IAM users from creating access keys. What should be used?",
+    "options": [
+      "An IAM policy denying iam:CreateAccessKey",
+      "An SCP denying iam:CreateAccessKey",
+      "Both an IAM policy and SCP denying iam:CreateAccessKey",
+      "AWS Config rule"
+    ],
+    "answer": "Both an IAM policy and SCP denying iam:CreateAccessKey"
+  },
+  {
+    "question": "Which AWS service provides automated vulnerability management for container images stored in ECR?",
+    "options": [
+      "Amazon Inspector",
+      "Amazon Macie",
+      "AWS Shield",
+      "AWS Config"
+    ],
+    "answer": "Amazon Inspector"
+  },
+  {
+    "question": "A security engineer needs to restrict access to an S3 bucket so that only requests from a specific VPC endpoint are allowed. What should be used?",
+    "options": [
+      "Bucket policy with aws:SourceVpce condition",
+      "S3 Block Public Access",
+      "S3 Versioning",
+      "VPC Flow Logs"
+    ],
+    "answer": "Bucket policy with aws:SourceVpce condition"
+  },
+  {
+    "question": "A company needs to centrally manage KMS keys across multiple accounts. Which feature should be used?",
+    "options": [
+      "Multi-Region keys",
+      "KMS key policies with cross-account access",
+      "CloudHSM",
+      "AWS Secrets Manager"
+    ],
+    "answer": "KMS key policies with cross-account access"
+  },
+  {
+    "question": "Which AWS service can automatically block malicious IP addresses identified by GuardDuty?",
+    "options": [
+      "AWS WAF with GuardDuty integration via EventBridge and Lambda",
+      "AWS Shield Advanced",
+      "Amazon Macie",
+      "AWS Config"
+    ],
+    "answer": "AWS WAF with GuardDuty integration via EventBridge and Lambda"
+  },
+  {
+    "question": "A security engineer needs to ensure that all new S3 buckets have encryption enabled by default. What is the MOST effective control?",
+    "options": [
+      "Enable S3 default encryption at the account level and enforce with an SCP",
+      "Use bucket ACLs",
+      "Enable S3 Versioning",
+      "Use AWS WAF"
+    ],
+    "answer": "Enable S3 default encryption at the account level and enforce with an SCP"
+  },
+  {
+    "question": "A company wants to monitor for changes to IAM policies that could escalate privileges. Which service should be used?",
+    "options": [
+      "AWS Config with managed rule iam-policy-no-statements-with-admin-access",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with managed rule iam-policy-no-statements-with-admin-access"
+  },
+  {
+    "question": "Which service provides a unified view of security findings from GuardDuty, Inspector, Macie, and third-party tools?",
+    "options": [
+      "AWS Security Hub",
+      "AWS Config",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub"
+  },
+  {
+    "question": "A security engineer needs to enforce a policy that denies all actions unless the request comes from a corporate IP range. What should be used?",
+    "options": [
+      "An IAM policy with aws:SourceIp condition on all actions",
+      "An SCP with aws:SourceIp condition",
+      "A permissions boundary",
+      "AWS WAF IP set"
+    ],
+    "answer": "An SCP with aws:SourceIp condition"
+  },
+  {
+    "question": "A security engineer wants to ensure that all API calls made in an account are logged and delivered to a central S3 bucket in another account. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket policy allowing the source account to write",
+      "VPC Flow Logs to S3",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket policy allowing the source account to write"
+  },
+  {
+    "question": "A company needs to encrypt data at rest in Amazon RDS with a key they manage and rotate. What should be used?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "Which AWS service provides a fully managed DDoS protection with access to the DDoS Response Team?",
+    "options": [
+      "AWS Shield Standard",
+      "AWS Shield Advanced",
+      "AWS WAF",
+      "AWS Network Firewall"
+    ],
+    "answer": "AWS Shield Advanced"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances use IMDSv2 only. What should be enforced?",
+    "options": [
+      "Instance metadata options with HttpTokens set to required, enforced via SCP or launch template",
+      "Security group rule",
+      "Network ACL rule",
+      "IAM policy on the instance role"
+    ],
+    "answer": "Instance metadata options with HttpTokens set to required, enforced via SCP or launch template"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket policy is changed to allow public access. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-public-read-prohibited managed rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the s3-bucket-public-read-prohibited managed rule"
+  },
+  {
+    "question": "Which AWS service allows you to define fine-grained authorization policies using the Cedar language?",
+    "options": [
+      "Amazon Verified Permissions",
+      "AWS IAM",
+      "AWS WAF",
+      "Amazon Cognito"
+    ],
+    "answer": "Amazon Verified Permissions"
+  },
+  {
+    "question": "A security engineer needs to allow an application to assume an IAM role only when a specific condition is met, such as MFA. What should be used?",
+    "options": [
+      "Role trust policy with a condition",
+      "Permissions boundary",
+      "SCP",
+      "Resource-based policy"
+    ],
+    "answer": "Role trust policy with a condition"
+  },
+  {
+    "question": "Which AWS service should be used to centrally manage and rotate secrets for applications across multiple accounts?",
+    "options": [
+      "AWS Secrets Manager with cross-account access",
+      "Systems Manager Parameter Store",
+      "AWS KMS",
+      "AWS CloudHSM"
+    ],
+    "answer": "AWS Secrets Manager with cross-account access"
+  },
+  {
+    "question": "A security engineer wants to prevent data exfiltration from an S3 bucket to unauthorized external accounts. What is the MOST effective control?",
+    "options": [
+      "Bucket policy with aws:PrincipalOrgID condition and S3 Block Public Access",
+      "S3 Versioning",
+      "S3 Transfer Acceleration",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy with aws:PrincipalOrgID condition and S3 Block Public Access"
+  },
+  {
+    "question": "Which service provides a graph-based investigation experience for security findings?",
+    "options": [
+      "Amazon Detective",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon Detective"
+  },
+  {
+    "question": "A company wants to use AWS Organizations to apply a policy that restricts which AWS services can be used in member accounts. What should be used?",
+    "options": [
+      "Service control policy (SCP)",
+      "IAM permissions boundary",
+      "Resource control policy (RCP)",
+      "Session policy"
+    ],
+    "answer": "Service control policy (SCP)"
+  },
+  {
+    "question": "A security engineer needs to ensure that CloudTrail logs are encrypted with a KMS key. What should be configured?",
+    "options": [
+      "Enable SSE-KMS on the S3 bucket receiving CloudTrail logs and configure CloudTrail to use the key",
+      "Enable SSE-S3",
+      "Use S3 Object Lock",
+      "Enable CloudTrail Insights"
+    ],
+    "answer": "Enable SSE-KMS on the S3 bucket receiving CloudTrail logs and configure CloudTrail to use the key"
+  },
+  {
+    "question": "Which AWS service can analyze VPC Flow Logs, CloudTrail, and DNS logs to detect threats?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Shield"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer wants to block traffic to known malicious IPs at the VPC level. Which service should be used?",
+    "options": [
+      "AWS Network Firewall with threat intelligence rules",
+      "AWS WAF",
+      "Security group",
+      "Network ACL"
+    ],
+    "answer": "AWS Network Firewall with threat intelligence rules"
+  },
+  {
+    "question": "A company needs to enforce that all S3 objects are encrypted with SSE-KMS using a specific key. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the required encryption header",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the required encryption header"
+  },
+  {
+    "question": "Which AWS service provides centralized management of security policies and guardrails across an organization?",
+    "options": [
+      "AWS Control Tower",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Control Tower"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM role is created with overly permissive trust policy. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer"
+  },
+  {
+    "question": "A company wants to automatically remediate unencrypted S3 buckets. Which combination should be used?",
+    "options": [
+      "AWS Config rule with automatic remediation via SSM Automation",
+      "GuardDuty with Lambda",
+      "Trusted Advisor with SNS",
+      "CloudTrail with CloudWatch"
+    ],
+    "answer": "AWS Config rule with automatic remediation via SSM Automation"
+  },
+  {
+    "question": "Which feature of AWS KMS allows you to use the same key material across multiple Regions?",
+    "options": [
+      "Multi-Region keys",
+      "Grants",
+      "Aliases",
+      "Key rotation"
+    ],
+    "answer": "Multi-Region keys"
+  },
+  {
+    "question": "A security engineer needs to prevent the use of root account access keys. What is the MOST effective control?",
+    "options": [
+      "An SCP denying all actions when the principal is the root account and MFA is not present",
+      "IAM policy on the root user",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "An SCP denying all actions when the principal is the root account and MFA is not present"
+  },
+  {
+    "question": "A company needs to monitor for unauthorized API calls in CloudTrail. Which service should be used?",
+    "options": [
+      "CloudWatch Logs metric filter with an alarm",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "CloudWatch Logs metric filter with an alarm"
+  },
+  {
+    "question": "Which AWS service provides a managed rule set to protect against common web threats like the OWASP Top 10?",
+    "options": [
+      "AWS WAF managed rule groups",
+      "AWS Shield Standard",
+      "AWS Network Firewall",
+      "Amazon GuardDuty"
+    ],
+    "answer": "AWS WAF managed rule groups"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is replicated to another Region for disaster recovery and encrypted. What should be configured?",
+    "options": [
+      "S3 Cross-Region Replication with encryption enabled on the destination bucket",
+      "S3 Versioning only",
+      "S3 Transfer Acceleration",
+      "S3 Block Public Access"
+    ],
+    "answer": "S3 Cross-Region Replication with encryption enabled on the destination bucket"
+  },
+  {
+    "question": "A company wants to give an application running in one account access to an S3 bucket in another account. What is the MOST secure approach?",
+    "options": [
+      "Bucket policy granting access to the application's IAM role",
+      "Make the bucket public",
+      "Share access keys",
+      "Use S3 presigned URLs for all objects"
+    ],
+    "answer": "Bucket policy granting access to the application's IAM role"
+  },
+  {
+    "question": "Which AWS service can automatically discover and classify sensitive data in S3?",
+    "options": [
+      "Amazon Macie",
+      "Amazon Inspector",
+      "AWS Config",
+      "AWS Shield"
+    ],
+    "answer": "Amazon Macie"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-S3. What should be used?",
+    "options": [
+      "S3 default encryption with SSE-S3",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "S3 default encryption with SSE-S3"
+  },
+  {
+    "question": "A company wants to detect if an IAM user is using an access key that has not been rotated in 90 days. Which service should be used?",
+    "options": [
+      "AWS Config with the access-keys-rotated rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the access-keys-rotated rule"
+  },
+  {
+    "question": "Which AWS service provides a way to centrally manage security policies across multiple accounts?",
+    "options": [
+      "AWS Organizations with SCPs",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Shield"
+    ],
+    "answer": "AWS Organizations with SCPs"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in transit to an S3 bucket is encrypted. What should be used?",
+    "options": [
+      "Bucket policy denying requests where aws:SecureTransport is false",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying requests where aws:SecureTransport is false"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "Which AWS service can be used to centrally manage security group rules across multiple accounts?",
+    "options": [
+      "AWS Firewall Manager",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Shield"
+    ],
+    "answer": "AWS Firewall Manager"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances are using IMDSv2. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-imdsv2-check rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the ec2-imdsv2-check rule"
+  },
+  {
+    "question": "A company wants to encrypt data at rest in Amazon S3 with a key they manage and rotate. What should be used?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "Which AWS service provides a way to detect if an IAM role is being used from an unusual location?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets have logging enabled. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A company wants to detect if an IAM user is using an access key from an unusual location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "Which AWS service provides a way to centrally manage encryption keys across multiple accounts?",
+    "options": [
+      "AWS KMS with key policies allowing cross-account access",
+      "AWS CloudHSM",
+      "AWS Secrets Manager",
+      "AWS Certificate Manager"
+    ],
+    "answer": "AWS KMS with key policies allowing cross-account access"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company wants to monitor for changes to security groups that allow unrestricted access. Which service should be used?",
+    "options": [
+      "AWS Config with the restricted-common-ports rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the restricted-common-ports rule"
+  },
+  {
+    "question": "Which AWS service can be used to centrally manage WAF rules across multiple accounts?",
+    "options": [
+      "AWS Firewall Manager",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Shield"
+    ],
+    "answer": "AWS Firewall Manager"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances are patched. Which service should be used?",
+    "options": [
+      "AWS Systems Manager Patch Manager",
+      "AWS Config",
+      "Amazon GuardDuty",
+      "AWS Shield"
+    ],
+    "answer": "AWS Systems Manager Patch Manager"
+  },
+  {
+    "question": "A company wants to detect if an IAM role is assumed from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "Which AWS service provides a way to centrally manage security findings from multiple accounts?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config",
+      "AWS Trusted Advisor",
+      "Amazon Inspector"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets have versioning enabled. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-versioning-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the s3-bucket-versioning-enabled rule"
+  },
+  {
+    "question": "A company wants to encrypt data at rest in Amazon Redshift. What should be used?",
+    "options": [
+      "Redshift encryption with a KMS key",
+      "SSE-S3",
+      "S3 Object Lock",
+      "CloudHSM only"
+    ],
+    "answer": "Redshift encryption with a KMS key"
+  },
+  {
+    "question": "Which AWS service can be used to detect if an EC2 instance is mining cryptocurrency?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM users have MFA enabled. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-user-mfa-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-user-mfa-enabled rule"
+  },
+    {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key ARN. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company wants to centrally manage security findings from GuardDuty, Inspector, and Macie across 20 accounts. Which service should be used?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config aggregator",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unexpected ASN. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets in an organization block public access at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances in an account are managed by AWS Systems Manager. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-managed-by-systems-manager rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-managed-by-systems-manager rule"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized VPC endpoint. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM policies are reviewed for overly permissive access. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets have server access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a known malicious IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data stored in Amazon S3 is encrypted with a key that is managed by the company. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access S3 without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for S3",
+      "VPC interface endpoint for S3",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for S3"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA when signing in to the AWS Management Console. What should be configured?",
+    "options": [
+      "IAM policy with aws:MultiFactorAuthPresent condition",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "IAM policy with aws:MultiFactorAuthPresent condition"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unauthorized location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all API calls to AWS services are logged and retained for 1 year. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket lifecycle policy for 1 year",
+      "VPC Flow Logs",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket lifecycle policy for 1 year"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS volumes in an account are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted volumes",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed without encryption in transit. Which service should be used?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS CloudTrail"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A company needs to detect if an IAM role is being used to access resources from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have encryption enabled by default. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-server-side-encryption-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-server-side-encryption-enabled rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to rotate their access keys every 90 days. What should be configured?",
+    "options": [
+      "IAM policy with a condition on aws:TokenIssueTime",
+      "An SCP denying all actions after 90 days",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "IAM policy with a condition on aws:TokenIssueTime"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is mining cryptocurrency. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data in Amazon S3 is encrypted with a key that is rotated every year. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key with automatic rotation enabled",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key with automatic rotation enabled"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access DynamoDB without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for DynamoDB",
+      "VPC interface endpoint for DynamoDB",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for DynamoDB"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA before they can perform any actions. Which approach is MOST effective?",
+    "options": [
+      "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM policy has been modified to grant full administrative access. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-policy-no-statements-with-admin-access rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-policy-no-statements-with-admin-access rule"
+  },
+  {
+    "question": "A security engineer needs to prevent IAM users from creating long-term access keys across all accounts in an organization. Which control is MOST effective?",
+    "options": [
+      "An SCP denying iam:CreateAccessKey",
+      "An IAM policy denying iam:CreateAccessKey",
+      "AWS Config rule to detect access key creation",
+      "Amazon GuardDuty to detect access key usage"
+    ],
+    "answer": "An SCP denying iam:CreateAccessKey"
+  },
+  {
+    "question": "A company needs to audit all failed console sign-in attempts across all accounts in an organization. Which solution meets this requirement?",
+    "options": [
+      "Organization CloudTrail with CloudWatch Logs metric filters for ConsoleLogin failures and SNS alerts",
+      "AWS Config rule for IAM password policy",
+      "Amazon GuardDuty with SNS notifications",
+      "AWS Trusted Advisor security checks"
+    ],
+    "answer": "Organization CloudTrail with CloudWatch Logs metric filters for ConsoleLogin failures and SNS alerts"
+  },
+  {
+    "question": "A security engineer needs to ensure that an S3 bucket can only be accessed through a specific VPC endpoint and not from the public internet. Which two controls should be combined?",
+    "options": [
+      "Bucket policy with aws:SourceVpce condition and S3 Block Public Access",
+      "S3 Versioning and S3 Object Lock",
+      "S3 Transfer Acceleration and S3 Block Public Access",
+      "VPC Flow Logs and AWS WAF"
+    ],
+    "answer": "Bucket policy with aws:SourceVpce condition and S3 Block Public Access"
+  },
+  {
+    "question": "A company wants to detect if an IAM role is being assumed by a principal outside the organization. Which service and feature should be used?",
+    "options": [
+      "Amazon GuardDuty with findings for unusual role assumption",
+      "AWS Config with IAM role rules",
+      "AWS Trusted Advisor security checks",
+      "AWS Artifact compliance reports"
+    ],
+    "answer": "Amazon GuardDuty with findings for unusual role assumption"
+  },
+  {
+    "question": "A security engineer needs to centrally define and enforce encryption requirements for all S3 buckets across an organization. Which approach is MOST scalable?",
+    "options": [
+      "Use AWS Config conformance packs with S3 encryption rules and automatic remediation",
+      "Manually enable encryption on each bucket",
+      "Use AWS Trusted Advisor checks",
+      "Use S3 Inventory reports"
+    ],
+    "answer": "Use AWS Config conformance packs with S3 encryption rules and automatic remediation"
+  },
+  {
+    "question": "A company needs to ensure that all KMS keys in an organization are rotated automatically every year. Which service should be used?",
+    "options": [
+      "AWS Config with the cmk-backing-key-rotation-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the cmk-backing-key-rotation-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance has a public IP address assigned. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-no-public-ip rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-no-public-ip rule"
+  },
+  {
+    "question": "A company wants to block all outbound traffic from a VPC except to specific AWS services. Which approach is MOST secure?",
+    "options": [
+      "Security group with restricted outbound rules and VPC endpoints for the required services",
+      "Network ACL allowing all outbound traffic",
+      "NAT gateway with no restrictions",
+      "Internet gateway with route table restrictions"
+    ],
+    "answer": "Security group with restricted outbound rules and VPC endpoints for the required services"
+  },
+  {
+    "question": "A security engineer needs to ensure that all CloudTrail logs are encrypted with a KMS key that the security team controls. What should be configured?",
+    "options": [
+      "CloudTrail with SSE-KMS using a customer managed key and a key policy granting CloudTrail access",
+      "CloudTrail with SSE-S3",
+      "CloudTrail with no encryption",
+      "CloudTrail with S3 Object Lock"
+    ],
+    "answer": "CloudTrail with SSE-KMS using a customer managed key and a key policy granting CloudTrail access"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed by an unauthorized AWS account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM roles have a maximum session duration of 1 hour. What should be configured?",
+    "options": [
+      "Role configuration with MaxSessionDuration set to 3600 seconds",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "Role configuration with MaxSessionDuration set to 3600 seconds"
+  },
+  {
+    "question": "A company needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS and that only a specific key can be used. Which control should be applied?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A security engineer needs to detect if a security group is modified to allow unrestricted SSH access. Which service should be used?",
+    "options": [
+      "AWS Config with the restricted-ssh rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the restricted-ssh rule"
+  },
+  {
+    "question": "A company wants to ensure that all EC2 instances are launched with IMDSv2 required. Which control is MOST effective?",
+    "options": [
+      "Launch template with HttpTokens set to required, enforced via SCP",
+      "Security group rule",
+      "Network ACL rule",
+      "IAM policy on the instance role"
+    ],
+    "answer": "Launch template with HttpTokens set to required, enforced via SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets have access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A company wants to detect if an IAM user is using an access key from an unusual user agent. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon S3 is encrypted with a key that is rotated every year. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key with automatic rotation enabled",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key with automatic rotation enabled"
+  },
+  {
+    "question": "A company needs to ensure that all VPC flow logs are delivered to a central S3 bucket in a logging account. What should be configured?",
+    "options": [
+      "VPC Flow Logs with an S3 bucket in the logging account and a bucket policy allowing the source account",
+      "VPC Flow Logs to CloudWatch Logs only",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "VPC Flow Logs with an S3 bucket in the logging account and a bucket policy allowing the source account"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM policy has been modified to grant full administrative access. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-policy-no-statements-with-admin-access rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-policy-no-statements-with-admin-access rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA before they can perform any actions. Which approach is MOST effective?",
+    "options": [
+      "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in transit between an ALB and backend instances is encrypted. What should be configured?",
+    "options": [
+      "HTTPS listener on the ALB with backend encryption enabled",
+      "HTTP listener with redirect",
+      "Network Load Balancer with TCP",
+      "AWS WAF"
+    ],
+    "answer": "HTTPS listener on the ALB with backend encryption enabled"
+  },
+  {
+    "question": "A company needs to detect if an S3 bucket is being accessed from an unauthorized IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS snapshots are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted snapshots",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to ensure that all data in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a command-and-control server. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key ARN. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company wants to centrally manage security findings from GuardDuty, Inspector, and Macie across 20 accounts. Which service should be used?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config aggregator",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unexpected ASN. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets in an organization block public access at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances in an account are managed by AWS Systems Manager. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-managed-by-systems-manager rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-managed-by-systems-manager rule"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized VPC endpoint. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM policies are reviewed for overly permissive access. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets have server access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a known malicious IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data stored in Amazon S3 is encrypted with a key that is managed by the company. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access S3 without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for S3",
+      "VPC interface endpoint for S3",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for S3"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA when signing in to the AWS Management Console. What should be configured?",
+    "options": [
+      "IAM policy with aws:MultiFactorAuthPresent condition",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "IAM policy with aws:MultiFactorAuthPresent condition"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unauthorized location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all API calls to AWS services are logged and retained for 1 year. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket lifecycle policy for 1 year",
+      "VPC Flow Logs",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket lifecycle policy for 1 year"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS volumes in an account are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted volumes",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed without encryption in transit. Which service should be used?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS CloudTrail"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A company needs to detect if an IAM role is being used to access resources from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have encryption enabled by default. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-server-side-encryption-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-server-side-encryption-enabled rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to rotate their access keys every 90 days. What should be configured?",
+    "options": [
+      "IAM policy with a condition on aws:TokenIssueTime",
+      "An SCP denying all actions after 90 days",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "IAM policy with a condition on aws:TokenIssueTime"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is mining cryptocurrency. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data in Amazon S3 is encrypted with a key that is rotated every year. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key with automatic rotation enabled",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key with automatic rotation enabled"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access DynamoDB without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for DynamoDB",
+      "VPC interface endpoint for DynamoDB",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for DynamoDB"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA before they can perform any actions. Which approach is MOST effective?",
+    "options": [
+      "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM policy has been modified to grant full administrative access. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-policy-no-statements-with-admin-access rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-policy-no-statements-with-admin-access rule"
+  },
+  {
+    "question": "A security engineer needs to ensure that all CloudTrail logs from multiple accounts are stored in a dedicated logging account and cannot be modified. Which combination of controls should be used?",
+    "options": [
+      "Organization trail with S3 bucket policy, SSE-KMS, and S3 Object Lock in compliance mode",
+      "Individual trails in each account with local S3 buckets",
+      "VPC Flow Logs to CloudWatch",
+      "AWS Config recorder in each account"
+    ],
+    "answer": "Organization trail with S3 bucket policy, SSE-KMS, and S3 Object Lock in compliance mode"
+  },
+  {
+    "question": "A company needs to detect if an IAM user has permissions to escalate privileges. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks for privilege escalation",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks for privilege escalation"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have versioning enabled. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-versioning-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-versioning-enabled rule"
+  },
+  {
+    "question": "A company wants to detect if an EC2 instance is communicating with a known malicious domain. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key ARN. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company needs to centrally manage security findings from GuardDuty, Inspector, and Macie across 20 accounts. Which service should be used?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config aggregator",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unexpected ASN. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets in an organization block public access at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances in an account are managed by AWS Systems Manager. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-managed-by-systems-manager rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-managed-by-systems-manager rule"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized VPC endpoint. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM policies are reviewed for overly permissive access. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets have server access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a known malicious IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data stored in Amazon S3 is encrypted with a key that is managed by the company. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access S3 without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for S3",
+      "VPC interface endpoint for S3",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for S3"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA when signing in to the AWS Management Console. What should be configured?",
+    "options": [
+      "IAM policy with aws:MultiFactorAuthPresent condition",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "IAM policy with aws:MultiFactorAuthPresent condition"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unauthorized location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all API calls to AWS services are logged and retained for 1 year. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket lifecycle policy for 1 year",
+      "VPC Flow Logs",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket lifecycle policy for 1 year"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS volumes in an account are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted volumes",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed without encryption in transit. Which service should be used?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS CloudTrail"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A company needs to detect if an IAM role is being used to access resources from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have encryption enabled by default. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-server-side-encryption-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-server-side-encryption-enabled rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to rotate their access keys every 90 days. What should be configured?",
+    "options": [
+      "IAM policy with a condition on aws:TokenIssueTime",
+      "An SCP denying all actions after 90 days",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "IAM policy with a condition on aws:TokenIssueTime"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is mining cryptocurrency. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key ARN. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company wants to centrally manage security findings from GuardDuty, Inspector, and Macie across 20 accounts. Which service should be used?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config aggregator",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unexpected ASN. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets in an organization block public access at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances in an account are managed by AWS Systems Manager. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-managed-by-systems-manager rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-managed-by-systems-manager rule"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized VPC endpoint. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM policies are reviewed for overly permissive access. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets have server access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a known malicious IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data stored in Amazon S3 is encrypted with a key that is managed by the company. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access S3 without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for S3",
+      "VPC interface endpoint for S3",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for S3"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA when signing in to the AWS Management Console. What should be configured?",
+    "options": [
+      "IAM policy with aws:MultiFactorAuthPresent condition",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "IAM policy with aws:MultiFactorAuthPresent condition"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unauthorized location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all API calls to AWS services are logged and retained for 1 year. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket lifecycle policy for 1 year",
+      "VPC Flow Logs",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket lifecycle policy for 1 year"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS volumes in an account are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted volumes",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed without encryption in transit. Which service should be used?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS CloudTrail"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A company needs to detect if an IAM role is being used to access resources from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have encryption enabled by default. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-server-side-encryption-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-server-side-encryption-enabled rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to rotate their access keys every 90 days. What should be configured?",
+    "options": [
+      "IAM policy with a condition on aws:TokenIssueTime",
+      "An SCP denying all actions after 90 days",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "IAM policy with a condition on aws:TokenIssueTime"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is mining cryptocurrency. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data in Amazon S3 is encrypted with a key that is rotated every year. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key with automatic rotation enabled",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key with automatic rotation enabled"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access DynamoDB without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for DynamoDB",
+      "VPC interface endpoint for DynamoDB",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for DynamoDB"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA before they can perform any actions. Which approach is MOST effective?",
+    "options": [
+      "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM policy has been modified to grant full administrative access. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-policy-no-statements-with-admin-access rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-policy-no-statements-with-admin-access rule"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data in an S3 bucket is encrypted with SSE-KMS using a specific key ARN. What should be used?",
+    "options": [
+      "Bucket policy denying PutObject without the specific key ARN",
+      "S3 Versioning",
+      "S3 Block Public Access",
+      "AWS WAF"
+    ],
+    "answer": "Bucket policy denying PutObject without the specific key ARN"
+  },
+  {
+    "question": "A company wants to centrally manage security findings from GuardDuty, Inspector, and Macie across 20 accounts. Which service should be used?",
+    "options": [
+      "AWS Security Hub with delegated administrator",
+      "AWS Config aggregator",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "AWS Security Hub with delegated administrator"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unexpected ASN. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets in an organization block public access at the account level. What is the MOST effective control?",
+    "options": [
+      "S3 Block Public Access at the account level plus an SCP",
+      "Bucket ACLs on each bucket",
+      "AWS WAF rules for S3",
+      "VPC endpoint policies"
+    ],
+    "answer": "S3 Block Public Access at the account level plus an SCP"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EC2 instances in an account are managed by AWS Systems Manager. Which service should be used?",
+    "options": [
+      "AWS Config with the ec2-instance-managed-by-systems-manager rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with the ec2-instance-managed-by-systems-manager rule"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed from an unauthorized VPC endpoint. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all IAM policies are reviewed for overly permissive access. Which service should be used?",
+    "options": [
+      "IAM Access Analyzer with policy checks",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "IAM Access Analyzer with policy checks"
+  },
+  {
+    "question": "A company needs to ensure that all S3 buckets have server access logging enabled and delivered to a central bucket. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-logging-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-logging-enabled rule"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is communicating with a known malicious IP address. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data stored in Amazon S3 is encrypted with a key that is managed by the company. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access S3 without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for S3",
+      "VPC interface endpoint for S3",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for S3"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA when signing in to the AWS Management Console. What should be configured?",
+    "options": [
+      "IAM policy with aws:MultiFactorAuthPresent condition",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "IAM policy with aws:MultiFactorAuthPresent condition"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM user is using an access key from an unauthorized location. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all API calls to AWS services are logged and retained for 1 year. What should be configured?",
+    "options": [
+      "CloudTrail trail with S3 bucket lifecycle policy for 1 year",
+      "VPC Flow Logs",
+      "AWS Config recorder",
+      "GuardDuty publishing to S3"
+    ],
+    "answer": "CloudTrail trail with S3 bucket lifecycle policy for 1 year"
+  },
+  {
+    "question": "A security engineer needs to ensure that all EBS volumes in an account are encrypted. What is the MOST effective control?",
+    "options": [
+      "Enable EBS encryption by default",
+      "Use AWS Config rule",
+      "Use an SCP to deny unencrypted volumes",
+      "Enable S3 default encryption"
+    ],
+    "answer": "Enable EBS encryption by default"
+  },
+  {
+    "question": "A company wants to detect if an S3 bucket is being accessed without encryption in transit. Which service should be used?",
+    "options": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS CloudTrail"
+  },
+  {
+    "question": "A security engineer needs to ensure that all data stored in Amazon RDS is encrypted at rest with a customer managed key. What should be configured?",
+    "options": [
+      "RDS encryption with a customer managed KMS key",
+      "SSE-S3",
+      "CloudHSM only",
+      "S3 Object Lock"
+    ],
+    "answer": "RDS encryption with a customer managed KMS key"
+  },
+  {
+    "question": "A company needs to detect if an IAM role is being used to access resources from an unexpected account. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A security engineer needs to ensure that all S3 buckets in an organization have encryption enabled by default. Which service should be used?",
+    "options": [
+      "AWS Config with the s3-bucket-server-side-encryption-enabled rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS WAF"
+    ],
+    "answer": "AWS Config with the s3-bucket-server-side-encryption-enabled rule"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to rotate their access keys every 90 days. What should be configured?",
+    "options": [
+      "IAM policy with a condition on aws:TokenIssueTime",
+      "An SCP denying all actions after 90 days",
+      "AWS Config rule",
+      "Amazon GuardDuty"
+    ],
+    "answer": "IAM policy with a condition on aws:TokenIssueTime"
+  },
+  {
+    "question": "A security engineer needs to detect if an EC2 instance is mining cryptocurrency. Which service should be used?",
+    "options": [
+      "Amazon GuardDuty",
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "Amazon GuardDuty"
+  },
+  {
+    "question": "A company needs to ensure that all data in Amazon S3 is encrypted with a key that is rotated every year. Which solution meets these requirements?",
+    "options": [
+      "SSE-KMS with a customer managed key with automatic rotation enabled",
+      "SSE-S3",
+      "SSE-C",
+      "Client-side encryption"
+    ],
+    "answer": "SSE-KMS with a customer managed key with automatic rotation enabled"
+  },
+  {
+    "question": "A security engineer needs to allow an application running in a VPC to access DynamoDB without traversing the internet. What should be configured?",
+    "options": [
+      "NAT gateway",
+      "VPC gateway endpoint for DynamoDB",
+      "VPC interface endpoint for DynamoDB",
+      "AWS Direct Connect"
+    ],
+    "answer": "VPC gateway endpoint for DynamoDB"
+  },
+  {
+    "question": "A company wants to ensure that all IAM users are forced to use MFA before they can perform any actions. Which approach is MOST effective?",
+    "options": [
+      "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false",
+      "An SCP denying all actions",
+      "A permissions boundary",
+      "AWS Shield Advanced"
+    ],
+    "answer": "An IAM policy that denies all actions when aws:MultiFactorAuthPresent is false"
+  },
+  {
+    "question": "A security engineer needs to detect if an IAM policy has been modified to grant full administrative access. Which service should be used?",
+    "options": [
+      "AWS Config with the iam-policy-no-statements-with-admin-access rule",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Artifact"
+    ],
+    "answer": "AWS Config with the iam-policy-no-statements-with-admin-access rule"
+  }
+]

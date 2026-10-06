@@ -1,0 +1,2111 @@
+[
+  {
+    "question": "What is the primary difference between image annotation and video annotation?",
+    "options": [
+      "Video annotation only uses bounding boxes",
+      "Video annotation must account for temporal consistency across frames",
+      "Image annotation requires more compute power",
+      "There is no meaningful difference"
+    ],
+    "answer": "Video annotation must account for temporal consistency across frames"
+  },
+  {
+    "question": "What does 'frame rate' refer to in the context of video annotation?",
+    "options": [
+      "The speed at which annotators must work",
+      "The number of individual frames displayed per second of video",
+      "The resolution of the video",
+      "The number of objects annotated per frame"
+    ],
+    "answer": "The number of individual frames displayed per second of video"
+  },
+  {
+    "question": "Why might a client ask annotators to label only every 5th frame instead of every frame?",
+    "options": [
+      "To make the task harder",
+      "To reduce annotation cost and time while still capturing sufficient motion data",
+      "Because labeling every frame is technically impossible",
+      "Because the model cannot process video"
+    ],
+    "answer": "To reduce annotation cost and time while still capturing sufficient motion data"
+  },
+  {
+    "question": "What is 'interpolation' in video annotation tools used for?",
+    "options": [
+      "Automatically generating annotations for frames between two manually labeled keyframes",
+      "Deleting duplicate annotations",
+      "Converting video to audio",
+      "Compressing the video file"
+    ],
+    "answer": "Automatically generating annotations for frames between two manually labeled keyframes"
+  },
+  {
+    "question": "A 'keyframe' in video annotation is best described as:",
+    "options": [
+      "Any random frame in the video",
+      "A frame where an annotator manually sets or adjusts an annotation, used as an anchor for interpolation",
+      "The first frame of the video only",
+      "A frame with no objects present"
+    ],
+    "answer": "A frame where an annotator manually sets or adjusts an annotation, used as an anchor for interpolation"
+  },
+  {
+    "question": "Which of the following is a common video annotation task?",
+    "options": [
+      "Object tracking across frames",
+      "Compiling source code",
+      "Rendering 3D models",
+      "Formatting spreadsheets"
+    ],
+    "answer": "Object tracking across frames"
+  },
+  {
+    "question": "What is 'occlusion' in the context of video annotation?",
+    "options": [
+      "When an object is partially or fully blocked from view by another object",
+      "When the video resolution is too low",
+      "When two annotators disagree",
+      "When the video file is corrupted"
+    ],
+    "answer": "When an object is partially or fully blocked from view by another object"
+  },
+  {
+    "question": "How should an annotator typically handle an object that becomes occluded and then reappears?",
+    "options": [
+      "Stop tracking it entirely and never label it again",
+      "Mark it as occluded during the occlusion period and re-associate the same track ID when it reappears",
+      "Create a brand new track ID when it reappears",
+      "Delete all previous annotations of that object"
+    ],
+    "answer": "Mark it as occluded during the occlusion period and re-associate the same track ID when it reappears"
+  },
+  {
+    "question": "What is a 'track ID' used for in video annotation?",
+    "options": [
+      "To uniquely identify the same object as it appears across multiple frames",
+      "To label the video file itself",
+      "To indicate annotator performance",
+      "To mark the video's copyright status"
+    ],
+    "answer": "To uniquely identify the same object as it appears across multiple frames"
+  },
+  {
+    "question": "In video annotation, what does 'temporal annotation' typically refer to?",
+    "options": [
+      "Labeling the start and end times of an event or action within a video",
+      "Labeling only the color of objects",
+      "Removing audio from the video",
+      "Adjusting the video's brightness"
+    ],
+    "answer": "Labeling the start and end times of an event or action within a video"
+  },
+  {
+    "question": "Which task type would require annotators to draw a box around a person and follow them frame by frame?",
+    "options": [
+      "Sentiment analysis",
+      "Multi-object tracking",
+      "Text transcription",
+      "Audio labeling"
+    ],
+    "answer": "Multi-object tracking"
+  },
+  {
+    "question": "What is the purpose of a 'null' or 'not applicable' label option in a video annotation task?",
+    "options": [
+      "To allow annotators to skip frames where the target concept is not present or not visible",
+      "To indicate the annotator is done for the day",
+      "To flag technical bugs only",
+      "It has no real purpose"
+    ],
+    "answer": "To allow annotators to skip frames where the target concept is not present or not visible"
+  },
+  {
+    "question": "Why is consistent annotation of object boundaries important in video tasks?",
+    "options": [
+      "It has no impact on downstream model performance",
+      "Inconsistent boundaries introduce noise that can degrade the accuracy of models trained on the data",
+      "It only matters for image tasks, not video",
+      "Boundaries are drawn automatically by the software regardless of annotator input"
+    ],
+    "answer": "Inconsistent boundaries introduce noise that can degrade the accuracy of models trained on the data"
+  },
+  {
+    "question": "What does 're-identification' (Re-ID) mean in video annotation?",
+    "options": [
+      "Recognizing that an object seen earlier in the video is the same object seen later, even after leaving and re-entering the frame",
+      "Renaming a video file",
+      "Identifying the annotator who labeled a clip",
+      "Resetting all annotations to default"
+    ],
+    "answer": "Recognizing that an object seen earlier in the video is the same object seen later, even after leaving and re-entering the frame"
+  },
+  {
+    "question": "Which of these is NOT typically a video annotation output format?",
+    "options": [
+      "COCO JSON",
+      "MP3 audio waveform",
+      "YOLO text format",
+      "XML (Pascal VOC style)"
+    ],
+    "answer": "MP3 audio waveform"
+  },
+  {
+    "question": "What should an annotator do if the task guidelines are ambiguous about how to handle a specific edge case?",
+    "options": [
+      "Guess and move on without documentation",
+      "Flag the case, document it, and seek clarification from the team lead or guidelines",
+      "Skip the entire video",
+      "Make up a new rule and apply it silently"
+    ],
+    "answer": "Flag the case, document it, and seek clarification from the team lead or guidelines"
+  },
+  {
+    "question": "What is 'ground truth' data in the context of AI training?",
+    "options": [
+      "Data that has been verified as accurate and is used as the standard for evaluating model or annotator performance",
+      "Raw, unlabeled video footage",
+      "Data generated entirely by an AI model",
+      "Corrupted or low-quality data"
+    ],
+    "answer": "Data that has been verified as accurate and is used as the standard for evaluating model or annotator performance"
+  },
+  {
+    "question": "Why might video annotation tasks include audio transcription components?",
+    "options": [
+      "Because multimodal models often need synchronized text, audio, and visual labels",
+      "Audio is always irrelevant to video tasks",
+      "To slow down the annotation process intentionally",
+      "Because video files never contain audio"
+    ],
+    "answer": "Because multimodal models often need synchronized text, audio, and visual labels"
+  },
+  {
+    "question": "What is the main goal of a 'gold standard' or 'honeypot' task inserted into an annotation batch?",
+    "options": [
+      "To secretly test and monitor annotator accuracy using a known-correct answer",
+      "To reward the fastest annotator",
+      "To replace the need for guidelines",
+      "To generate revenue directly"
+    ],
+    "answer": "To secretly test and monitor annotator accuracy using a known-correct answer"
+  },
+  {
+    "question": "If an annotation platform crashes mid-task and loses your progress, what is the best first action?",
+    "options": [
+      "Immediately close the platform and give up",
+      "Report the issue to support/QA and check if autosave preserved any progress before redoing the work",
+      "Falsify the missing annotations from memory without checking",
+      "Blame the previous annotator"
+    ],
+    "answer": "Report the issue to support/QA and check if autosave preserved any progress before redoing the work"
+  },
+  {
+    "question": "What is the correct way to draw a bounding box around an object?",
+    "options": [
+      "As loosely as possible to save time",
+      "Tightly fitted to the visible extent of the object with minimal background included",
+      "Always as a perfect square regardless of object shape",
+      "Covering the entire frame"
+    ],
+    "answer": "Tightly fitted to the visible extent of the object with minimal background included"
+  },
+  {
+    "question": "What does IoU (Intersection over Union) measure?",
+    "options": [
+      "The color similarity between two objects",
+      "The overlap between a predicted bounding box and the ground truth box, relative to their union",
+      "The number of objects in a frame",
+      "The speed of annotation"
+    ],
+    "answer": "The overlap between a predicted bounding box and the ground truth box, relative to their union"
+  },
+  {
+    "question": "An IoU threshold of 0.5 is commonly used to determine what?",
+    "options": [
+      "Whether a predicted detection counts as a correct match to ground truth",
+      "The video's frame rate",
+      "The annotator's pay rate",
+      "The compression ratio of the video"
+    ],
+    "answer": "Whether a predicted detection counts as a correct match to ground truth"
+  },
+  {
+    "question": "If an object is 90% occluded but a small visible part remains, what is generally the best practice?",
+    "options": [
+      "Never annotate it",
+      "Follow the specific guideline; commonly, annotate the visible portion and mark it as heavily occluded",
+      "Draw a box around the entire frame",
+      "Always skip occluded objects with no exceptions"
+    ],
+    "answer": "Follow the specific guideline; commonly, annotate the visible portion and mark it as heavily occluded"
+  },
+  {
+    "question": "What is 'class imbalance' in an object detection dataset?",
+    "options": [
+      "When some object categories appear far more frequently than others, potentially biasing the model",
+      "When bounding boxes are of different sizes",
+      "When annotators work different shift lengths",
+      "When videos have different resolutions"
+    ],
+    "answer": "When some object categories appear far more frequently than others, potentially biasing the model"
+  },
+  {
+    "question": "Why is it important to maintain consistent box tightness across an entire dataset?",
+    "options": [
+      "Inconsistent tightness introduces label noise that can reduce model precision",
+      "It doesn't matter as long as the correct class is chosen",
+      "Only the color of the box matters",
+      "Loose boxes always train better models"
+    ],
+    "answer": "Inconsistent tightness introduces label noise that can reduce model precision"
+  },
+  {
+    "question": "What should an annotator do when two different object classes overlap significantly in the same region?",
+    "options": [
+      "Merge them into a single box",
+      "Draw separate boxes for each object per the guidelines, even if they overlap",
+      "Only label the larger object",
+      "Skip the frame entirely"
+    ],
+    "answer": "Draw separate boxes for each object per the guidelines, even if they overlap"
+  },
+  {
+    "question": "What is 'anchor drift' when tracking a bounding box across frames?",
+    "options": [
+      "Gradual, unintentional misalignment of the box from the object it should be tracking",
+      "The intentional movement of an object in the scene",
+      "A software feature to auto-correct boxes",
+      "The process of deleting a track"
+    ],
+    "answer": "Gradual, unintentional misalignment of the box from the object it should be tracking"
+  },
+  {
+    "question": "Which situation most justifies creating a new track ID rather than continuing an existing one?",
+    "options": [
+      "The object briefly went behind a pole for 2 frames",
+      "The object left the frame entirely and a different object of the same class enters later",
+      "The object changed lighting conditions slightly",
+      "The annotator got tired"
+    ],
+    "answer": "The object left the frame entirely and a different object of the same class enters later"
+  },
+  {
+    "question": "In object detection labeling, what does 'truncation' refer to?",
+    "options": [
+      "An object being partially cut off by the edge of the frame",
+      "An object being blurry",
+      "An object changing color",
+      "An object moving very fast"
+    ],
+    "answer": "An object being partially cut off by the edge of the frame"
+  },
+  {
+    "question": "Why might guidelines specify a minimum bounding box size (e.g., ignore objects smaller than 10x10 pixels)?",
+    "options": [
+      "To make the task pointless",
+      "Extremely small objects often provide little useful signal and are hard to label reliably",
+      "Small objects are always more important",
+      "There is no such practice in real annotation work"
+    ],
+    "answer": "Extremely small objects often provide little useful signal and are hard to label reliably"
+  },
+  {
+    "question": "What is the risk of consistently drawing bounding boxes that are too loose (include excess background)?",
+    "options": [
+      "The model may learn to associate background context as part of the object, reducing localization accuracy",
+      "It has no downstream effect",
+      "It speeds up model training with no drawbacks",
+      "It only affects video compression"
+    ],
+    "answer": "The model may learn to associate background context as part of the object, reducing localization accuracy"
+  },
+  {
+    "question": "When a guideline says to label 'amodal' bounding boxes, what does that mean?",
+    "options": [
+      "Boxing only the visible pixels of an object",
+      "Estimating and boxing the full extent of an object, including the occluded parts",
+      "Ignoring occluded objects completely",
+      "Using circles instead of boxes"
+    ],
+    "answer": "Estimating and boxing the full extent of an object, including the occluded parts"
+  },
+  {
+    "question": "What is the purpose of a 'confidence score' sometimes requested alongside an annotation?",
+    "options": [
+      "To indicate how certain the annotator is about the label's correctness",
+      "To indicate the annotator's typing speed",
+      "To rate the video quality",
+      "To determine the annotator's pay automatically in all cases"
+    ],
+    "answer": "To indicate how certain the annotator is about the label's correctness"
+  },
+  {
+    "question": "Which of the following is the best practice when an object's class is genuinely ambiguous (e.g., could be a cat or a small dog)?",
+    "options": [
+      "Pick randomly and move on",
+      "Use the guideline's specified fallback category or flag it for review as instructed",
+      "Always default to the most common class in the dataset",
+      "Leave it unlabeled with no explanation"
+    ],
+    "answer": "Use the guideline's specified fallback category or flag it for review as instructed"
+  },
+  {
+    "question": "What does 'label leakage' mean in an annotation pipeline?",
+    "options": [
+      "When annotators can see information (like model predictions or future frames) that biases their labeling in unintended ways",
+      "When a video file is leaked online",
+      "When too many labels are used in one project",
+      "When annotations are exported to the wrong file format"
+    ],
+    "answer": "When annotators can see information (like model predictions or future frames) that biases their labeling in unintended ways"
+  },
+  {
+    "question": "Why do many annotation platforms show a pre-drawn AI-suggested bounding box for the annotator to adjust?",
+    "options": [
+      "To speed up annotation via human-in-the-loop correction rather than drawing from scratch",
+      "Because annotators are not allowed to draw boxes themselves",
+      "To replace the need for human review entirely",
+      "Because AI suggestions are always perfectly accurate"
+    ],
+    "answer": "To speed up annotation via human-in-the-loop correction rather than drawing from scratch"
+  },
+  {
+    "question": "If the AI-suggested bounding box is close but not perfectly aligned, what should the annotator do?",
+    "options": [
+      "Accept it as-is to save time regardless of accuracy",
+      "Adjust it to be accurate according to the guidelines before submitting",
+      "Delete it and leave the frame blank",
+      "Report it as a bug and skip the frame"
+    ],
+    "answer": "Adjust it to be accurate according to the guidelines before submitting"
+  },
+  {
+    "question": "What is 'over-annotation' and why is it a problem?",
+    "options": [
+      "Labeling more objects or detail than the guidelines require, which wastes time and can introduce inconsistency",
+      "A required best practice in all tasks",
+      "Annotating too quickly",
+      "A term with no real meaning in this field"
+    ],
+    "answer": "Labeling more objects or detail than the guidelines require, which wastes time and can introduce inconsistency"
+  },
+  {
+    "question": "A rubric states 'only label vehicles that are clearly in motion.' A car is parked but its brake lights are on. What should the annotator do?",
+    "options": [
+      "Label it as in motion because the lights are on",
+      "Not label it as in motion, since a stationary car with lights on is not moving, unless guidelines say otherwise",
+      "Skip the entire frame",
+      "Label every vehicle in the frame regardless of motion"
+    ],
+    "answer": "Not label it as in motion, since a stationary car with lights on is not moving, unless guidelines say otherwise"
+  },
+  {
+    "question": "What is the key difference between semantic segmentation and instance segmentation?",
+    "options": [
+      "Semantic segmentation labels every pixel by class only; instance segmentation also distinguishes between individual objects of the same class",
+      "They are exactly the same",
+      "Instance segmentation only works on images, not video",
+      "Semantic segmentation uses bounding boxes only"
+    ],
+    "answer": "Semantic segmentation labels every pixel by class only; instance segmentation also distinguishes between individual objects of the same class"
+  },
+  {
+    "question": "In polygon annotation, what is generally recommended when tracing an object's edge?",
+    "options": [
+      "Use as few points as possible regardless of shape accuracy",
+      "Place vertices along the true contour of the object, adding more points at curves and fewer on straight edges",
+      "Always use exactly 4 points",
+      "Draw the polygon larger than the object for safety"
+    ],
+    "answer": "Place vertices along the true contour of the object, adding more points at curves and fewer on straight edges"
+  },
+  {
+    "question": "What is a 'mask' in the context of segmentation annotation?",
+    "options": [
+      "A pixel-level labeling that identifies which pixels belong to an object or class",
+      "A privacy filter applied to a video",
+      "A type of bounding box",
+      "A video compression technique"
+    ],
+    "answer": "A pixel-level labeling that identifies which pixels belong to an object or class"
+  },
+  {
+    "question": "Why is polygon/segmentation annotation generally more time-consuming than bounding box annotation?",
+    "options": [
+      "It requires tracing precise object boundaries rather than a simple rectangle",
+      "It requires no more effort than bounding boxes",
+      "Polygons are drawn automatically without human input",
+      "Segmentation tasks never involve real objects"
+    ],
+    "answer": "It requires tracing precise object boundaries rather than a simple rectangle"
+  },
+  {
+    "question": "What does 'panoptic segmentation' combine?",
+    "options": [
+      "Semantic segmentation and instance segmentation into one unified labeling task",
+      "Audio and video annotation",
+      "Bounding boxes and text labels only",
+      "Two different videos into one"
+    ],
+    "answer": "Semantic segmentation and instance segmentation into one unified labeling task"
+  },
+  {
+    "question": "When segmenting a person holding a bag, how should the bag typically be handled?",
+    "options": [
+      "Included as part of the person's mask always",
+      "Segmented as a separate object/class unless the guideline explicitly says to merge them",
+      "Ignored entirely",
+      "Merged with the background"
+    ],
+    "answer": "Segmented as a separate object/class unless the guideline explicitly says to merge them"
+  },
+  {
+    "question": "What is a common cause of jagged or inaccurate segmentation masks?",
+    "options": [
+      "Using too few polygon points around curved edges or working at low zoom",
+      "Using a mouse instead of a keyboard",
+      "Working too slowly",
+      "Using the correct class label"
+    ],
+    "answer": "Using too few polygon points around curved edges or working at low zoom"
+  },
+  {
+    "question": "Why might an annotator be asked to zoom in before finalizing a segmentation mask?",
+    "options": [
+      "To improve boundary precision along fine details like hair or fingers",
+      "Zooming has no effect on accuracy",
+      "To make the task take longer intentionally",
+      "Because the software requires it to save the file"
+    ],
+    "answer": "To improve boundary precision along fine details like hair or fingers"
+  },
+  {
+    "question": "What should be done with holes in an object (e.g., the empty space inside a donut shape) during segmentation?",
+    "options": [
+      "Always fill them in as part of the mask",
+      "Exclude the hole from the mask if the guideline defines the object by its solid, visible material only",
+      "Ignore the object entirely",
+      "Segment the hole as a separate full object"
+    ],
+    "answer": "Exclude the hole from the mask if the guideline defines the object by its solid, visible material only"
+  },
+  {
+    "question": "What is 'keypoint annotation' most commonly used for?",
+    "options": [
+      "Marking specific structural points on an object, such as human joints for pose estimation",
+      "Labeling the color of an object",
+      "Counting the total number of frames",
+      "Measuring video file size"
+    ],
+    "answer": "Marking specific structural points on an object, such as human joints for pose estimation"
+  },
+  {
+    "question": "In human pose estimation, what should an annotator do if a joint (e.g., left elbow) is not visible in the frame?",
+    "options": [
+      "Guess its location precisely with full confidence",
+      "Mark it according to guidelines, typically as 'not visible' or estimate it only if explicitly instructed to for occluded points",
+      "Delete the entire pose annotation",
+      "Always place it at the center of the frame"
+    ],
+    "answer": "Mark it according to guidelines, typically as 'not visible' or estimate it only if explicitly instructed to for occluded points"
+  },
+  {
+    "question": "Why is the order/index of keypoints (e.g., point 1 = nose, point 2 = left shoulder) important?",
+    "options": [
+      "It ensures the model receives consistent, correctly structured data across the whole dataset",
+      "It has no importance as long as points are placed somewhere on the body",
+      "It only matters for audio annotation",
+      "The order changes based on annotator preference"
+    ],
+    "answer": "It ensures the model receives consistent, correctly structured data across the whole dataset"
+  },
+  {
+    "question": "What is 'skeletal tracking' in video annotation?",
+    "options": [
+      "Tracking the connected set of keypoints (skeleton) of a subject across frames over time",
+      "Tracking only bones visible via X-ray footage",
+      "A method for annotating audio",
+      "A way to compress video files"
+    ],
+    "answer": "Tracking the connected set of keypoints (skeleton) of a subject across frames over time"
+  },
+  {
+    "question": "When annotating facial landmarks, what is a common challenge specific to video (vs. still images)?",
+    "options": [
+      "Maintaining consistent landmark placement as the face moves, rotates, or is partially occluded across frames",
+      "Facial landmarks are never used in video",
+      "There are no challenges specific to video",
+      "Faces never move in video"
+    ],
+    "answer": "Maintaining consistent landmark placement as the face moves, rotates, or is partially occluded across frames"
+  },
+  {
+    "question": "What does a low-confidence or 'uncertain' flag on a keypoint typically indicate?",
+    "options": [
+      "The annotator is unsure of the exact pixel location due to occlusion, blur, or ambiguity",
+      "The keypoint is definitely wrong",
+      "The video has no audio",
+      "The annotator has finished the task"
+    ],
+    "answer": "The annotator is unsure of the exact pixel location due to occlusion, blur, or ambiguity"
+  },
+  {
+    "question": "What is the main goal of multi-object tracking (MOT) annotation?",
+    "options": [
+      "Assigning and maintaining a consistent identity to each object as it moves across multiple frames",
+      "Labeling each frame independently with no connection between frames",
+      "Counting the total number of frames in the video",
+      "Removing objects from the video"
+    ],
+    "answer": "Assigning and maintaining a consistent identity to each object as it moves across multiple frames"
+  },
+  {
+    "question": "What is an 'ID switch' error in object tracking?",
+    "options": [
+      "When the tracker/annotation mistakenly assigns a different ID to the same object mid-track, or swaps IDs between two objects",
+      "When an annotator changes their username",
+      "When a video file is renamed",
+      "When the frame rate changes"
+    ],
+    "answer": "When the tracker/annotation mistakenly assigns a different ID to the same object mid-track, or swaps IDs between two objects"
+  },
+  {
+    "question": "If two similar-looking objects (e.g., identical twin cars) cross paths and separate, what is the biggest risk?",
+    "options": [
+      "An ID switch, where the tracker/annotator mixes up which object is which after the crossing",
+      "The video file becoming corrupted",
+      "The frame rate increasing",
+      "There is no risk in this scenario"
+    ],
+    "answer": "An ID switch, where the tracker/annotator mixes up which object is which after the crossing"
+  },
+  {
+    "question": "What technique can help an annotator avoid ID switches when objects cross paths?",
+    "options": [
+      "Carefully reviewing frames just before, during, and after the crossing to confirm identity using visual cues like clothing or trajectory",
+      "Always assigning a new ID after any crossing",
+      "Ignoring the crossing event entirely",
+      "Randomly picking an ID"
+    ],
+    "answer": "Carefully reviewing frames just before, during, and after the crossing to confirm identity using visual cues like clothing or trajectory"
+  },
+  {
+    "question": "What does 'track fragmentation' mean?",
+    "options": [
+      "A single object's track is incorrectly split into multiple disconnected track segments",
+      "The video is split into multiple files",
+      "The annotator's screen freezes",
+      "A bounding box is drawn multiple times in one frame"
+    ],
+    "answer": "A single object's track is incorrectly split into multiple disconnected track segments"
+  },
+  {
+    "question": "Why might an annotation guideline require a minimum track duration (e.g., ignore tracks shorter than 3 frames)?",
+    "options": [
+      "Very short tracks are often noise (e.g., detection flicker) and provide limited training value",
+      "Short tracks are always the most valuable",
+      "It is a rule with no real justification",
+      "To reduce the number of videos needed"
+    ],
+    "answer": "Very short tracks are often noise (e.g., detection flicker) and provide limited training value"
+  },
+  {
+    "question": "In video tracking annotation, what is 'linear interpolation' typically used for?",
+    "options": [
+      "Estimating intermediate bounding box positions between two manually annotated keyframes, assuming straight-line movement",
+      "Adjusting video color balance",
+      "Removing background noise from audio",
+      "Compressing the video file size"
+    ],
+    "answer": "Estimating intermediate bounding box positions between two manually annotated keyframes, assuming straight-line movement"
+  },
+  {
+    "question": "Why should an annotator manually review and correct interpolated frames, rather than trusting them blindly?",
+    "options": [
+      "Interpolation assumes linear motion, which can be inaccurate if the object changes speed, direction, or is occluded",
+      "Interpolated frames are always perfectly accurate",
+      "Manual review is never necessary",
+      "Interpolation only works for audio data"
+    ],
+    "answer": "Interpolation assumes linear motion, which can be inaccurate if the object changes speed, direction, or is occluded"
+  },
+  {
+    "question": "What is the purpose of a 'trajectory' visualization in a tracking annotation tool?",
+    "options": [
+      "To show the path an object has taken across frames, helping annotators spot errors or inconsistencies",
+      "To display the annotator's mouse movements",
+      "To show video file metadata",
+      "To indicate network latency"
+    ],
+    "answer": "To show the path an object has taken across frames, helping annotators spot errors or inconsistencies"
+  },
+  {
+    "question": "A car exits the left side of the frame and, 2 seconds later, a visually similar car enters from the right side. Should they share the same track ID?",
+    "options": [
+      "Yes, always, since they are the same class",
+      "No, generally not, unless there is strong evidence (trajectory, guideline rules) that it's the same physical object",
+      "Only if the annotator is unsure",
+      "Yes, because track IDs should never be reused"
+    ],
+    "answer": "No, generally not, unless there is strong evidence (trajectory, guideline rules) that it's the same physical object"
+  },
+  {
+    "question": "What does 'MOTA' (Multiple Object Tracking Accuracy) broadly measure?",
+    "options": [
+      "Overall tracking performance considering false positives, missed detections, and ID switches",
+      "The audio quality of a video",
+      "The annotator's typing speed",
+      "The resolution of the camera used"
+    ],
+    "answer": "Overall tracking performance considering false positives, missed detections, and ID switches"
+  },
+  {
+    "question": "Why is smooth, jitter-free bounding box tracking important for downstream model training?",
+    "options": [
+      "Jittery boxes introduce noisy motion signals that can confuse models learning object dynamics",
+      "Jitter has no effect on training",
+      "Smoothness only matters for human viewers, not models",
+      "Models cannot process bounding boxes at all"
+    ],
+    "answer": "Jittery boxes introduce noisy motion signals that can confuse models learning object dynamics"
+  },
+  {
+    "question": "When a fast-moving object causes significant motion blur, what is the best annotation practice?",
+    "options": [
+      "Skip the object entirely for the whole video",
+      "Annotate the object's best-estimated true extent per guidelines, noting blur if the platform supports a flag",
+      "Draw the box around the entire blurred trail with no consideration of guidelines",
+      "Always mark it as a different object class"
+    ],
+    "answer": "Annotate the object's best-estimated true extent per guidelines, noting blur if the platform supports a flag"
+  },
+  {
+    "question": "What is the benefit of reviewing a tracked object's annotation in 'playback mode' rather than frame-by-frame only?",
+    "options": [
+      "It helps catch flicker, jitter, or ID errors that are easier to see in motion than in static frames",
+      "Playback mode is purely cosmetic and has no analytical benefit",
+      "It replaces the need for any frame-by-frame review",
+      "It automatically fixes all errors"
+    ],
+    "answer": "It helps catch flicker, jitter, or ID errors that are easier to see in motion than in static frames"
+  },
+  {
+    "question": "If guidelines state 'track vehicles only while at least 25% visible,' and a car becomes 80% occluded for 10 frames then reappears, what should happen to its track?",
+    "options": [
+      "The track should end immediately and never resume",
+      "The track should pause/mark as occluded during those frames and resume with the same ID once visibility exceeds the threshold again",
+      "A new track ID must be created regardless of context",
+      "The entire video should be discarded"
+    ],
+    "answer": "The track should pause/mark as occluded during those frames and resume with the same ID once visibility exceeds the threshold again"
+  },
+  {
+    "question": "What is 'temporal action localization'?",
+    "options": [
+      "Identifying the exact start and end time of a specific action within a longer video",
+      "Locating an object's pixel coordinates in a single frame",
+      "Measuring video file size over time",
+      "Converting video to a different resolution"
+    ],
+    "answer": "Identifying the exact start and end time of a specific action within a longer video"
+  },
+  {
+    "question": "If a guideline defines 'walking' as starting when a foot first leaves the ground, where should the start timestamp be placed?",
+    "options": [
+      "At the very beginning of the video regardless of content",
+      "At the exact frame where the foot first lifts off the ground, per the definition given",
+      "At a random point during the walking motion",
+      "At the end of the walking action"
+    ],
+    "answer": "At the exact frame where the foot first lifts off the ground, per the definition given"
+  },
+  {
+    "question": "What is a common challenge when labeling the boundary between two consecutive actions (e.g., 'sitting down' then 'standing up')?",
+    "options": [
+      "There is never any ambiguity between actions",
+      "Precisely pinpointing the transition frame, which can be subjective without a clear operational definition",
+      "Actions never transition into each other",
+      "The video format prevents transition labeling"
+    ],
+    "answer": "Precisely pinpointing the transition frame, which can be subjective without a clear operational definition"
+  },
+  {
+    "question": "Why do action recognition guidelines often include explicit, operational definitions (e.g., 'a wave requires at least 2 side-to-side hand motions')?",
+    "options": [
+      "To reduce subjectivity and increase consistency across annotators",
+      "To make the task deliberately confusing",
+      "Definitions are unnecessary for action labeling",
+      "To increase annotation time without benefit"
+    ],
+    "answer": "To reduce subjectivity and increase consistency across annotators"
+  },
+  {
+    "question": "How should overlapping actions be handled if a person is both 'talking' and 'walking' at the same time, and both are valid labels?",
+    "options": [
+      "Only one label can ever be applied per guideline restrictions in all cases",
+      "Apply both labels with their respective time ranges if the guidelines allow multi-label/overlapping annotation",
+      "Ignore both actions since they overlap",
+      "Merge them into a new, undefined label"
+    ],
+    "answer": "Apply both labels with their respective time ranges if the guidelines allow multi-label/overlapping annotation"
+  },
+  {
+    "question": "What is the purpose of labeling 'background' or 'no action' segments in an action recognition dataset?",
+    "options": [
+      "To give the model negative examples so it learns to distinguish actions from non-action periods",
+      "Background segments are never labeled in any dataset",
+      "To increase the file size unnecessarily",
+      "To replace the need for positive action labels"
+    ],
+    "answer": "To give the model negative examples so it learns to distinguish actions from non-action periods"
+  },
+  {
+    "question": "In event annotation, what does a 'pre-roll' or 'buffer' requirement (e.g., label 2 seconds before the event starts) typically help with?",
+    "options": [
+      "Giving the model context leading up to the event, useful for prediction/early-detection tasks",
+      "Making the video file smaller",
+      "Removing the need for an end timestamp",
+      "It has no practical use"
+    ],
+    "answer": "Giving the model context leading up to the event, useful for prediction/early-detection tasks"
+  },
+  {
+    "question": "Which is the most appropriate approach if an action happens too briefly to be clearly visible (e.g., 1-2 frames of motion blur)?",
+    "options": [
+      "Always label it as a full-duration, clearly defined action",
+      "Follow the guideline's minimum-duration or ambiguous-event rule, which may mean flagging or excluding it",
+      "Ignore all guidelines and use personal judgment silently",
+      "Delete the video from the dataset without documentation"
+    ],
+    "answer": "Follow the guideline's minimum-duration or ambiguous-event rule, which may mean flagging or excluding it"
+  },
+  {
+    "question": "What is 'inter-annotator agreement' (IAA)?",
+    "options": [
+      "A measure of how consistently different annotators label the same data",
+      "The pay rate agreed upon between annotators and the company",
+      "A software tool for drawing bounding boxes",
+      "The number of annotators assigned to a project"
+    ],
+    "answer": "A measure of how consistently different annotators label the same data"
+  },
+  {
+    "question": "What does Cohen's Kappa account for that raw percent agreement does not?",
+    "options": [
+      "The rate of agreement expected to occur by chance",
+      "The speed of annotation",
+      "The resolution of the video",
+      "The number of classes only, with no statistical adjustment"
+    ],
+    "answer": "The rate of agreement expected to occur by chance"
+  },
+  {
+    "question": "A Cohen's Kappa score of 0.85 generally indicates:",
+    "options": [
+      "Poor agreement",
+      "Almost perfect / very high agreement between annotators",
+      "No agreement at all",
+      "That the task is impossible"
+    ],
+    "answer": "Almost perfect / very high agreement between annotators"
+  },
+  {
+    "question": "What is the purpose of a 'consensus' or 'majority vote' pipeline in annotation projects?",
+    "options": [
+      "To combine multiple annotators' labels on the same item to produce a more reliable final label",
+      "To let one annotator decide everything unilaterally",
+      "To remove the need for any guidelines",
+      "To slow down the project intentionally"
+    ],
+    "answer": "To combine multiple annotators' labels on the same item to produce a more reliable final label"
+  },
+  {
+    "question": "Why might a project use 'triple annotation' (3 independent annotators per item) for critical tasks?",
+    "options": [
+      "To increase reliability and catch errors via majority consensus, especially for high-stakes data",
+      "It is always required regardless of task importance",
+      "To reduce costs",
+      "To eliminate the need for guidelines"
+    ],
+    "answer": "To increase reliability and catch errors via majority consensus, especially for high-stakes data"
+  },
+  {
+    "question": "What is a 'QA reviewer' or 'auditor' role in an annotation pipeline?",
+    "options": [
+      "Someone who reviews completed annotations for accuracy and provides feedback or corrections",
+      "The person who writes the video content",
+      "A role that has no interaction with annotators",
+      "An automated bot with no human oversight"
+    ],
+    "answer": "Someone who reviews completed annotations for accuracy and provides feedback or corrections"
+  },
+  {
+    "question": "If your QA rejection rate is unusually high compared to peers, what is the most constructive next step?",
+    "options": [
+      "Ignore the feedback and continue as before",
+      "Review the specific rejected examples, re-read the guidelines, and ask clarifying questions about recurring mistakes",
+      "Immediately quit the project",
+      "Blame the QA reviewer without reviewing your own work"
+    ],
+    "answer": "Review the specific rejected examples, re-read the guidelines, and ask clarifying questions about recurring mistakes"
+  },
+  {
+    "question": "What is a 'calibration session' in an annotation project?",
+    "options": [
+      "A meeting where annotators review sample cases together to align their understanding of the guidelines before starting bulk work",
+      "A software update process",
+      "A one-on-one performance review only",
+      "A session to fix a broken annotation tool"
+    ],
+    "answer": "A meeting where annotators review sample cases together to align their understanding of the guidelines before starting bulk work"
+  },
+  {
+    "question": "Why are 'edge cases' specifically valuable to discuss during calibration?",
+    "options": [
+      "They tend to cause the most disagreement between annotators and reveal gaps in the guidelines",
+      "They are the easiest cases and need no discussion",
+      "Edge cases never occur in real datasets",
+      "They are only relevant to audio annotation"
+    ],
+    "answer": "They tend to cause the most disagreement between annotators and reveal gaps in the guidelines"
+  },
+  {
+    "question": "What does it mean if guidelines are described as a 'living document'?",
+    "options": [
+      "The guidelines may be updated over time as new edge cases and clarifications emerge",
+      "The guidelines are printed on paper only",
+      "The guidelines never change once published",
+      "The guidelines are generated randomly for each task"
+    ],
+    "answer": "The guidelines may be updated over time as new edge cases and clarifications emerge"
+  },
+  {
+    "question": "What is the best response when you disagree with a QA correction that you believe is actually wrong?",
+    "options": [
+      "Silently comply without ever raising concerns",
+      "Politely raise the specific disagreement with reference to the guideline, asking for clarification",
+      "Argue aggressively and refuse to make further corrections",
+      "Ignore all future QA feedback from that reviewer"
+    ],
+    "answer": "Politely raise the specific disagreement with reference to the guideline, asking for clarification"
+  },
+  {
+    "question": "What is 'annotator drift' over the course of a long project?",
+    "options": [
+      "A gradual, often unintentional shift in how an annotator applies labeling standards over time",
+      "The physical movement of an annotator's mouse cursor",
+      "A feature that automatically corrects annotations",
+      "A term with no meaning in this field"
+    ],
+    "answer": "A gradual, often unintentional shift in how an annotator applies labeling standards over time"
+  },
+  {
+    "question": "Which practice helps prevent annotator drift on long projects?",
+    "options": [
+      "Periodically re-reviewing guidelines and gold-standard examples throughout the project",
+      "Never reviewing your own past work",
+      "Working as fast as possible with no breaks",
+      "Avoiding all communication with QA or team leads"
+    ],
+    "answer": "Periodically re-reviewing guidelines and gold-standard examples throughout the project"
+  },
+  {
+    "question": "What is a 'confusion matrix' used for in evaluating annotation or model accuracy?",
+    "options": [
+      "Showing how often each class is correctly or incorrectly predicted/labeled versus the true class",
+      "Measuring video resolution",
+      "Tracking annotator work hours",
+      "Encrypting sensitive data"
+    ],
+    "answer": "Showing how often each class is correctly or incorrectly predicted/labeled versus the true class"
+  },
+  {
+    "question": "Why is it useful to track which specific guideline section is most often the source of annotator errors?",
+    "options": [
+      "It helps identify which parts of the guidelines need clarification or additional training",
+      "It has no practical use",
+      "It is used only to penalize annotators",
+      "It replaces the need for a QA process altogether"
+    ],
+    "answer": "It helps identify which parts of the guidelines need clarification or additional training"
+  },
+  {
+    "question": "What should you do if you realize, after submitting a large batch, that you misunderstood a rule and mislabeled many items?",
+    "options": [
+      "Say nothing and hope no one notices",
+      "Proactively report the issue to your team lead so the batch can be corrected or re-reviewed",
+      "Delete your account",
+      "Blame the guidelines publicly without offering a resolution"
+    ],
+    "answer": "Proactively report the issue to your team lead so the batch can be corrected or re-reviewed"
+  },
+  {
+    "question": "What is 'label noise' and why does it matter?",
+    "options": [
+      "Incorrect or inconsistent labels in a dataset, which can reduce the performance of models trained on that data",
+      "Background sound in a video file",
+      "The visual quality of an annotation tool's interface",
+      "A term used only in audio annotation"
+    ],
+    "answer": "Incorrect or inconsistent labels in a dataset, which can reduce the performance of models trained on that data"
+  },
+  {
+    "question": "If a task allows only single-select answers but a case genuinely fits two categories, what is the best approach?",
+    "options": [
+      "Pick one at random",
+      "Apply the guideline's tie-breaking rule (e.g., priority order) or flag it for review if no rule exists",
+      "Leave the item completely blank without explanation",
+      "Create a new, unauthorized category"
+    ],
+    "answer": "Apply the guideline's tie-breaking rule (e.g., priority order) or flag it for review if no rule exists"
+  },
+  {
+    "question": "What is the primary purpose of providing annotators with example 'good' and 'bad' annotations in training materials?",
+    "options": [
+      "To set a clear, shared standard for quality and reduce ambiguity",
+      "To discourage annotators from asking questions",
+      "To make the guidelines longer without added value",
+      "Examples are never included in real guidelines"
+    ],
+    "answer": "To set a clear, shared standard for quality and reduce ambiguity"
+  },
+  {
+    "question": "What does 'throughput' typically refer to in annotation project metrics?",
+    "options": [
+      "The volume of annotations/tasks completed per unit of time",
+      "The color accuracy of annotations",
+      "The number of annotators hired",
+      "The video file compression ratio"
+    ],
+    "answer": "The volume of annotations/tasks completed per unit of time"
+  },
+  {
+    "question": "Why do most annotation projects prioritize accuracy over raw speed, especially early in a contract?",
+    "options": [
+      "Low-quality data can be more costly to fix later and undermines trust in the annotator",
+      "Speed is always more important than accuracy",
+      "Accuracy has no impact on client satisfaction",
+      "Accuracy and speed are unrelated to project success"
+    ],
+    "answer": "Low-quality data can be more costly to fix later and undermines trust in the annotator"
+  },
+  {
+    "question": "What is CVAT primarily used for?",
+    "options": [
+      "An open-source tool for computer vision annotation including bounding boxes, polygons, and video tracking",
+      "A tool exclusively for editing audio files",
+      "A spreadsheet application",
+      "A video compression codec"
+    ],
+    "answer": "An open-source tool for computer vision annotation including bounding boxes, polygons, and video tracking"
+  },
+  {
+    "question": "What type of platform is Labelbox generally considered?",
+    "options": [
+      "A data labeling and annotation platform supporting images, video, and text with QA workflows",
+      "A video streaming service",
+      "A programming language",
+      "A social media platform"
+    ],
+    "answer": "A data labeling and annotation platform supporting images, video, and text with QA workflows"
+  },
+  {
+    "question": "What does Scale AI's data platform primarily provide to clients?",
+    "options": [
+      "Data labeling and annotation infrastructure/workforce for training AI models",
+      "Cloud computing servers only, unrelated to data",
+      "A video editing suite for consumers",
+      "A social network for developers"
+    ],
+    "answer": "Data labeling and annotation infrastructure/workforce for training AI models"
+  },
+  {
+    "question": "In most annotation tools, what is the function of keyboard shortcuts (e.g., pressing a number key to select a class)?",
+    "options": [
+      "To speed up repetitive labeling actions and reduce reliance on mouse-only navigation",
+      "They have no functional purpose",
+      "They are used only for saving files",
+      "They disable the annotation interface"
+    ],
+    "answer": "To speed up repetitive labeling actions and reduce reliance on mouse-only navigation"
+  },
+  {
+    "question": "What is the purpose of a 'task queue' in a crowdsourced annotation platform?",
+    "options": [
+      "To organize and distribute individual annotation jobs to available annotators",
+      "To store completed videos permanently with no further use",
+      "To rank annotators by pay rate only",
+      "To compress video files automatically"
+    ],
+    "answer": "To organize and distribute individual annotation jobs to available annotators"
+  },
+  {
+    "question": "Why do many annotation platforms include an in-browser zoom and pan feature?",
+    "options": [
+      "To allow precise annotation of small details without needing external software",
+      "Zoom and pan are purely decorative features",
+      "To slow down annotators intentionally",
+      "Because videos cannot otherwise be viewed"
+    ],
+    "answer": "To allow precise annotation of small details without needing external software"
+  },
+  {
+    "question": "What is the benefit of 'auto-save' functionality in annotation tools?",
+    "options": [
+      "It prevents loss of work in the event of a crash, disconnect, or accidental navigation away from the task",
+      "It automatically submits your work without any review",
+      "It has no practical benefit",
+      "It replaces the need for a submit button entirely"
+    ],
+    "answer": "It prevents loss of work in the event of a crash, disconnect, or accidental navigation away from the task"
+  },
+  {
+    "question": "What should you do first if you encounter a bug in the annotation platform that prevents you from completing a task correctly?",
+    "options": [
+      "Guess and submit incorrect data anyway",
+      "Document the bug (e.g., screenshot, description) and report it through the proper support channel",
+      "Abandon the platform without notice",
+      "Try to fix the platform's code yourself"
+    ],
+    "answer": "Document the bug (e.g., screenshot, description) and report it through the proper support channel"
+  },
+  {
+    "question": "Why might annotation platforms require a stable, high-speed internet connection?",
+    "options": [
+      "Large video files and real-time saving/interaction require consistent bandwidth to avoid data loss or lag",
+      "Internet speed is irrelevant to annotation work",
+      "Only offline work is supported by most platforms",
+      "Video files are never transferred over the internet"
+    ],
+    "answer": "Large video files and real-time saving/interaction require consistent bandwidth to avoid data loss or lag"
+  },
+  {
+    "question": "What is a 'sandbox' or 'practice' environment often provided before real paid tasks begin?",
+    "options": [
+      "A risk-free space to practice using the tool and applying guidelines before working on real data",
+      "A place to store completed work permanently",
+      "A tool for compressing audio files",
+      "A feature exclusive to mobile devices"
+    ],
+    "answer": "A risk-free space to practice using the tool and applying guidelines before working on real data"
+  },
+  {
+    "question": "What is the general purpose of a browser extension sometimes required for annotation platforms (e.g., screen recording or activity tracking)?",
+    "options": [
+      "To verify work authenticity, track time, or enable specific tool functionality as required by the client",
+      "To mine cryptocurrency",
+      "To disable the annotator's internet access",
+      "It serves no verifiable purpose and should always be refused"
+    ],
+    "answer": "To verify work authenticity, track time, or enable specific tool functionality as required by the client"
+  },
+  {
+    "question": "Which of the following is good practice before starting any new annotation platform or task type?",
+    "options": [
+      "Skip the onboarding/tutorial and start immediately",
+      "Complete onboarding materials, sample tasks, and read guidelines thoroughly first",
+      "Ask another annotator to do the onboarding for you",
+      "Assume all platforms work identically with no differences"
+    ],
+    "answer": "Complete onboarding materials, sample tasks, and read guidelines thoroughly first"
+  },
+  {
+    "question": "What is 'SuperAnnotate' generally categorized as?",
+    "options": [
+      "An end-to-end data annotation and training data platform used for computer vision and NLP tasks",
+      "A social media analytics tool",
+      "A hardware manufacturer",
+      "A programming framework unrelated to data labeling"
+    ],
+    "answer": "An end-to-end data annotation and training data platform used for computer vision and NLP tasks"
+  },
+  {
+    "question": "Why is it useful to be comfortable with multiple annotation interfaces (not just one specific tool) when applying to data annotation roles?",
+    "options": [
+      "Different clients and companies use different proprietary or open-source tools, and adaptability is valued",
+      "All annotation tools are functionally identical, so this has no benefit",
+      "Only one tool is used across the entire industry",
+      "Tool familiarity is never assessed in interviews"
+    ],
+    "answer": "Different clients and companies use different proprietary or open-source tools, and adaptability is valued"
+  },
+  {
+    "question": "A mannequin wearing clothes appears in a retail video. Should it be labeled as a 'person'?",
+    "options": [
+      "Yes, always, regardless of guidelines",
+      "Only if the guidelines define 'person' to include mannequins or human-like figures; otherwise, no",
+      "It should never be labeled at all",
+      "Only if it is moving"
+    ],
+    "answer": "Only if the guidelines define 'person' to include mannequins or human-like figures; otherwise, no"
+  },
+  {
+    "question": "A reflection of a car appears in a puddle, but the real car is off-screen. How should this typically be handled?",
+    "options": [
+      "Label the reflection as a real car with full confidence",
+      "Do not label the reflection as a real object unless guidelines specifically address reflections",
+      "Always ignore the entire frame",
+      "Label it as two separate cars"
+    ],
+    "answer": "Do not label the reflection as a real object unless guidelines specifically address reflections"
+  },
+  {
+    "question": "A video contains an animated cartoon character rather than a real person. Should this be labeled as 'person' in a real-world object detection task?",
+    "options": [
+      "Yes, cartoons are always equivalent to real people",
+      "Only if the guidelines explicitly include animated/fictional depictions; otherwise it should generally be excluded or flagged",
+      "This scenario never occurs in real datasets",
+      "Always exclude it with no need to check guidelines"
+    ],
+    "answer": "Only if the guidelines explicitly include animated/fictional depictions; otherwise it should generally be excluded or flagged"
+  },
+  {
+    "question": "What is the best practice when the video quality is so poor (e.g., extremely low resolution) that accurate labeling is impossible?",
+    "options": [
+      "Label it anyway with a guess and no documentation",
+      "Flag the video/frame as unusable per the guideline's quality-issue protocol",
+      "Silently skip it with no explanation to the team",
+      "Delete the video file from the source"
+    ],
+    "answer": "Flag the video/frame as unusable per the guideline's quality-issue protocol"
+  },
+  {
+    "question": "A guideline defines 'vehicle' but a video shows a horse-drawn carriage. Should it be labeled as a vehicle?",
+    "options": [
+      "Always yes, since it transports people",
+      "Depends entirely on how the guideline defines 'vehicle' — check for explicit inclusion/exclusion criteria",
+      "Always no, with no need to check the guideline",
+      "Label it as an animal only, ignoring the carriage entirely"
+    ],
+    "answer": "Depends entirely on how the guideline defines 'vehicle' — check for explicit inclusion/exclusion criteria"
+  },
+  {
+    "question": "If guidelines are silent on a specific edge case you encounter, what is the most professional course of action?",
+    "options": [
+      "Make a permanent unilateral decision and never inform anyone",
+      "Apply your best reasonable judgment, document the case, and flag it for the team to formally clarify in the guidelines",
+      "Refuse to complete any further work until the issue is resolved",
+      "Randomly guess without documentation"
+    ],
+    "answer": "Apply your best reasonable judgment, document the case, and flag it for the team to formally clarify in the guidelines"
+  },
+  {
+    "question": "A toy car is visible in a video meant for real-world vehicle detection. What is the most likely correct treatment?",
+    "options": [
+      "Label it as a real vehicle with full confidence",
+      "Exclude it as a real vehicle unless the guideline explicitly includes toy/miniature replicas",
+      "Always include all car-shaped objects with no distinction",
+      "Delete the entire video"
+    ],
+    "answer": "Exclude it as a real vehicle unless the guideline explicitly includes toy/miniature replicas"
+  },
+  {
+    "question": "A video shows a person's shadow moving but the person themselves is off-screen. Should the shadow be tracked as the person?",
+    "options": [
+      "Yes, shadows are always treated as the object itself",
+      "No, generally shadows are not annotated as the object unless guidelines state otherwise",
+      "Only if the shadow is a specific color",
+      "Shadows should always be labeled as a separate 'shadow' object class by default"
+    ],
+    "answer": "No, generally shadows are not annotated as the object unless guidelines state otherwise"
+  },
+  {
+    "question": "What should an annotator do when they suspect a video contains sensitive, disturbing, or policy-violating content?",
+    "options": [
+      "Continue annotating normally and say nothing",
+      "Follow the platform's content escalation protocol, which may include flagging and not annotating further",
+      "Share the content with friends or on social media",
+      "Delete the video without reporting it"
+    ],
+    "answer": "Follow the platform's content escalation protocol, which may include flagging and not annotating further"
+  },
+  {
+    "question": "A person is wearing a costume that makes them look like an animal. How should this typically be classified in an object detection task?",
+    "options": [
+      "Always as an animal, regardless of context",
+      "As a person in costume, per the guideline's definition of 'person', unless stated otherwise",
+      "Neither a person nor an animal — skip entirely with no basis",
+      "As an animal only if it is moving on four legs"
+    ],
+    "answer": "As a person in costume, per the guideline's definition of 'person', unless stated otherwise"
+  },
+  {
+    "question": "If a guideline example contradicts a written rule elsewhere in the document, what should the annotator do?",
+    "options": [
+      "Pick whichever is easiest to follow without reporting the conflict",
+      "Flag the contradiction to the team lead for clarification rather than guessing which one is correct",
+      "Ignore both and invent a new rule",
+      "Always follow the example over the written rule with no verification"
+    ],
+    "answer": "Flag the contradiction to the team lead for clarification rather than guessing which one is correct"
+  },
+  {
+    "question": "A video contains a group of people so densely packed that individual boundaries are unclear. What is a common guideline approach for this 'crowd' scenario?",
+    "options": [
+      "Always draw one box around the entire crowd with no distinction, regardless of guidelines",
+      "Follow the specific crowd-handling rule provided, which may involve a 'crowd' label instead of individual boxes past a density threshold",
+      "Skip the frame entirely with no crowd handling",
+      "Randomly select 3 people to label and ignore the rest"
+    ],
+    "answer": "Follow the specific crowd-handling rule provided, which may involve a 'crowd' label instead of individual boxes past a density threshold"
+  },
+  {
+    "question": "Why is documenting edge cases you encounter valuable to the broader project, beyond your own task?",
+    "options": [
+      "It helps improve guideline clarity and consistency for the entire annotator team, not just yourself",
+      "It has no value beyond your individual task",
+      "It slows down the project with no benefit",
+      "Documentation is discouraged in professional annotation work"
+    ],
+    "answer": "It helps improve guideline clarity and consistency for the entire annotator team, not just yourself"
+  },
+  {
+    "question": "A video shows a real dog on a television screen within the scene (a video within a video). Should the TV dog be labeled?",
+    "options": [
+      "Yes, exactly the same as a real dog in the scene, with no distinction",
+      "Only if guidelines specify how to handle depicted/on-screen content; otherwise, this should typically be flagged or excluded",
+      "It should always be ignored with certainty and no verification",
+      "It should be labeled as a television, not a dog, under all circumstances"
+    ],
+    "answer": "Only if guidelines specify how to handle depicted/on-screen content; otherwise, this should typically be flagged or excluded"
+  },
+  {
+    "question": "What is the most professional way to handle repeated, nearly identical edge cases that guidelines don't cover well?",
+    "options": [
+      "Handle each one differently based on mood",
+      "Propose a consistent rule to the team lead based on the pattern observed, to be added to the guidelines",
+      "Ignore the pattern entirely",
+      "Stop working without explanation"
+    ],
+    "answer": "Propose a consistent rule to the team lead based on the pattern observed, to be added to the guidelines"
+  },
+  {
+    "question": "A guideline says to label 'red vehicles' but a car appears maroon/dark red under poor lighting. What should you do?",
+    "options": [
+      "Always exclude it since it isn't bright red",
+      "Use the closest reasonable judgment based on the guideline's color definition, and flag genuinely ambiguous cases if allowed",
+      "Include every vehicle regardless of color",
+      "Change the video's brightness settings to decide"
+    ],
+    "answer": "Use the closest reasonable judgment based on the guideline's color definition, and flag genuinely ambiguous cases if allowed"
+  },
+  {
+    "question": "What is the risk of an annotator applying their own undocumented personal interpretation to ambiguous cases without flagging them?",
+    "options": [
+      "No risk — personal judgment is always preferred over documentation",
+      "It creates inconsistency across the dataset and undermines inter-annotator agreement",
+      "It always improves dataset quality",
+      "It has no effect on downstream model training"
+    ],
+    "answer": "It creates inconsistency across the dataset and undermines inter-annotator agreement"
+  },
+  {
+    "question": "If you are unsure whether a specific frame falls within the scope of the task at all (e.g., an unrelated commercial break in a video), what should you do?",
+    "options": [
+      "Annotate it thoroughly regardless of relevance",
+      "Check the guidelines for scope rules and flag/skip it as out-of-scope if appropriate",
+      "Delete the entire video file",
+      "Assume it is always in scope with no verification"
+    ],
+    "answer": "Check the guidelines for scope rules and flag/skip it as out-of-scope if appropriate"
+  },
+  {
+    "question": "A guideline update is issued mid-project changing how a class should be labeled. What should you do with your previously completed work?",
+    "options": [
+      "Ignore the update and continue with old rules for consistency",
+      "Follow the team's instructions, which typically involve applying new rules going forward and possibly revisiting past work if specified",
+      "Immediately delete all previous work without instruction",
+      "Assume the update doesn't apply to you personally"
+    ],
+    "answer": "Follow the team's instructions, which typically involve applying new rules going forward and possibly revisiting past work if specified"
+  },
+  {
+    "question": "Why might a company deliberately include ambiguous or edge-case items in an interview/qualification test?",
+    "options": [
+      "To assess how a candidate handles uncertainty, follows a rubric, and communicates when something is unclear",
+      "To trick candidates with no real evaluative purpose",
+      "Ambiguous items are never included in qualification tests",
+      "To fill time without evaluating skill"
+    ],
+    "answer": "To assess how a candidate handles uncertainty, follows a rubric, and communicates when something is unclear"
+  },
+  {
+    "question": "Why is data privacy especially important in video annotation involving people?",
+    "options": [
+      "Videos of real people may contain personally identifiable information (PII) that must be handled per privacy laws and client agreements",
+      "Privacy is not a concern in annotation work",
+      "Only audio data requires privacy protection",
+      "Privacy laws do not apply to AI training data"
+    ],
+    "answer": "Videos of real people may contain personally identifiable information (PII) that must be handled per privacy laws and client agreements"
+  },
+  {
+    "question": "What is 'data anonymization' in the context of annotation datasets?",
+    "options": [
+      "Removing or obscuring identifying information (e.g., faces, license plates) to protect individuals' privacy",
+      "Deleting the entire dataset",
+      "Making annotators anonymous to clients",
+      "Compressing video files to reduce storage"
+    ],
+    "answer": "Removing or obscuring identifying information (e.g., faces, license plates) to protect individuals' privacy"
+  },
+  {
+    "question": "If you are asked to annotate content that appears to involve a minor in an inappropriate or exploitative context, what should you do?",
+    "options": [
+      "Continue the task as normal",
+      "Immediately stop, do not annotate, and report it through the appropriate safety/escalation channel",
+      "Annotate it but flag it as 'low priority'",
+      "Share it with colleagues to get a second opinion informally"
+    ],
+    "answer": "Immediately stop, do not annotate, and report it through the appropriate safety/escalation channel"
+  },
+  {
+    "question": "What is 'algorithmic bias' as it relates to training data?",
+    "options": [
+      "Systematic errors or unfair patterns in model outputs that often originate from imbalanced or biased training data",
+      "A bug found only in software code, unrelated to data",
+      "A term with no real relevance to annotation work",
+      "A type of video compression artifact"
+    ],
+    "answer": "Systematic errors or unfair patterns in model outputs that often originate from imbalanced or biased training data"
+  },
+  {
+    "question": "Why is diverse representation (e.g., across skin tones, ages, genders) important in datasets used for tasks like facial recognition?",
+    "options": [
+      "Underrepresentation can cause models to perform poorly or unfairly for underrepresented groups",
+      "Diversity has no effect on model performance",
+      "Only one demographic group needs to be represented for accuracy",
+      "It is only a marketing concern, not a technical one"
+    ],
+    "answer": "Underrepresentation can cause models to perform poorly or unfairly for underrepresented groups"
+  },
+  {
+    "question": "What should an annotator do if they personally recognize someone in a video they are annotating (e.g., a friend or public figure)?",
+    "options": [
+      "Treat the data according to standard confidentiality/privacy policies and avoid sharing or discussing it outside the platform",
+      "Immediately contact the person shown in the video",
+      "Post about it on social media",
+      "Change their labeling behavior based on personal feelings about the individual"
+    ],
+    "answer": "Treat the data according to standard confidentiality/privacy policies and avoid sharing or discussing it outside the platform"
+  },
+  {
+    "question": "Why do most annotation contracts include strict confidentiality/non-disclosure agreements (NDAs)?",
+    "options": [
+      "Client data (including videos, model outputs, and business information) is often sensitive or proprietary",
+      "NDAs are legally meaningless in this industry",
+      "To prevent annotators from ever discussing their job title",
+      "Confidentiality is never required for this type of remote work"
+    ],
+    "answer": "Client data (including videos, model outputs, and business information) is often sensitive or proprietary"
+  },
+  {
+    "question": "What is the appropriate action if you're asked, as part of an annotation task, to generate or label content that seems to violate ethical guidelines (e.g., promoting violence)?",
+    "options": [
+      "Comply without question to maintain throughput",
+      "Decline, and report the concern to the project's support or compliance channel",
+      "Complete the task quickly to move past it",
+      "Modify the content yourself without reporting it"
+    ],
+    "answer": "Decline, and report the concern to the project's support or compliance channel"
+  },
+  {
+    "question": "Why might an annotation project require you to blur or exclude license plates and faces in publicly sourced dashcam footage?",
+    "options": [
+      "To comply with privacy regulations and reduce identifiability of individuals not consenting to data use",
+      "License plates and faces are never relevant to any project",
+      "Blurring improves video compression only",
+      "This is purely an aesthetic choice with no legal basis"
+    ],
+    "answer": "To comply with privacy regulations and reduce identifiability of individuals not consenting to data use"
+  },
+  {
+    "question": "What does 'informed consent' mean in the context of data collected for AI training?",
+    "options": [
+      "Individuals being made aware of and agreeing to how their data (e.g., video/image) will be used, including for AI training",
+      "A legal requirement that only applies to medical data",
+      "An annotator's agreement to follow task guidelines",
+      "A term unrelated to data annotation"
+    ],
+    "answer": "Individuals being made aware of and agreeing to how their data (e.g., video/image) will be used, including for AI training"
+  },
+  {
+    "question": "What is a 'confidentiality breach' in the context of video annotation?",
+    "options": [
+      "Accidentally or intentionally sharing video content or client information outside of authorized work channels",
+      "Accidentally labeling an object with the wrong class",
+      "Slowing down annotation speed",
+      "Asking for a guideline clarification"
+    ],
+    "answer": "Accidentally or intentionally sharing video content or client information outside of authorized work channels"
+  },
+  {
+    "question": "What is the primary goal of Reinforcement Learning from Human Feedback (RLHF)?",
+    "options": [
+      "To train AI models to label videos automatically without human input",
+      "To align AI model outputs (like text or actions) with human preferences and values using human feedback as a reward signal",
+      "To compress video files for faster processing",
+      "To generate synthetic video data for training"
+    ],
+    "answer": "To align AI model outputs (like text or actions) with human preferences and values using human feedback as a reward signal"
+  },
+  {
+    "question": "In an RLHF task involving video, what might an annotator be asked to do?",
+    "options": [
+      "Draw bounding boxes around every single object in the frame",
+      "Rank or compare two AI-generated videos (or responses about a video) based on quality, accuracy, or preference",
+      "Delete the video metadata",
+      "Convert the video into an audio file"
+    ],
+    "answer": "Rank or compare two AI-generated videos (or responses about a video) based on quality, accuracy, or preference"
+  },
+  {
+    "question": "Why are ranking or preference tasks (common in RLHF) often used instead of absolute scoring tasks?",
+    "options": [
+      "Because humans are generally more consistent and reliable when comparing two options (relative judgment) than when assigning an absolute score",
+      "Ranking tasks require less time than any other task type",
+      "Absolute scoring is never used in AI training",
+      "Ranking tasks are easier to automate with AI than scoring"
+    ],
+    "answer": "Because humans are generally more consistent and reliable when comparing two options (relative judgment) than when assigning an absolute score"
+  },
+  {
+    "question": "If a rubric defines 'misinformation' as 'false information spread regardless of intent', and an annotator finds a satirical article, should they label it as misinformation?",
+    "options": [
+      "No, because satire is protected speech and not intended to deceive",
+      "Yes, because the definition explicitly removes intent and focuses solely on the falsehood of the information",
+      "Only if the satire is not funny",
+      "No, because satire is always based on true events"
+    ],
+    "answer": "Yes, because the definition explicitly removes intent and focuses solely on the falsehood of the information"
+  },
+  {
+    "question": "In a content moderation task, what is the difference between 'hate speech' and 'harassment' according to most rubrics?",
+    "options": [
+      "They are the exact same thing and are defined identically",
+      "Hate speech typically targets a protected group, while harassment is often directed at a specific individual and involves targeting them repeatedly",
+      "Harassment only applies to text, while hate speech only applies to video",
+      "There is no formal distinction in AI training rubrics"
+    ],
+    "answer": "Hate speech typically targets a protected group, while harassment is often directed at a specific individual and involves targeting them repeatedly"
+  },
+  {
+    "question": "If an annotator is unsure if a specific piece of content violates a safety policy, what is the best practice?",
+    "options": [
+      "Mark it as safe to avoid over-escalation",
+      "Mark it as unsafe to be cautious",
+      "Follow the rubric's tie-breaker rule (e.g., 'when in doubt, escalate') or flag it for review",
+      "Randomly choose between safe and unsafe"
+    ],
+    "answer": "Follow the rubric's tie-breaker rule (e.g., 'when in doubt, escalate') or flag it for review"
+  },
+  {
+    "question": "What is 'model in the loop' in the context of data annotation?",
+    "options": [
+      "A process where an AI model pre-labels data and the annotator corrects or verifies the labels",
+      "A model that blocks annotators from accessing their computers",
+      "An AI model that writes the project guidelines instead of humans",
+      "A type of video game used for training annotators"
+    ],
+    "answer": "A process where an AI model pre-labels data and the annotator corrects or verifies the labels"
+  },
+  {
+    "question": "Why is it important for annotators to be able to spot 'hallucinations' in AI-generated text or transcriptions?",
+    "options": [
+      "Hallucinations are irrelevant to data quality",
+      "Hallucinations are always beneficial to model training",
+      "Hallucinations (fabricated information) need to be flagged or corrected to prevent the model from learning false outputs",
+      "Hallucinations are a software feature that cannot be removed"
+    ],
+    "answer": "Hallucinations (fabricated information) need to be flagged or corrected to prevent the model from learning false outputs"
+  },
+  {
+    "question": "What is a typical requirement for maintaining professionalism in a remote annotation role?",
+    "options": [
+      "Having a fast internet connection, a reliable computer, and the ability to manage time independently",
+      "Knowing how to write AI code in Python",
+      "Having a professional camera and lighting setup",
+      "Being available to work 24/7 with no scheduled hours"
+    ],
+    "answer": "Having a fast internet connection, a reliable computer, and the ability to manage time independently"
+  },
+  {
+    "question": "How should you handle a situation where a project's rate of pay seems lower than what you expected after accepting the task?",
+    "options": [
+      "Immediately stop working and complain on social media",
+      "Complete the task poorly as a form of protest",
+      "Clarify the pay structure with your recruiter or project manager before starting, and if it's not acceptable, professionally decline",
+      "Accept it without question and never mention it to anyone"
+    ],
+    "answer": "Clarify the pay structure with your recruiter or project manager before starting, and if it's not acceptable, professionally decline"
+  },
+  {
+    "question": "During an interview, you are shown a complex edge case and asked to explain your thought process. What is the interviewer primarily assessing?",
+    "options": [
+      "How fast you can guess the answer without support",
+      "Your memorization of every possible object class",
+      "Your logical reasoning, ability to apply the rubric, and how you handle ambiguity",
+      "Your experience with programming languages"
+    ],
+    "answer": "Your logical reasoning, ability to apply the rubric, and how you handle ambiguity"
+  },
+  {
+    "question": "When asked in an interview, 'Why do you want to work in data annotation?' what is a strong answer to emphasize?",
+    "options": [
+      "You want a job that requires no effort or thinking",
+      "You are passionate about the quality of AI training data and enjoy detail-oriented work",
+      "You heard the pay is extremely high compared to other jobs",
+      "You want to transition directly into an AI engineering role without any experience"
+    ],
+    "answer": "You are passionate about the quality of AI training data and enjoy detail-oriented work"
+  },
+  {
+    "question": "What does it mean to be 'well-calibrated' as an annotator across a large team?",
+    "options": [
+      "Having the highest speed on the entire team",
+      "Consistently applying the guidelines in the same way as the rest of the team, resulting in high inter-annotator agreement",
+      "Being the only one who asks questions",
+      "Never needing feedback or review"
+    ],
+    "answer": "Consistently applying the guidelines in the same way as the rest of the team, resulting in high inter-annotator agreement"
+  },
+  {
+    "question": "What is the likely outcome if an annotator consistently compromises quality for speed in a video annotation project?",
+    "options": [
+      "They will be promoted",
+      "They will have a low QA score, face rework, and potentially be removed from the project",
+      "They will be given more complex tasks immediately",
+      "There are no consequences as long as they meet the deadline"
+    ],
+    "answer": "They will have a low QA score, face rework, and potentially be removed from the project"
+  },
+  {
+    "question": "If you receive feedback that you are missing small objects frequently, what is a practical step to improve?",
+    "options": [
+      "Ignore the feedback",
+      "Deliberately slow down on challenging frames, increase zoom, and double-check before advancing",
+      "Start guessing faster to speed up",
+      "Stop tracking those objects entirely to avoid errors"
+    ],
+    "answer": "Deliberately slow down on challenging frames, increase zoom, and double-check before advancing"
+  },
+  {
+    "question": "What should you do if you cannot access the annotation platform due to a password issue or server downtime?",
+    "options": [
+      "Do nothing and wait for someone to find you",
+      "Immediately notify your point of contact or support team via the correct communication channel",
+      "Share your login credentials with a friend to check if the platform works for them",
+      "Refuse to log in again and quit the project"
+    ],
+    "answer": "Immediately notify your point of contact or support team via the correct communication channel"
+  },
+  {
+    "question": "What is the best way to stay updated on rule changes in a long-running annotation project?",
+    "options": [
+      "Read all official announcements, check the 'latest guidelines' document each day, and attend calibration/check-in calls",
+      "Ignore all communications and ask your peers randomly",
+      "Only read the initial guidelines and ignore all updates",
+      "Rely on your memory of what you did on the first day"
+    ],
+    "answer": "Read all official announcements, check the 'latest guidelines' document each day, and attend calibration/check-in calls"
+  },
+  {
+    "question": "In an interview, how should you describe your experience with 'quality assurance'?",
+    "options": [
+      "I never make mistakes so I don't need QA",
+      "I see QA as a valuable learning tool to improve my accuracy and consistency, not as punishment",
+      "I ignore feedback because I know best",
+      "I only care about speed, not quality"
+    ],
+    "answer": "I see QA as a valuable learning tool to improve my accuracy and consistency, not as punishment"
+  },
+  {
+    "question": "What is a 'frame' in the context of video annotation?",
+    "options": [
+      "A single still image that makes up one part of a video sequence",
+      "The entire video file",
+      "The annotation tool's interface",
+      "A software bug"
+    ],
+    "answer": "A single still image that makes up one part of a video sequence"
+  },
+  {
+    "question": "What does the term 'temporal consistency' mean in video annotation?",
+    "options": [
+      "That the color grading is the same across the video",
+      "That the annotations for an object smoothly and logically follow the object across frames without abrupt jumps",
+      "That the video is consistently in focus",
+      "That the audio matches the video"
+    ],
+    "answer": "That the annotations for an object smoothly and logically follow the object across frames without abrupt jumps"
+  },
+  {
+    "question": "What is a common issue when annotating reflections, shadows, or screen depictions of objects?",
+    "options": [
+      "They are always easier to annotate",
+      "They often create false positives if the annotator doesn't carefully apply the guideline's rules for what constitutes a real object",
+      "They are never seen in training data",
+      "They require no special rules"
+    ],
+    "answer": "They often create false positives if the annotator doesn't carefully apply the guideline's rules for what constitutes a real object"
+  },
+  {
+    "question": "What is the purpose of a 'consensus' round in a multi-stage annotation pipeline?",
+    "options": [
+      "To reduce the total number of annotations",
+      "To have annotators discuss and agree on the best possible label for contentious items before final submission",
+      "To replace the need for individual annotators",
+      "To double the speed of the project"
+    ],
+    "answer": "To have annotators discuss and agree on the best possible label for contentious items before final submission"
+  },
+  {
+    "question": "If a video object is partially off-screen (truncated), and the guideline says to still label it, what should you do?",
+    "options": [
+      "Draw a box only around the visible part, exactly to the edge of the frame",
+      "Draw the box larger than the frame to force it to be visible",
+      "Ignore the object entirely",
+      "Estimate the full object size and draw the box as if it were fully visible, ignoring the truncation"
+    ],
+    "answer": "Draw a box only around the visible part, exactly to the edge of the frame"
+  },
+  {
+    "question": "What is the role of 'metadata' in a video annotation file?",
+    "options": [
+      "It contains additional information like frame numbers, video dimensions, annotator ID, and timestamp of labeling",
+      "It is the actual pixel data of the video",
+      "It is the audio track only",
+      "It is not relevant to annotation quality"
+    ],
+    "answer": "It contains additional information like frame numbers, video dimensions, annotator ID, and timestamp of labeling"
+  },
+  {
+    "question": "What does a 'polygon' annotation tool allow you to do that a bounding box cannot?",
+    "options": [
+      "Label a specific class",
+      "Trace the exact, irregular shape of an object pixel-by-pixel",
+      "Label the entire frame faster",
+      "Add an audio track"
+    ],
+    "answer": "Trace the exact, irregular shape of an object pixel-by-pixel"
+  },
+  {
+    "question": "When reviewing your own annotations before submission, what should you focus on?",
+    "options": [
+      "Only checking the first and last frames",
+      "Checking for consistent labels, tight boxes, correct track IDs, and adherence to edge-case rules across the entire clip",
+      "Seeing how fast you can click through",
+      "Randomly checking without any specific focus"
+    ],
+    "answer": "Checking for consistent labels, tight boxes, correct track IDs, and adherence to edge-case rules across the entire clip"
+  },
+  {
+    "question": "What is the significance of a 'minimum visibility threshold' (e.g., 30% visible) in a tracking guideline?",
+    "options": [
+      "It has no significance and is rarely used",
+      "It establishes a clear rule for when a heavily occluded object should still be tracked or when its track should end",
+      "It refers to how visible the annotator's screen is",
+      "It determines the video's brightness level"
+    ],
+    "answer": "It establishes a clear rule for when a heavily occluded object should still be tracked or when its track should end"
+  },
+  {
+    "question": "If a dataset has many high-quality annotations but lacks variety in scenarios, what is the biggest risk for the AI model?",
+    "options": [
+      "The model will be extremely robust",
+      "The model may overfit to the limited scenarios and perform poorly in real-world, unseen environments",
+      "The model will train 10x faster",
+      "There is no risk with a high-quality dataset"
+    ],
+    "answer": "The model may overfit to the limited scenarios and perform poorly in real-world, unseen environments"
+  },
+  {
+    "question": "What is the purpose of 'active learning' in data annotation?",
+    "options": [
+      "A strategy where the model identifies the most informative or uncertain examples for humans to annotate, optimizing training efficiency",
+      "A physical exercise routine for annotators",
+      "A type of video format",
+      "A method to reduce the number of classes"
+    ],
+    "answer": "A strategy where the model identifies the most informative or uncertain examples for humans to annotate, optimizing training efficiency"
+  },
+  {
+    "question": "What does 'pixel-perfect' annotation typically require?",
+    "options": [
+      "Placing bounding boxes loosely around an object",
+      "Drawing segmentation masks or keypoints exactly at the boundary of an object, often requiring high zoom",
+      "Annotating only the approximate location of the object",
+      "Using only the default AI prediction without changes"
+    ],
+    "answer": "Drawing segmentation masks or keypoints exactly at the boundary of an object, often requiring high zoom"
+  },
+  {
+    "question": "If an annotation platform has a 'pre-label' or 'AI assist' feature, what is the primary risk?",
+    "options": [
+      "The AI is always perfectly accurate",
+      "Annotators may blindly accept incorrect AI suggestions, introducing bias and errors into the dataset (automation bias)",
+      "It crashes the platform more often",
+      "It makes the annotations too slow to complete"
+    ],
+    "answer": "Annotators may blindly accept incorrect AI suggestions, introducing bias and errors into the dataset (automation bias)"
+  },
+  {
+    "question": "In an interview, they ask about your experience with 'data curation'. What does this broadly involve?",
+    "options": [
+      "Only labeling data, nothing else",
+      "Selecting, organizing, cleaning, and validating datasets to ensure they are high quality and relevant for a model",
+      "Compressing video files into smaller formats",
+      "Writing code for AI models"
+    ],
+    "answer": "Selecting, organizing, cleaning, and validating datasets to ensure they are high quality and relevant for a model"
+  },
+  {
+    "question": "Why is it a problem if one annotator draws boxes significantly larger than another annotator for the same object?",
+    "options": [
+      "It's only an aesthetic issue",
+      "It introduces label noise because the model gets inconsistent localization data, making it harder to learn accurately",
+      "Larger boxes are always better",
+      "It helps the model learn faster"
+    ],
+    "answer": "It introduces label noise because the model gets inconsistent localization data, making it harder to learn accurately"
+  },
+  {
+    "question": "What is the purpose of a 'training set' vs. a 'test set' in AI?",
+    "options": [
+      "The model learns from the training set, and its performance is evaluated on the test set",
+      "Both sets are used for learning; there is no difference",
+      "The test set is used for training the model more",
+      "The training set is only used for humans, not models"
+    ],
+    "answer": "The model learns from the training set, and its performance is evaluated on the test set"
+  },
+  {
+    "question": "What does 'generalization' mean in the context of a trained AI model?",
+    "options": [
+      "The model's ability to perform well on new, unseen data, not just the data it was trained on",
+      "The model's ability to memorize the training data perfectly",
+      "The model's speed of processing",
+      "The model's ability to compress video"
+    ],
+    "answer": "The model's ability to perform well on new, unseen data, not just the data it was trained on"
+  },
+  {
+    "question": "If an annotation job requires a minimum of 2 hours of concentration per day, what is the professional approach to managing this?",
+    "options": [
+      "Work through without breaks and ignore fatigue",
+      "Plan your schedule, take short breaks, and ensure a quiet workspace to maintain focus and accuracy",
+      "Multitask by watching videos on another screen",
+      "Split the 2 hours across 10-minute intervals across the entire day"
+    ],
+    "answer": "Plan your schedule, take short breaks, and ensure a quiet workspace to maintain focus and accuracy"
+  },
+  {
+    "question": "What does 'frustratingly easy' tasks in a project often lead to?",
+    "options": [
+      "Increased risk of complacency and careless errors by annotators",
+      "Higher pay",
+      "More complex models",
+      "Longer video files"
+    ],
+    "answer": "Increased risk of complacency and careless errors by annotators"
+  },
+  {
+    "question": "A video is 60fps, but you are asked to annotate at 1fps. How many frames do you label per second?",
+    "options": [
+      "60 frames per second",
+      "1 frame per second",
+      "30 frames per second",
+      "120 frames per second"
+    ],
+    "answer": "1 frame per second"
+  },
+  {
+    "question": "What is the most likely reason for a client to request 'single-frame annotation' instead of video tracking?",
+    "options": [
+      "They want to reduce costs and don't need temporal consistency",
+      "They want to analyze still images for tasks like classification, where motion isn't relevant",
+      "They lack the software for video",
+      "They prefer audio-only tasks"
+    ],
+    "answer": "They want to analyze still images for tasks like classification, where motion isn't relevant"
+  },
+  {
+    "question": "What is the key difference between 'binary classification' and 'multi-class classification' in a video annotation context?",
+    "options": [
+      "Binary has 2 possible outcomes; multi-class has more than 2",
+      "Binary uses bounding boxes; multi-class uses polygons",
+      "Binary is for video; multi-class is for images",
+      "There is no difference"
+    ],
+    "answer": "Binary has 2 possible outcomes; multi-class has more than 2"
+  },
+  {
+    "question": "What should you do if you cannot open the video file provided for annotation?",
+    "options": [
+      "Skip it without reporting and move to the next video",
+      "Report the corrupted/unopenable file to the support team so they can fix or replace it",
+      "Change the file extension yourself",
+      "Try to annotate a completely different video from memory"
+    ],
+    "answer": "Report the corrupted/unopenable file to the support team so they can fix or replace it"
+  },
+  {
+    "question": "What does a 'false positive' mean in object detection annotation?",
+    "options": [
+      "A correct annotation",
+      "When an annotator labels an object that doesn't exist or is out of scope",
+      "When an annotator misses a visible object",
+      "A video file that is corrupted"
+    ],
+    "answer": "When an annotator labels an object that doesn't exist or is out of scope"
+  },
+  {
+    "question": "What does a 'false negative' mean in object detection annotation?",
+    "options": [
+      "A correct annotation",
+      "When an annotator incorrectly labels an existing object with the wrong class",
+      "When an annotator fails to label an object that is present and should be labeled",
+      "When the video is too bright"
+    ],
+    "answer": "When an annotator fails to label an object that is present and should be labeled"
+  },
+  {
+    "question": "In a video annotation project, what is a 'snippet'?",
+    "options": [
+      "A short, designated segment of a longer video that is assigned for annotation",
+      "A type of bounding box",
+      "The entire video file",
+      "The annotator's personal notes"
+    ],
+    "answer": "A short, designated segment of a longer video that is assigned for annotation"
+  },
+  {
+    "question": "Why might companies prefer to hire annotators with high attention to detail over those with domain expertise?",
+    "options": [
+      "Domain expertise is never valuable in annotation",
+      "Attention to detail is crucial for consistency, and domain-specific knowledge can be taught via detailed guidelines",
+      "Domain expertise makes annotators too slow",
+      "Attention to detail is only relevant for audio annotation"
+    ],
+    "answer": "Attention to detail is crucial for consistency, and domain-specific knowledge can be taught via detailed guidelines"
+  },
+  {
+    "question": "What is the best way to ask a clarifying question about a guideline without being disruptive?",
+    "options": [
+      "Interrupt the project manager every time a question arises, regardless of the time",
+      "Send an urgent message with no context",
+      "Compile a list of questions and ask them during designated calibration sessions or via the project's Q&A channel",
+      "Never ask questions and guess"
+    ],
+    "answer": "Compile a list of questions and ask them during designated calibration sessions or via the project's Q&A channel"
+  },
+  {
+    "question": "In a video, a person walks behind a tree and reappears 10 frames later. What is the best practice for the track ID?",
+    "options": [
+      "Assign a new track ID when they reappear",
+      "Keep the same track ID across the occlusion, marking the occluded frames as such",
+      "Delete the track entirely",
+      "Split the track into two separate IDs"
+    ],
+    "answer": "Keep the same track ID across the occlusion, marking the occluded frames as such"
+  },
+  {
+    "question": "What is a 'region of interest' (ROI) in an annotation task?",
+    "options": [
+      "The section of the video frame that is relevant to the annotation task; areas outside can be ignored",
+      "The entire frame",
+      "The annotator's desk area",
+      "The video file name"
+    ],
+    "answer": "The section of the video frame that is relevant to the annotation task; areas outside can be ignored"
+  },
+  {
+    "question": "If guidelines mention 'do not annotate stationary objects,' what does this imply for a parked car in a parking lot?",
+    "options": [
+      "It should always be annotated regardless",
+      "It should not be annotated unless it is part of a specific event or the guidelines define an exception",
+      "Only if the car is a specific color",
+      "It should be annotated only if the engine is running"
+    ],
+    "answer": "It should not be annotated unless it is part of a specific event or the guidelines define an exception"
+  },
+  {
+    "question": "What is the primary purpose of 'feedback loops' between QA reviewers and annotators?",
+    "options": [
+      "To assign blame for errors",
+      "To continuously improve annotation quality and alignment through constructive, iterative communication",
+      "To replace the need for written guidelines",
+      "To create an overly bureaucratic process"
+    ],
+    "answer": "To continuously improve annotation quality and alignment through constructive, iterative communication"
+  },
+  {
+    "question": "What does 'project ramp-up' refer to in the context of starting a new annotation project?",
+    "options": [
+      "The period of declining performance near the end of the project",
+      "The initial phase where annotators learn the guidelines, tools, and workflows to reach full efficiency and accuracy",
+      "A software update process",
+      "The process of closing the project and archiving data"
+    ],
+    "answer": "The initial phase where annotators learn the guidelines, tools, and workflows to reach full efficiency and accuracy"
+  },
+  {
+    "question": "What is the best way to handle a situation where the annotation tool's zoom level resets after every frame, slowing you down?",
+    "options": [
+      "Accept it and work slower",
+      "Report the usability issue to the support team, as it might be a bug or a setting that can be adjusted",
+      "Stop zooming in entirely",
+      "Complain to other annotators without reporting it"
+    ],
+    "answer": "Report the usability issue to the support team, as it might be a bug or a setting that can be adjusted"
+  },
+  {
+    "question": "What does 'sentiment analysis' in a video annotation context typically involve?",
+    "options": [
+      "Drawing boxes around faces",
+      "Labeling the emotional tone (positive, negative, neutral) of a video clip or transcript",
+      "Counting the number of people in the video",
+      "Measuring the audio volume"
+    ],
+    "answer": "Labeling the emotional tone (positive, negative, neutral) of a video clip or transcript"
+  },
+  {
+    "question": "Why is it important for an annotator to maintain a consistent workstation setup (same screen resolution, same browser)?",
+    "options": [
+      "It has no effect on annotation quality",
+      "It helps ensure consistent visual perception of objects (e.g., zoom levels, pixel sizes) across sessions, reducing variation",
+      "It is a requirement only for audio tasks",
+      "It helps the annotator work faster by memorizing keyboard shortcuts"
+    ],
+    "answer": "It helps ensure consistent visual perception of objects (e.g., zoom levels, pixel sizes) across sessions, reducing variation"
+  },
+  {
+    "question": "What is a 'taxonomy' in the context of video annotation labels?",
+    "options": [
+      "A hierarchical classification or structured list of all possible labels and their definitions for a project",
+      "A software tool for video editing",
+      "The price list for annotation tasks",
+      "The video file format"
+    ],
+    "answer": "A hierarchical classification or structured list of all possible labels and their definitions for a project"
+  },
+  {
+    "question": "If you are asked to annotate a very long video, what is an effective strategy to maintain accuracy?",
+    "options": [
+      "Speed up the playback and annotate in real-time",
+      "Take brief, regular breaks to avoid fatigue, and review sections of previous frames to catch drift",
+      "Annotate the first and last frames and let the tool interpolate everything in between",
+      "Work continuously without breaks for the fastest completion"
+    ],
+    "answer": "Take brief, regular breaks to avoid fatigue, and review sections of previous frames to catch drift"
+  },
+  {
+    "question": "What does the term 'computer vision' broadly refer to?",
+    "options": [
+      "A field of AI focused on enabling computers to interpret and understand visual information from images and videos",
+      "A technique for editing video color",
+      "A type of computer monitor",
+      "A programming language"
+    ],
+    "answer": "A field of AI focused on enabling computers to interpret and understand visual information from images and videos"
+  },
+  {
+    "question": "What is the main reason video annotation projects often have 'strict formatting requirements' for exported data?",
+    "options": [
+      "To make the file look professional",
+      "Because the client's downstream model expects a specific data structure (e.g., COCO, YOLO) and will fail if the format is wrong",
+      "To slow down the annotation process",
+      "To increase the file size"
+    ],
+    "answer": "Because the client's downstream model expects a specific data structure (e.g., COCO, YOLO) and will fail if the format is wrong"
+  },
+  {
+    "question": "In an interview, they ask about a time you made a mistake. What should your answer focus on?",
+    "options": [
+      "Blaming a colleague or a tool",
+      "Downplaying the mistake and saying it was not important",
+      "Owning the mistake, explaining what you learned, and how you prevented it from happening again",
+      "Saying you have never made a mistake"
+    ],
+    "answer": "Owning the mistake, explaining what you learned, and how you prevented it from happening again"
+  },
+  {
+    "question": "What is the significance of 'time to complete' (TTC) metrics in an annotation project?",
+    "options": [
+      "It is the only metric that matters, regardless of quality",
+      "It helps project managers estimate workload, predict delivery dates, and assess efficiency alongside quality",
+      "It determines the color scheme of the annotation platform",
+      "It is used to compare annotator salaries"
+    ],
+    "answer": "It helps project managers estimate workload, predict delivery dates, and assess efficiency alongside quality"
+  },
+  {
+    "question": "Why might an annotation guideline ask for a '2D bounding box' rather than a '3D bounding box'?",
+    "options": [
+      "3D boxes are always worse",
+      "2D boxes are simpler and often sufficient for many tasks, especially when depth information is not required",
+      "3D boxes are not supported by any software",
+      "2D boxes take more time to draw"
+    ],
+    "answer": "2D boxes are simpler and often sufficient for many tasks, especially when depth information is not required"
+  },
+  {
+    "question": "What is a 'cuboid' or '3D bounding box' used for in video annotation?",
+    "options": [
+      "Labeling the approximate depth, height, and width of an object in a 3D space",
+      "Drawing a 2D rectangle around an object",
+      "Labeling audio files",
+      "A type of polygon mask"
+    ],
+    "answer": "Labeling the approximate depth, height, and width of an object in a 3D space"
+  },
+  {
+    "question": "If a guideline specifies a class 'pedestrian' and another 'cyclist', how should you label a person walking a bicycle?",
+    "options": [
+      "Always label them as a 'cyclist' because they are with a bike",
+      "Check the guideline definitions—typically, a person walking with a bike is a 'pedestrian' unless they are riding it",
+      "Label them as both classes simultaneously",
+      "Skip labeling them entirely"
+    ],
+    "answer": "Check the guideline definitions—typically, a person walking with a bike is a 'pedestrian' unless they are riding it"
+  },
+  {
+    "question": "What does 'bias-variance tradeoff' mean in a way that relates to annotation?",
+    "options": [
+      "It is an unrelated concept",
+      "A model with high bias makes broad assumptions (and may perform poorly on complex data), while high variance overfits to noise—good annotations help balance this by providing clean, diverse data",
+      "It refers to the annotator's personal bias"
+    ],
+    "answer": "A model with high bias makes broad assumptions (and may perform poorly on complex data), while high variance overfits to noise—good annotations help balance this by providing clean, diverse data"
+  },
+  {
+    "question": "What is a key sign that an annotator may be experiencing fatigue?",
+    "options": [
+      "Annotations become faster",
+      "Annotations become more accurate",
+      "A gradual increase in small errors, missed objects, or inconsistent boxes over time",
+      "The annotator asks fewer questions"
+    ],
+    "answer": "A gradual increase in small errors, missed objects, or inconsistent boxes over time"
+  },
+  {
+    "question": "If you are working on a project that involves videos of traffic, what is a good practice for handling very fast-moving vehicles?",
+    "options": [
+      "Skip all moving vehicles because they are too hard",
+      "Pay extra attention and manually verify bounding boxes on frames where motion blur might affect the annotation",
+      "Draw a single giant box around the entire road",
+      "Treat all moving vehicles as the same class"
+    ],
+    "answer": "Pay extra attention and manually verify bounding boxes on frames where motion blur might affect the annotation"
+  },
+  {
+    "question": "What is the most professional way to resign from a long-term annotation project?",
+    "options": [
+      "Stop logging in without notice",
+      "Provide reasonable notice (as per your contract), and ensure your work is handed over or completed up to a good standard",
+      "Submit a complaint about the project on social media",
+      "Immediately decline all tasks without explanation"
+    ],
+    "answer": "Provide reasonable notice (as per your contract), and ensure your work is handed over or completed up to a good standard"
+  }
+]
